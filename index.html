@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lemon Prod · Manuels Opérationnels IA pour 50+ métiers</title>
+
+  <meta name="description" content="Des manuels opérationnels ultra-spécifiques à ton métier : 100+ protocoles IA prêts à coller, conçus pour passer de la page blanche au livrable en moins de 15 minutes. Zéro théorie, que de l'exécution." />
+  <meta name="author" content="Lemon Prod" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lemon Prod · Manuels Opérationnels IA" />
+  <meta property="og:description" content="On ne remplace pas ton expertise. On supprime la page blanche. 100+ protocoles IA prêts à coller, pour ton métier." />
+  <meta property="og:locale" content="fr_FR" />
+  <!-- Ajoute une image OG (1200×630) dans le dossier puis décommente :
+  <meta property="og:image" content="/og-image.png" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lemon Prod · Manuels Opérationnels IA" />
+  <meta name="twitter:description" content="On ne remplace pas ton expertise. On supprime la page blanche." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#home" aria-label="Lemon Prod — accueil">
+        <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
+          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EBC400"/>
+          <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
+        </svg>
+        LEMON PROD.
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+        <a href="#collection">Collection</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#metiers">Métiers</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--primary nav__cta" href="#tarifs">Voir la collection</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero wrap" id="home">
+      <div class="hero__grid">
+        <div class="reveal">
+          <span class="eyebrow">Manuels opérationnels IA — 50+ métiers</span>
+          <h1>
+            <span>L'IA ne remplacera</span>
+            <span>pas ton métier.</span>
+            <span><em class="zest">Elle va te rendre tes heures.</em></span>
+          </h1>
+          <p class="lede">Des manuels ultra-spécifiques à un seul métier : 100+ protocoles prêts à coller, conçus pour passer de la page blanche au livrable en moins de 15 minutes. Zéro théorie. Que de l'exécution.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#tarifs">Voir la collection →</a>
+            <a class="btn btn--ghost" href="#collection">Comment ça marche</a>
+          </div>
+          <div class="hero__trust">
+            <span>50+ métiers couverts</span>
+            <span>100+ protocoles par guide</span>
+            <span>ChatGPT · Claude · Gemini</span>
+            <span>Productif en &lt; 15 min</span>
+          </div>
+        </div>
+
+        <!-- SIGNATURE: carte protocole -->
+        <div class="reveal">
+          <figure class="proto" aria-label="Exemple de protocole prêt à coller">
+            <div class="proto__bar">
+              <span class="proto__dot proto__dot--live"></span>
+              <span class="proto__dot"></span>
+              <span class="proto__dot"></span>
+              <span class="proto__tag">Protocole 014 · Avocat</span>
+            </div>
+            <div class="proto__body" id="protoText"><span class="field">// rôle</span>
+Tu es mon assistant juridique senior.
+
+<span class="field">// tâche</span>
+Synthétiser un dossier de 40 pages
+en une note d'1 page.
+
+<span class="field">// contexte</span>
+<span class="k">[colle ton dossier ici]</span>
+
+<span class="field">// contraintes</span>
+Ton formel. Structure : faits /
+moyens / risques / recommandation.
+Cite chaque point au paragraphe source.
+
+<span class="field">// format</span>
+Note de synthèse, 350 mots max.</div>
+            <div class="proto__foot">
+              <button class="copy" id="copyBtn" type="button" aria-label="Copier le protocole">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copier le protocole
+              </button>
+              <span class="proto__compat">Collez dans ChatGPT · Claude · Gemini</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Compatible ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span><span>Mistral</span><span>Perplexity</span>
+        <span>Compatible ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span><span>Mistral</span><span>Perplexity</span>
+      </div>
+    </div>
+
+    <!-- ===================== LE PROBLÈME ===================== -->
+    <section class="section wrap">
+      <div class="reveal">
+        <span class="eyebrow">Le problème</span>
+        <h2 class="h2 prob__head">Tu sais que l'IA est puissante. Tu ne sais juste pas <b>quoi lui demander.</b></h2>
+        <p class="prob__lede">80 % des professionnels restent bloqués devant la page blanche. Pas par manque d'intelligence — par manque de protocole. Résultat : du temps perdu, des prompts médiocres, et le sentiment de passer à côté de l'outil le plus puissant de ta décennie.</p>
+      </div>
+
+      <p class="prob__quote reveal">On ne remplace pas ton expertise.<br><span>On supprime la page blanche.</span></p>
+
+      <div class="prob__cards reveal">
+        <div class="pcard">
+          <div class="pcard__i">◎</div>
+          <p>Un protocole exact pour chaque tâche réelle de ton métier.</p>
+        </div>
+        <div class="pcard">
+          <div class="pcard__i">◉</div>
+          <p>Un résultat exploitable dès le premier copier-coller.</p>
+        </div>
+        <div class="pcard">
+          <div class="pcard__i">◈</div>
+          <p>Des heures rendues chaque semaine — dès la première.</p>
+        </div>
+      </div>
+
+      <p class="prob__authority reveal">Rejoins les 20 % qui ont transformé l'IA en heures facturables.</p>
+    </section>
+
+    <!-- ===================== LA COLLECTION (paper) ===================== -->
+    <section class="section paper" id="collection">
+      <div class="wrap">
+        <div class="reveal paper__head">
+          <span class="eyebrow">La collection</span>
+          <h2 class="h2">Un manuel. Un métier. Zéro théorie.</h2>
+          <p class="paper__intro">Chaque guide est une immersion totale dans le quotidien d'un seul métier. Pas de blabla sur les algorithmes : uniquement des cas d'usage concrets, écrits dans ton vocabulaire, avec la réalité technique et réglementaire de ta profession.</p>
+        </div>
+
+        <div class="steps reveal">
+          <div class="step">
+            <div class="step__n">01</div>
+            <h3>Ouvre ton métier</h3>
+            <p>100+ protocoles classés par tâche réelle, pas par fonctionnalité.</p>
+          </div>
+          <div class="step">
+            <div class="step__n">02</div>
+            <h3>Choisis ta tâche</h3>
+            <p>« Rédiger », « analyser », « relancer », « synthétiser »…</p>
+          </div>
+          <div class="step">
+            <div class="step__n">03</div>
+            <h3>Copie le protocole</h3>
+            <p>Rôle, contexte et contraintes sont déjà écrits pour toi.</p>
+          </div>
+          <div class="step">
+            <div class="step__n">04</div>
+            <h3>Colle tes données</h3>
+            <p>Le tien, ton dossier réel — pas un exemple générique.</p>
+          </div>
+          <div class="step">
+            <div class="step__n">05</div>
+            <h3>Tu livres</h3>
+            <p>Un résultat exploitable en moins de 15 minutes.</p>
+          </div>
+        </div>
+
+        <div class="proof reveal">
+          <div class="proof__stat"><s>2 h</s> → <b>9 min</b></div>
+          <p class="proof__label">Exemple : une note de synthèse client, du dossier brut au livrable relu, avec le protocole « Analyse de dossier ».</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TARIFS ===================== -->
+    <section class="section wrap" id="tarifs">
+      <div class="price__head reveal">
+        <div>
+          <span class="eyebrow">Tarifs</span>
+          <h2 class="h2">Le prix d'une heure gagnée. Récupéré dès la première.</h2>
+        </div>
+        <a class="btn btn--ghost" href="#metiers">Voir les métiers →</a>
+      </div>
+
+      <div class="tiers reveal">
+        <div class="tier">
+          <div class="tier__name">Découverte</div>
+          <div class="tier__price">39 €</div>
+          <div class="tier__sub">porte d'entrée</div>
+          <p class="tier__desc">Un métier universel (Vente, Marketing, RH). L'achat d'impulsion qui te fait entrer dans la collection.</p>
+        </div>
+        <div class="tier tier--feat">
+          <span class="tier__badge">Le plus vendu</span>
+          <div class="tier__name">Métier</div>
+          <div class="tier__price">69 €</div>
+          <div class="tier__sub">le cœur du catalogue</div>
+          <p class="tier__desc">Un guide complet : 100+ protocoles + ta base Notion de prompts. Le standard pour ton métier.</p>
+        </div>
+        <div class="tier">
+          <div class="tier__name">Cabinet</div>
+          <div class="tier__price">149 €</div>
+          <div class="tier__sub">métiers réglementés</div>
+          <p class="tier__desc">Avocat, Notaire, Expert-Comptable. + GPT sur mesure + mises à jour trimestrielles.</p>
+        </div>
+        <div class="tier">
+          <div class="tier__name">Studio</div>
+          <div class="tier__price">390 €</div>
+          <div class="tier__sub">l'ancrage</div>
+          <p class="tier__desc">Un pack sectoriel entier, ou une licence pour ton équipe. La collection, d'un bloc.</p>
+        </div>
+      </div>
+
+      <div class="subscribe reveal">
+        <span class="subscribe__i">↻</span>
+        <p><b>Abonnement mises à jour — 12 €/mois.</b> Tes protocoles évoluent quand les modèles évoluent. Tu ne restes jamais figé sur une version périmée.</p>
+      </div>
+      <p class="price__note reveal">TVA gérée automatiquement à l'international (Lemon Squeezy / Gumroad). Paiement unique, accès immédiat.</p>
+    </section>
+
+    <!-- ===================== DOCTRINE ===================== -->
+    <section class="section wrap section--tight">
+      <div class="reveal" style="margin-bottom:2.6rem">
+        <span class="eyebrow">La doctrine</span>
+        <h2 class="h2">Ce que c'est. Et ce que ce n'est pas.</h2>
+      </div>
+      <div class="doctrine reveal">
+        <div class="dcard">
+          <div class="dcard__n">01</div>
+          <h3>Pas de la théorie. Des protocoles.</h3>
+          <p>Aucune explication sur le fonctionnement des modèles. Uniquement des prompts prêts à exécuter, sur des tâches que tu fais déjà.</p>
+        </div>
+        <div class="dcard">
+          <div class="dcard__n">02</div>
+          <h3>Pas un tuto gratuit. La réalité de ton métier.</h3>
+          <p>Les tutoriels du web restent vagues. Nos guides traitent la réalité technique et réglementaire de ta profession, dans son vocabulaire.</p>
+        </div>
+        <div class="dcard">
+          <div class="dcard__n">03</div>
+          <h3>Pas pour tout le monde. Pour ceux qui facturent leur temps.</h3>
+          <p>Si une heure de ton temps a une valeur, ce manuel se rembourse dès la première tâche. Sinon, ce n'est pas pour toi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MÉTIERS ===================== -->
+    <section class="section wrap" id="metiers">
+      <div class="reveal" style="margin-bottom:2.6rem">
+        <span class="eyebrow">50+ métiers</span>
+        <h2 class="h2">Trouve le tien.</h2>
+      </div>
+      <div class="metiers reveal">
+        <div class="metier"><div class="metier__count">7 guides</div><h3>Droit &amp; Finance</h3></div>
+        <div class="metier"><div class="metier__count">5 guides</div><h3>Immobilier &amp; Construction</h3></div>
+        <div class="metier"><div class="metier__count">4 guides</div><h3>RH &amp; Management</h3></div>
+        <div class="metier"><div class="metier__count">7 guides</div><h3>Marketing &amp; Vente</h3></div>
+        <div class="metier"><div class="metier__count">6 guides</div><h3>Santé &amp; Bien-être</h3></div>
+        <div class="metier"><div class="metier__count">6 guides</div><h3>Services &amp; Artisanat</h3></div>
+        <div class="metier"><div class="metier__count">5 guides</div><h3>Tech &amp; Éducation</h3></div>
+        <div class="metier"><div class="metier__count">10 guides</div><h3>Autres niches</h3></div>
+      </div>
+      <p class="metiers__note reveal">
+        <b>Élite</b> — Avocat, Notaire, Expert-Comptable, Conseiller en gestion de patrimoine.<br>
+        <b>Standard</b> — Agent immobilier, Recruteur, Copywriter, Social Media Manager, Commercial.<br>
+        <b>Offre d'appel</b> — Étudiant, recherche d'emploi (CV &amp; lettres de motivation).
+      </p>
+    </section>
+
+    <!-- ===================== RESSOURCE GRATUITE ===================== -->
+    <section class="section wrap section--tight">
+      <div class="magnet reveal">
+        <div>
+          <span class="eyebrow">Gratuit</span>
+          <h2>10 protocoles. Un avant-goût.</h2>
+          <p>Choisis ton métier, reçois 10 protocoles offerts. Si l'un d'eux te fait gagner ta première heure, tu sais déjà ce que vaut le manuel complet.</p>
+        </div>
+        <!-- Branche ce formulaire à ton outil d'emailing (voir README) -->
+        <form class="magnet__form" id="leadForm" novalidate>
+          <input type="text" name="metier" placeholder="Ton métier (ex. Agent immobilier)" autocomplete="organization-title" required />
+          <input type="email" name="email" placeholder="Ton email professionnel" autocomplete="email" required />
+          <button class="btn btn--primary" type="submit" style="justify-content:center">Recevoir mes 10 protocoles →</button>
+          <span class="magnet__fine" id="leadMsg">PDF · Gratuit · Un email. Zéro spam.</span>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== CLOSING CTA ===================== -->
+    <section class="section wrap closing">
+      <h2 class="h2 reveal">Arrête d'apprendre l'IA. Commence à l'utiliser.</h2>
+      <div class="closing__cta reveal">
+        <a class="btn btn--primary" href="#tarifs">Voir la collection →</a>
+        <a class="btn btn--ghost" href="#collection">Recevoir 10 protocoles gratuits</a>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section wrap" id="faq">
+      <div class="faq__head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="h2">Tout pour décider.</h2>
+      </div>
+      <div class="faq__list faq reveal">
+        <details>
+          <summary>C'est pour moi ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Si tu es un professionnel qui produit des écrits, des analyses ou des relances et que tu n'as jamais le temps — oui. Si tu cherches une formation théorique sur « comment marche l'IA » — non. Ici, c'est de l'exécution.</p>
+        </details>
+        <details>
+          <summary>Pourquoi pas un simple tuto gratuit ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Les tutos gratuits restent génériques. Nos protocoles intègrent le vocabulaire, les contraintes et la réalité réglementaire de ton métier précis. C'est la différence entre un couteau suisse et un bistouri.</p>
+        </details>
+        <details>
+          <summary>Ça marche avec quel outil ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">N'importe quel assistant : ChatGPT, Claude, Gemini, Copilot, Mistral. Les protocoles sont écrits pour être indépendants du modèle — tu copies, tu colles, tu obtiens.</p>
+        </details>
+        <details>
+          <summary>Les protocoles vont-ils périmer quand les modèles changent ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Un protocole bien écrit dure. Mais les modèles évoluent vite, c'est pour ça qu'existe l'<a href="#tarifs">abonnement mises à jour (12 €/mois)</a> : tes protocoles sont réajustés à chaque génération de modèle.</p>
+        </details>
+        <details>
+          <summary>Vous garantissez un résultat parfait ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Non, et personne d'honnête ne le ferait. On garantit un protocole rigoureux et le temps gagné. Le jugement professionnel — la relecture, la décision finale — reste le tien. C'est ton expertise ; on supprime juste la corvée.</p>
+        </details>
+        <details>
+          <summary>Comment je reçois le guide ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">En PDF, accompagné d'une base Notion de prompts. Livraison immédiate après paiement.</p>
+        </details>
+        <details>
+          <summary>Vous remboursez ?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Si le guide ne te fait pas gagner ta première heure, tu es remboursé. <!-- Ajuste selon ta politique réelle et les CGV de Lemon Squeezy / Gumroad. --></p>
+        </details>
+        <details>
+          <summary>Je veux une version anglaise, ou pour mon équipe.<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Les versions anglaises arrivent sur les métiers universels (Sales, Marketing, RH, Immobilier, Project Manager). Pour une licence équipe, c'est le palier <a href="#tarifs">Studio</a>.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <a class="brand" href="#home" aria-label="Lemon Prod">
+            <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
+              <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EBC400"/>
+              <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
+            </svg>
+            LEMON PROD.
+          </a>
+          <p>Transforme l'IA en ton collaborateur le plus rentable. Des manuels opérationnels pour les professionnels qui facturent leur temps.</p>
+        </div>
+        <div class="foot__col">
+          <h4>Explorer</h4>
+          <a href="#collection">La collection</a>
+          <a href="#tarifs">Tarifs</a>
+          <a href="#metiers">Les métiers</a>
+        </div>
+        <div class="foot__col">
+          <h4>Le produit</h4>
+          <a href="#collection">Comment ça marche</a>
+          <a href="#faq">FAQ</a>
+          <a href="#tarifs">10 protocoles gratuits</a>
+        </div>
+        <div class="foot__col">
+          <h4>Contact</h4>
+          <a href="mailto:contact@lemonprod.co">Email</a>
+          <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="foot__bottom">
+        <small>© 2026 Lemon Prod. Tous droits réservés.</small>
+        <div class="foot__legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">CGV</a>
+          <a href="#">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
