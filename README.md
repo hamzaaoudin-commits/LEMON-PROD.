@@ -6,7 +6,7 @@ Pur HTML / CSS / JS — aucune dépendance, aucun build. Déployable tel quel su
 ```
 lemon-prod/
 ├── index.html      ← page unique (toutes les sections)
-├── styles.css      ← design system (obsidienne + zest + papier)
+├── styles.css      ← design system (monolithe sombre + zest éditorial)
 ├── script.js       ← nav mobile, copie protocole, reveal, formulaire
 ├── favicon.svg     ← marque citron
 ├── vercel.json     ← config Vercel (clean URLs + headers)
@@ -76,6 +76,8 @@ leur endpoint. Le `script.js` ne fait aujourd'hui qu'une validation côté clien
 
 ---
 
-*Design : base obsidienne cinématographique, accent jaune zest, section « manuel » sur fond papier.
-Typo : Fraunces (display) · Inter (texte) · JetBrains Mono (labels). Responsive, accessible,
+*Design : monolithe sombre cinématographique (#0a0a0a), accent jaune zest employé avec parcimonie
+(filets, folios, mot-clé du hero, prix vedette). Typo : Playfair Display (display) · DM Sans (texte) ·
+JetBrains Mono (labels) — les fondations du site Strawberry, transposées en territoire citron.
+Hero à révélation ligne par ligne, structure éditoriale à filets. Responsive, accessible,
 `prefers-reduced-motion` respecté.*

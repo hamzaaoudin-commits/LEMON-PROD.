@@ -21,7 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -32,10 +32,10 @@
     <div class="wrap nav__inner">
       <a class="brand" href="#home" aria-label="Lemon Prod — accueil">
         <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
-          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EBC400"/>
+          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
           <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
         </svg>
-        LEMON PROD.
+        LEMON&nbsp;PROD.
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
         <a href="#collection">Collection</a>
@@ -45,7 +45,7 @@
         <a class="btn btn--primary nav__cta" href="#tarifs">Voir la collection</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </header>
@@ -55,28 +55,28 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero wrap" id="home">
       <div class="hero__grid">
-        <div class="reveal">
-          <span class="eyebrow">Manuels opérationnels IA — 50+ métiers</span>
+        <div>
+          <span class="eyebrow enter" style="--d:.05s">Manuels opérationnels IA — 50+ métiers</span>
           <h1>
-            <span>L'IA ne remplacera</span>
-            <span>pas ton métier.</span>
-            <span><em class="zest">Elle va te rendre tes heures.</em></span>
+            <span class="line"><span style="--d:.15s">L'IA ne remplacera</span></span>
+            <span class="line"><span style="--d:.27s">pas ton métier.</span></span>
+            <span class="line"><span class="ital zest" style="--d:.4s">Elle va te rendre tes heures.</span></span>
           </h1>
-          <p class="lede">Des manuels ultra-spécifiques à un seul métier : 100+ protocoles prêts à coller, conçus pour passer de la page blanche au livrable en moins de 15 minutes. Zéro théorie. Que de l'exécution.</p>
-          <div class="hero__cta">
+          <p class="lede enter" style="--d:.6s">Des manuels ultra-spécifiques à un seul métier : 100+ protocoles prêts à coller, conçus pour passer de la page blanche au livrable en moins de 15 minutes. Zéro théorie. Que de l'exécution.</p>
+          <div class="hero__cta enter" style="--d:.72s">
             <a class="btn btn--primary" href="#tarifs">Voir la collection →</a>
             <a class="btn btn--ghost" href="#collection">Comment ça marche</a>
           </div>
-          <div class="hero__trust">
-            <span>50+ métiers couverts</span>
-            <span>100+ protocoles par guide</span>
+          <div class="hero__trust enter" style="--d:.84s">
+            <span>50+ métiers</span>
+            <span>100+ protocoles / guide</span>
             <span>ChatGPT · Claude · Gemini</span>
-            <span>Productif en &lt; 15 min</span>
+            <span>&lt; 15 min</span>
           </div>
         </div>
 
         <!-- SIGNATURE: carte protocole -->
-        <div class="reveal">
+        <div class="enter" style="--d:.5s">
           <figure class="proto" aria-label="Exemple de protocole prêt à coller">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span>
@@ -103,8 +103,8 @@ Cite chaque point au paragraphe source.
 Note de synthèse, 350 mots max.</div>
             <div class="proto__foot">
               <button class="copy" id="copyBtn" type="button" aria-label="Copier le protocole">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                Copier le protocole
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copier
               </button>
               <span class="proto__compat">Collez dans ChatGPT · Claude · Gemini</span>
             </div>
@@ -125,23 +125,23 @@ Note de synthèse, 350 mots max.</div>
     <section class="section wrap">
       <div class="reveal">
         <span class="eyebrow">Le problème</span>
-        <h2 class="h2 prob__head">Tu sais que l'IA est puissante. Tu ne sais juste pas <b>quoi lui demander.</b></h2>
-        <p class="prob__lede">80 % des professionnels restent bloqués devant la page blanche. Pas par manque d'intelligence — par manque de protocole. Résultat : du temps perdu, des prompts médiocres, et le sentiment de passer à côté de l'outil le plus puissant de ta décennie.</p>
+        <h2 class="display prob__head">Tu sais que l'IA est puissante. Tu ne sais juste pas <b>quoi lui demander.</b></h2>
+        <p class="lede prob__lede">80 % des professionnels restent bloqués devant la page blanche. Pas par manque d'intelligence — par manque de protocole. Résultat : du temps perdu, des prompts médiocres, et le sentiment de passer à côté de l'outil le plus puissant de ta décennie.</p>
       </div>
 
       <p class="prob__quote reveal">On ne remplace pas ton expertise.<br><span>On supprime la page blanche.</span></p>
 
       <div class="prob__cards reveal">
         <div class="pcard">
-          <div class="pcard__i">◎</div>
+          <div class="pcard__n">01</div>
           <p>Un protocole exact pour chaque tâche réelle de ton métier.</p>
         </div>
         <div class="pcard">
-          <div class="pcard__i">◉</div>
+          <div class="pcard__n">02</div>
           <p>Un résultat exploitable dès le premier copier-coller.</p>
         </div>
         <div class="pcard">
-          <div class="pcard__i">◈</div>
+          <div class="pcard__n">03</div>
           <p>Des heures rendues chaque semaine — dès la première.</p>
         </div>
       </div>
@@ -149,40 +149,35 @@ Note de synthèse, 350 mots max.</div>
       <p class="prob__authority reveal">Rejoins les 20 % qui ont transformé l'IA en heures facturables.</p>
     </section>
 
-    <!-- ===================== LA COLLECTION (paper) ===================== -->
-    <section class="section paper" id="collection">
+    <!-- ===================== LA COLLECTION (sommaire) ===================== -->
+    <section class="section divider" id="collection">
       <div class="wrap">
-        <div class="reveal paper__head">
+        <div class="reveal coll__head">
           <span class="eyebrow">La collection</span>
-          <h2 class="h2">Un manuel. Un métier. Zéro théorie.</h2>
-          <p class="paper__intro">Chaque guide est une immersion totale dans le quotidien d'un seul métier. Pas de blabla sur les algorithmes : uniquement des cas d'usage concrets, écrits dans ton vocabulaire, avec la réalité technique et réglementaire de ta profession.</p>
+          <h2 class="display">Un manuel. Un métier. Zéro théorie.</h2>
+          <p class="lede coll__intro">Chaque guide est une immersion totale dans le quotidien d'un seul métier. Pas de blabla sur les algorithmes : uniquement des cas d'usage concrets, écrits dans ton vocabulaire, avec la réalité technique et réglementaire de ta profession.</p>
         </div>
 
-        <div class="steps reveal">
-          <div class="step">
-            <div class="step__n">01</div>
-            <h3>Ouvre ton métier</h3>
-            <p>100+ protocoles classés par tâche réelle, pas par fonctionnalité.</p>
+        <div class="toc reveal">
+          <div class="toc__row">
+            <div class="toc__n">01</div>
+            <div class="toc__main"><h3>Ouvre ton métier</h3><p>100+ protocoles classés par tâche réelle, pas par fonctionnalité.</p></div>
           </div>
-          <div class="step">
-            <div class="step__n">02</div>
-            <h3>Choisis ta tâche</h3>
-            <p>« Rédiger », « analyser », « relancer », « synthétiser »…</p>
+          <div class="toc__row">
+            <div class="toc__n">02</div>
+            <div class="toc__main"><h3>Choisis ta tâche</h3><p>« Rédiger », « analyser », « relancer », « synthétiser »…</p></div>
           </div>
-          <div class="step">
-            <div class="step__n">03</div>
-            <h3>Copie le protocole</h3>
-            <p>Rôle, contexte et contraintes sont déjà écrits pour toi.</p>
+          <div class="toc__row">
+            <div class="toc__n">03</div>
+            <div class="toc__main"><h3>Copie le protocole</h3><p>Rôle, contexte et contraintes sont déjà écrits pour toi.</p></div>
           </div>
-          <div class="step">
-            <div class="step__n">04</div>
-            <h3>Colle tes données</h3>
-            <p>Le tien, ton dossier réel — pas un exemple générique.</p>
+          <div class="toc__row">
+            <div class="toc__n">04</div>
+            <div class="toc__main"><h3>Colle tes données</h3><p>Ton dossier réel — pas un exemple générique.</p></div>
           </div>
-          <div class="step">
-            <div class="step__n">05</div>
-            <h3>Tu livres</h3>
-            <p>Un résultat exploitable en moins de 15 minutes.</p>
+          <div class="toc__row">
+            <div class="toc__n">05</div>
+            <div class="toc__main"><h3>Tu livres</h3><p>Un résultat exploitable en moins de 15 minutes.</p></div>
           </div>
         </div>
 
@@ -194,11 +189,11 @@ Note de synthèse, 350 mots max.</div>
     </section>
 
     <!-- ===================== TARIFS ===================== -->
-    <section class="section wrap" id="tarifs">
+    <section class="section divider wrap" id="tarifs">
       <div class="price__head reveal">
         <div>
           <span class="eyebrow">Tarifs</span>
-          <h2 class="h2">Le prix d'une heure gagnée. Récupéré dès la première.</h2>
+          <h2 class="display">Le prix d'une heure gagnée. Récupéré dès la première.</h2>
         </div>
         <a class="btn btn--ghost" href="#metiers">Voir les métiers →</a>
       </div>
@@ -211,7 +206,7 @@ Note de synthèse, 350 mots max.</div>
           <p class="tier__desc">Un métier universel (Vente, Marketing, RH). L'achat d'impulsion qui te fait entrer dans la collection.</p>
         </div>
         <div class="tier tier--feat">
-          <span class="tier__badge">Le plus vendu</span>
+          <span class="tier__label">Le plus vendu</span>
           <div class="tier__name">Métier</div>
           <div class="tier__price">69 €</div>
           <div class="tier__sub">le cœur du catalogue</div>
@@ -239,10 +234,10 @@ Note de synthèse, 350 mots max.</div>
     </section>
 
     <!-- ===================== DOCTRINE ===================== -->
-    <section class="section wrap section--tight">
-      <div class="reveal" style="margin-bottom:2.6rem">
+    <section class="section divider wrap section--tight">
+      <div class="reveal" style="margin-bottom:2.8rem">
         <span class="eyebrow">La doctrine</span>
-        <h2 class="h2">Ce que c'est. Et ce que ce n'est pas.</h2>
+        <h2 class="display">Ce que c'est. Et ce que ce n'est pas.</h2>
       </div>
       <div class="doctrine reveal">
         <div class="dcard">
@@ -264,10 +259,10 @@ Note de synthèse, 350 mots max.</div>
     </section>
 
     <!-- ===================== MÉTIERS ===================== -->
-    <section class="section wrap" id="metiers">
-      <div class="reveal" style="margin-bottom:2.6rem">
+    <section class="section divider wrap" id="metiers">
+      <div class="reveal" style="margin-bottom:2.8rem">
         <span class="eyebrow">50+ métiers</span>
-        <h2 class="h2">Trouve le tien.</h2>
+        <h2 class="display">Trouve le tien.</h2>
       </div>
       <div class="metiers reveal">
         <div class="metier"><div class="metier__count">7 guides</div><h3>Droit &amp; Finance</h3></div>
@@ -298,15 +293,15 @@ Note de synthèse, 350 mots max.</div>
         <form class="magnet__form" id="leadForm" novalidate>
           <input type="text" name="metier" placeholder="Ton métier (ex. Agent immobilier)" autocomplete="organization-title" required />
           <input type="email" name="email" placeholder="Ton email professionnel" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit" style="justify-content:center">Recevoir mes 10 protocoles →</button>
+          <button class="btn btn--primary" type="submit">Recevoir mes 10 protocoles →</button>
           <span class="magnet__fine" id="leadMsg">PDF · Gratuit · Un email. Zéro spam.</span>
         </form>
       </div>
     </section>
 
-    <!-- ===================== CLOSING CTA ===================== -->
-    <section class="section wrap closing">
-      <h2 class="h2 reveal">Arrête d'apprendre l'IA. Commence à l'utiliser.</h2>
+    <!-- ===================== CLOSING ===================== -->
+    <section class="section divider wrap closing">
+      <h2 class="display reveal">Arrête d'apprendre l'IA.<br>Commence à l'utiliser.</h2>
       <div class="closing__cta reveal">
         <a class="btn btn--primary" href="#tarifs">Voir la collection →</a>
         <a class="btn btn--ghost" href="#collection">Recevoir 10 protocoles gratuits</a>
@@ -314,10 +309,10 @@ Note de synthèse, 350 mots max.</div>
     </section>
 
     <!-- ===================== FAQ ===================== -->
-    <section class="section wrap" id="faq">
+    <section class="section divider wrap" id="faq">
       <div class="faq__head reveal">
         <span class="eyebrow">FAQ</span>
-        <h2 class="h2">Tout pour décider.</h2>
+        <h2 class="display">Tout pour décider.</h2>
       </div>
       <div class="faq__list faq reveal">
         <details>
@@ -363,10 +358,10 @@ Note de synthèse, 350 mots max.</div>
         <div class="foot__brand">
           <a class="brand" href="#home" aria-label="Lemon Prod">
             <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
-              <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EBC400"/>
+              <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
               <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
             </svg>
-            LEMON PROD.
+            LEMON&nbsp;PROD.
           </a>
           <p>Transforme l'IA en ton collaborateur le plus rentable. Des manuels opérationnels pour les professionnels qui facturent leur temps.</p>
         </div>
