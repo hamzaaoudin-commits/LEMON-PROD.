@@ -9,7 +9,7 @@
     toggle.addEventListener('click', function () {
       var open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
     links.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
@@ -19,7 +19,7 @@
     });
   }
 
-  /* ---- Copy protocole ---- */
+  /* ---- Copy protocol ---- */
   var copyBtn = document.getElementById('copyBtn');
   var protoText = document.getElementById('protoText');
   if (copyBtn && protoText) {
@@ -28,7 +28,7 @@
       var text = protoText.innerText.trim();
       var done = function () {
         copyBtn.classList.add('done');
-        copyBtn.textContent = 'Copié ✓';
+        copyBtn.textContent = 'Copied ✓';
         setTimeout(function () {
           copyBtn.classList.remove('done');
           copyBtn.innerHTML = original;
@@ -62,7 +62,7 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- Lead form (stub — branche-le à ton emailing, voir README) ---- */
+  /* ---- Lead form (stub — wire it to your email tool, see README) ---- */
   var form = document.getElementById('leadForm');
   var msg = document.getElementById('leadMsg');
   if (form && msg) {
@@ -70,14 +70,14 @@
       e.preventDefault();
       var email = form.querySelector('input[name="email"]');
       if (!email.value || email.value.indexOf('@') === -1) {
-        msg.textContent = 'Entre un email valide pour recevoir tes protocoles.';
-        msg.style.color = '#F4D85C';
+        msg.textContent = 'Enter a valid email to get your protocols.';
+        msg.style.color = '#F4D45E';
         email.focus();
         return;
       }
-      msg.textContent = 'Reçu ✓ — connecte ton outil d\u2019emailing pour l\u2019envoi automatique.';
-      msg.style.color = '#EBC400';
-      form.querySelector('button').textContent = 'Envoyé ✓';
+      msg.textContent = 'Received ✓ — connect your email tool to automate delivery.';
+      msg.style.color = '#EFC52B';
+      form.querySelector('button').textContent = 'Sent ✓';
     });
   }
 })();
