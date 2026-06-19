@@ -44,11 +44,17 @@
     @media (max-width:640px){.metiers--jobs{grid-template-columns:1fr}}
     .metier__tier{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--zest-dim);margin-bottom:.7rem}
     .metier__focus{font-size:.9rem;color:var(--bone-3);line-height:1.5;margin-top:.5rem}
+    .metier--pop{position:relative;background:var(--ink-1)}
+    .metier--pop::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--zest)}
+    .metier__pop{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--zest);margin-bottom:.6rem}
 
     /* Modal */
     .modal{position:fixed;inset:0;z-index:200;display:none}
-    .modal.is-open{display:block}
-    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(2px)}
+    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(2px);opacity:0;transition:opacity .25s ease}
+    .modal.is-open .modal__overlay{opacity:1}
+    .modal__panel{position:relative;max-width:480px;margin:8vh auto 0;background:var(--ink-1);border:1px solid var(--hair-2);border-radius:2px;padding:2.4rem 2.2rem 2.2rem;box-shadow:0 40px 80px -20px rgba(0,0,0,.6);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .28s cubic-bezier(.2,.7,.2,1),transform .28s cubic-bezier(.2,.7,.2,1)}
+    .modal.is-open .modal__panel{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){.modal__overlay,.modal__panel{transition:none}}
     .modal__panel{position:relative;max-width:480px;margin:8vh auto 0;background:var(--ink-1);border:1px solid var(--hair-2);border-radius:2px;padding:2.4rem 2.2rem 2.2rem;box-shadow:0 40px 80px -20px rgba(0,0,0,.6)}
     @media (max-width:640px){.modal__panel{margin:5vh 1rem 0;padding:2rem 1.5rem}}
     .modal__close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:var(--bone-3);font-size:1.1rem;cursor:pointer;line-height:1;transition:color .2s}
@@ -327,11 +333,11 @@ Synthesis note, 350 words max.</div>
           <h2>10 protocols. A taste.</h2>
           <p>Pick your profession, get 10 protocols free. If one of them saves you your first hour, you already know what the full manual is worth.</p>
         </div>
-        <!-- Wire this form to your email tool (see README) -->
+        <!-- Wire this form to your email tool (see README). For now, submission shows local visual feedback only. -->
         <form class="magnet__form" id="leadForm" novalidate>
-          <input type="text" name="profession" placeholder="Your profession (e.g. Real Estate Agent)" autocomplete="organization-title" required />
-          <input type="email" name="email" placeholder="Your work email" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit">Get my 10 protocols →</button>
+          <input type="text" name="profession" id="leadProfession" placeholder="Your profession (e.g. Real Estate Agent)" autocomplete="organization-title" required />
+          <input type="email" name="email" id="leadEmail" placeholder="Your work email" autocomplete="email" required />
+          <button class="btn btn--primary" type="submit" id="leadSubmitBtn">Get my 10 protocols →</button>
           <span class="magnet__fine" id="leadMsg">PDF · Free · One email. Zero spam.</span>
         </form>
       </div>
@@ -447,7 +453,7 @@ Synthesis note, 350 words max.</div>
         id: "law-finance", name: "Law & Finance", icon: "⚖️",
         jobs: [
           { name: "Comptable / Expert-Comptable", tier: "elite", focus: "Analyse de liasses, automatisation des écritures" },
-          { name: "Avocat", tier: "elite", focus: "Rédaction d'actes, analyse de jurisprudence, synthèse de dossiers" },
+          { name: "Avocat", tier: "elite", popular: true, focus: "Rédaction d'actes, analyse de jurisprudence, synthèse de dossiers" },
           { name: "Notaire", tier: "elite", focus: "Rédaction de clauses, vérification de conformité" },
           { name: "Conseiller en Gestion de Patrimoine", tier: "elite", focus: "Simulations fiscales, rapports clients" },
           { name: "Courtier en Assurances / Prêts", tier: "standard", focus: "Analyse de risques, comparaison de contrats" },
@@ -458,7 +464,7 @@ Synthesis note, 350 words max.</div>
       {
         id: "real-estate", name: "Real Estate & Construction", icon: "🏠",
         jobs: [
-          { name: "Agent Immobilier", tier: "standard", focus: "Rédaction d'annonces, réponses aux acheteurs, mandats" },
+          { name: "Agent Immobilier", tier: "standard", popular: true, focus: "Rédaction d'annonces, réponses aux acheteurs, mandats" },
           { name: "Gestionnaire de Copropriété", tier: "standard", focus: "Comptes-rendus d'AG, gestion des litiges" },
           { name: "Architecte", tier: "standard", focus: "Cahier des charges, descriptifs techniques, normes" },
           { name: "Diagnostiqueur Immobilier", tier: "standard", focus: "Rédaction de rapports de synthèse" },
@@ -477,7 +483,7 @@ Synthesis note, 350 words max.</div>
       {
         id: "marketing-sales", name: "Marketing, Vente & Communication", icon: "📣",
         jobs: [
-          { name: "Copywriter / Rédacteur Web", tier: "standard", focus: "Structure d'articles, pages de vente, SEO" },
+          { name: "Copywriter / Rédacteur Web", tier: "standard", popular: true, focus: "Structure d'articles, pages de vente, SEO" },
           { name: "Social Media Manager", tier: "standard", focus: "Planning éditorial, scripts Reels/TikTok" },
           { name: "Responsable E-commerce", tier: "standard", focus: "Fiches produits, SAV automatisé" },
           { name: "Commercial (SDR/BDR)", tier: "standard", focus: "Prospection LinkedIn, mails de relance personnalisés" },
@@ -554,7 +560,8 @@ Synthesis note, 350 words max.</div>
       const cat = CATEGORIES.find(c => c.id === catId);
       if (!cat) return;
       jobGrid.innerHTML = cat.jobs.map((job, i) => `
-        <div class="metier" data-cat="${cat.id}" data-job="${i}" role="button" tabindex="0" aria-label="${job.name}">
+        <div class="metier ${job.popular ? "metier--pop" : ""}" data-cat="${cat.id}" data-job="${i}" role="button" tabindex="0" aria-label="${job.name}">
+          ${job.popular ? '<span class="metier__pop">Most popular</span>' : ""}
           <span class="metier__tier">${TIERS[job.tier].label} · ${TIERS[job.tier].price}</span>
           <h3>${job.name}</h3>
           <p class="metier__focus">${job.focus}</p>
@@ -563,12 +570,14 @@ Synthesis note, 350 words max.</div>
       categoryGrid.style.display = "none";
       jobGrid.style.display = "grid";
       catBackWrap.style.display = "block";
+      document.getElementById("professions").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function showCategories() {
       jobGrid.style.display = "none";
       categoryGrid.style.display = "grid";
       catBackWrap.style.display = "none";
+      document.getElementById("professions").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     renderCategories();
@@ -600,7 +609,7 @@ Synthesis note, 350 words max.</div>
       if (!job) return;
       const tier = TIERS[job.tier];
 
-      document.getElementById("modalTierLabel").textContent = tier.label;
+      document.getElementById("modalTierLabel").textContent = job.popular ? `${tier.label} · Most popular` : tier.label;
       document.getElementById("modalTitle").textContent = job.name;
       document.getElementById("modalFocus").textContent = job.focus;
       document.getElementById("modalPrice").textContent = tier.price;
@@ -609,7 +618,10 @@ Synthesis note, 350 words max.</div>
         `100+ ready-to-paste protocols built specifically for the ${job.name} profession, with your Notion prompt base included. From blank page to finished work in under 15 minutes.`;
       document.getElementById("modalBuyBtn").href = "#collection";
 
-      jobModal.classList.add("is-open");
+      jobModal.style.display = "block";
+      requestAnimationFrame(() => {
+        jobModal.classList.add("is-open");
+      });
       jobModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
     }
@@ -618,6 +630,9 @@ Synthesis note, 350 words max.</div>
       jobModal.classList.remove("is-open");
       jobModal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      setTimeout(() => {
+        jobModal.style.display = "none";
+      }, 280);
     }
 
     jobGrid.addEventListener("click", (e) => {
@@ -638,6 +653,43 @@ Synthesis note, 350 words max.</div>
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && jobModal.classList.contains("is-open")) closeJobModal();
     });
+    // ===== Lead magnet form — local visual feedback only (wire to your email tool later) =====
+    const leadForm = document.getElementById("leadForm");
+    const leadMsg = document.getElementById("leadMsg");
+    const leadSubmitBtn = document.getElementById("leadSubmitBtn");
+    const leadDefaultMsg = leadMsg ? leadMsg.textContent : "";
+
+    if (leadForm) {
+      leadForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const profession = document.getElementById("leadProfession").value.trim();
+        const email = document.getElementById("leadEmail").value.trim();
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!profession || !emailOk) {
+          leadMsg.textContent = "Please fill in your profession and a valid email.";
+          leadMsg.style.color = "#E0664F";
+          return;
+        }
+
+        leadSubmitBtn.disabled = true;
+        leadSubmitBtn.textContent = "Sending…";
+
+        // TODO: replace with a real call to your email tool (e.g. fetch('/api/lead', {...}))
+        setTimeout(() => {
+          leadForm.reset();
+          leadSubmitBtn.textContent = "Sent ✓";
+          leadMsg.textContent = `Check your inbox — your 10 ${profession} protocols are on the way.`;
+          leadMsg.style.color = "var(--zest)";
+          setTimeout(() => {
+            leadSubmitBtn.disabled = false;
+            leadSubmitBtn.textContent = "Get my 10 protocols →";
+            leadMsg.textContent = leadDefaultMsg;
+            leadMsg.style.color = "";
+          }, 5000);
+        }, 700);
+      });
+    }
   </script>
 
   <script src="script.js"></script>
