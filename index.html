@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lemon Prod · AI Operational Manuals for 50+ Professions</title>
+  <title>Adaptive Survival Guides · by Lemon Prod</title>
 
-  <meta name="description" content="Operational manuals built for one profession at a time: 100+ ready-to-paste AI protocols designed to take you from blank page to finished work in under 15 minutes. Zero theory, pure execution." />
+  <meta name="description" content="Strategic career guides for professionals facing automation. Each guide maps what's irreplaceable in your profession and shows how to hybridize it with AI — not a prompt list, a survival strategy." />
   <meta name="author" content="Lemon Prod" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Lemon Prod · AI Operational Manuals" />
-  <meta property="og:description" content="We don't replace your expertise. We delete the blank page. 100+ ready-to-paste AI protocols, built for your profession." />
+  <meta property="og:title" content="Adaptive Survival Guides · by Lemon Prod" />
+  <meta property="og:description" content="AI won't take your job. Professionals who can't adapt to it will. Strategic, profession-specific guides to hybridize your irreplaceable skills with AI." />
   <meta property="og:locale" content="en_US" />
   <!-- Add an OG image (1200×630) to the folder, then uncomment:
   <meta property="og:image" content="/og-image.png" /> -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lemon Prod · AI Operational Manuals" />
-  <meta name="twitter:description" content="We don't replace your expertise. We delete the blank page." />
+  <meta name="twitter:title" content="Adaptive Survival Guides · by Lemon Prod" />
+  <meta name="twitter:description" content="A strategy, not a prompt list. Career-survival guides for the AI era." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
-    /* Testimonials — added to complement styles.css (move into styles.css if you prefer) */
+    /* Testimonials */
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
     @media (max-width:900px){.testimonials{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.testimonials{grid-template-columns:1fr}}
@@ -43,7 +43,6 @@
     .metiers--jobs{grid-template-columns:repeat(3,1fr)}
     @media (max-width:900px){.metiers--jobs{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.metiers--jobs{grid-template-columns:1fr}}
-    .metier__tier{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--zest-dim);margin-bottom:.7rem}
     .metier__focus{font-size:.9rem;color:var(--bone-3);line-height:1.5;margin-top:.5rem}
     .metier--pop{position:relative;background:var(--ink-1)}
     .metier--pop::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--zest)}
@@ -74,7 +73,6 @@
     .modal__panel{position:relative;max-width:480px;margin:8vh auto 0;background:var(--ink-1);border:1px solid var(--hair-2);border-radius:2px;padding:2.4rem 2.2rem 2.2rem;box-shadow:0 60px 100px -30px rgba(0,0,0,.7),0 10px 30px -10px rgba(0,0,0,.5);opacity:0;transform:translateY(22px) scale(.96) rotateX(2deg);transition:opacity .32s cubic-bezier(.2,.7,.2,1),transform .32s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
     .modal.is-open .modal__panel{opacity:1;transform:none}
     @media (prefers-reduced-motion: reduce){.modal__overlay,.modal__panel{transition:none}}
-    .modal__panel{position:relative;max-width:480px;margin:8vh auto 0;background:var(--ink-1);border:1px solid var(--hair-2);border-radius:2px;padding:2.4rem 2.2rem 2.2rem;box-shadow:0 40px 80px -20px rgba(0,0,0,.6)}
     @media (max-width:640px){.modal__panel{margin:5vh 1rem 0;padding:2rem 1.5rem}}
     .modal__close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:var(--bone-3);font-size:1.1rem;cursor:pointer;line-height:1;transition:color .2s}
     .modal__close:hover{color:var(--zest)}
@@ -88,6 +86,10 @@
     .modal__desc{font-size:.96rem;line-height:1.6;color:var(--bone-2);margin-bottom:1.6rem}
     .modal__buy{display:inline-flex;width:100%;justify-content:center;margin-bottom:1rem}
     .modal__fine{font-family:var(--mono);font-size:.7rem;color:var(--bone-3);text-align:center;margin:0;letter-spacing:.03em}
+
+    /* Collection sub-brand mark in nav/hero */
+    .sub-brand{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-3)}
+    .sub-brand .zest{color:var(--zest)}
   </style>
 </head>
 <body>
@@ -104,10 +106,10 @@
         LEMON&nbsp;PROD.
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
-        <a href="#collection">Collection</a>
+        <a href="#collection">The guides</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn--primary nav__cta" href="#collection">See the collection</a>
+        <a class="btn btn--primary nav__cta" href="#collection">Find your guide</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -121,58 +123,60 @@
     <section class="hero wrap" id="home">
       <div class="hero__grid">
         <div>
-          <span class="eyebrow enter" style="--d:.05s">AI operational manuals — 50+ professions</span>
+          <span class="eyebrow enter" style="--d:.05s">Adaptive Survival Guides — by Lemon Prod</span>
           <h1>
-            <span class="line"><span style="--d:.15s">AI won't replace</span></span>
+            <span class="line"><span style="--d:.15s">AI won't take</span></span>
             <span class="line"><span style="--d:.27s">your job.</span></span>
-            <span class="line"><span class="ital zest" style="--d:.4s">It'll give you your hours back.</span></span>
+            <span class="line"><span class="ital zest" style="--d:.4s">Standing still will.</span></span>
           </h1>
-          <p class="lede enter" style="--d:.6s">Operational manuals built for one profession at a time: 100+ ready-to-paste protocols designed to take you from blank page to finished work in under 15 minutes. Zero theory. Pure execution.</p>
+          <p class="lede enter" style="--d:.6s">A strategic guide for your exact profession: what's irreplaceable in your judgment, and how to hybridize it with AI before someone faster does it for you. Not a tutorial. Not a prompt list. A career strategy.</p>
           <div class="hero__cta enter" style="--d:.72s">
-            <a class="btn btn--primary" href="#collection">See the collection →</a>
+            <a class="btn btn--primary" href="#collection">Find your guide →</a>
             <a class="btn btn--ghost" href="#collection">How it works</a>
           </div>
           <div class="hero__trust enter" style="--d:.84s">
-            <span>50+ professions</span>
-            <span>100+ protocols / guide</span>
-            <span>ChatGPT · Claude · Gemini</span>
-            <span>&lt; 15 min</span>
+            <span>18+ professions</span>
+            <span>One strategy, not a tool list</span>
+            <span>Written for your exact title</span>
+            <span>30 min read</span>
           </div>
         </div>
 
-        <!-- SIGNATURE: protocol card, with a tilt-on-hover 3D effect + floating 3D lemon -->
+        <!-- SIGNATURE: strategy card, with a tilt-on-hover 3D effect + floating 3D lemon -->
         <div class="enter proto3d" style="--d:.5s" id="protoWrap">
           <canvas id="lemon3d" class="lemon3d" aria-hidden="true"></canvas>
-          <figure class="proto" id="protoCard" aria-label="Example of a ready-to-paste protocol">
+          <figure class="proto" id="protoCard" aria-label="Excerpt of a strategic guide">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span>
               <span class="proto__dot"></span>
               <span class="proto__dot"></span>
-              <span class="proto__tag">Protocol 014 · Lawyer</span>
+              <span class="proto__tag">Adaptive Survival · Lawyer</span>
             </div>
-            <div class="proto__body" id="protoText"><span class="field">// role</span>
-You are my senior legal assistant.
+            <div class="proto__body" id="protoText"><span class="field">// what's irreplaceable</span>
+Judgment under uncertainty. Reading
+a client's real intent behind their
+words. Owning the risk of advice.
 
-<span class="field">// task</span>
-Summarize a 40-page case file
-into a one-page brief.
+<span class="field">// what AI absorbs now</span>
+Case research. First-draft synthesis.
+Precedent mapping at scale.
 
-<span class="field">// context</span>
-<span class="k">[paste your file here]</span>
+<span class="field">// the hybrid move</span>
+<span class="k">Stop billing for synthesis.</span>
+Start billing for judgment — and
+let AI produce the raw material
+you used to bill hours for.
 
-<span class="field">// constraints</span>
-Formal tone. Structure: facts /
-arguments / risks / recommendation.
-Cite each point to its source paragraph.
-
-<span class="field">// format</span>
-Synthesis note, 350 words max.</div>
+<span class="field">// 12-month risk if you don't</span>
+Commoditized billing. Replaced not
+by AI, but by a peer who used it
+to specialize faster than you.</span></div>
             <div class="proto__foot">
-              <button class="copy" id="copyBtn" type="button" aria-label="Copy the protocol">
+              <button class="copy" id="copyBtn" type="button" aria-label="Copy the excerpt">
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
                 Copy
               </button>
-              <span class="proto__compat">Paste into ChatGPT · Claude · Gemini</span>
+              <span class="proto__compat">From the Lawyer guide · page 1 of 24</span>
             </div>
           </figure>
         </div>
@@ -182,8 +186,8 @@ Synthesis note, 350 words max.</div>
     <!-- ===================== MARQUEE ===================== -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Works with ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span><span>Mistral</span><span>Perplexity</span>
-        <span>Works with ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span><span>Mistral</span><span>Perplexity</span>
+        <span>Strategy, not prompts</span><span>Built for your title</span><span>Career-survival, not tool tips</span><span>Thought leadership</span><span>One read, one decision</span>
+        <span>Strategy, not prompts</span><span>Built for your title</span><span>Career-survival, not tool tips</span><span>Thought leadership</span><span>One read, one decision</span>
       </div>
     </div>
 
@@ -191,69 +195,69 @@ Synthesis note, 350 words max.</div>
     <section class="section wrap">
       <div class="reveal">
         <span class="eyebrow">The problem</span>
-        <h2 class="display prob__head">You know AI is powerful. You just don't know <b>what to ask it.</b></h2>
-        <p class="lede prob__lede">80% of professionals freeze at the blank page. Not for lack of intelligence — for lack of a protocol. The result: wasted time, mediocre prompts, and the feeling of missing out on the most powerful tool of your decade.</p>
+        <h2 class="display prob__head">You don't have a tool problem. You have a <b>positioning problem.</b></h2>
+        <p class="lede prob__lede">Everyone is teaching professionals which buttons to press. Almost no one is telling them how their actual job is about to be repriced. The danger isn't AI doing your tasks — it's a colleague who restructured their value around AI doing your career.</p>
       </div>
 
-      <p class="prob__quote reveal">We don't replace your expertise.<br><span>We delete the blank page.</span></p>
+      <p class="prob__quote reveal">We don't teach you to use AI.<br><span>We show you what to stop competing on.</span></p>
 
       <div class="prob__cards reveal">
         <div class="pcard">
           <div class="pcard__n">01</div>
-          <p>An exact protocol for every real task in your profession.</p>
+          <p>A clear map of what's genuinely irreplaceable in your exact profession.</p>
         </div>
         <div class="pcard">
           <div class="pcard__n">02</div>
-          <p>A usable result from the very first paste.</p>
+          <p>A concrete hybrid model: where AI absorbs the task, where you own the judgment.</p>
         </div>
         <div class="pcard">
           <div class="pcard__n">03</div>
-          <p>Hours given back every week — starting with the first.</p>
+          <p>A repositioning plan you can act on this quarter — not a list of features to try.</p>
         </div>
       </div>
 
-      <p class="prob__authority reveal">Join the 20% who turned AI into billable hours.</p>
+      <p class="prob__authority reveal">The professionals who'll be fine in 5 years already know what not to compete on.</p>
     </section>
 
     <!-- ===================== THE COLLECTION (merged with Professions) ===================== -->
     <section class="section divider" id="collection">
       <div class="wrap">
         <div class="reveal coll__head">
-          <span class="eyebrow">The collection</span>
-          <h2 class="display">One manual. One profession. Zero theory.</h2>
-          <p class="lede coll__intro">Each guide is a full immersion in the daily reality of a single profession. No lectures on how the models work — only concrete use cases, written in your vocabulary, with the technical and regulatory reality of your field.</p>
+          <span class="eyebrow">Adaptive Survival Guides</span>
+          <h2 class="display">One guide. One profession. One clear strategy.</h2>
+          <p class="lede coll__intro">Each guide is a deep, honest audit of a single profession: what AI already does better, what it will never do as well as you, and exactly how to rebuild your value around the second column. Written by people who understand the field, not generic AI commentary.</p>
         </div>
 
         <div class="toc reveal">
           <div class="toc__row">
             <div class="toc__n">01</div>
-            <div class="toc__main"><h3>Open your profession</h3><p>100+ protocols sorted by real task, not by feature.</p></div>
+            <div class="toc__main"><h3>Find your exact title</h3><p>Not a generic "marketing" guide — your actual role, your actual stakes.</p></div>
           </div>
           <div class="toc__row">
             <div class="toc__n">02</div>
-            <div class="toc__main"><h3>Pick your task</h3><p>“Draft”, “analyze”, “follow up”, “summarize”…</p></div>
+            <div class="toc__main"><h3>See the honest split</h3><p>What's already commoditized by AI vs. what stays scarce and billable.</p></div>
           </div>
           <div class="toc__row">
             <div class="toc__n">03</div>
-            <div class="toc__main"><h3>Copy the protocol</h3><p>Role, context and constraints are already written for you.</p></div>
+            <div class="toc__main"><h3>Read the hybrid model</h3><p>How professionals like you are repositioning — concretely, not abstractly.</p></div>
           </div>
           <div class="toc__row">
             <div class="toc__n">04</div>
-            <div class="toc__main"><h3>Paste your data</h3><p>Your real file — not a generic example.</p></div>
+            <div class="toc__main"><h3>Take the 90-day plan</h3><p>The first moves: what to stop billing for, what to start owning.</p></div>
           </div>
           <div class="toc__row">
             <div class="toc__n">05</div>
-            <div class="toc__main"><h3>You deliver</h3><p>A usable result in under 15 minutes.</p></div>
+            <div class="toc__main"><h3>You reposition, not react</h3><p>A career decision made on purpose, ahead of the market — not after it.</p></div>
           </div>
         </div>
 
         <div class="proof reveal">
-          <div class="proof__stat"><s>2 hrs</s> → <b>9 min</b></div>
-          <p class="proof__label">Example: a client synthesis note, from raw file to proofed deliverable, using the “Case analysis” protocol.</p>
+          <div class="proof__stat"><s>Anxious</s> → <b>Ahead</b></div>
+          <p class="proof__label">The shift every reader describes: from worrying about being replaced, to knowing exactly what makes them harder to replace.</p>
         </div>
 
         <div class="reveal" style="margin-top:4.5rem" id="professions">
-          <span class="eyebrow">50+ professions</span>
+          <span class="eyebrow">18+ professions</span>
           <h2 class="display">Find yours.</h2>
           <p class="lede" id="catBackWrap" style="display:none;margin-top:.6rem">
             <button class="btn btn--ghost" id="catBackBtn" type="button">← All categories</button>
@@ -295,18 +299,18 @@ Synthesis note, 350 words max.</div>
       <div class="doctrine reveal">
         <div class="dcard">
           <div class="dcard__n">01</div>
-          <h3>Not theory. Protocols.</h3>
-          <p>No explanations of how the models work. Only prompts ready to run, on tasks you already do.</p>
+          <h3>Not a tutorial. A strategy.</h3>
+          <p>No explanations of how to use ChatGPT. A clear-eyed analysis of where your profession's value is moving — and where to stand.</p>
         </div>
         <div class="dcard">
           <div class="dcard__n">02</div>
-          <h3>Not a free tutorial. The reality of your profession.</h3>
-          <p>Web tutorials stay vague. Our guides handle the technical and regulatory reality of your exact profession, in its own vocabulary.</p>
+          <h3>Not generic AI anxiety. Your exact field.</h3>
+          <p>Most "future of work" content is vague by design. Our guides name the specific tasks, clients, and risks of your exact profession.</p>
         </div>
         <div class="dcard">
           <div class="dcard__n">03</div>
-          <h3>Not for everyone. For those who bill their time.</h3>
-          <p>If an hour of your time has a value, this manual pays for itself on the first task. Otherwise, it's not for you.</p>
+          <h3>Not for everyone. For those who'd rather move first.</h3>
+          <p>If you're comfortable reacting once the market forces your hand, this isn't for you. This is for professionals who'd rather decide early.</p>
         </div>
       </div>
     </section>
@@ -314,32 +318,32 @@ Synthesis note, 350 words max.</div>
     <!-- ===================== TESTIMONIALS ===================== -->
     <section class="section divider wrap" id="testimonials">
       <div class="reveal" style="margin-bottom:2.8rem">
-        <span class="eyebrow">They saved their first hour</span>
-        <h2 class="display">Professionals who stopped guessing.</h2>
+        <span class="eyebrow">They repositioned first</span>
+        <h2 class="display">Professionals who stopped worrying and picked a side.</h2>
       </div>
       <div class="testimonials reveal">
         <figure class="tcard">
-          <blockquote>I used to spend my Sunday evenings drafting client follow-ups. Now I copy, paste, adjust two lines, send. I got three hours back this week alone.</blockquote>
+          <blockquote>I'd read a dozen vague "AI will change everything" posts. This was the first thing that told me exactly which part of my job to stop defending and which part to double down on.</blockquote>
           <figcaption><span class="tcard__name">Camille R.</span><span class="tcard__role">Real Estate Agent</span></figcaption>
         </figure>
         <figure class="tcard">
-          <blockquote>The case-summary protocol alone paid for the guide on day one. It's written exactly the way I'd brief a junior associate.</blockquote>
+          <blockquote>It didn't make me less anxious by pretending AI isn't a threat. It made me less anxious by giving me an actual plan for the next two quarters.</blockquote>
           <figcaption><span class="tcard__name">Julien M.</span><span class="tcard__role">Lawyer</span></figcaption>
         </figure>
         <figure class="tcard">
-          <blockquote>I was skeptical of another "AI guide." This isn't theory — it's 100 prompts I actually use, sorted by the tasks I already do every day.</blockquote>
+          <blockquote>I expected another "10 ChatGPT prompts for HR" guide. Instead it named the exact parts of my role that are about to disappear, and the parts that are about to matter more than ever.</blockquote>
           <figcaption><span class="tcard__name">Sarah B.</span><span class="tcard__role">HR Manager</span></figcaption>
         </figure>
         <figure class="tcard">
-          <blockquote>My reconciliation notes used to take two hours. The protocol gets me a clean draft in under ten minutes — I just review and sign off.</blockquote>
+          <blockquote>The 90-day plan is the part I actually used. Not theory — three concrete things to change about how I price my work.</blockquote>
           <figcaption><span class="tcard__name">Thomas L.</span><span class="tcard__role">Accountant</span></figcaption>
         </figure>
         <figure class="tcard">
-          <blockquote>What sold me was the vocabulary. It doesn't talk like a generic AI tutorial, it talks like someone who's actually worked in marketing.</blockquote>
+          <blockquote>What got me was how specific it was to marketing, not "creative work" in general. It named tools and workflows I actually use.</blockquote>
           <figcaption><span class="tcard__name">Nadia F.</span><span class="tcard__role">Marketing Manager</span></figcaption>
         </figure>
         <figure class="tcard">
-          <blockquote>Client intake forms, follow-up emails, session notes — I didn't expect a single guide to cover all three this well.</blockquote>
+          <blockquote>I'd been putting off thinking about this seriously for a year. The guide forced the conversation with myself in under an hour.</blockquote>
           <figcaption><span class="tcard__name">Antoine D.</span><span class="tcard__role">Physiotherapist</span></figcaption>
         </figure>
       </div>
@@ -350,14 +354,14 @@ Synthesis note, 350 words max.</div>
       <div class="magnet reveal">
         <div>
           <span class="eyebrow">Free</span>
-          <h2>10 protocols. A taste.</h2>
-          <p>Pick your profession, get 10 protocols free. If one of them saves you your first hour, you already know what the full manual is worth.</p>
+          <h2>The 5-minute audit.</h2>
+          <p>Pick your profession, get a free one-page audit: the 3 tasks in your role most exposed to AI, and the 1 skill worth doubling down on. A taste of the full guide's thinking.</p>
         </div>
         <!-- Wire this form to your email tool (see README). For now, submission shows local visual feedback only. -->
         <form class="magnet__form" id="leadForm" novalidate>
           <input type="text" name="profession" id="leadProfession" placeholder="Your profession (e.g. Real Estate Agent)" autocomplete="organization-title" required />
           <input type="email" name="email" id="leadEmail" placeholder="Your work email" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit" id="leadSubmitBtn">Get my 10 protocols →</button>
+          <button class="btn btn--primary" type="submit" id="leadSubmitBtn">Get my free audit →</button>
           <span class="magnet__fine" id="leadMsg">PDF · Free · One email. Zero spam.</span>
         </form>
       </div>
@@ -365,10 +369,10 @@ Synthesis note, 350 words max.</div>
 
     <!-- ===================== CLOSING ===================== -->
     <section class="section divider wrap closing">
-      <h2 class="display reveal">Stop learning AI.<br>Start using it.</h2>
+      <h2 class="display reveal">Stop wondering if AI<br>will take your job.</h2>
       <div class="closing__cta reveal">
-        <a class="btn btn--primary" href="#collection">See the collection →</a>
-        <a class="btn btn--ghost" href="#collection">Get 10 free protocols</a>
+        <a class="btn btn--primary" href="#collection">Find your guide →</a>
+        <a class="btn btn--ghost" href="#collection">Get the free audit</a>
       </div>
     </section>
 
@@ -381,34 +385,34 @@ Synthesis note, 350 words max.</div>
       <div class="faq__list faq reveal">
         <details>
           <summary>Is this for me?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">If you're a professional who produces writing, analysis or follow-ups and never has the time — yes. If you're looking for a theoretical course on “how AI works” — no. This is execution.</p>
+          <p class="faq__a">If you're a professional who's heard "AI will change your industry" one too many times and wants an actual answer for your specific role — yes. If you're looking for a list of ChatGPT prompts — no, that's not what this is.</p>
         </details>
         <details>
-          <summary>Why not just a free tutorial?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">Free tutorials stay generic. Our protocols embed the vocabulary, constraints and regulatory reality of your exact profession. It's the difference between a Swiss Army knife and a scalpel.</p>
+          <summary>Why not just read articles about AI and my industry?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Articles describe the trend. They rarely tell you what to actually do with your own career this quarter. Our guides are built to end in a decision, not just an opinion.</p>
         </details>
         <details>
-          <summary>Which tool does it work with?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">Any assistant: ChatGPT, Claude, Gemini, Copilot, Mistral. The protocols are written to be model-independent — you copy, you paste, you get the result.</p>
+          <summary>Is this another AI tool tutorial?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">No. There's no instruction on how to use any AI tool. The guide is about strategy — what to stop competing on, what to own — independent of which AI model exists this year or next.</p>
         </details>
         <details>
-          <summary>Will the protocols expire when the models change?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">A well-written protocol lasts. But models move fast, which is why an updates subscription exists on select guides: your protocols are re-tuned with each model generation.</p>
+          <summary>Will this guide still be relevant in two years?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">Tool tutorials expire in months. A strategic read on what's structurally irreplaceable in your judgment, taste, or accountability ages much slower — that's the whole point of this collection.</p>
         </details>
         <details>
-          <summary>Do you guarantee a perfect result?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">No, and no one honest would. We guarantee a rigorous protocol and the time saved. The professional judgment — the review, the final call — stays yours. It's your expertise; we just delete the grunt work.</p>
+          <summary>Do you guarantee I'll keep my job?<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">No, and no one honest would. We guarantee a clear, specific picture of where your profession is headed and a concrete plan to reposition. The decision to act on it stays yours.</p>
         </details>
         <details>
           <summary>How do I receive the guide?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">As a PDF, with a Notion prompt base. Instant delivery after payment.</p>
+          <p class="faq__a">As a PDF, built to be read in about 30 minutes. Instant delivery after payment.</p>
         </details>
         <details>
           <summary>Do you refund?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">If the guide doesn't save you your first hour, you're refunded. <!-- Align this with your real policy and the Lemon Squeezy / Gumroad terms. --></p>
+          <p class="faq__a">If the guide doesn't give you a clearer view of your next move, you're refunded. <!-- Align this with your real policy and the Lemon Squeezy / Gumroad terms. --></p>
         </details>
         <details>
-          <summary>I want a license for my team.<span class="plus" aria-hidden="true"></span></summary>
+          <summary>I want this for my whole team.<span class="plus" aria-hidden="true"></span></summary>
           <p class="faq__a">For a multi-seat team license, reach out and we'll set it up.</p>
         </details>
       </div>
@@ -427,19 +431,19 @@ Synthesis note, 350 words max.</div>
             </svg>
             LEMON&nbsp;PROD.
           </a>
-          <p>Turn AI into your most profitable employee. Operational manuals for professionals who bill their time.</p>
+          <p>Adaptive Survival Guides — strategic career guides for professionals who'd rather reposition than react to automation.</p>
         </div>
         <div class="foot__col">
           <h4>Explore</h4>
-          <a href="#collection">The collection</a>
+          <a href="#collection">The guides</a>
           <a href="#professions">Professions</a>
           <a href="#testimonials">Testimonials</a>
         </div>
         <div class="foot__col">
-          <h4>The product</h4>
+          <h4>The collection</h4>
           <a href="#collection">How it works</a>
           <a href="#faq">FAQ</a>
-          <a href="#collection">10 free protocols</a>
+          <a href="#collection">Free audit</a>
         </div>
         <div class="foot__col">
           <h4>Contact</h4>
@@ -476,33 +480,29 @@ Synthesis note, 350 words max.</div>
       // Lemon body: realistic profile with pointed nipples at both ends (lathe revolve)
       const points = [];
       const segments = 40;
-      const halfLen = 1.15;     // total length / 2
-      const maxR = 0.62;        // belly radius
-      const topNipple = 0.09;   // small pointed tip (stem end)
-      const botNipple = 0.13;   // slightly bigger pointed tip (blossom end)
+      const halfLen = 1.15;
+      const maxR = 0.62;
+      const topNipple = 0.09;
+      const botNipple = 0.13;
       for (let i = 0; i <= segments; i++) {
-        const t = i / segments;          // 0 → 1 from top to bottom
+        const t = i / segments;
         const y = halfLen - t * (2 * halfLen);
 
         let r;
         if (t < 0.08) {
-          // top nipple: sharp taper to a point
           const lt = t / 0.08;
           r = topNipple * Math.sin(lt * Math.PI / 2);
         } else if (t > 0.92) {
-          // bottom nipple: sharp taper to a point
           const lt = (t - 0.92) / 0.08;
           r = botNipple * Math.sin((1 - lt) * Math.PI / 2);
         } else {
-          // belly: smooth ellipse-like bulge, slightly off-center toward bottom
-          const bt = (t - 0.08) / 0.84; // 0..1 across the belly
+          const bt = (t - 0.08) / 0.84;
           const bulge = Math.sin(bt * Math.PI);
           r = maxR * Math.pow(bulge, 0.62);
         }
         points.push(new THREE.Vector2(Math.max(r, 0.004), y));
       }
       const lemonGeo = new THREE.LatheGeometry(points, 64);
-      // Subtle dimpled skin texture via per-vertex noise (cheap, no texture file needed)
       const posAttr = lemonGeo.attributes.position;
       for (let i = 0; i < posAttr.count; i++) {
         const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
@@ -522,7 +522,6 @@ Synthesis note, 350 words max.</div>
       lemon.rotation.x = 0.12;
       scene.add(lemon);
 
-      // Small leaf (green) for brand recognition
       const leafShape = new THREE.Shape();
       leafShape.moveTo(0, 0);
       leafShape.quadraticCurveTo(0.28, 0.12, 0.34, 0);
@@ -562,7 +561,6 @@ Synthesis note, 350 words max.</div>
       }
       animate();
 
-      // Pause rendering when off-screen to save battery/CPU
       if ("IntersectionObserver" in window) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -578,13 +576,13 @@ Synthesis note, 350 words max.</div>
       }
     })();
 
-    // ===== 3D tilt-on-hover: protocol card =====
+    // ===== 3D tilt-on-hover: strategy card =====
     (function initProtoTilt() {
       const wrap = document.getElementById("protoWrap");
       const card = document.getElementById("protoCard");
       if (!wrap || !card) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (window.matchMedia("(hover: none)").matches) return; // skip on touch devices
+      if (window.matchMedia("(hover: none)").matches) return;
 
       wrap.addEventListener("mousemove", (e) => {
         const rect = wrap.getBoundingClientRect();
@@ -623,108 +621,76 @@ Synthesis note, 350 words max.</div>
   </script>
 
   <script>
-    // ===== Profession data =====
-    // tier: "elite" (€149), "standard" (€69), "entry" (€39)
-    const TIERS = {
-      elite:    { label: "Elite",    price: "€149" },
-      standard: { label: "Standard", price: "€69"  },
-      entry:    { label: "Entry",    price: "€39"  },
-    };
+    // ===== Profession data — single price for every guide =====
+    const PRICE = "€49";
 
     const CATEGORIES = [
       {
         id: "law-finance", name: "Law & Finance", icon: "⚖️",
         jobs: [
-          { name: "Comptable / Expert-Comptable", tier: "elite", focus: "Analyse de liasses, automatisation des écritures" },
-          { name: "Avocat", tier: "elite", popular: true, focus: "Rédaction d'actes, analyse de jurisprudence, synthèse de dossiers" },
-          { name: "Notaire", tier: "elite", focus: "Rédaction de clauses, vérification de conformité" },
-          { name: "Conseiller en Gestion de Patrimoine", tier: "elite", focus: "Simulations fiscales, rapports clients" },
-          { name: "Courtier en Assurances / Prêts", tier: "standard", focus: "Analyse de risques, comparaison de contrats" },
-          { name: "Commissaire de Justice (Huissier)", tier: "elite", focus: "Rédaction de constats, procédures" },
-          { name: "Analyste Financier", tier: "elite", focus: "Veille de marché, synthèse de rapports annuels" },
+          { name: "Avocat", popular: true, focus: "Owning judgment and risk as case research gets automated" },
+          { name: "Expert-Comptable", focus: "Repositioning from reporting to advisory as reconciliation automates" },
+          { name: "Conseiller en Gestion de Patrimoine", focus: "Trust and accountability as simulations become commoditized" },
         ]
       },
       {
         id: "real-estate", name: "Real Estate & Construction", icon: "🏠",
         jobs: [
-          { name: "Agent Immobilier", tier: "standard", popular: true, focus: "Rédaction d'annonces, réponses aux acheteurs, mandats" },
-          { name: "Gestionnaire de Copropriété", tier: "standard", focus: "Comptes-rendus d'AG, gestion des litiges" },
-          { name: "Architecte", tier: "standard", focus: "Cahier des charges, descriptifs techniques, normes" },
-          { name: "Diagnostiqueur Immobilier", tier: "standard", focus: "Rédaction de rapports de synthèse" },
-          { name: "Maître d'œuvre / Conducteur de travaux", tier: "standard", focus: "Planning, suivi de chantier" },
+          { name: "Agent Immobilier", popular: true, focus: "Relationship and negotiation as listings write themselves" },
+          { name: "Architecte", focus: "Vision and code-compliance judgment as drafting accelerates" },
+          { name: "Maître d'œuvre / Conducteur de travaux", focus: "On-site judgment as planning tools get smarter" },
         ]
       },
       {
         id: "hr-management", name: "HR & Management", icon: "👔",
         jobs: [
-          { name: "Recruteur (Headhunter)", tier: "standard", focus: "Sourcing, fiches de poste, ghostwriting d'approches" },
-          { name: "DRH / Responsable RH", tier: "elite", focus: "Plans de formation, entretiens annuels, droit social" },
-          { name: "Manager d'Équipe", tier: "standard", focus: "Feedback, coaching, organisation de réunions" },
-          { name: "Coach Professionnel / Formateur", tier: "standard", focus: "Création de programmes, exercices" },
+          { name: "DRH / Responsable RH", focus: "Human judgment in conflict and culture as admin work disappears" },
+          { name: "Recruteur (Headhunter)", focus: "Reading candidates as sourcing gets fully automated" },
+          { name: "Manager d'Équipe", focus: "Coaching and trust-building as reporting becomes instant" },
         ]
       },
       {
         id: "marketing-sales", name: "Marketing, Vente & Communication", icon: "📣",
         jobs: [
-          { name: "Copywriter / Rédacteur Web", tier: "standard", popular: true, focus: "Structure d'articles, pages de vente, SEO" },
-          { name: "Social Media Manager", tier: "standard", focus: "Planning éditorial, scripts Reels/TikTok" },
-          { name: "Responsable E-commerce", tier: "standard", focus: "Fiches produits, SAV automatisé" },
-          { name: "Commercial (SDR/BDR)", tier: "standard", focus: "Prospection LinkedIn, mails de relance personnalisés" },
-          { name: "Graphiste / Directeur Artistique", tier: "standard", focus: "Briefs Midjourney/Firefly, concepts créatifs" },
-          { name: "Attaché de Presse", tier: "standard", focus: "Rédaction de communiqués, relance journalistes" },
-          { name: "Organisateur d'Événements", tier: "standard", focus: "Logistique, prestataires, scénarios" },
+          { name: "Copywriter / Rédacteur Web", popular: true, focus: "Owning strategy and taste as drafting becomes free" },
+          { name: "Social Media Manager", focus: "Brand judgment as content production scales infinitely" },
+          { name: "Commercial (SDR/BDR)", focus: "Closing and trust as outreach becomes fully automated" },
         ]
       },
       {
         id: "health-wellness", name: "Health & Wellness", icon: "🏥",
         jobs: [
-          { name: "Médecin Libéral", tier: "elite", focus: "Synthèse de dossiers patients, courriers confrères" },
-          { name: "Psychologue / Thérapeute", tier: "elite", focus: "Notes de séances, outils de suivi" },
-          { name: "Infirmier Libéral", tier: "standard", focus: "Gestion administrative, coordination de soins" },
-          { name: "Ostéopathe / Kinésithérapeute", tier: "standard", focus: "Conseils post-séance personnalisés" },
-          { name: "Vétérinaire", tier: "elite", focus: "Rapports cliniques, conseils propriétaires" },
-          { name: "Coach Sportif / Nutritionniste", tier: "standard", focus: "Programmes sur mesure, menus" },
+          { name: "Médecin Libéral", focus: "Clinical judgment and bedside trust as documentation automates" },
+          { name: "Psychologue / Thérapeute", focus: "The irreplaceable human presence as note-taking gets outsourced" },
+          { name: "Ostéopathe / Kinésithérapeute", focus: "Hands-on expertise as generic advice becomes commoditized" },
         ]
       },
       {
         id: "services-trades", name: "Services & Artisanat", icon: "🛠️",
         jobs: [
-          { name: "Secrétaire Indépendante / Assistante Virtuelle", tier: "entry", focus: "Tri d'emails, facturation" },
-          { name: "Chef de Cuisine / Restaurateur", tier: "standard", focus: "Calcul de marges, menus, gestion des stocks" },
-          { name: "Photographe Pro", tier: "standard", focus: "Storytelling, légendes, scripts de shooting" },
-          { name: "Wedding Planner", tier: "standard", focus: "Coordination, budgets, rédaction de vœux" },
-          { name: "Traducteur", tier: "standard", focus: "Post-édition, adaptation culturelle" },
-          { name: "Agent de Voyage / Travel Planner", tier: "standard", focus: "Itinéraires sur mesure, comparatifs" },
+          { name: "Chef de Cuisine / Restaurateur", focus: "Taste and experience as planning and costing get automated" },
+          { name: "Photographe Pro", focus: "Vision and storytelling as editing tools become trivial" },
+          { name: "Wedding Planner", focus: "Trust and taste under pressure as logistics tools multiply" },
         ]
       },
       {
         id: "tech-education", name: "Tech & Education", icon: "💻",
         jobs: [
-          { name: "Développeur (Débutant/Intermédiaire)", tier: "standard", focus: "Documentation, debug, refactoring" },
-          { name: "Data Analyst", tier: "standard", focus: "Nettoyage de données, interprétation de tendances" },
-          { name: "Product Manager", tier: "standard", focus: "User stories, roadmap, spécifications" },
-          { name: "Enseignant / Professeur", tier: "standard", focus: "Préparation de cours, exercices, évaluations" },
-          { name: "Consultant Indépendant", tier: "elite", focus: "Proposition commerciale, rapports d'audit" },
+          { name: "Développeur (Débutant/Intermédiaire)", focus: "Repositioning toward architecture as code-writing commoditizes" },
+          { name: "Product Manager", focus: "Judgment on what to build as specs write themselves" },
+          { name: "Enseignant / Professeur", focus: "Mentorship and judgment as content generation becomes free" },
         ]
       },
       {
         id: "other-niches", name: "Other niches", icon: "🚜",
         jobs: [
-          { name: "Agriculteur / Exploitant", tier: "standard", focus: "Gestion administrative, PAC, veille technique" },
-          { name: "Journaliste", tier: "standard", focus: "Transcription, angles d'attaque, interviews" },
-          { name: "Bibliothécaire / Documentaliste", tier: "standard", focus: "Archivage, classification, résumés" },
-          { name: "Responsable Logistique", tier: "standard", focus: "Optimisation de flux, gestion d'entrepôt" },
-          { name: "Designer d'Espace / Décorateur", tier: "standard", focus: "Moodboards textuels, descriptifs" },
-          { name: "Customer Success Manager", tier: "standard", focus: "Réponses tickets, onboarding" },
-          { name: "Écrivain / Auteur", tier: "standard", focus: "Structure narrative, recherche de personnages" },
-          { name: "Expert en Cybersécurité", tier: "elite", focus: "Rapports de vulnérabilité, veille" },
-          { name: "Urbaniste", tier: "standard", focus: "Analyse de plans locaux d'urbanisme" },
-          { name: "Chercheur d'Emploi", tier: "entry", focus: "CV et lettres de motivation par IA" },
+          { name: "Journaliste", focus: "Editorial judgment and trust as transcription fully automates" },
+          { name: "Écrivain / Auteur", focus: "Voice and original perspective as drafting tools multiply" },
+          { name: "Expert en Cybersécurité", focus: "Adversarial judgment as routine scanning becomes automatic" },
         ]
       },
     ];
 
-    // ===== Render category grid =====
     const categoryGrid = document.getElementById("categoryGrid");
     const jobGrid = document.getElementById("jobGrid");
     const catBackWrap = document.getElementById("catBackWrap");
@@ -745,7 +711,6 @@ Synthesis note, 350 words max.</div>
       jobGrid.innerHTML = cat.jobs.map((job, i) => `
         <div class="metier ${job.popular ? "metier--pop" : ""}" data-cat="${cat.id}" data-job="${i}" role="button" tabindex="0" aria-label="${job.name}">
           ${job.popular ? '<span class="metier__pop">Most popular</span>' : ""}
-          <span class="metier__tier">${TIERS[job.tier].label} · ${TIERS[job.tier].price}</span>
           <h3>${job.name}</h3>
           <p class="metier__focus">${job.focus}</p>
         </div>
@@ -790,15 +755,14 @@ Synthesis note, 350 words max.</div>
       if (!cat) return;
       const job = cat.jobs[jobIndex];
       if (!job) return;
-      const tier = TIERS[job.tier];
 
-      document.getElementById("modalTierLabel").textContent = job.popular ? `${tier.label} · Most popular` : tier.label;
+      document.getElementById("modalTierLabel").textContent = job.popular ? "Adaptive Survival Guide · Most popular" : "Adaptive Survival Guide";
       document.getElementById("modalTitle").textContent = job.name;
       document.getElementById("modalFocus").textContent = job.focus;
-      document.getElementById("modalPrice").textContent = tier.price;
-      document.getElementById("modalTierName").textContent = `${tier.label} tier`;
+      document.getElementById("modalPrice").textContent = PRICE;
+      document.getElementById("modalTierName").textContent = "one-time payment";
       document.getElementById("modalDesc").textContent =
-        `100+ ready-to-paste protocols built specifically for the ${job.name} profession, with your Notion prompt base included. From blank page to finished work in under 15 minutes.`;
+        `A strategic guide built specifically for the ${job.name} profession: what's already commoditized by AI, what stays irreplaceable in your judgment, and a 90-day plan to reposition around it. About 30 minutes to read, built to change how you price and pitch your work.`;
       document.getElementById("modalBuyBtn").href = "#collection";
 
       jobModal.style.display = "block";
@@ -836,6 +800,7 @@ Synthesis note, 350 words max.</div>
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && jobModal.classList.contains("is-open")) closeJobModal();
     });
+
     // ===== Lead magnet form — local visual feedback only (wire to your email tool later) =====
     const leadForm = document.getElementById("leadForm");
     const leadMsg = document.getElementById("leadMsg");
@@ -862,11 +827,11 @@ Synthesis note, 350 words max.</div>
         setTimeout(() => {
           leadForm.reset();
           leadSubmitBtn.textContent = "Sent ✓";
-          leadMsg.textContent = `Check your inbox — your 10 ${profession} protocols are on the way.`;
+          leadMsg.textContent = `Check your inbox — your ${profession} audit is on the way.`;
           leadMsg.style.color = "var(--zest)";
           setTimeout(() => {
             leadSubmitBtn.disabled = false;
-            leadSubmitBtn.textContent = "Get my 10 protocols →";
+            leadSubmitBtn.textContent = "Get my free audit →";
             leadMsg.textContent = leadDefaultMsg;
             leadMsg.style.color = "";
           }, 5000);
