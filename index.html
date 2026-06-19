@@ -473,25 +473,53 @@ Synthesis note, 350 words max.</div>
       const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
       camera.position.set(0, 0.15, 4.2);
 
-      // Lemon body: sphere stretched + pinched at poles via lathe profile
+      // Lemon body: realistic profile with pointed nipples at both ends (lathe revolve)
       const points = [];
-      const segments = 14;
+      const segments = 40;
+      const halfLen = 1.15;     // total length / 2
+      const maxR = 0.62;        // belly radius
+      const topNipple = 0.09;   // small pointed tip (stem end)
+      const botNipple = 0.13;   // slightly bigger pointed tip (blossom end)
       for (let i = 0; i <= segments; i++) {
-        const t = i / segments;
-        const y = (t - 0.5) * 2.1;
-        const r = Math.sin(Math.PI * t) * 0.95 + Math.pow(Math.sin(Math.PI * t), 0.4) * 0.05;
-        points.push(new THREE.Vector2(Math.max(r, 0.001), y));
+        const t = i / segments;          // 0 → 1 from top to bottom
+        const y = halfLen - t * (2 * halfLen);
+
+        let r;
+        if (t < 0.08) {
+          // top nipple: sharp taper to a point
+          const lt = t / 0.08;
+          r = topNipple * Math.sin(lt * Math.PI / 2);
+        } else if (t > 0.92) {
+          // bottom nipple: sharp taper to a point
+          const lt = (t - 0.92) / 0.08;
+          r = botNipple * Math.sin((1 - lt) * Math.PI / 2);
+        } else {
+          // belly: smooth ellipse-like bulge, slightly off-center toward bottom
+          const bt = (t - 0.08) / 0.84; // 0..1 across the belly
+          const bulge = Math.sin(bt * Math.PI);
+          r = maxR * Math.pow(bulge, 0.62);
+        }
+        points.push(new THREE.Vector2(Math.max(r, 0.004), y));
       }
-      const lemonGeo = new THREE.LatheGeometry(points, 48);
+      const lemonGeo = new THREE.LatheGeometry(points, 64);
+      // Subtle dimpled skin texture via per-vertex noise (cheap, no texture file needed)
+      const posAttr = lemonGeo.attributes.position;
+      for (let i = 0; i < posAttr.count; i++) {
+        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
+        const n = Math.sin(vx * 28 + vy * 19) * Math.cos(vz * 24 - vy * 11);
+        const scale = 1 + n * 0.012;
+        posAttr.setXYZ(i, vx * scale, vy, vz * scale);
+      }
+      lemonGeo.computeVertexNormals();
       const lemonMat = new THREE.MeshPhongMaterial({
         color: 0xefc52b,
-        shininess: 38,
-        specular: 0x554000,
+        shininess: 28,
+        specular: 0x7a5e10,
         flatShading: false,
       });
       const lemon = new THREE.Mesh(lemonGeo, lemonMat);
-      lemon.rotation.z = Math.PI / 2.1;
-      lemon.rotation.x = 0.15;
+      lemon.rotation.z = Math.PI / 2.05;
+      lemon.rotation.x = 0.12;
       scene.add(lemon);
 
       // Small leaf (green) for brand recognition
@@ -502,7 +530,7 @@ Synthesis note, 350 words max.</div>
       const leafGeo = new THREE.ExtrudeGeometry(leafShape, { depth: 0.02, bevelEnabled: false });
       const leafMat = new THREE.MeshPhongMaterial({ color: 0x2c7a2c, shininess: 20 });
       const leaf = new THREE.Mesh(leafGeo, leafMat);
-      leaf.position.set(-0.04, 1.02, 0.05);
+      leaf.position.set(-0.04, 1.16, 0.05);
       leaf.rotation.set(0.3, 0.6, 0.4);
       scene.add(leaf);
 
