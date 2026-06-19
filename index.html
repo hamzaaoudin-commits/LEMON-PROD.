@@ -23,6 +23,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Testimonials — added to complement styles.css (move into styles.css if you prefer) */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+    @media (max-width:900px){.testimonials{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.testimonials{grid-template-columns:1fr}}
+    .tcard{border:1px solid var(--line,#e6e1d6);border-radius:14px;padding:1.6rem;background:var(--surface,#fff);display:flex;flex-direction:column;gap:1rem;margin:0}
+    .tcard blockquote{margin:0;font-size:.98rem;line-height:1.55;color:var(--ink,#1c1c1c)}
+    .tcard blockquote::before{content:"“"}
+    .tcard blockquote::after{content:"”"}
+    .tcard figcaption{display:flex;flex-direction:column;gap:.1rem;margin-top:auto}
+    .tcard__name{font-weight:600;font-size:.9rem}
+    .tcard__role{font-size:.82rem;opacity:.65}
+  </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -39,10 +52,9 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="#collection">Collection</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#professions">Professions</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn--primary nav__cta" href="#pricing">See the collection</a>
+        <a class="btn btn--primary nav__cta" href="#collection">See the collection</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -64,7 +76,7 @@
           </h1>
           <p class="lede enter" style="--d:.6s">Operational manuals built for one profession at a time: 100+ ready-to-paste protocols designed to take you from blank page to finished work in under 15 minutes. Zero theory. Pure execution.</p>
           <div class="hero__cta enter" style="--d:.72s">
-            <a class="btn btn--primary" href="#pricing">See the collection →</a>
+            <a class="btn btn--primary" href="#collection">See the collection →</a>
             <a class="btn btn--ghost" href="#collection">How it works</a>
           </div>
           <div class="hero__trust enter" style="--d:.84s">
@@ -149,7 +161,7 @@ Synthesis note, 350 words max.</div>
       <p class="prob__authority reveal">Join the 20% who turned AI into billable hours.</p>
     </section>
 
-    <!-- ===================== THE COLLECTION ===================== -->
+    <!-- ===================== THE COLLECTION (merged with Professions) ===================== -->
     <section class="section divider" id="collection">
       <div class="wrap">
         <div class="reveal coll__head">
@@ -185,52 +197,27 @@ Synthesis note, 350 words max.</div>
           <div class="proof__stat"><s>2 hrs</s> → <b>9 min</b></div>
           <p class="proof__label">Example: a client synthesis note, from raw file to proofed deliverable, using the “Case analysis” protocol.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ===================== PRICING ===================== -->
-    <section class="section divider wrap" id="pricing">
-      <div class="price__head reveal">
-        <div>
-          <span class="eyebrow">Pricing</span>
-          <h2 class="display">The price of one hour saved. Earned back on the first.</h2>
+        <div class="reveal" style="margin-top:4.5rem" id="professions">
+          <span class="eyebrow">50+ professions</span>
+          <h2 class="display">Find yours.</h2>
         </div>
-        <a class="btn btn--ghost" href="#professions">See the professions →</a>
+        <div class="metiers reveal">
+          <div class="metier"><div class="metier__count">7 guides</div><h3>Law &amp; Finance</h3></div>
+          <div class="metier"><div class="metier__count">5 guides</div><h3>Real Estate &amp; Construction</h3></div>
+          <div class="metier"><div class="metier__count">4 guides</div><h3>HR &amp; Management</h3></div>
+          <div class="metier"><div class="metier__count">7 guides</div><h3>Marketing &amp; Sales</h3></div>
+          <div class="metier"><div class="metier__count">6 guides</div><h3>Health &amp; Wellness</h3></div>
+          <div class="metier"><div class="metier__count">6 guides</div><h3>Services &amp; Trades</h3></div>
+          <div class="metier"><div class="metier__count">5 guides</div><h3>Tech &amp; Education</h3></div>
+          <div class="metier"><div class="metier__count">10 guides</div><h3>Other niches</h3></div>
+        </div>
+        <p class="metiers__note reveal">
+          <b>Elite</b> — Lawyer, Accountant, Notary, Wealth Advisor.<br>
+          <b>Standard</b> — Real Estate Agent, Recruiter, Copywriter, Social Media Manager, Sales Rep.<br>
+          <b>Entry</b> — Student, job seeker (résumés &amp; cover letters).
+        </p>
       </div>
-
-      <div class="tiers reveal">
-        <div class="tier">
-          <div class="tier__name">Discovery</div>
-          <div class="tier__price">€39</div>
-          <div class="tier__sub">entry point</div>
-          <p class="tier__desc">A universal profession (Sales, Marketing, HR). The impulse buy that brings you into the collection.</p>
-        </div>
-        <div class="tier tier--feat">
-          <span class="tier__label">Best seller</span>
-          <div class="tier__name">Profession</div>
-          <div class="tier__price">€69</div>
-          <div class="tier__sub">the heart of the catalog</div>
-          <p class="tier__desc">A complete guide: 100+ protocols + your Notion prompt base. The standard for your profession.</p>
-        </div>
-        <div class="tier">
-          <div class="tier__name">Practice</div>
-          <div class="tier__price">€149</div>
-          <div class="tier__sub">regulated professions</div>
-          <p class="tier__desc">Lawyer, Accountant, Financial Advisor. + custom GPT + quarterly updates.</p>
-        </div>
-        <div class="tier">
-          <div class="tier__name">Studio</div>
-          <div class="tier__price">€390</div>
-          <div class="tier__sub">the anchor</div>
-          <p class="tier__desc">An entire sector pack, or a license for your team. The collection, in one block.</p>
-        </div>
-      </div>
-
-      <div class="subscribe reveal">
-        <span class="subscribe__i">↻</span>
-        <p><b>Updates subscription — €12/mo.</b> Your protocols evolve as the models evolve. You never stay stuck on an outdated version.</p>
-      </div>
-      <p class="price__note reveal">VAT handled automatically worldwide (Lemon Squeezy / Gumroad). One-time payment, instant access.</p>
     </section>
 
     <!-- ===================== THE DOCTRINE ===================== -->
@@ -258,27 +245,38 @@ Synthesis note, 350 words max.</div>
       </div>
     </section>
 
-    <!-- ===================== PROFESSIONS ===================== -->
-    <section class="section divider wrap" id="professions">
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section divider wrap" id="testimonials">
       <div class="reveal" style="margin-bottom:2.8rem">
-        <span class="eyebrow">50+ professions</span>
-        <h2 class="display">Find yours.</h2>
+        <span class="eyebrow">They saved their first hour</span>
+        <h2 class="display">Professionals who stopped guessing.</h2>
       </div>
-      <div class="metiers reveal">
-        <div class="metier"><div class="metier__count">7 guides</div><h3>Law &amp; Finance</h3></div>
-        <div class="metier"><div class="metier__count">5 guides</div><h3>Real Estate &amp; Construction</h3></div>
-        <div class="metier"><div class="metier__count">4 guides</div><h3>HR &amp; Management</h3></div>
-        <div class="metier"><div class="metier__count">7 guides</div><h3>Marketing &amp; Sales</h3></div>
-        <div class="metier"><div class="metier__count">6 guides</div><h3>Health &amp; Wellness</h3></div>
-        <div class="metier"><div class="metier__count">6 guides</div><h3>Services &amp; Trades</h3></div>
-        <div class="metier"><div class="metier__count">5 guides</div><h3>Tech &amp; Education</h3></div>
-        <div class="metier"><div class="metier__count">10 guides</div><h3>Other niches</h3></div>
+      <div class="testimonials reveal">
+        <figure class="tcard">
+          <blockquote>I used to spend my Sunday evenings drafting client follow-ups. Now I copy, paste, adjust two lines, send. I got three hours back this week alone.</blockquote>
+          <figcaption><span class="tcard__name">Camille R.</span><span class="tcard__role">Real Estate Agent</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <blockquote>The case-summary protocol alone paid for the guide on day one. It's written exactly the way I'd brief a junior associate.</blockquote>
+          <figcaption><span class="tcard__name">Julien M.</span><span class="tcard__role">Lawyer</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <blockquote>I was skeptical of another "AI guide." This isn't theory — it's 100 prompts I actually use, sorted by the tasks I already do every day.</blockquote>
+          <figcaption><span class="tcard__name">Sarah B.</span><span class="tcard__role">HR Manager</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <blockquote>My reconciliation notes used to take two hours. The protocol gets me a clean draft in under ten minutes — I just review and sign off.</blockquote>
+          <figcaption><span class="tcard__name">Thomas L.</span><span class="tcard__role">Accountant</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <blockquote>What sold me was the vocabulary. It doesn't talk like a generic AI tutorial, it talks like someone who's actually worked in marketing.</blockquote>
+          <figcaption><span class="tcard__name">Nadia F.</span><span class="tcard__role">Marketing Manager</span></figcaption>
+        </figure>
+        <figure class="tcard">
+          <blockquote>Client intake forms, follow-up emails, session notes — I didn't expect a single guide to cover all three this well.</blockquote>
+          <figcaption><span class="tcard__name">Antoine D.</span><span class="tcard__role">Physiotherapist</span></figcaption>
+        </figure>
       </div>
-      <p class="metiers__note reveal">
-        <b>Elite</b> — Lawyer, Accountant, Notary, Wealth Advisor.<br>
-        <b>Standard</b> — Real Estate Agent, Recruiter, Copywriter, Social Media Manager, Sales Rep.<br>
-        <b>Entry</b> — Student, job seeker (résumés &amp; cover letters).
-      </p>
     </section>
 
     <!-- ===================== FREE RESOURCE ===================== -->
@@ -303,7 +301,7 @@ Synthesis note, 350 words max.</div>
     <section class="section divider wrap closing">
       <h2 class="display reveal">Stop learning AI.<br>Start using it.</h2>
       <div class="closing__cta reveal">
-        <a class="btn btn--primary" href="#pricing">See the collection →</a>
+        <a class="btn btn--primary" href="#collection">See the collection →</a>
         <a class="btn btn--ghost" href="#collection">Get 10 free protocols</a>
       </div>
     </section>
@@ -329,7 +327,7 @@ Synthesis note, 350 words max.</div>
         </details>
         <details>
           <summary>Will the protocols expire when the models change?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">A well-written protocol lasts. But models move fast, which is why the <a href="#pricing">updates subscription (€12/mo)</a> exists: your protocols are re-tuned with each model generation.</p>
+          <p class="faq__a">A well-written protocol lasts. But models move fast, which is why an updates subscription exists on select guides: your protocols are re-tuned with each model generation.</p>
         </details>
         <details>
           <summary>Do you guarantee a perfect result?<span class="plus" aria-hidden="true"></span></summary>
@@ -345,7 +343,7 @@ Synthesis note, 350 words max.</div>
         </details>
         <details>
           <summary>I want a license for my team.<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">For a multi-seat team license, that's the <a href="#pricing">Studio</a> tier. Reach out and we'll set it up.</p>
+          <p class="faq__a">For a multi-seat team license, reach out and we'll set it up.</p>
         </details>
       </div>
     </section>
@@ -368,14 +366,14 @@ Synthesis note, 350 words max.</div>
         <div class="foot__col">
           <h4>Explore</h4>
           <a href="#collection">The collection</a>
-          <a href="#pricing">Pricing</a>
           <a href="#professions">Professions</a>
+          <a href="#testimonials">Testimonials</a>
         </div>
         <div class="foot__col">
           <h4>The product</h4>
           <a href="#collection">How it works</a>
           <a href="#faq">FAQ</a>
-          <a href="#pricing">10 free protocols</a>
+          <a href="#collection">10 free protocols</a>
         </div>
         <div class="foot__col">
           <h4>Contact</h4>
