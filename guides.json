@@ -1,0 +1,804 @@
+{
+  "categories": [
+    {
+      "id": "law-finance",
+      "name": "Law & Finance",
+      "icon": "⚖️",
+      "jobs": [
+        {
+          "slug": "lawyer",
+          "title": "Lawyer",
+          "popular": true,
+          "focus": "Owning judgment and risk as case research gets automated",
+          "metaTitle": "AI & the Lawyer: What Stays Irreplaceable — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for lawyers facing AI: which parts of legal work are already being commoditized, which stay scarce, and how to reprice your value before a faster peer does.",
+          "intro": "AI now drafts, researches, and maps precedent at a speed no associate can match. The risk to your career isn't the model — it's the lawyer next door who repriced their work around it first.",
+          "irreplaceable": [
+            { "h": "Judgment under uncertainty", "p": "Deciding what advice to give when the law is ambiguous and the stakes are real — and standing behind it." },
+            { "h": "Reading true intent", "p": "Hearing what a client actually wants behind what they say, and what they're not telling you." },
+            { "h": "Owning the risk", "p": "Putting your name, your bar number, and your liability on a recommendation. A model can't be accountable." }
+          ],
+          "commoditized": [
+            { "h": "Case research", "p": "Pulling relevant precedent at scale is now near-instant and near-free." },
+            { "h": "First-draft synthesis", "p": "Memos, summaries, and first-pass contracts are produced in seconds, not billable hours." },
+            { "h": "Document review", "p": "Triage of large document sets is increasingly an automated, supervised task." }
+          ],
+          "hybrid": [
+            { "h": "Stop billing for synthesis", "p": "Let AI produce the raw material you used to bill hours for, and bill instead for the judgment on top of it." },
+            { "h": "Sell the decision, not the document", "p": "Your client doesn't want a 12-page memo — they want to know what to do. Package the answer." },
+            { "h": "Specialize faster", "p": "Use the time AI frees to go deeper in a niche where accountability and relationships compound." }
+          ],
+          "plan": [
+            "Audit your last 20 invoices: flag every line item AI can now produce in minutes.",
+            "Re-price one service from hourly to a fixed fee anchored on outcome, not effort.",
+            "Build a model-assisted first-draft workflow you supervise, so output speed stops being your bottleneck.",
+            "Pick the one practice area where your judgment and reputation are hardest to copy, and concentrate there."
+          ],
+          "close": "Lawyers who'll be fine in five years already know which part of the job to stop defending — and which to double down on."
+        },
+        {
+          "slug": "accountant",
+          "title": "Accountant",
+          "popular": false,
+          "focus": "Repositioning from reporting to advisory as reconciliation automates",
+          "metaTitle": "AI & the Accountant: From Reporting to Advisory — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for accountants: reconciliation and reporting are automating fast. Here's what stays billable and how to reposition toward judgment-led advisory work.",
+          "intro": "Bookkeeping, reconciliation, and standard reporting are collapsing toward zero marginal cost. The accountants who thrive are the ones who already moved their value up the chain.",
+          "irreplaceable": [
+            { "h": "Advisory judgment", "p": "Telling a business owner what the numbers mean for the decision in front of them." },
+            { "h": "Trust and discretion", "p": "Being the person a founder calls before they make a move, not after." },
+            { "h": "Regulatory accountability", "p": "Signing off on what's defensible — and carrying the responsibility for it." }
+          ],
+          "commoditized": [
+            { "h": "Reconciliation", "p": "Matching transactions is now an automated, exception-only task." },
+            { "h": "Standard reporting", "p": "Monthly statements and routine filings are increasingly generated, not assembled by hand." },
+            { "h": "Data entry", "p": "Capture and categorization are moving fully to software." }
+          ],
+          "hybrid": [
+            { "h": "Sell forward, not backward", "p": "Stop selling the record of what happened; sell the read on what should happen next." },
+            { "h": "Productize advisory", "p": "Turn ad-hoc judgment into a named, priced retainer clients understand." },
+            { "h": "Let software do the ledger", "p": "Position automation as your tooling, and your interpretation as the product." }
+          ],
+          "plan": [
+            "Identify the 30% of your billing that is pure compliance and automate or systematize it.",
+            "Launch one advisory retainer with a clear monthly deliverable and a real price.",
+            "Re-introduce yourself to three clients as an advisor, not a reporter.",
+            "Build a dashboard so 'the numbers' are a starting point for conversation, not your deliverable."
+          ],
+          "close": "The ledger is becoming free. Your read on it is what stays scarce."
+        },
+        {
+          "slug": "wealth-manager",
+          "title": "Wealth Manager",
+          "popular": false,
+          "focus": "Trust and accountability as simulations become commoditized",
+          "metaTitle": "AI & the Wealth Manager: Trust as the Moat — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for wealth managers and financial advisors: portfolio modeling is commoditizing. Here's what AI can't replace and how to reposition around trust and behavior.",
+          "intro": "Allocation models, projections, and scenario analysis are becoming free and instant. What clients still pay for is someone who keeps them from acting against their own interest.",
+          "irreplaceable": [
+            { "h": "Behavioral coaching", "p": "Stopping a client from panic-selling at the bottom is worth more than any model." },
+            { "h": "Life-stage judgment", "p": "Translating a portfolio into decisions about a divorce, a sale, a succession, a death." },
+            { "h": "Earned trust", "p": "Being the person someone hands their life's savings to — a relationship, not an output." }
+          ],
+          "commoditized": [
+            { "h": "Portfolio modeling", "p": "Optimization and rebalancing logic is now table-stakes software." },
+            { "h": "Scenario simulation", "p": "Monte Carlo projections are a button, not a service." },
+            { "h": "Generic planning", "p": "Off-the-shelf retirement math is increasingly self-serve." }
+          ],
+          "hybrid": [
+            { "h": "Sell the relationship", "p": "Lead with judgment and access; let the modeling be the commodity behind it." },
+            { "h": "Charge for behavior, not allocation", "p": "Your value is in the decisions clients don't make when scared." },
+            { "h": "Use AI to scale attention", "p": "Let tooling surface what to discuss so every client feels personally known." }
+          ],
+          "plan": [
+            "Reframe your pitch around behavior and life decisions, not returns or allocation.",
+            "Automate reporting so client time is spent on conversation, not spreadsheets.",
+            "Define the moments — sale, inheritance, retirement — where your judgment is decisive, and market those.",
+            "Audit which clients value the relationship vs. the model; protect the first group."
+          ],
+          "close": "Models are becoming free. The discipline to follow one through a downturn isn't."
+        }
+      ]
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate & Construction",
+      "icon": "🏠",
+      "jobs": [
+        {
+          "slug": "real-estate-agent",
+          "title": "Real Estate Agent",
+          "popular": true,
+          "focus": "Relationship and negotiation as listings write themselves",
+          "metaTitle": "AI & the Real Estate Agent: What Stays Irreplaceable — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for real estate agents: listings, valuations, and matching are automating. Here's what stays scarce and how to reposition around negotiation and trust.",
+          "intro": "Listing copy, pricing estimates, and buyer-property matching are becoming automated and free. The agents who survive sell the parts of the deal a model can't touch.",
+          "irreplaceable": [
+            { "h": "Negotiation under pressure", "p": "Reading the room and closing a deal when emotions and money collide." },
+            { "h": "Local, lived knowledge", "p": "What a street is actually like at 8pm — not what the data says." },
+            { "h": "Trust in a high-stakes moment", "p": "Being the person someone trusts with the biggest transaction of their life." }
+          ],
+          "commoditized": [
+            { "h": "Listing copy", "p": "Descriptions and photos enhancement are now one-click." },
+            { "h": "Valuation estimates", "p": "Automated pricing models are a baseline buyers already check." },
+            { "h": "Buyer matching", "p": "Search and filtering is fully self-serve for clients." }
+          ],
+          "hybrid": [
+            { "h": "Stop competing on access", "p": "Listings are public. Compete on the negotiation and the read on the deal." },
+            { "h": "Be the local authority", "p": "Publish the lived, specific knowledge no model has — and own a neighborhood." },
+            { "h": "Automate the busywork", "p": "Let AI handle copy and admin so you spend time face-to-face, where you win." }
+          ],
+          "plan": [
+            "Cut the time you spend writing listings to near zero and reinvest it in client meetings.",
+            "Build a content presence around one neighborhood you know better than any algorithm.",
+            "Sharpen your negotiation as your headline skill — and price your value on it.",
+            "Drop any service a portal already does for free from your pitch."
+          ],
+          "close": "Anyone can see the listings now. Closing the deal is still a human job."
+        },
+        {
+          "slug": "architect",
+          "title": "Architect",
+          "popular": false,
+          "focus": "Vision and code-compliance judgment as drafting accelerates",
+          "metaTitle": "AI & the Architect: Vision Over Drafting — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for architects: drafting and option-generation are accelerating fast. Here's what stays irreplaceable and how to reposition around vision and judgment.",
+          "intro": "Generative tools now produce floor plans, variants, and renders in minutes. The architect's value moves decisively from drafting to vision, judgment, and accountability.",
+          "irreplaceable": [
+            { "h": "Design vision", "p": "Knowing which of a thousand generated options is actually good, and why." },
+            { "h": "Code and context judgment", "p": "Navigating regulation, site, and client reality into something buildable." },
+            { "h": "Stewardship of the project", "p": "Owning the outcome from sketch to handover — a chain a model can't carry." }
+          ],
+          "commoditized": [
+            { "h": "Drafting and documentation", "p": "Production drawings are increasingly automated from intent." },
+            { "h": "Option generation", "p": "Variants and massing studies are now near-instant." },
+            { "h": "Rendering", "p": "Photoreal visualization is a fast, cheap commodity." }
+          ],
+          "hybrid": [
+            { "h": "Curate, don't draft", "p": "Use generation to explore widely, then sell the taste that selects." },
+            { "h": "Lead the project, not the file", "p": "Position yourself as the judgment across the whole build, not the drafter." },
+            { "h": "Charge for vision", "p": "Decouple your fee from drawing hours and tie it to design outcomes." }
+          ],
+          "plan": [
+            "Integrate generative tools into early-stage exploration to widen your option space.",
+            "Reframe client conversations around vision and outcome, not deliverable count.",
+            "Build a portfolio that shows judgment and taste, not production volume.",
+            "Identify the project phases where your accountability is irreplaceable and price them."
+          ],
+          "close": "Generating options is free now. Knowing which one is right is the whole job."
+        },
+        {
+          "slug": "construction-project-manager",
+          "title": "Construction Project Manager",
+          "popular": false,
+          "focus": "On-site judgment as planning tools get smarter",
+          "metaTitle": "AI & the Construction Project Manager — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for construction and site managers: scheduling and planning tools are getting smart. Here's what stays irreplaceable on site and how to reposition.",
+          "intro": "Scheduling, cost estimation, and progress tracking are getting smarter and more automated. What no model can do is run a site when the plan meets reality.",
+          "irreplaceable": [
+            { "h": "On-site judgment", "p": "Reading a problem in the field and deciding in real time, with money and safety on the line." },
+            { "h": "People coordination", "p": "Holding trades, suppliers, and clients together when schedules slip." },
+            { "h": "Accountability for delivery", "p": "Owning that the building gets built, safely and on terms." }
+          ],
+          "commoditized": [
+            { "h": "Scheduling", "p": "Plan generation and optimization is increasingly automated." },
+            { "h": "Cost estimation", "p": "Quantity takeoffs and pricing are moving to software." },
+            { "h": "Progress reporting", "p": "Site capture and reporting is becoming automatic." }
+          ],
+          "hybrid": [
+            { "h": "Let tools plan, you decide", "p": "Use smart scheduling as input; sell the judgment that adapts it on the ground." },
+            { "h": "Own the human chain", "p": "Coordination of people under pressure is your moat — make it visible." },
+            { "h": "Free time for the field", "p": "Automate reporting so you're on site, where the value is." }
+          ],
+          "plan": [
+            "Adopt automated reporting to reclaim hours for on-site presence.",
+            "Position your coordination and crisis judgment as the headline value, not admin.",
+            "Use estimation tools as a baseline you challenge, not a job you do by hand.",
+            "Document the field decisions that saved a project — that's your proof of value."
+          ],
+          "close": "Plans are getting smart. Running the site when the plan breaks is still human."
+        }
+      ]
+    },
+    {
+      "id": "hr-management",
+      "name": "HR & Management",
+      "icon": "👔",
+      "jobs": [
+        {
+          "slug": "hr-director",
+          "title": "HR Director",
+          "popular": false,
+          "focus": "Human judgment in conflict and culture as admin work disappears",
+          "metaTitle": "AI & the HR Director: Culture Over Admin — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for HR directors: administration and process are automating. Here's what stays irreplaceable in culture, conflict, and judgment — and how to reposition.",
+          "intro": "Payroll, policy, onboarding, and reporting are automating across HR. What remains is the hardest, most human part of the job: people in conflict, and culture under strain.",
+          "irreplaceable": [
+            { "h": "Conflict judgment", "p": "Handling a sensitive dispute where trust, law, and emotion intersect." },
+            { "h": "Culture stewardship", "p": "Shaping how a company actually behaves — not what the handbook says." },
+            { "h": "High-stakes discretion", "p": "Being trusted with the things that can't be put in a system." }
+          ],
+          "commoditized": [
+            { "h": "Administration", "p": "Onboarding, leave, and records are moving to self-serve software." },
+            { "h": "Policy drafting", "p": "Standard policies and comms are generated, then reviewed." },
+            { "h": "Reporting", "p": "Headcount and engagement dashboards are automatic." }
+          ],
+          "hybrid": [
+            { "h": "Move up to judgment", "p": "Hand admin to software and reposition as the company's people-judgment function." },
+            { "h": "Own culture as strategy", "p": "Make culture a measurable, led outcome — not a side effect." },
+            { "h": "Be the human in the loop", "p": "Where decisions affect lives, your discretion is the product." }
+          ],
+          "plan": [
+            "Automate the administrative core and publicly reframe your role around judgment.",
+            "Take ownership of one culture metric leadership actually cares about.",
+            "Build a clear escalation path where human judgment is the value, not a bottleneck.",
+            "Reposition HR from cost center to strategic people function in how you report up."
+          ],
+          "close": "The admin is disappearing. The hard human calls are becoming the whole role."
+        },
+        {
+          "slug": "recruiter",
+          "title": "Recruiter",
+          "popular": false,
+          "focus": "Reading candidates as sourcing gets fully automated",
+          "metaTitle": "AI & the Recruiter: Reading People as Sourcing Automates — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for recruiters and headhunters: sourcing and screening are automating fast. Here's what stays irreplaceable and how to reposition around judgment of people.",
+          "intro": "Sourcing, screening, and outreach are becoming fully automated. The recruiters who win are the ones who can read a person and close a placement no algorithm can.",
+          "irreplaceable": [
+            { "h": "Reading a candidate", "p": "Sensing fit, motivation, and risk in a conversation, not a CV score." },
+            { "h": "Closing the placement", "p": "Managing the human emotion of a career move on both sides." },
+            { "h": "Trusted access", "p": "Relationships with people who aren't looking — and don't answer bots." }
+          ],
+          "commoditized": [
+            { "h": "Sourcing", "p": "Finding and ranking candidates at scale is automated." },
+            { "h": "Screening", "p": "First-pass filtering is increasingly a model's job." },
+            { "h": "Outreach", "p": "Initial messaging is generated and sent automatically." }
+          ],
+          "hybrid": [
+            { "h": "Stop competing on volume", "p": "Bots out-source you. Compete on judgment and the close." },
+            { "h": "Own relationships, not lists", "p": "Your access to passive, trusted talent is the moat." },
+            { "h": "Automate the funnel top", "p": "Let AI fill the pipeline; spend your hours where placements are won." }
+          ],
+          "plan": [
+            "Automate sourcing and screening and reinvest the time in candidate conversations.",
+            "Build a relationship network in one niche that bots can't reach.",
+            "Reframe your value to clients around judgment and closing, not CV throughput.",
+            "Track placements that came from trust, not search — that's your real product."
+          ],
+          "close": "Finding people is automated now. Reading them and closing them isn't."
+        },
+        {
+          "slug": "team-manager",
+          "title": "Team Manager",
+          "popular": false,
+          "focus": "Coaching and trust-building as reporting becomes instant",
+          "metaTitle": "AI & the Team Manager: Coaching Over Reporting — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for team managers: status, reporting, and coordination are automating. Here's what stays irreplaceable in coaching and trust — and how to reposition.",
+          "intro": "Status updates, reporting, and task coordination are becoming instant and automatic. What's left is the part that always mattered most: developing and trusting people.",
+          "irreplaceable": [
+            { "h": "Coaching", "p": "Helping a person grow through a hard moment — a judgment, not a process." },
+            { "h": "Trust-building", "p": "Creating the safety that makes a team take risks and own outcomes." },
+            { "h": "Decisions under ambiguity", "p": "Choosing direction when the data doesn't decide for you." }
+          ],
+          "commoditized": [
+            { "h": "Status reporting", "p": "Progress summaries are generated automatically." },
+            { "h": "Coordination", "p": "Task routing and follow-ups are increasingly automated." },
+            { "h": "Note-taking", "p": "Meeting capture and action items are a model's job now." }
+          ],
+          "hybrid": [
+            { "h": "Manage people, not tasks", "p": "Hand coordination to tools and spend your time developing humans." },
+            { "h": "Lead on trust", "p": "Make psychological safety and growth your measurable output." },
+            { "h": "Use AI to free attention", "p": "Let tooling surface what needs a conversation so none get missed." }
+          ],
+          "plan": [
+            "Automate status and reporting; never spend a 1:1 on what a tool could send.",
+            "Make coaching the explicit core of your role and your reviews.",
+            "Build the trust signals your team actually responds to, deliberately.",
+            "Reframe your value to leadership as outcomes and development, not throughput."
+          ],
+          "close": "Coordination is becoming free. Growing people you can trust is the job that's left."
+        }
+      ]
+    },
+    {
+      "id": "marketing-sales",
+      "name": "Marketing, Sales & Communication",
+      "icon": "📣",
+      "jobs": [
+        {
+          "slug": "copywriter",
+          "title": "Copywriter",
+          "popular": true,
+          "focus": "Owning strategy and taste as drafting becomes free",
+          "metaTitle": "AI & the Copywriter: Taste & Strategy as Drafting Goes Free — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for copywriters: drafting is now free and instant. Here's what stays irreplaceable in taste and strategy — and how to reposition before rates collapse.",
+          "intro": "Drafting words is now free, instant, and infinite. Selling words by the hour or the page is a race to zero. The copywriters who survive sell what the model can't: taste and strategy.",
+          "irreplaceable": [
+            { "h": "Taste", "p": "Knowing which of fifty drafts actually lands — and killing the other forty-nine." },
+            { "h": "Strategy", "p": "Deciding what to say and to whom, before a single word is written." },
+            { "h": "Brand judgment", "p": "Protecting a voice over time, across everything, with a point of view." }
+          ],
+          "commoditized": [
+            { "h": "First drafts", "p": "Volume copy is generated in seconds at near-zero cost." },
+            { "h": "Variations", "p": "A/B variants and rewrites are effectively free." },
+            { "h": "Formatting and length", "p": "Reshaping copy for channels is automated." }
+          ],
+          "hybrid": [
+            { "h": "Stop selling words", "p": "Sell the strategy and the editorial judgment; let the model produce volume." },
+            { "h": "Become the editor", "p": "Your value is the cut and the call, not the keystrokes." },
+            { "h": "Own a voice", "p": "Be the person who can hold a distinctive brand voice no default can imitate." }
+          ],
+          "plan": [
+            "Re-price one offer around strategy and taste, not word count.",
+            "Build a workflow where AI drafts and you edit, so volume stops being your limit.",
+            "Develop a signature point of view that clients hire you, specifically, for.",
+            "Drop any service that competes purely on production speed."
+          ],
+          "close": "Drafting is free now. Knowing what's worth saying — and what to cut — is the entire job."
+        },
+        {
+          "slug": "social-media-manager",
+          "title": "Social Media Manager",
+          "popular": false,
+          "focus": "Brand judgment as content production scales infinitely",
+          "metaTitle": "AI & the Social Media Manager — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for social media managers: content production is now infinite and free. Here's what stays irreplaceable in brand judgment and how to reposition.",
+          "intro": "Producing posts, captions, and creative is now infinite and free. The job stops being about volume and becomes about judgment: what's on-brand, what's worth posting, what's a risk.",
+          "irreplaceable": [
+            { "h": "Brand judgment", "p": "Knowing what fits a voice and what would embarrass it — in real time." },
+            { "h": "Cultural read", "p": "Sensing the moment a trend is right for a brand, or a trap." },
+            { "h": "Crisis instinct", "p": "Handling a live situation where one wrong post does real damage." }
+          ],
+          "commoditized": [
+            { "h": "Content production", "p": "Posts and creative are generated at infinite scale." },
+            { "h": "Scheduling", "p": "Planning and publishing is fully automated." },
+            { "h": "Basic analytics", "p": "Performance reporting is automatic." }
+          ],
+          "hybrid": [
+            { "h": "Curate, don't churn", "p": "Production is free; the value is the editorial filter on top." },
+            { "h": "Own the brand's risk", "p": "Be the judgment that keeps a voice consistent and safe." },
+            { "h": "Read culture, then deploy", "p": "Use AI to produce, your instinct to decide what ships." }
+          ],
+          "plan": [
+            "Shift your pitch from output volume to brand judgment and consistency.",
+            "Build a fast produce-then-filter workflow with AI doing the production.",
+            "Make cultural timing and crisis handling your visible specialty.",
+            "Stop pricing on post count; price on the brand's outcomes."
+          ],
+          "close": "Anyone can produce content now. Knowing what's worth posting is the scarce part."
+        },
+        {
+          "slug": "sales-rep",
+          "title": "Sales Rep (SDR/BDR)",
+          "popular": false,
+          "focus": "Closing and trust as outreach becomes fully automated",
+          "metaTitle": "AI & the Sales Rep: Closing as Outreach Automates — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for SDRs and BDRs: prospecting and outreach are fully automating. Here's what stays irreplaceable in closing and trust — and how to reposition.",
+          "intro": "Prospecting, list-building, and first-touch outreach are now fully automated. The reps who survive are the ones who can build trust and close — the part a sequence can't do.",
+          "irreplaceable": [
+            { "h": "Closing", "p": "Reading a buyer and moving them to yes when it actually matters." },
+            { "h": "Trust", "p": "Being the person a prospect believes — a relationship, not a touchpoint." },
+            { "h": "Discovery judgment", "p": "Hearing the real objection behind the stated one." }
+          ],
+          "commoditized": [
+            { "h": "Prospecting", "p": "List-building and enrichment are automated." },
+            { "h": "Outreach", "p": "Personalized-at-scale sequences are a model's job." },
+            { "h": "Follow-up", "p": "Cadence and reminders are automatic." }
+          ],
+          "hybrid": [
+            { "h": "Stop competing on activity", "p": "Volume outreach is automated. Compete on the conversation that closes." },
+            { "h": "Own the human moments", "p": "Discovery and closing are where you win — make them your craft." },
+            { "h": "Let AI fill the top", "p": "Hand prospecting to tools; spend your hours in live deals." }
+          ],
+          "plan": [
+            "Automate prospecting and outreach to focus your time on live conversations.",
+            "Sharpen discovery and closing as your two headline skills.",
+            "Reframe your value around pipeline converted, not activity logged.",
+            "Build trust signals — references, expertise — that a sequence can't fake."
+          ],
+          "close": "Outreach is automated now. The conversation that closes the deal is still human."
+        }
+      ]
+    },
+    {
+      "id": "health-wellness",
+      "name": "Health & Wellness",
+      "icon": "🏥",
+      "jobs": [
+        {
+          "slug": "private-practice-doctor",
+          "title": "Private-Practice Doctor",
+          "popular": false,
+          "focus": "Clinical judgment and bedside trust as documentation automates",
+          "metaTitle": "AI & the Doctor: Judgment & Trust as Documentation Automates — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for private-practice doctors: documentation and triage are automating. Here's what stays irreplaceable in clinical judgment and trust — and how to reposition.",
+          "intro": "Note-taking, coding, triage, and first-pass diagnostics are automating quickly. What stays human is the part patients actually came for: judgment, presence, and trust.",
+          "irreplaceable": [
+            { "h": "Clinical judgment", "p": "Deciding in a real body with incomplete information — and owning the call." },
+            { "h": "Bedside trust", "p": "The presence that makes a frightened patient believe and comply." },
+            { "h": "Ethical accountability", "p": "Carrying responsibility for a life. A model can't hold that." }
+          ],
+          "commoditized": [
+            { "h": "Documentation", "p": "Notes and coding are increasingly automated from the visit." },
+            { "h": "Triage", "p": "First-pass symptom assessment is moving to software." },
+            { "h": "Routine diagnostics", "p": "Standard reads are AI-assisted and faster." }
+          ],
+          "hybrid": [
+            { "h": "Let AI document", "p": "Reclaim the consultation for the patient, not the keyboard." },
+            { "h": "Own the judgment", "p": "Position AI as your instrument; your call and care as the product." },
+            { "h": "Deepen presence", "p": "Use freed time to be more human, not less — that's the differentiator." }
+          ],
+          "plan": [
+            "Adopt automated documentation to give time back to the consultation.",
+            "Make patient relationship and continuity your visible value.",
+            "Use AI diagnostics as support you supervise, never as the decider.",
+            "Build a practice known for trust and presence, not throughput."
+          ],
+          "close": "Documentation is automating. The judgment and the trust are why patients come."
+        },
+        {
+          "slug": "therapist",
+          "title": "Therapist",
+          "popular": false,
+          "focus": "The irreplaceable human presence as note-taking gets outsourced",
+          "metaTitle": "AI & the Therapist: Human Presence as the Moat — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for therapists and psychologists: notes and admin are automating, and chatbots are rising. Here's what stays irreplaceable in human presence and how to reposition.",
+          "intro": "Notes, scheduling, and even first-line support chatbots are spreading. But the core of therapy — a real human holding another's distress — is the hardest thing to automate.",
+          "irreplaceable": [
+            { "h": "Human presence", "p": "Being truly with someone in pain — the mechanism of the work itself." },
+            { "h": "Relational attunement", "p": "Reading what's beneath the words, session over session." },
+            { "h": "Ethical containment", "p": "Holding risk and responsibility for another person's wellbeing." }
+          ],
+          "commoditized": [
+            { "h": "Notes and admin", "p": "Documentation and scheduling are automating." },
+            { "h": "Psychoeducation", "p": "General information and coping content is freely generated." },
+            { "h": "First-line support", "p": "Low-acuity check-ins are moving to apps." }
+          ],
+          "hybrid": [
+            { "h": "Outsource the desk", "p": "Let AI handle admin so you're fully present in the room." },
+            { "h": "Lead with the relationship", "p": "Make the human bond your explicit, irreplaceable value." },
+            { "h": "Use tools between sessions", "p": "Position apps as support around your work, not a substitute." }
+          ],
+          "plan": [
+            "Automate notes and scheduling to protect your presence in session.",
+            "Articulate clearly why the relationship is the treatment, to clients and referrers.",
+            "Decide where tech supports your work and where it must never replace you.",
+            "Build a practice known for depth, not volume."
+          ],
+          "close": "Apps can inform. They can't sit with someone in the dark. That's still your job."
+        },
+        {
+          "slug": "physiotherapist",
+          "title": "Physiotherapist",
+          "popular": false,
+          "focus": "Hands-on expertise as generic advice becomes commoditized",
+          "metaTitle": "AI & the Physiotherapist: Hands-On Value — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for physiotherapists and osteopaths: generic exercise advice is free now. Here's what stays irreplaceable in hands-on assessment and how to reposition.",
+          "intro": "Generic exercise plans and rehab advice are now free and instant. What no model offers is hands-on assessment and the trust of in-person, adaptive care.",
+          "irreplaceable": [
+            { "h": "Hands-on assessment", "p": "Feeling what's wrong in a body and adapting in real time." },
+            { "h": "Manual treatment", "p": "Physical care that can't be delivered through a screen." },
+            { "h": "Adherence and trust", "p": "Getting a real person to actually do the work, week after week." }
+          ],
+          "commoditized": [
+            { "h": "Generic exercise plans", "p": "Standard programs are freely generated." },
+            { "h": "Educational content", "p": "Explanations and advice are abundant and free." },
+            { "h": "Progress tracking", "p": "Apps log and remind automatically." }
+          ],
+          "hybrid": [
+            { "h": "Lead with hands-on", "p": "Make in-person assessment and treatment your headline value." },
+            { "h": "Use apps for adherence", "p": "Let tools handle plans and reminders; you handle the body." },
+            { "h": "Stop giving advice away", "p": "Generic guidance is free — your differentiation is touch and adaptation." }
+          ],
+          "plan": [
+            "Reframe your offer around hands-on assessment and treatment, not advice.",
+            "Use apps for home programs and tracking, freeing sessions for manual work.",
+            "Build a reputation for adapting care to the individual body.",
+            "Drop generic content from your value proposition; it's a commodity."
+          ],
+          "close": "Advice is free now. Hands on a body, adapting in real time, is not."
+        }
+      ]
+    },
+    {
+      "id": "services-trades",
+      "name": "Services & Trades",
+      "icon": "🛠️",
+      "jobs": [
+        {
+          "slug": "chef",
+          "title": "Chef / Restaurateur",
+          "popular": false,
+          "focus": "Taste and experience as planning and costing get automated",
+          "metaTitle": "AI & the Chef: Taste & Experience — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for chefs and restaurateurs: menu costing, planning, and admin are automating. Here's what stays irreplaceable in taste and experience — and how to reposition.",
+          "intro": "Menu costing, inventory, scheduling, and supplier admin are automating. What no model can produce is taste, atmosphere, and a night someone remembers.",
+          "irreplaceable": [
+            { "h": "Taste", "p": "Knowing what's actually delicious — and editing a menu to it." },
+            { "h": "Experience", "p": "Creating a room and a meal people leave talking about." },
+            { "h": "Live judgment", "p": "Running a service when the night goes sideways." }
+          ],
+          "commoditized": [
+            { "h": "Costing and planning", "p": "Menu margins and prep planning are automating." },
+            { "h": "Inventory", "p": "Stock and ordering are software now." },
+            { "h": "Scheduling", "p": "Rosters and shifts are automated." }
+          ],
+          "hybrid": [
+            { "h": "Automate the back office", "p": "Let software run costing and stock; spend your hours on the food and the room." },
+            { "h": "Sell the experience", "p": "Compete on atmosphere and memory, not efficiency." },
+            { "h": "Own taste", "p": "Your palate and point of view are the product no tool replicates." }
+          ],
+          "plan": [
+            "Automate costing, inventory, and scheduling to reclaim creative time.",
+            "Invest the saved hours in the food, the room, and the experience.",
+            "Build a concept with a point of view, not just a menu.",
+            "Make the night people remember your competitive moat."
+          ],
+          "close": "The spreadsheet runs itself now. The taste and the experience never will."
+        },
+        {
+          "slug": "professional-photographer",
+          "title": "Professional Photographer",
+          "popular": false,
+          "focus": "Vision and storytelling as editing tools become trivial",
+          "metaTitle": "AI & the Photographer: Vision Over Editing — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for professional photographers: editing and even generation are trivial now. Here's what stays irreplaceable in vision and presence — and how to reposition.",
+          "intro": "Editing is one click and generation is free. The photographers who survive sell vision, presence, and the things that only happen in a real room with a real person.",
+          "irreplaceable": [
+            { "h": "Vision", "p": "Seeing the shot — a point of view no prompt produces." },
+            { "h": "Presence", "p": "Directing real people in a real moment to get something true." },
+            { "h": "Trust on the day", "p": "Being the person someone trusts with a wedding, a brand, a once-only event." }
+          ],
+          "commoditized": [
+            { "h": "Editing", "p": "Retouching and grading are one-click." },
+            { "h": "Stock-style imagery", "p": "Generic visuals are generated free." },
+            { "h": "Culling", "p": "Selection and sorting is automated." }
+          ],
+          "hybrid": [
+            { "h": "Sell vision, not pixels", "p": "Compete on point of view and presence, not retouching skill." },
+            { "h": "Own the live event", "p": "Be irreplaceable where it can't be generated — the real moment." },
+            { "h": "Automate post", "p": "Let AI handle editing volume; spend your value on the shoot." }
+          ],
+          "plan": [
+            "Reframe your offer around vision and the live shoot, not deliverable volume.",
+            "Automate culling and editing to widen your capacity.",
+            "Specialize in moments that can't be generated — events, people, brand.",
+            "Build a recognizable point of view clients hire you, specifically, for."
+          ],
+          "close": "Editing is trivial now. The eye and the moment are the whole job."
+        },
+        {
+          "slug": "wedding-planner",
+          "title": "Wedding Planner",
+          "popular": false,
+          "focus": "Trust and taste under pressure as logistics tools multiply",
+          "metaTitle": "AI & the Wedding Planner: Trust Under Pressure — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for wedding and event planners: logistics tools are multiplying. Here's what stays irreplaceable in taste and trust under pressure — and how to reposition.",
+          "intro": "Checklists, budgets, timelines, and vendor lists are all automating. What clients still pay for is taste, calm under pressure, and someone who makes the day perfect when it nearly isn't.",
+          "irreplaceable": [
+            { "h": "Taste", "p": "Designing a day that feels like the couple — not a template." },
+            { "h": "Calm under pressure", "p": "Handling the crisis at hour eleven so no one notices." },
+            { "h": "Trust", "p": "Being handed the most emotional day of someone's life." }
+          ],
+          "commoditized": [
+            { "h": "Logistics planning", "p": "Timelines and checklists are generated free." },
+            { "h": "Budgeting", "p": "Cost tracking is automated." },
+            { "h": "Vendor lists", "p": "Discovery and shortlists are self-serve." }
+          ],
+          "hybrid": [
+            { "h": "Automate the spreadsheet", "p": "Let tools run logistics; sell the taste and the calm." },
+            { "h": "Own the day-of judgment", "p": "Your value is handling what goes wrong, live." },
+            { "h": "Be the taste", "p": "Design that feels personal is what no checklist delivers." }
+          ],
+          "plan": [
+            "Automate logistics and budgeting to focus on design and relationships.",
+            "Make day-of crisis management your explicit, premium value.",
+            "Build a recognizable design sensibility couples choose you for.",
+            "Stop competing on organization; compete on taste and trust."
+          ],
+          "close": "Checklists are free now. Taste and calm on the day are still rare."
+        }
+      ]
+    },
+    {
+      "id": "tech-education",
+      "name": "Tech & Education",
+      "icon": "💻",
+      "jobs": [
+        {
+          "slug": "developer",
+          "title": "Developer",
+          "popular": false,
+          "focus": "Repositioning toward architecture as code-writing commoditizes",
+          "metaTitle": "AI & the Developer: Architecture Over Code — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for developers: writing code is commoditizing fast. Here's what stays irreplaceable in architecture and judgment — and how to reposition before junior work evaporates.",
+          "intro": "Writing code is becoming fast and cheap. The value moves from typing the implementation to deciding what to build, how to structure it, and why.",
+          "irreplaceable": [
+            { "h": "Architecture", "p": "Designing systems that survive change — judgment a model can assist but not own." },
+            { "h": "Problem framing", "p": "Knowing what's actually worth building, and what isn't." },
+            { "h": "Accountability", "p": "Owning that the system works in production, under load, over time." }
+          ],
+          "commoditized": [
+            { "h": "Boilerplate code", "p": "Routine implementation is generated in seconds." },
+            { "h": "Simple functions", "p": "Well-specified units are a model's job now." },
+            { "h": "Translation and glue", "p": "Converting between languages and formats is automated." }
+          ],
+          "hybrid": [
+            { "h": "Move up the stack", "p": "Reposition from code-writer to architect and reviewer." },
+            { "h": "Own the why", "p": "Your value is judgment about what to build, not lines typed." },
+            { "h": "Use AI as a junior", "p": "Direct and review generated code; don't compete with it on volume." }
+          ],
+          "plan": [
+            "Make architecture and system design your visible specialty.",
+            "Build a review-and-direct workflow with AI doing implementation.",
+            "Deepen judgment on what to build, not just how.",
+            "Stop measuring your value in code volume; measure it in systems that hold."
+          ],
+          "close": "Writing code is commoditizing. Knowing what to build and how to structure it isn't."
+        },
+        {
+          "slug": "product-manager",
+          "title": "Product Manager",
+          "popular": false,
+          "focus": "Judgment on what to build as specs write themselves",
+          "metaTitle": "AI & the Product Manager: Judgment as Specs Write Themselves — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for product managers: specs, tickets, and reporting are automating. Here's what stays irreplaceable in judgment about what to build — and how to reposition.",
+          "intro": "Writing specs, tickets, and status reports is automating. The PM job concentrates into its hardest core: deciding what's worth building, and what to kill.",
+          "irreplaceable": [
+            { "h": "Judgment on what to build", "p": "Choosing among infinite options under real constraint — the actual job." },
+            { "h": "Stakeholder alignment", "p": "Getting humans with different incentives to commit to one direction." },
+            { "h": "Saying no", "p": "Killing good ideas to protect the great one." }
+          ],
+          "commoditized": [
+            { "h": "Spec writing", "p": "Requirements and tickets are generated from intent." },
+            { "h": "Reporting", "p": "Status and roadmap updates are automatic." },
+            { "h": "Research synthesis", "p": "Summarizing feedback at scale is a model's job." }
+          ],
+          "hybrid": [
+            { "h": "Lead with judgment", "p": "Automate documentation; sell the call on what to build." },
+            { "h": "Own alignment", "p": "Be the human who builds commitment, not the one who writes specs." },
+            { "h": "Use AI for the inputs", "p": "Let tools synthesize; you decide." }
+          ],
+          "plan": [
+            "Automate specs and reporting to focus on prioritization and alignment.",
+            "Make your judgment on what to build your visible value.",
+            "Sharpen the discipline of saying no.",
+            "Stop measuring yourself in artifacts shipped; measure outcomes."
+          ],
+          "close": "Specs write themselves now. Deciding what's worth building is the whole role."
+        },
+        {
+          "slug": "teacher",
+          "title": "Teacher",
+          "popular": false,
+          "focus": "Mentorship and judgment as content generation becomes free",
+          "metaTitle": "AI & the Teacher: Mentorship as Content Goes Free — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for teachers and educators: lesson content and grading are automating. Here's what stays irreplaceable in mentorship and judgment — and how to reposition.",
+          "intro": "Lesson materials, exercises, and even grading are increasingly free and automated. What stays human is the part that actually changes a student: mentorship and presence.",
+          "irreplaceable": [
+            { "h": "Mentorship", "p": "Believing in a student in a way that changes what they believe about themselves." },
+            { "h": "Reading a room", "p": "Sensing who's lost and adapting live — judgment, not content." },
+            { "h": "Modeling how to think", "p": "Showing, in person, how a real mind works through a problem." }
+          ],
+          "commoditized": [
+            { "h": "Content creation", "p": "Lessons and materials are generated free." },
+            { "h": "Exercises and quizzes", "p": "Practice content is infinite and automatic." },
+            { "h": "Grading", "p": "Routine marking is increasingly automated." }
+          ],
+          "hybrid": [
+            { "h": "Outsource content", "p": "Let AI produce materials; spend your time on the humans." },
+            { "h": "Lead with mentorship", "p": "Make relationship and presence your irreplaceable value." },
+            { "h": "Personalize at scale", "p": "Use tools to free attention for the students who need you." }
+          ],
+          "plan": [
+            "Automate materials and grading to reclaim time for students.",
+            "Make mentorship and presence the explicit core of your role.",
+            "Use AI to personalize, not to replace the relationship.",
+            "Build a reputation as the teacher students remember, not the content."
+          ],
+          "close": "Content is free now. The teacher who changes a life is irreplaceable."
+        }
+      ]
+    },
+    {
+      "id": "other-niches",
+      "name": "Other Niches",
+      "icon": "🚜",
+      "jobs": [
+        {
+          "slug": "journalist",
+          "title": "Journalist",
+          "popular": false,
+          "focus": "Editorial judgment and trust as transcription fully automates",
+          "metaTitle": "AI & the Journalist: Judgment & Trust — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for journalists: transcription, summarizing, and aggregation are automating. Here's what stays irreplaceable in judgment, sourcing, and trust — and how to reposition.",
+          "intro": "Transcription, summarizing, and aggregation are fully automating. What no model can do is earn a source's trust, verify the truth, and put its name behind it.",
+          "irreplaceable": [
+            { "h": "Editorial judgment", "p": "Knowing what's actually a story, and what's noise." },
+            { "h": "Source trust", "p": "Relationships that get you what no scraper can reach." },
+            { "h": "Accountability for truth", "p": "Standing behind a claim — a model can't carry that risk." }
+          ],
+          "commoditized": [
+            { "h": "Transcription", "p": "Interviews are transcribed automatically." },
+            { "h": "Summarizing", "p": "Aggregation and recaps are generated free." },
+            { "h": "Routine write-ups", "p": "Formulaic reporting is automated." }
+          ],
+          "hybrid": [
+            { "h": "Own original reporting", "p": "Compete on what can't be scraped — sources and verification." },
+            { "h": "Lead with judgment", "p": "Your editorial call is the value, not the word count." },
+            { "h": "Automate the grunt work", "p": "Let AI transcribe and summarize; you report and verify." }
+          ],
+          "plan": [
+            "Shift your value to original reporting and verification.",
+            "Invest in source relationships no model can reach.",
+            "Automate transcription and research to free time for the story.",
+            "Build trust as your byline's competitive moat."
+          ],
+          "close": "Summaries are free now. Earning a source and verifying the truth isn't."
+        },
+        {
+          "slug": "writer",
+          "title": "Writer / Author",
+          "popular": false,
+          "focus": "Voice and original perspective as drafting tools multiply",
+          "metaTitle": "AI & the Writer: Voice as Drafting Multiplies — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for writers and authors: drafting tools are everywhere and free. Here's what stays irreplaceable in voice and perspective — and how to reposition.",
+          "intro": "Drafting is infinite and free. Generic prose is a commodity. What remains scarce is a distinctive voice and a perspective only one person has.",
+          "irreplaceable": [
+            { "h": "Voice", "p": "A way of writing that's unmistakably yours — not an average of everything." },
+            { "h": "Original perspective", "p": "A point of view drawn from a life, not a dataset." },
+            { "h": "Lived authority", "p": "Writing only you could write, because only you lived it." }
+          ],
+          "commoditized": [
+            { "h": "Generic prose", "p": "Average, competent writing is free and infinite." },
+            { "h": "Formulaic content", "p": "Templated genres are automated." },
+            { "h": "Drafting", "p": "First drafts are produced in seconds." }
+          ],
+          "hybrid": [
+            { "h": "Lead with voice", "p": "Compete on the unmistakable, not the competent." },
+            { "h": "Mine your life", "p": "Your perspective and provenance are the moat." },
+            { "h": "Use AI as a tool, not a ghost", "p": "Let it assist; keep the voice yours and say so." }
+          ],
+          "plan": [
+            "Sharpen and protect a distinctive voice.",
+            "Build work around perspective only you have.",
+            "Document your human provenance — it's becoming a selling point.",
+            "Stop competing where 'competent and generic' is now free."
+          ],
+          "close": "Competent prose is free now. A voice and a perspective are not."
+        },
+        {
+          "slug": "cybersecurity-specialist",
+          "title": "Cybersecurity Specialist",
+          "popular": false,
+          "focus": "Adversarial judgment as routine scanning becomes automatic",
+          "metaTitle": "AI & the Cybersecurity Specialist — Adaptive Survival Outlook",
+          "metaDescription": "A strategic outlook for cybersecurity specialists: scanning and monitoring are automating, and so are attackers. Here's what stays irreplaceable in adversarial judgment — and how to reposition.",
+          "intro": "Scanning, monitoring, and routine triage are automating — and so are the attackers. The value moves to adversarial judgment: thinking like a human attacker, and deciding what actually matters.",
+          "irreplaceable": [
+            { "h": "Adversarial judgment", "p": "Thinking like an attacker who improvises — not a checklist." },
+            { "h": "Prioritization under risk", "p": "Deciding which of a thousand alerts is the one that matters." },
+            { "h": "Accountability", "p": "Owning the call when a breach decision has to be made, fast." }
+          ],
+          "commoditized": [
+            { "h": "Scanning", "p": "Vulnerability scanning is automated." },
+            { "h": "Monitoring", "p": "Log analysis and alerting is increasingly a model's job." },
+            { "h": "Routine triage", "p": "First-pass alert handling is automating." }
+          ],
+          "hybrid": [
+            { "h": "Lead with adversarial thinking", "p": "Automate detection; sell the human judgment that anticipates attackers." },
+            { "h": "Own the hard calls", "p": "Your value is prioritization and response under pressure." },
+            { "h": "Use AI on both sides", "p": "Defenders who direct AI beat those who compete with it." }
+          ],
+          "plan": [
+            "Automate scanning and monitoring to focus on judgment and response.",
+            "Make adversarial thinking and prioritization your visible specialty.",
+            "Build incident-response judgment as your premium value.",
+            "Stop competing on routine triage; it's automating."
+          ],
+          "close": "Scanning is automatic now. Thinking like a human attacker is the scarce skill."
+        }
+      ]
+    }
+  ]
+}

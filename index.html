@@ -7,90 +7,35 @@
 
   <meta name="description" content="Strategic career guides for professionals facing automation. Each guide maps what's irreplaceable in your profession and shows how to hybridize it with AI — not a prompt list, a survival strategy." />
   <meta name="author" content="Lemon Prod" />
+  <link rel="canonical" href="https://lemonprod.co/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Adaptive Survival Guides · by Lemon Prod" />
   <meta property="og:description" content="AI won't take your job. Professionals who can't adapt to it will. Strategic, profession-specific guides to hybridize your irreplaceable skills with AI." />
+  <meta property="og:url" content="https://lemonprod.co/" />
+  <meta property="og:image" content="https://lemonprod.co/og-image.png" />
   <meta property="og:locale" content="en_US" />
-  <!-- Add an OG image (1200×630) to the folder, then uncomment:
-  <meta property="og:image" content="/og-image.png" /> -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Adaptive Survival Guides · by Lemon Prod" />
   <meta name="twitter:description" content="A strategy, not a prompt list. Career-survival guides for the AI era." />
+  <meta name="twitter:image" content="https://lemonprod.co/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <style>
-    /* Testimonials */
-    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
-    @media (max-width:900px){.testimonials{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.testimonials{grid-template-columns:1fr}}
-    .tcard{border:1px solid var(--hair-2);border-radius:2px;padding:1.6rem;background:var(--ink-1);display:flex;flex-direction:column;gap:1rem;margin:0}
-    .tcard blockquote{margin:0;font-size:.98rem;line-height:1.55;color:var(--bone)}
-    .tcard blockquote::before{content:"“";color:var(--zest)}
-    .tcard blockquote::after{content:"”";color:var(--zest)}
-    .tcard figcaption{display:flex;flex-direction:column;gap:.1rem;margin-top:auto}
-    .tcard__name{font-weight:600;font-size:.9rem;color:var(--bone)}
-    .tcard__role{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--bone-3);text-transform:uppercase}
 
-    /* Clickable category & job cards */
-    .metier{cursor:pointer;transition:background .25s}
-    .metier:focus-visible{outline:2px solid var(--zest);outline-offset:2px}
-    .metiers--jobs{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.metiers--jobs{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.metiers--jobs{grid-template-columns:1fr}}
-    .metier__focus{font-size:.9rem;color:var(--bone-3);line-height:1.5;margin-top:.5rem}
-    .metier--pop{position:relative;background:var(--ink-1)}
-    .metier--pop::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--zest)}
-    .metier__pop{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--zest);margin-bottom:.6rem}
-
-    /* ===== 3D: floating lemon canvas in the hero ===== */
-    .proto3d{position:relative;perspective:1400px}
-    .lemon3d{position:absolute;top:-72px;right:-36px;width:170px;height:170px;z-index:2;pointer-events:none;filter:drop-shadow(0 18px 26px rgba(0,0,0,.45))}
-    @media (max-width:900px){.lemon3d{width:110px;height:110px;top:-46px;right:-12px}}
-    @media (max-width:640px){.lemon3d{display:none}}
-
-    /* ===== 3D: tilt-on-hover protocol card ===== */
-    .proto{transform-style:preserve-3d;transition:transform .12s ease-out,box-shadow .25s ease;will-change:transform;box-shadow:0 1px 0 var(--hair)}
-    .proto3d:hover .proto, .proto3d.is-tilting .proto{box-shadow:0 30px 60px -20px rgba(0,0,0,.55),0 1px 0 var(--hair)}
-
-    /* ===== 3D: depth on métiers/category cards ===== */
-    .metiers{perspective:1200px}
-    .metier{transform-style:preserve-3d;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s ease,background .25s;will-change:transform}
-    .metier:hover{box-shadow:0 22px 40px -18px rgba(0,0,0,.5)}
-    @media (prefers-reduced-motion: reduce){
-      .proto, .metier{transition:none !important}
-    }
-
-    /* Modal */
-    .modal{position:fixed;inset:0;z-index:200;display:none}
-    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(2px);opacity:0;transition:opacity .25s ease}
-    .modal.is-open .modal__overlay{opacity:1}
-    .modal__panel{position:relative;max-width:480px;margin:8vh auto 0;background:var(--ink-1);border:1px solid var(--hair-2);border-radius:2px;padding:2.4rem 2.2rem 2.2rem;box-shadow:0 60px 100px -30px rgba(0,0,0,.7),0 10px 30px -10px rgba(0,0,0,.5);opacity:0;transform:translateY(22px) scale(.96) rotateX(2deg);transition:opacity .32s cubic-bezier(.2,.7,.2,1),transform .32s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
-    .modal.is-open .modal__panel{opacity:1;transform:none}
-    @media (prefers-reduced-motion: reduce){.modal__overlay,.modal__panel{transition:none}}
-    @media (max-width:640px){.modal__panel{margin:5vh 1rem 0;padding:2rem 1.5rem}}
-    .modal__close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;color:var(--bone-3);font-size:1.1rem;cursor:pointer;line-height:1;transition:color .2s}
-    .modal__close:hover{color:var(--zest)}
-    .modal__tier{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--zest);margin-bottom:1rem}
-    .modal__tier::before{content:"";width:18px;height:1px;background:var(--zest)}
-    h3#modalTitle{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--bone);margin-bottom:.5rem}
-    .modal__focus{color:var(--bone-3);font-size:.95rem;margin:0 0 1.6rem;line-height:1.5}
-    .modal__price{display:flex;align-items:baseline;gap:.7rem;margin-bottom:1.3rem;border-top:1px solid var(--hair);padding-top:1.3rem}
-    .modal__amount{font-family:var(--serif);font-size:2.4rem;font-weight:500;color:var(--zest);letter-spacing:-0.02em}
-    .modal__tierName{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--bone-3);text-transform:uppercase}
-    .modal__desc{font-size:.96rem;line-height:1.6;color:var(--bone-2);margin-bottom:1.6rem}
-    .modal__buy{display:inline-flex;width:100%;justify-content:center;margin-bottom:1rem}
-    .modal__fine{font-family:var(--mono);font-size:.7rem;color:var(--bone-3);text-align:center;margin:0;letter-spacing:.03em}
-
-    /* Collection sub-brand mark in nav/hero */
-    .sub-brand{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-3)}
-    .sub-brand .zest{color:var(--zest)}
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lemon Prod",
+    "url": "https://lemonprod.co/",
+    "description": "Adaptive Survival Guides — strategic career guides for professionals who'd rather reposition than react to automation.",
+    "email": "contact@lemonprod.co"
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -107,7 +52,7 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="#collection">The guides</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="guides/index.html">All professions</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn--primary nav__cta" href="#collection">Find your guide</a>
       </nav>
@@ -132,19 +77,31 @@
           <p class="lede enter" style="--d:.6s">A strategic guide for your exact profession: what's irreplaceable in your judgment, and how to hybridize it with AI before someone faster does it for you. Not a tutorial. Not a prompt list. A career strategy.</p>
           <div class="hero__cta enter" style="--d:.72s">
             <a class="btn btn--primary" href="#collection">Find your guide →</a>
-            <a class="btn btn--ghost" href="#collection">How it works</a>
+            <a class="btn btn--ghost" href="guides/index.html">Browse all professions</a>
           </div>
           <div class="hero__trust enter" style="--d:.84s">
-            <span>18+ professions</span>
+            <span>24 professions</span>
             <span>One strategy, not a tool list</span>
             <span>Written for your exact title</span>
             <span>30 min read</span>
           </div>
         </div>
 
-        <!-- SIGNATURE: strategy card, with a tilt-on-hover 3D effect + floating 3D lemon -->
+        <!-- SIGNATURE: strategy card with tilt-on-hover + a lightweight floating SVG lemon -->
         <div class="enter proto3d" style="--d:.5s" id="protoWrap">
-          <canvas id="lemon3d" class="lemon3d" aria-hidden="true"></canvas>
+          <svg class="lemon3d" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="lemonShade" cx="38%" cy="32%" r="80%">
+                <stop offset="0%" stop-color="#F7DC6B"/>
+                <stop offset="55%" stop-color="#EFC52B"/>
+                <stop offset="100%" stop-color="#C79A12"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="60" cy="62" rx="34" ry="40" fill="url(#lemonShade)"/>
+            <path d="M60 18c3 0 5.4.4 5.4.4l-2.5 8.4a11 11 0 0 0-5.8 0L54.6 18.4S57 18 60 18z" fill="#2C7A2C"/>
+            <path d="M44 50c8-9 24-9 32 0M44 74c8 9 24 9 32 0" stroke="#B8980A" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="48" cy="44" rx="9" ry="13" fill="#FBE89A" opacity=".55"/>
+          </svg>
           <figure class="proto" id="protoCard" aria-label="Excerpt of a strategic guide">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span>
@@ -152,7 +109,7 @@
               <span class="proto__dot"></span>
               <span class="proto__tag">Adaptive Survival · Lawyer</span>
             </div>
-            <div class="proto__body" id="protoText"><span class="field">// what's irreplaceable</span>
+            <div class="proto__body"><span class="field">// what's irreplaceable</span>
 Judgment under uncertainty. Reading
 a client's real intent behind their
 words. Owning the risk of advice.
@@ -170,13 +127,10 @@ you used to bill hours for.
 <span class="field">// 12-month risk if you don't</span>
 Commoditized billing. Replaced not
 by AI, but by a peer who used it
-to specialize faster than you.</span></div>
+to specialize faster than you.</div>
             <div class="proto__foot">
-              <button class="copy" id="copyBtn" type="button" aria-label="Copy the excerpt">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                Copy
-              </button>
-              <span class="proto__compat">From the Lawyer guide · page 1 of 24</span>
+              <a class="proto__link" href="guides/lawyer/index.html">Read the full Lawyer outlook →</a>
+              <span class="proto__compat">A sample · the honest split</span>
             </div>
           </figure>
         </div>
@@ -219,7 +173,7 @@ to specialize faster than you.</span></div>
       <p class="prob__authority reveal">The professionals who'll be fine in 5 years already know what not to compete on.</p>
     </section>
 
-    <!-- ===================== THE COLLECTION (merged with Professions) ===================== -->
+    <!-- ===================== THE COLLECTION ===================== -->
     <section class="section divider" id="collection">
       <div class="wrap">
         <div class="reveal coll__head">
@@ -257,7 +211,7 @@ to specialize faster than you.</span></div>
         </div>
 
         <div class="reveal" style="margin-top:4.5rem" id="professions">
-          <span class="eyebrow">18+ professions</span>
+          <span class="eyebrow">24 professions</span>
           <h2 class="display">Find yours.</h2>
           <p class="lede" id="catBackWrap" style="display:none;margin-top:.6rem">
             <button class="btn btn--ghost" id="catBackBtn" type="button">← All categories</button>
@@ -271,24 +225,6 @@ to specialize faster than you.</span></div>
         <div class="metiers metiers--jobs reveal" id="jobGrid" style="display:none"></div>
       </div>
     </section>
-
-    <!-- ===================== PROFESSION MODAL ===================== -->
-    <div class="modal" id="jobModal" aria-hidden="true">
-      <div class="modal__overlay" id="jobModalOverlay"></div>
-      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="modal__close" id="modalClose" type="button" aria-label="Close">✕</button>
-        <span class="modal__tier" id="modalTierLabel"></span>
-        <h3 id="modalTitle"></h3>
-        <p class="modal__focus" id="modalFocus"></p>
-        <div class="modal__price">
-          <span class="modal__amount" id="modalPrice"></span>
-          <span class="modal__tierName" id="modalTierName"></span>
-        </div>
-        <p class="modal__desc" id="modalDesc"></p>
-        <a class="btn btn--primary modal__buy" id="modalBuyBtn" href="#">Get this guide →</a>
-        <p class="modal__fine">VAT handled automatically worldwide. One-time payment, instant access.</p>
-      </div>
-    </div>
 
     <!-- ===================== THE DOCTRINE ===================== -->
     <section class="section divider wrap section--tight">
@@ -349,30 +285,12 @@ to specialize faster than you.</span></div>
       </div>
     </section>
 
-    <!-- ===================== FREE RESOURCE ===================== -->
-    <section class="section wrap section--tight">
-      <div class="magnet reveal">
-        <div>
-          <span class="eyebrow">Free</span>
-          <h2>The 5-minute audit.</h2>
-          <p>Pick your profession, get a free one-page audit: the 3 tasks in your role most exposed to AI, and the 1 skill worth doubling down on. A taste of the full guide's thinking.</p>
-        </div>
-        <!-- Wire this form to your email tool (see README). For now, submission shows local visual feedback only. -->
-        <form class="magnet__form" id="leadForm" novalidate>
-          <input type="text" name="profession" id="leadProfession" placeholder="Your profession (e.g. Real Estate Agent)" autocomplete="organization-title" required />
-          <input type="email" name="email" id="leadEmail" placeholder="Your work email" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit" id="leadSubmitBtn">Get my free audit →</button>
-          <span class="magnet__fine" id="leadMsg">PDF · Free · One email. Zero spam.</span>
-        </form>
-      </div>
-    </section>
-
     <!-- ===================== CLOSING ===================== -->
     <section class="section divider wrap closing">
       <h2 class="display reveal">Stop wondering if AI<br>will take your job.</h2>
       <div class="closing__cta reveal">
         <a class="btn btn--primary" href="#collection">Find your guide →</a>
-        <a class="btn btn--ghost" href="#collection">Get the free audit</a>
+        <a class="btn btn--ghost" href="guides/index.html">Browse all professions</a>
       </div>
     </section>
 
@@ -401,15 +319,11 @@ to specialize faster than you.</span></div>
         </details>
         <details>
           <summary>Do you guarantee I'll keep my job?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">No, and no one honest would. We guarantee a clear, specific picture of where your profession is headed and a concrete plan to reposition. The decision to act on it stays yours.</p>
+          <p class="faq__a">No, and no one honest would. We give you a clear, specific picture of where your profession is headed and a concrete plan to reposition. The decision to act on it stays yours.</p>
         </details>
         <details>
           <summary>How do I receive the guide?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">As a PDF, built to be read in about 30 minutes. Instant delivery after payment.</p>
-        </details>
-        <details>
-          <summary>Do you refund?<span class="plus" aria-hidden="true"></span></summary>
-          <p class="faq__a">If the guide doesn't give you a clearer view of your next move, you're refunded. <!-- Align this with your real policy and the Lemon Squeezy / Gumroad terms. --></p>
+          <p class="faq__a">The full guide will be delivered as a PDF, built to be read in about 30 minutes. In the meantime, read the free outlook for your profession and join the waitlist to be notified when your guide ships.</p>
         </details>
         <details>
           <summary>I want this for my whole team.<span class="plus" aria-hidden="true"></span></summary>
@@ -435,21 +349,19 @@ to specialize faster than you.</span></div>
         </div>
         <div class="foot__col">
           <h4>Explore</h4>
-          <a href="#collection">The guides</a>
-          <a href="#professions">Professions</a>
-          <a href="#testimonials">Testimonials</a>
-        </div>
-        <div class="foot__col">
-          <h4>The collection</h4>
+          <a href="guides/index.html">All professions</a>
           <a href="#collection">How it works</a>
           <a href="#faq">FAQ</a>
-          <a href="#collection">Free audit</a>
+        </div>
+        <div class="foot__col">
+          <h4>Outlook</h4>
+          <a href="guides/lawyer/index.html">Lawyer</a>
+          <a href="guides/real-estate-agent/index.html">Real Estate Agent</a>
+          <a href="guides/copywriter/index.html">Copywriter</a>
         </div>
         <div class="foot__col">
           <h4>Contact</h4>
           <a href="mailto:contact@lemonprod.co">Email</a>
-          <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
       <div class="foot__bottom">
@@ -464,231 +376,48 @@ to specialize faster than you.</span></div>
   </footer>
 
   <script>
-    // ===== 3D lemon (procedural, no external model needed) =====
-    (function initLemon3D() {
-      const canvas = document.getElementById("lemon3d");
-      if (!canvas || typeof THREE === "undefined") return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-      camera.position.set(0, 0.15, 4.2);
-
-      // Lemon body: realistic profile with pointed nipples at both ends (lathe revolve)
-      const points = [];
-      const segments = 40;
-      const halfLen = 1.15;
-      const maxR = 0.62;
-      const topNipple = 0.09;
-      const botNipple = 0.13;
-      for (let i = 0; i <= segments; i++) {
-        const t = i / segments;
-        const y = halfLen - t * (2 * halfLen);
-
-        let r;
-        if (t < 0.08) {
-          const lt = t / 0.08;
-          r = topNipple * Math.sin(lt * Math.PI / 2);
-        } else if (t > 0.92) {
-          const lt = (t - 0.92) / 0.08;
-          r = botNipple * Math.sin((1 - lt) * Math.PI / 2);
-        } else {
-          const bt = (t - 0.08) / 0.84;
-          const bulge = Math.sin(bt * Math.PI);
-          r = maxR * Math.pow(bulge, 0.62);
-        }
-        points.push(new THREE.Vector2(Math.max(r, 0.004), y));
-      }
-      const lemonGeo = new THREE.LatheGeometry(points, 64);
-      const posAttr = lemonGeo.attributes.position;
-      for (let i = 0; i < posAttr.count; i++) {
-        const vx = posAttr.getX(i), vy = posAttr.getY(i), vz = posAttr.getZ(i);
-        const n = Math.sin(vx * 28 + vy * 19) * Math.cos(vz * 24 - vy * 11);
-        const scale = 1 + n * 0.012;
-        posAttr.setXYZ(i, vx * scale, vy, vz * scale);
-      }
-      lemonGeo.computeVertexNormals();
-      const lemonMat = new THREE.MeshPhongMaterial({
-        color: 0xefc52b,
-        shininess: 28,
-        specular: 0x7a5e10,
-        flatShading: false,
-      });
-      const lemon = new THREE.Mesh(lemonGeo, lemonMat);
-      lemon.rotation.z = Math.PI / 2.05;
-      lemon.rotation.x = 0.12;
-      scene.add(lemon);
-
-      const leafShape = new THREE.Shape();
-      leafShape.moveTo(0, 0);
-      leafShape.quadraticCurveTo(0.28, 0.12, 0.34, 0);
-      leafShape.quadraticCurveTo(0.28, -0.12, 0, 0);
-      const leafGeo = new THREE.ExtrudeGeometry(leafShape, { depth: 0.02, bevelEnabled: false });
-      const leafMat = new THREE.MeshPhongMaterial({ color: 0x2c7a2c, shininess: 20 });
-      const leaf = new THREE.Mesh(leafGeo, leafMat);
-      leaf.position.set(-0.04, 1.16, 0.05);
-      leaf.rotation.set(0.3, 0.6, 0.4);
-      scene.add(leaf);
-
-      const key = new THREE.DirectionalLight(0xffffff, 1.1);
-      key.position.set(2.5, 3, 3);
-      scene.add(key);
-      const fill = new THREE.DirectionalLight(0xfff3c4, 0.4);
-      fill.position.set(-2, -1, 2);
-      scene.add(fill);
-      const ambient = new THREE.AmbientLight(0x8a8a8a, 0.55);
-      scene.add(ambient);
-
-      function resize() {
-        const w = canvas.clientWidth || 170;
-        const h = canvas.clientHeight || 170;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      }
-      resize();
-      window.addEventListener("resize", resize);
-
-      let raf;
-      function animate() {
-        raf = requestAnimationFrame(animate);
-        lemon.rotation.y += 0.006;
-        leaf.rotation.y += 0.006;
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              if (!raf) animate();
-            } else if (raf) {
-              cancelAnimationFrame(raf);
-              raf = null;
-            }
-          });
-        });
-        io.observe(canvas);
-      }
-    })();
-
-    // ===== 3D tilt-on-hover: strategy card =====
-    (function initProtoTilt() {
-      const wrap = document.getElementById("protoWrap");
-      const card = document.getElementById("protoCard");
-      if (!wrap || !card) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (window.matchMedia("(hover: none)").matches) return;
-
-      wrap.addEventListener("mousemove", (e) => {
-        const rect = wrap.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const max = 7;
-        card.style.transform = `rotateX(${(-y * max).toFixed(2)}deg) rotateY(${(x * max).toFixed(2)}deg)`;
-      });
-      wrap.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0deg) rotateY(0deg)";
-      });
-    })();
-
-    // ===== 3D tilt-on-hover: métier/category cards =====
-    (function initMetierTilt() {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (window.matchMedia("(hover: none)").matches) return;
-
-      document.addEventListener("mousemove", (e) => {
-        const card = e.target.closest(".metier");
-        if (!card) return;
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const max = 5;
-        card.style.transform = `rotateX(${(-y * max).toFixed(2)}deg) rotateY(${(x * max).toFixed(2)}deg) translateZ(4px)`;
-      });
-      document.addEventListener("mouseout", (e) => {
-        const card = e.target.closest(".metier");
-        if (!card) return;
-        const related = e.relatedTarget;
-        if (related && card.contains(related)) return;
-        card.style.transform = "none";
-      });
-    })();
-  </script>
-
-  <script>
-    // ===== Profession data — single price for every guide =====
-    const PRICE = "€49";
-
+    // ===== Profession data — English titles + slugs that link to the SEO guide pages =====
     const CATEGORIES = [
-      {
-        id: "law-finance", name: "Law & Finance", icon: "⚖️",
-        jobs: [
-          { name: "Avocat", popular: true, focus: "Owning judgment and risk as case research gets automated" },
-          { name: "Expert-Comptable", focus: "Repositioning from reporting to advisory as reconciliation automates" },
-          { name: "Conseiller en Gestion de Patrimoine", focus: "Trust and accountability as simulations become commoditized" },
-        ]
-      },
-      {
-        id: "real-estate", name: "Real Estate & Construction", icon: "🏠",
-        jobs: [
-          { name: "Agent Immobilier", popular: true, focus: "Relationship and negotiation as listings write themselves" },
-          { name: "Architecte", focus: "Vision and code-compliance judgment as drafting accelerates" },
-          { name: "Maître d'œuvre / Conducteur de travaux", focus: "On-site judgment as planning tools get smarter" },
-        ]
-      },
-      {
-        id: "hr-management", name: "HR & Management", icon: "👔",
-        jobs: [
-          { name: "DRH / Responsable RH", focus: "Human judgment in conflict and culture as admin work disappears" },
-          { name: "Recruteur (Headhunter)", focus: "Reading candidates as sourcing gets fully automated" },
-          { name: "Manager d'Équipe", focus: "Coaching and trust-building as reporting becomes instant" },
-        ]
-      },
-      {
-        id: "marketing-sales", name: "Marketing, Vente & Communication", icon: "📣",
-        jobs: [
-          { name: "Copywriter / Rédacteur Web", popular: true, focus: "Owning strategy and taste as drafting becomes free" },
-          { name: "Social Media Manager", focus: "Brand judgment as content production scales infinitely" },
-          { name: "Commercial (SDR/BDR)", focus: "Closing and trust as outreach becomes fully automated" },
-        ]
-      },
-      {
-        id: "health-wellness", name: "Health & Wellness", icon: "🏥",
-        jobs: [
-          { name: "Médecin Libéral", focus: "Clinical judgment and bedside trust as documentation automates" },
-          { name: "Psychologue / Thérapeute", focus: "The irreplaceable human presence as note-taking gets outsourced" },
-          { name: "Ostéopathe / Kinésithérapeute", focus: "Hands-on expertise as generic advice becomes commoditized" },
-        ]
-      },
-      {
-        id: "services-trades", name: "Services & Artisanat", icon: "🛠️",
-        jobs: [
-          { name: "Chef de Cuisine / Restaurateur", focus: "Taste and experience as planning and costing get automated" },
-          { name: "Photographe Pro", focus: "Vision and storytelling as editing tools become trivial" },
-          { name: "Wedding Planner", focus: "Trust and taste under pressure as logistics tools multiply" },
-        ]
-      },
-      {
-        id: "tech-education", name: "Tech & Education", icon: "💻",
-        jobs: [
-          { name: "Développeur (Débutant/Intermédiaire)", focus: "Repositioning toward architecture as code-writing commoditizes" },
-          { name: "Product Manager", focus: "Judgment on what to build as specs write themselves" },
-          { name: "Enseignant / Professeur", focus: "Mentorship and judgment as content generation becomes free" },
-        ]
-      },
-      {
-        id: "other-niches", name: "Other niches", icon: "🚜",
-        jobs: [
-          { name: "Journaliste", focus: "Editorial judgment and trust as transcription fully automates" },
-          { name: "Écrivain / Auteur", focus: "Voice and original perspective as drafting tools multiply" },
-          { name: "Expert en Cybersécurité", focus: "Adversarial judgment as routine scanning becomes automatic" },
-        ]
-      },
+      { id: "law-finance", name: "Law & Finance", icon: "⚖️", jobs: [
+        { slug: "lawyer", name: "Lawyer", popular: true, focus: "Owning judgment and risk as case research gets automated" },
+        { slug: "accountant", name: "Accountant", focus: "Repositioning from reporting to advisory as reconciliation automates" },
+        { slug: "wealth-manager", name: "Wealth Manager", focus: "Trust and accountability as simulations become commoditized" },
+      ]},
+      { id: "real-estate", name: "Real Estate & Construction", icon: "🏠", jobs: [
+        { slug: "real-estate-agent", name: "Real Estate Agent", popular: true, focus: "Relationship and negotiation as listings write themselves" },
+        { slug: "architect", name: "Architect", focus: "Vision and code-compliance judgment as drafting accelerates" },
+        { slug: "construction-project-manager", name: "Construction Project Manager", focus: "On-site judgment as planning tools get smarter" },
+      ]},
+      { id: "hr-management", name: "HR & Management", icon: "👔", jobs: [
+        { slug: "hr-director", name: "HR Director", focus: "Human judgment in conflict and culture as admin work disappears" },
+        { slug: "recruiter", name: "Recruiter", focus: "Reading candidates as sourcing gets fully automated" },
+        { slug: "team-manager", name: "Team Manager", focus: "Coaching and trust-building as reporting becomes instant" },
+      ]},
+      { id: "marketing-sales", name: "Marketing, Sales & Communication", icon: "📣", jobs: [
+        { slug: "copywriter", name: "Copywriter", popular: true, focus: "Owning strategy and taste as drafting becomes free" },
+        { slug: "social-media-manager", name: "Social Media Manager", focus: "Brand judgment as content production scales infinitely" },
+        { slug: "sales-rep", name: "Sales Rep (SDR/BDR)", focus: "Closing and trust as outreach becomes fully automated" },
+      ]},
+      { id: "health-wellness", name: "Health & Wellness", icon: "🏥", jobs: [
+        { slug: "private-practice-doctor", name: "Private-Practice Doctor", focus: "Clinical judgment and bedside trust as documentation automates" },
+        { slug: "therapist", name: "Therapist", focus: "The irreplaceable human presence as note-taking gets outsourced" },
+        { slug: "physiotherapist", name: "Physiotherapist", focus: "Hands-on expertise as generic advice becomes commoditized" },
+      ]},
+      { id: "services-trades", name: "Services & Trades", icon: "🛠️", jobs: [
+        { slug: "chef", name: "Chef / Restaurateur", focus: "Taste and experience as planning and costing get automated" },
+        { slug: "professional-photographer", name: "Professional Photographer", focus: "Vision and storytelling as editing tools become trivial" },
+        { slug: "wedding-planner", name: "Wedding Planner", focus: "Trust and taste under pressure as logistics tools multiply" },
+      ]},
+      { id: "tech-education", name: "Tech & Education", icon: "💻", jobs: [
+        { slug: "developer", name: "Developer", focus: "Repositioning toward architecture as code-writing commoditizes" },
+        { slug: "product-manager", name: "Product Manager", focus: "Judgment on what to build as specs write themselves" },
+        { slug: "teacher", name: "Teacher", focus: "Mentorship and judgment as content generation becomes free" },
+      ]},
+      { id: "other-niches", name: "Other Niches", icon: "🚜", jobs: [
+        { slug: "journalist", name: "Journalist", focus: "Editorial judgment and trust as transcription fully automates" },
+        { slug: "writer", name: "Writer / Author", focus: "Voice and original perspective as drafting tools multiply" },
+        { slug: "cybersecurity-specialist", name: "Cybersecurity Specialist", focus: "Adversarial judgment as routine scanning becomes automatic" },
+      ]},
     ];
 
     const categoryGrid = document.getElementById("categoryGrid");
@@ -708,12 +437,12 @@ to specialize faster than you.</span></div>
     function renderJobs(catId) {
       const cat = CATEGORIES.find(c => c.id === catId);
       if (!cat) return;
-      jobGrid.innerHTML = cat.jobs.map((job, i) => `
-        <div class="metier ${job.popular ? "metier--pop" : ""}" data-cat="${cat.id}" data-job="${i}" role="button" tabindex="0" aria-label="${job.name}">
-          ${job.popular ? '<span class="metier__pop">Most popular</span>' : ""}
+      jobGrid.innerHTML = cat.jobs.map(job => `
+        <a class="metier ${job.popular ? "metier--pop" : ""}" href="guides/${job.slug}/index.html" aria-label="${job.name} — read the outlook">
+          ${job.popular ? '<span class="metier__pop">Most read</span>' : ""}
           <h3>${job.name}</h3>
           <p class="metier__focus">${job.focus}</p>
-        </div>
+        </a>
       `).join("");
       categoryGrid.style.display = "none";
       jobGrid.style.display = "grid";
@@ -744,100 +473,6 @@ to specialize faster than you.</span></div>
     });
 
     catBackBtn.addEventListener("click", showCategories);
-
-    // ===== Modal =====
-    const jobModal = document.getElementById("jobModal");
-    const jobModalOverlay = document.getElementById("jobModalOverlay");
-    const modalClose = document.getElementById("modalClose");
-
-    function openJobModal(catId, jobIndex) {
-      const cat = CATEGORIES.find(c => c.id === catId);
-      if (!cat) return;
-      const job = cat.jobs[jobIndex];
-      if (!job) return;
-
-      document.getElementById("modalTierLabel").textContent = job.popular ? "Adaptive Survival Guide · Most popular" : "Adaptive Survival Guide";
-      document.getElementById("modalTitle").textContent = job.name;
-      document.getElementById("modalFocus").textContent = job.focus;
-      document.getElementById("modalPrice").textContent = PRICE;
-      document.getElementById("modalTierName").textContent = "one-time payment";
-      document.getElementById("modalDesc").textContent =
-        `A strategic guide built specifically for the ${job.name} profession: what's already commoditized by AI, what stays irreplaceable in your judgment, and a 90-day plan to reposition around it. About 30 minutes to read, built to change how you price and pitch your work.`;
-      document.getElementById("modalBuyBtn").href = "#collection";
-
-      jobModal.style.display = "block";
-      requestAnimationFrame(() => {
-        jobModal.classList.add("is-open");
-      });
-      jobModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeJobModal() {
-      jobModal.classList.remove("is-open");
-      jobModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      setTimeout(() => {
-        jobModal.style.display = "none";
-      }, 280);
-    }
-
-    jobGrid.addEventListener("click", (e) => {
-      const card = e.target.closest(".metier");
-      if (!card || card.dataset.job === undefined) return;
-      openJobModal(card.dataset.cat, Number(card.dataset.job));
-    });
-    jobGrid.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      const card = e.target.closest(".metier");
-      if (!card || card.dataset.job === undefined) return;
-      e.preventDefault();
-      openJobModal(card.dataset.cat, Number(card.dataset.job));
-    });
-
-    modalClose.addEventListener("click", closeJobModal);
-    jobModalOverlay.addEventListener("click", closeJobModal);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && jobModal.classList.contains("is-open")) closeJobModal();
-    });
-
-    // ===== Lead magnet form — local visual feedback only (wire to your email tool later) =====
-    const leadForm = document.getElementById("leadForm");
-    const leadMsg = document.getElementById("leadMsg");
-    const leadSubmitBtn = document.getElementById("leadSubmitBtn");
-    const leadDefaultMsg = leadMsg ? leadMsg.textContent : "";
-
-    if (leadForm) {
-      leadForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const profession = document.getElementById("leadProfession").value.trim();
-        const email = document.getElementById("leadEmail").value.trim();
-        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-        if (!profession || !emailOk) {
-          leadMsg.textContent = "Please fill in your profession and a valid email.";
-          leadMsg.style.color = "#E0664F";
-          return;
-        }
-
-        leadSubmitBtn.disabled = true;
-        leadSubmitBtn.textContent = "Sending…";
-
-        // TODO: replace with a real call to your email tool (e.g. fetch('/api/lead', {...}))
-        setTimeout(() => {
-          leadForm.reset();
-          leadSubmitBtn.textContent = "Sent ✓";
-          leadMsg.textContent = `Check your inbox — your ${profession} audit is on the way.`;
-          leadMsg.style.color = "var(--zest)";
-          setTimeout(() => {
-            leadSubmitBtn.disabled = false;
-            leadSubmitBtn.textContent = "Get my free audit →";
-            leadMsg.textContent = leadDefaultMsg;
-            leadMsg.style.color = "";
-          }, 5000);
-        }, 700);
-      });
-    }
   </script>
 
   <script src="script.js"></script>

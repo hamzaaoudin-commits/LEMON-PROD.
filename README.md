@@ -1,83 +1,77 @@
-# 🍋 Lemon Prod — site web
+# 🍋 Lemon Prod — Adaptive Survival Guides
 
-Site vitrine statique pour Lemon Prod (manuels opérationnels IA, 50+ métiers).
-Pur HTML / CSS / JS — aucune dépendance, aucun build. Déployable tel quel sur **GitHub Pages** et **Vercel**.
+Static site for Lemon Prod. Pure HTML / CSS / vanilla JS for the runtime — **no build step at deploy time**.
+A small Node generator (`build-guides.mjs`) produces the SEO guide pages from `guides.json`; you run it
+locally and commit the output. Deployable as-is to **GitHub Pages** and **Vercel**.
 
 ```
 lemon-prod/
-├── index.html      ← page unique (toutes les sections)
-├── styles.css      ← design system (monolithe sombre + zest éditorial)
-├── script.js       ← nav mobile, copie protocole, reveal, formulaire
-├── favicon.svg     ← marque citron
-├── vercel.json     ← config Vercel (clean URLs + headers)
+├── index.html            ← homepage
+├── styles.css            ← design system (one stylesheet for the whole site)
+├── script.js             ← mobile nav + scroll reveal
+├── favicon.svg
+├── og-image.png          ← social card (1200×630)
+├── robots.txt            ← points crawlers at the sitemap
+├── sitemap.xml           ← GENERATED (don't edit by hand)
+├── vercel.json
+├── guides.json           ← content source for every profession page (edit this)
+├── build-guides.mjs      ← generator → writes /guides/** + sitemap.xml
+├── guides/
+│   ├── index.html        ← hub (all 24 professions) — GENERATED
+│   └── <profession>/index.html  ← one SEO page per profession — GENERATED
 └── README.md
 ```
 
 ---
 
-## Déploiement
+## SEO surface (the engine)
 
-### Option A — Vercel (recommandé, le plus rapide)
+Every profession now has its own indexable page at `/guides/<slug>/` — the thing search engines can rank
+for queries like "AI strategy lawyer" or "repositioning accountant AI". Each page carries: unique title +
+meta description, canonical URL, Open Graph + Twitter cards, `Article` + `BreadcrumbList` JSON-LD, and
+internal links (hub ↔ siblings ↔ home). The homepage profession grid links straight into these pages.
 
-1. Pousse ce dossier sur un repo GitHub (voir plus bas).
-2. Sur [vercel.com](https://vercel.com) → **Add New → Project** → importe le repo.
-3. Framework Preset : **Other**. Build command : *(vide)*. Output directory : `.` (racine).
-4. **Deploy.** Vercel sert `index.html` directement. Domaine custom : *Settings → Domains*.
+### Editing / adding content
+1. Edit `guides.json` (intro, the honest split, the hybrid move, the 90-day plan, meta).
+2. Run the generator:
+   ```bash
+   node build-guides.mjs
+   ```
+3. Commit the regenerated `guides/**` and `sitemap.xml`.
 
-> Tu peux aussi simplement faire glisser le dossier sur [vercel.com/new](https://vercel.com/new) sans repo.
-
-### Option B — GitHub Pages
-
-```bash
-cd lemon-prod
-git init
-git add .
-git commit -m "Lemon Prod — site v1"
-git branch -M main
-git remote add origin https://github.com/<ton-user>/lemon-prod.git
-git push -u origin main
+### ⚠️ Before publishing — set your domain
+Open `build-guides.mjs` and change one line:
+```js
+const BASE = "https://lemonprod.co";   // ← your final domain (used in canonical + sitemap + OG)
 ```
-
-Puis sur GitHub : **Settings → Pages → Source : Deploy from a branch → `main` / `root` → Save.**
-Le site sera en ligne sur `https://<ton-user>.github.io/lemon-prod/` en ~1 min.
-
-> `vercel.json` est ignoré par GitHub Pages, aucun souci.
+Then re-run the generator. Also update the `canonical` / `og:url` / `og:image` URLs in `index.html` to match.
 
 ---
 
-## À personnaliser avant de publier
+## Deployment
 
-| Quoi | Où |
-|------|----|
-| **Email de contact** | `index.html` → `mailto:contact@lemonprod.co` (footer) |
-| **Liens Instagram / LinkedIn** | `index.html` → footer (`href="#"`) |
-| **Boutons "Voir la collection"** | pointe-les vers tes pages produit Lemon Squeezy / Gumroad |
-| **Formulaire « 10 protocoles »** | `index.html` → `#leadForm`. Branche-le à ton outil d'emailing (voir ci-dessous) |
-| **Politique de remboursement** | FAQ — aligne le texte sur tes vraies CGV |
-| **Image OG** | ajoute `og-image.png` (1200×630) et décommente la balise dans `<head>` |
-| **Mentions légales / CGV / Confidentialité** | footer (`href="#"`) — crée les pages |
+### Vercel (fastest)
+Import the repo → Framework **Other**, build command empty, output `.` → Deploy.
+`cleanUrls` in `vercel.json` serves `/guides/lawyer/` from `/guides/lawyer/index.html`.
 
-### Brancher le formulaire d'emailing
-Le plus simple, sans backend : remplace la balise `<form id="leadForm">` par un embed de ton outil
-(Brevo, MailerLite, ConvertKit, Beehiiv…), **ou** change l'`action` du formulaire pour pointer vers
-leur endpoint. Le `script.js` ne fait aujourd'hui qu'une validation côté client (démo).
+### GitHub Pages
+Push, then **Settings → Pages → Deploy from a branch → `main` / `root`.**
+Folder-with-`index.html` URLs resolve natively, so `/guides/lawyer/` works without config.
 
 ---
 
-## Notes honnêtes (à garder en tête)
+## Still open (deliberately not done yet)
 
-- **Aucun faux témoignage / chiffre inventé** n'a été mis sur la page. La preuve produit (« 2 h → 9 min »)
-  est un *exemple* — remplace-la par un cas réel quand tu en auras un. Si tu ajoutes des témoignages,
-  qu'ils soient réels : c'est ce qui tient face à un acheteur de métier réglementé.
-- La promesse est volontairement formulée en **levier** (« on supprime la page blanche »), pas en
-  **précision** (« 100 % exact »). C'est plus vrai, plus défendable juridiquement, et plus premium.
-- Langue : **FR** (marché francophone, marges Élite). Pour une version EN des métiers universels,
-  duplique `index.html` en `/en/` et traduis — la structure est identique.
+- **No checkout / product.** The guide pages end in a `mailto:` waitlist CTA — it captures demand with
+  zero backend. Swap it for a real checkout (Lemon Squeezy / Gumroad) once the PDFs exist.
+- **Testimonials on the homepage are placeholders** (named people). Replace with real ones before launch —
+  invented attributions are the easiest thing for a professional buyer to catch.
+- **Legal / Terms / Privacy** footer links are `#` placeholders. Required in France once you take payment.
+- **Lead-magnet "free audit" was removed** per request; the waitlist is now the only capture mechanism.
 
 ---
 
-*Design : monolithe sombre cinématographique (#0a0a0a), accent jaune zest employé avec parcimonie
-(filets, folios, mot-clé du hero, prix vedette). Typo : Playfair Display (display) · DM Sans (texte) ·
-JetBrains Mono (labels) — les fondations du site Strawberry, transposées en territoire citron.
-Hero à révélation ligne par ligne, structure éditoriale à filets. Responsive, accessible,
-`prefers-reduced-motion` respecté.*
+*Design: cinematographic dark monolith (#0a0a0a), lemon zest used sparingly as accent. Type: Playfair Display
+(display) · DM Sans (text) · JetBrains Mono (labels) — Strawberry's foundations in lemon territory.
+Responsive, keyboard-accessible, `prefers-reduced-motion` respected. The hero's floating lemon is a
+lightweight animated SVG (the old ~600 KB three.js dependency was removed).*
