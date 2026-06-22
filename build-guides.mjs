@@ -181,7 +181,7 @@ function guidePage(job) {
 
   const planItem = (p, i) => `          <li><span class="plan__n">${String(i + 1).padStart(2, "0")}</span><span>${esc(p)}</span></li>`;
 
-  const siblingCard = (s) => `        <a class="rel__card" href="../${s.slug}/index.html">
+  const siblingCard = (s) => `        <a class="rel__card" href="${relRoot}guides/${s.slug}/index.html">
           <span class="rel__focus">${esc(s.focus)}</span>
           <h3>${esc(s.title)}</h3>
           <span class="rel__go">Read the outlook →</span>
