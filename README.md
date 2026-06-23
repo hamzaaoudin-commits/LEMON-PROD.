@@ -1,77 +1,51 @@
-# 🍋 Lemon Prod — Adaptive Survival Guides
+# 🍋 Lemon Prod — Adaptive Survival Guides (EN / FR / ES)
 
-Static site for Lemon Prod. Pure HTML / CSS / vanilla JS for the runtime — **no build step at deploy time**.
-A small Node generator (`build-guides.mjs`) produces the SEO guide pages from `guides.json`; you run it
-locally and commit the output. Deployable as-is to **GitHub Pages** and **Vercel**.
+Static, trilingual SEO site. The runtime is pure HTML / CSS / vanilla JS — no build step at deploy time.
+A Node generator (build-guides.mjs) produces every localized page from the content + i18n JSON; you run it
+locally, commit the output, and push. Deployable as-is to Vercel and GitHub Pages.
 
-```
-lemon-prod/
-├── index.html            ← homepage
-├── styles.css            ← design system (one stylesheet for the whole site)
-├── script.js             ← mobile nav + scroll reveal
-├── favicon.svg
-├── og-image.png          ← social card (1200×630)
-├── robots.txt            ← points crawlers at the sitemap
-├── sitemap.xml           ← GENERATED (don't edit by hand)
-├── vercel.json
-├── guides.json           ← content source for every profession page (edit this)
-├── build-guides.mjs      ← generator → writes /guides/** + sitemap.xml
-├── guides/
-│   ├── index.html        ← hub (all 24 professions) — GENERATED
-│   └── <profession>/index.html  ← one SEO page per profession — GENERATED
-└── README.md
-```
+EVERYTHING under index.html, guides/, fr/, es/, sitemap.xml, robots.txt is GENERATED.
+Don't edit those by hand — edit the JSON and re-run the generator, or your changes get overwritten.
 
----
+Edit by hand: styles.css (one design system for the whole site), script.js (mobile nav + scroll reveal),
+favicon.svg, og-image.png, vercel.json.
 
-## SEO surface (the engine)
+Content sources: guides.json (EN content + structure: slugs, categories, "popular"),
+guides.fr.json / guides.es.json (translated profession content), i18n.json (UI strings + category names per locale).
 
-Every profession now has its own indexable page at `/guides/<slug>/` — the thing search engines can rank
-for queries like "AI strategy lawyer" or "repositioning accountant AI". Each page carries: unique title +
-meta description, canonical URL, Open Graph + Twitter cards, `Article` + `BreadcrumbList` JSON-LD, and
-internal links (hub ↔ siblings ↔ home). The homepage profession grid links straight into these pages.
+## Languages
+Three real, separately-indexable locales — not a JS text-swap.
+  EN (default): /            /guides            /guides/lawyer
+  FR:           /fr          /fr/guides         /fr/guides/lawyer
+  ES:           /es          /es/guides         /es/guides/lawyer
+Each page declares hreflang alternates for all three + x-default (EN). The FR·EN·ES switch in the nav links
+to the same page in the other language. Slugs are identical across locales; only visible text changes.
 
-### Editing / adding content
-1. Edit `guides.json` (intro, the honest split, the hybrid move, the 90-day plan, meta).
-2. Run the generator:
-   ```bash
-   node build-guides.mjs
-   ```
-3. Commit the regenerated `guides/**` and `sitemap.xml`.
+## Editing content
+1. UI text (nav, hero, FAQ, footer, labels) -> i18n.json, under ui.<locale>.
+2. A profession's content -> guides.json (EN) and guides.fr.json / guides.es.json.
+3. Regenerate, then commit the regenerated folders:  node build-guides.mjs
+Add a profession: add it to a category in guides.json, then add a same-slug entry to the FR and ES files.
 
-### ⚠️ Before publishing — set your domain
-Open `build-guides.mjs` and change one line:
-```js
-const BASE = "https://lemonprod.co";   // ← your final domain (used in canonical + sitemap + OG)
-```
-Then re-run the generator. Also update the `canonical` / `og:url` / `og:image` URLs in `index.html` to match.
-
----
+## BEFORE PUBLISHING — set your domain
+BASE is currently the Vercel URL so indexing can start now:
+  // build-guides.mjs
+  const BASE = "https://lemon-prod.vercel.app";
+When you connect lemonprod.co, change that one line, re-run the generator, and re-push. BASE drives every
+canonical, hreflang, OG URL and the sitemap. After it's live on the final domain, submit sitemap.xml in
+Google Search Console.
 
 ## Deployment
+- Vercel: push -> auto-redeploy. cleanUrls serves /fr/guides/lawyer from the folder's index.html.
+- GitHub Pages: Settings -> Pages -> Deploy from main / root. Folder URLs resolve natively.
 
-### Vercel (fastest)
-Import the repo → Framework **Other**, build command empty, output `.` → Deploy.
-`cleanUrls` in `vercel.json` serves `/guides/lawyer/` from `/guides/lawyer/index.html`.
+## Still open (deliberately)
+- No checkout / product yet. Guide pages end in a mailto: waitlist (zero backend). Swap for a real checkout
+  (Lemon Squeezy / Gumroad) once the PDFs exist.
+- Testimonials removed. The fabricated ones were dropped rather than translated into 3 languages. Re-add real
+  ones (in all three locales) when you have them.
+- Legal / Terms / Privacy footer links are # placeholders — required in France once you take payment.
 
-### GitHub Pages
-Push, then **Settings → Pages → Deploy from a branch → `main` / `root`.**
-Folder-with-`index.html` URLs resolve natively, so `/guides/lawyer/` works without config.
-
----
-
-## Still open (deliberately not done yet)
-
-- **No checkout / product.** The guide pages end in a `mailto:` waitlist CTA — it captures demand with
-  zero backend. Swap it for a real checkout (Lemon Squeezy / Gumroad) once the PDFs exist.
-- **Testimonials on the homepage are placeholders** (named people). Replace with real ones before launch —
-  invented attributions are the easiest thing for a professional buyer to catch.
-- **Legal / Terms / Privacy** footer links are `#` placeholders. Required in France once you take payment.
-- **Lead-magnet "free audit" was removed** per request; the waitlist is now the only capture mechanism.
-
----
-
-*Design: cinematographic dark monolith (#0a0a0a), lemon zest used sparingly as accent. Type: Playfair Display
-(display) · DM Sans (text) · JetBrains Mono (labels) — Strawberry's foundations in lemon territory.
-Responsive, keyboard-accessible, `prefers-reduced-motion` respected. The hero's floating lemon is a
-lightweight animated SVG (the old ~600 KB three.js dependency was removed).*
+Design: cinematographic dark monolith (#0a0a0a), lemon zest as a sparing accent. Type: Playfair Display ·
+DM Sans · JetBrains Mono. The hero lemon is a lightweight animated SVG (no three.js). Responsive,
+keyboard-accessible, prefers-reduced-motion respected.

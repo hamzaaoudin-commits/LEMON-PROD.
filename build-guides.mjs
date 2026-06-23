@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 /* =========================================================================
-   Lemon Prod — guide page generator
-   Reads guides.json, emits static SEO pages under /guides/<slug>/index.html,
-   the /guides/ hub, and sitemap.xml. No build step at deploy time — run this
-   locally once, commit the output, push.
+   Lemon Prod — multilingual static generator (EN / FR / ES)
+   Reads guides.json (EN source + structure), guides.fr.json, guides.es.json
+   (translated content), and i18n.json (UI strings). Emits per locale:
+     /            /guides/            /guides/<slug>/        (en)
+     /fr/         /fr/guides/         /fr/guides/<slug>/     (fr)
+     /es/         /es/guides/         /es/guides/<slug>/     (es)
+   plus sitemap.xml (with hreflang alternates) and robots.txt.
 
-   Usage:  node build-guides.mjs
+   No build step at deploy time — run once locally, commit, push:
+     node build-guides.mjs
    ========================================================================= */
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
@@ -13,368 +17,557 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 /* >>> CHANGE THIS to your final domain before publishing <<< */
-const BASE = "https://lemonprod.co";
+const BASE = "https://lemon-prod.vercel.app";
 const CONTACT = "contact@lemonprod.co";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
-const data = JSON.parse(readFileSync(join(ROOT, "guides.json"), "utf8"));
+const rd = (f) => JSON.parse(readFileSync(join(ROOT, f), "utf8"));
+
+const data = rd("guides.json");
+const i18n = rd("i18n.json");
+const CONTENT = { en: null, fr: rd("guides.fr.json"), es: rd("guides.es.json") };
+const LOCALES = i18n.locales;
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
-const esc = (s) =>
-  String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const firstSentence = (t) => { const m = String(t).match(/^[^.!?]*[.!?]/); return m ? m[0].trim() : String(t); };
 
-/* Flatten jobs with their category attached */
+/* Flatten jobs with category attached (structure + EN content live in guides.json) */
 const jobs = [];
-for (const cat of data.categories) {
-  for (const job of cat.jobs) {
-    jobs.push({ ...job, categoryId: cat.id, categoryName: cat.name, icon: cat.icon });
-  }
-}
-const jobBySlug = Object.fromEntries(jobs.map((j) => [j.slug, j]));
+for (const cat of data.categories) for (const job of cat.jobs) jobs.push({ ...job, categoryId: cat.id });
 
-/* ---------- Shared <head> fragment ---------- */
-function head({ title, description, canonical, ogType, relRoot }) {
+/* Resolve a profession's content for a locale */
+function content(slug, loc) {
+  if (loc === "en") return jobs.find((j) => j.slug === slug);
+  const c = CONTENT[loc][slug];
+  const base = jobs.find((j) => j.slug === slug);
+  return { ...c, slug, popular: base.popular, categoryId: base.categoryId };
+}
+function jobTitle(slug, loc) { return content(slug, loc).title; }
+function jobFocus(slug, loc) { return loc === "en" ? content(slug, "en").focus : firstSentence(content(slug, "en") && CONTENT[loc][slug].intro); }
+function catName(catId, loc) { return i18n.categoryNames[catId][loc]; }
+const T = (loc) => i18n.ui[loc];
+const fmt = (s, vars) => s.replace(/\{(\w)\}/g, (_, k) => vars[k] ?? "");
+
+/* ---- URL / path helpers (clean, extensionless, root-relative) ---- */
+const prefix = (loc) => (loc === "en" ? "" : `/${loc}`);
+function path(loc, kind, slug) {
+  if (kind === "home") return prefix(loc) || "/";
+  if (kind === "hub") return `${prefix(loc)}/guides`;
+  return `${prefix(loc)}/guides/${slug}`;
+}
+const url = (loc, kind, slug) => BASE + path(loc, kind, slug);
+
+/* ---- <head> with canonical + hreflang ---- */
+function head({ loc, kind, slug, title, description, ogType }) {
+  const canonical = url(loc, kind, slug);
+  const alts = LOCALES.map((l) => `  <link rel="alternate" hreflang="${i18n.htmlLang[l]}" href="${url(l, kind, slug)}" />`).join("\n");
   return `  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}" />
   <meta name="author" content="Lemon Prod" />
-  <link rel="canonical" href="${esc(canonical)}" />
+  <link rel="canonical" href="${canonical}" />
+${alts}
+  <link rel="alternate" hreflang="x-default" href="${url("en", kind, slug)}" />
 
   <meta property="og:type" content="${ogType}" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
-  <meta property="og:url" content="${esc(canonical)}" />
+  <meta property="og:url" content="${canonical}" />
   <meta property="og:image" content="${BASE}/og-image.png" />
-  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale" content="${i18n.ogLocale[loc]}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${esc(title)}" />
   <meta name="twitter:description" content="${esc(description)}" />
   <meta name="twitter:image" content="${BASE}/og-image.png" />
 
-  <link rel="icon" type="image/svg+xml" href="${relRoot}favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${relRoot}styles.css" />`;
+  <link rel="stylesheet" href="/styles.css" />`;
 }
 
-/* ---------- Shared nav (relRoot points at site root) ---------- */
-function nav(relRoot) {
-  return `  <header class="nav">
-    <div class="wrap nav__inner">
-      <a class="brand" href="${relRoot}index.html" aria-label="Lemon Prod — home">
-        <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
+/* ---- language switch (links to the same page in each locale) ---- */
+function langSwitch(loc, kind, slug) {
+  const items = LOCALES.map((l) =>
+    `<a class="lang__opt${l === loc ? " is-active" : ""}" href="${path(l, kind, slug)}" hreflang="${i18n.htmlLang[l]}"${l === loc ? ' aria-current="true"' : ""}>${i18n.langName[l]}</a>`
+  ).join('<span class="lang__sep" aria-hidden="true">·</span>');
+  return `<div class="lang" role="group" aria-label="Language">${items}</div>`;
+}
+
+const brandSvg = `<svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
           <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
           <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
-        </svg>
+        </svg>`;
+
+function nav(loc, kind, slug) {
+  const t = T(loc), p = prefix(loc);
+  return `  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="${p || "/"}" aria-label="Lemon Prod — home">${brandSvg}
         LEMON&nbsp;PROD.
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
-        <a href="${relRoot}guides/index.html">All guides</a>
-        <a href="${relRoot}index.html#faq">FAQ</a>
-        <a class="btn btn--primary nav__cta" href="${relRoot}guides/index.html">Find your guide</a>
+        <a href="${p}/guides">${esc(t.nav_all)}</a>
+        <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
+        ${langSwitch(loc, kind, slug)}
+        <a class="btn btn--primary nav__cta" href="${p}/guides">${esc(t.nav_find)}</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <button class="nav__toggle" id="navToggle" aria-label="${esc(t.open_menu)}" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </header>`;
 }
 
-/* ---------- Shared footer ---------- */
-function footer(relRoot) {
+function footer(loc) {
+  const t = T(loc), p = prefix(loc);
   return `  <footer class="foot">
     <div class="wrap">
       <div class="foot__top">
         <div class="foot__brand">
-          <a class="brand" href="${relRoot}index.html" aria-label="Lemon Prod">
-            <svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
-              <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
-              <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
-            </svg>
+          <a class="brand" href="${p || "/"}" aria-label="Lemon Prod">${brandSvg}
             LEMON&nbsp;PROD.
           </a>
-          <p>Adaptive Survival Guides — strategic career guides for professionals who'd rather reposition than react to automation.</p>
+          <p>${esc(t.foot_desc)}</p>
         </div>
         <div class="foot__col">
-          <h4>Explore</h4>
-          <a href="${relRoot}guides/index.html">All guides</a>
-          <a href="${relRoot}index.html#collection">How it works</a>
-          <a href="${relRoot}index.html#faq">FAQ</a>
+          <h4>${esc(t.foot_explore)}</h4>
+          <a href="${p}/guides">${esc(t.nav_all)}</a>
+          <a href="${p || "/"}#collection">${esc(t.foot_how)}</a>
+          <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
         </div>
         <div class="foot__col">
-          <h4>Outlook</h4>
-          <a href="${relRoot}guides/lawyer/index.html">Lawyer</a>
-          <a href="${relRoot}guides/real-estate-agent/index.html">Real Estate Agent</a>
-          <a href="${relRoot}guides/copywriter/index.html">Copywriter</a>
+          <h4>${esc(t.foot_outlook)}</h4>
+          <a href="${p}/guides/lawyer">${esc(jobTitle("lawyer", loc))}</a>
+          <a href="${p}/guides/real-estate-agent">${esc(jobTitle("real-estate-agent", loc))}</a>
+          <a href="${p}/guides/copywriter">${esc(jobTitle("copywriter", loc))}</a>
         </div>
         <div class="foot__col">
-          <h4>Contact</h4>
-          <a href="mailto:${CONTACT}">Email</a>
+          <h4>${esc(t.foot_contact)}</h4>
+          <a href="mailto:${CONTACT}">${esc(t.foot_email)}</a>
         </div>
       </div>
       <div class="foot__bottom">
-        <small>© ${new Date().getFullYear()} Lemon Prod. All rights reserved.</small>
+        <small>© ${new Date().getFullYear()} Lemon Prod. ${esc(t.foot_rights)}</small>
         <div class="foot__legal">
-          <a href="#">Legal</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
+          <a href="#">${esc(t.foot_legal)}</a>
+          <a href="#">${esc(t.foot_terms)}</a>
+          <a href="#">${esc(t.foot_privacy)}</a>
         </div>
       </div>
     </div>
   </footer>`;
 }
 
-/* ---------- One profession page ---------- */
-function guidePage(job) {
-  const relRoot = "../../";
-  const canonical = `${BASE}/guides/${job.slug}/`;
-  const siblings = jobs.filter((j) => j.categoryId === job.categoryId && j.slug !== job.slug);
+const lemonSvg = `<svg class="lemon3d" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <defs><radialGradient id="lemonShade" cx="38%" cy="32%" r="80%">
+              <stop offset="0%" stop-color="#F7DC6B"/><stop offset="55%" stop-color="#EFC52B"/><stop offset="100%" stop-color="#C79A12"/>
+            </radialGradient></defs>
+            <ellipse cx="60" cy="62" rx="34" ry="40" fill="url(#lemonShade)"/>
+            <path d="M60 18c3 0 5.4.4 5.4.4l-2.5 8.4a11 11 0 0 0-5.8 0L54.6 18.4S57 18 60 18z" fill="#2C7A2C"/>
+            <path d="M44 50c8-9 24-9 32 0M44 74c8 9 24 9 32 0" stroke="#B8980A" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="48" cy="44" rx="9" ry="13" fill="#FBE89A" opacity=".55"/>
+          </svg>`;
 
-  const waitlistHref =
-    `mailto:${CONTACT}` +
-    `?subject=${encodeURIComponent(`Waitlist — ${job.title} guide`)}` +
-    `&body=${encodeURIComponent(`I'd like to be notified when the Adaptive Survival Guide for ${job.title} is ready.`)}`;
+/* proto card body built from the localized lawyer content */
+function protoBody(loc) {
+  const law = content("lawyer", loc), t = T(loc);
+  return `<span class="field">${esc(t.proto_f1)}</span>
+${esc(law.irreplaceable[0].h)}. ${esc(law.irreplaceable[1].h)}.
+${esc(law.irreplaceable[2].h)}.
 
-  const jsonld = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-          { "@type": "ListItem", position: 2, name: "Guides", item: `${BASE}/guides/` },
-          { "@type": "ListItem", position: 3, name: job.title, item: canonical },
-        ],
-      },
-      {
-        "@type": "Article",
-        headline: job.metaTitle,
-        description: job.metaDescription,
-        inLanguage: "en",
-        datePublished: BUILD_DATE,
-        dateModified: BUILD_DATE,
-        author: { "@type": "Organization", name: "Lemon Prod" },
-        publisher: { "@type": "Organization", name: "Lemon Prod" },
-        mainEntityOfPage: canonical,
-        about: `AI and the future of the ${job.title} profession`,
-      },
-    ],
-  };
+<span class="field">${esc(t.proto_f2)}</span>
+${esc(law.commoditized[0].h)}. ${esc(law.commoditized[1].h)}.
+${esc(law.commoditized[2].h)}.
 
-  const splitItem = (it) => `        <div class="split__item">
-          <h3>${esc(it.h)}</h3>
-          <p>${esc(it.p)}</p>
-        </div>`;
+<span class="field">${esc(t.proto_f3)}</span>
+<span class="k">${esc(law.hybrid[0].h)}.</span>
+${esc(law.hybrid[0].p)}`;
+}
 
-  const hybridItem = (it, i) => `        <div class="hcard">
-          <div class="hcard__n">${String(i + 1).padStart(2, "0")}</div>
-          <h3>${esc(it.h)}</h3>
-          <p>${esc(it.p)}</p>
-        </div>`;
+/* ----------------------------- HOMEPAGE ----------------------------- */
+function homePage(loc) {
+  const t = T(loc), p = prefix(loc);
+  const cats = data.categories.map((cat) => ({
+    id: cat.id, name: `${cat.icon} ${catName(cat.id, loc)}`,
+    jobs: cat.jobs.map((j) => ({ slug: j.slug, title: jobTitle(j.slug, loc), popular: !!j.popular, focus: jobFocus(j.slug, loc), href: path(loc, "guide", j.slug) })),
+  }));
 
-  const planItem = (p, i) => `          <li><span class="plan__n">${String(i + 1).padStart(2, "0")}</span><span>${esc(p)}</span></li>`;
-
-  const siblingCard = (s) => `        <a class="rel__card" href="${relRoot}guides/${s.slug}/index.html">
-          <span class="rel__focus">${esc(s.focus)}</span>
-          <h3>${esc(s.title)}</h3>
-          <span class="rel__go">Read the outlook →</span>
-        </a>`;
+  const marq = [t.marq_1, t.marq_2, t.marq_3, t.marq_4, t.marq_5].map((m) => `<span>${esc(m)}</span>`).join("");
+  const faqItems = [1,2,3,4,5,6,7].map((n) => `        <details>
+          <summary>${esc(t["faq_q"+n])}<span class="plus" aria-hidden="true"></span></summary>
+          <p class="faq__a">${esc(t["faq_a"+n])}</p>
+        </details>`).join("\n");
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${i18n.htmlLang[loc]}">
 <head>
-${head({ title: job.metaTitle, description: job.metaDescription, canonical, ogType: "article", relRoot })}
+${head({ loc, kind: "home", title: t.home_title, description: t.home_desc, ogType: "website" })}
   <script type="application/ld+json">
-${JSON.stringify(jsonld, null, 2)}
+${JSON.stringify({ "@context":"https://schema.org","@type":"Organization", name:"Lemon Prod", url: BASE + "/", email: CONTACT, description: t.foot_desc }, null, 2)}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-${nav(relRoot)}
+  <a class="skip" href="#main">${esc(t.skip)}</a>
+${nav(loc, "home", null)}
 
   <main id="main">
-    <article class="section wrap guide">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="${relRoot}index.html">Home</a>
-        <span aria-hidden="true">/</span>
-        <a href="${relRoot}guides/index.html">Guides</a>
-        <span aria-hidden="true">/</span>
-        <span aria-current="page">${esc(job.title)}</span>
-      </nav>
-
-      <header class="guide__head">
-        <span class="eyebrow">${job.icon} ${esc(job.categoryName)} · Adaptive Survival Outlook</span>
-        <h1 class="display">AI &amp; the ${esc(job.title)}.</h1>
-        <p class="lede guide__intro">${esc(job.intro)}</p>
-      </header>
-
-      <section class="split" aria-label="The honest split">
-        <div class="split__col split__col--keep">
-          <span class="split__label">What stays irreplaceable</span>
-${job.irreplaceable.map(splitItem).join("\n")}
-        </div>
-        <div class="split__col split__col--lose">
-          <span class="split__label">What AI absorbs now</span>
-${job.commoditized.map(splitItem).join("\n")}
-        </div>
-      </section>
-
-      <section class="guide__block">
-        <span class="eyebrow">The hybrid move</span>
-        <h2 class="display">Where to stand instead.</h2>
-        <div class="hybrid">
-${job.hybrid.map(hybridItem).join("\n")}
-        </div>
-      </section>
-
-      <section class="guide__block">
-        <span class="eyebrow">The 90-day plan</span>
-        <h2 class="display">Start this quarter.</h2>
-        <ol class="plan">
-${job.plan.map(planItem).join("\n")}
-        </ol>
-        <p class="guide__close">${esc(job.close)}</p>
-      </section>
-
-      <section class="waitlist">
+    <section class="hero wrap" id="home">
+      <div class="hero__grid">
         <div>
-          <span class="eyebrow">The full guide</span>
-          <h2>The complete ${esc(job.title)} guide is in production.</h2>
-          <p>This is the outlook. The full guide goes deeper: the task-by-task split, the repricing model, and the moves professionals are making right now. Get notified the day it's ready.</p>
+          <span class="eyebrow enter" style="--d:.05s">${esc(t.hero_eyebrow)}</span>
+          <h1>
+            <span class="line"><span style="--d:.15s">${esc(t.hero_l1)}</span></span>
+            <span class="line"><span style="--d:.27s">${esc(t.hero_l2)}</span></span>
+            <span class="line"><span class="ital zest" style="--d:.4s">${esc(t.hero_l3)}</span></span>
+          </h1>
+          <p class="lede enter" style="--d:.6s">${esc(t.hero_lede)}</p>
+          <div class="hero__cta enter" style="--d:.72s">
+            <a class="btn btn--primary" href="#collection">${esc(t.hero_cta_find)}</a>
+            <a class="btn btn--ghost" href="${p}/guides">${esc(t.hero_cta_browse)}</a>
+          </div>
+          <div class="hero__trust enter" style="--d:.84s">
+            <span>${esc(t.trust_1)}</span><span>${esc(t.trust_2)}</span><span>${esc(t.trust_3)}</span><span>${esc(t.trust_4)}</span>
+          </div>
         </div>
-        <div class="waitlist__cta">
-          <a class="btn btn--primary" href="${waitlistHref}">Notify me →</a>
-          <span class="waitlist__fine">One email when it ships. Nothing else.</span>
+        <div class="enter proto3d" style="--d:.5s" id="protoWrap">
+          ${lemonSvg}
+          <figure class="proto" id="protoCard" aria-label="${esc(jobTitle("lawyer", loc))}">
+            <div class="proto__bar">
+              <span class="proto__dot proto__dot--live"></span><span class="proto__dot"></span><span class="proto__dot"></span>
+              <span class="proto__tag">Adaptive Survival · ${esc(jobTitle("lawyer", loc))}</span>
+            </div>
+            <div class="proto__body">${protoBody(loc)}</div>
+            <div class="proto__foot">
+              <a class="proto__link" href="${p}/guides/lawyer">${esc(t.proto_read)}</a>
+              <span class="proto__compat">${esc(t.proto_sample)}</span>
+            </div>
+          </figure>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="rel">
-        <span class="eyebrow">More in ${esc(job.categoryName)}</span>
-        <div class="rel__grid">
-${siblings.map(siblingCard).join("\n")}
+    <div class="marquee" aria-hidden="true"><div class="marquee__track">${marq}${marq}</div></div>
+
+    <section class="section wrap">
+      <div class="reveal">
+        <span class="eyebrow">${esc(t.prob_eyebrow)}</span>
+        <h2 class="display prob__head">${esc(t.prob_head_a)}<b>${esc(t.prob_head_b)}</b></h2>
+        <p class="lede prob__lede">${esc(t.prob_lede)}</p>
+      </div>
+      <p class="prob__quote reveal">${esc(t.prob_quote_a)}<br><span>${esc(t.prob_quote_b)}</span></p>
+      <div class="prob__cards reveal">
+        <div class="pcard"><div class="pcard__n">01</div><p>${esc(t.prob_c1)}</p></div>
+        <div class="pcard"><div class="pcard__n">02</div><p>${esc(t.prob_c2)}</p></div>
+        <div class="pcard"><div class="pcard__n">03</div><p>${esc(t.prob_c3)}</p></div>
+      </div>
+      <p class="prob__authority reveal">${esc(t.prob_authority)}</p>
+    </section>
+
+    <section class="section divider" id="collection">
+      <div class="wrap">
+        <div class="reveal coll__head">
+          <span class="eyebrow">${esc(t.coll_eyebrow)}</span>
+          <h2 class="display">${esc(t.coll_head)}</h2>
+          <p class="lede coll__intro">${esc(t.coll_intro)}</p>
         </div>
-        <p class="rel__all"><a href="${relRoot}guides/index.html">← Browse all ${jobs.length} professions</a></p>
-      </section>
-    </article>
+        <div class="toc reveal">
+          <div class="toc__row"><div class="toc__n">01</div><div class="toc__main"><h3>${esc(t.toc_1h)}</h3><p>${esc(t.toc_1p)}</p></div></div>
+          <div class="toc__row"><div class="toc__n">02</div><div class="toc__main"><h3>${esc(t.toc_2h)}</h3><p>${esc(t.toc_2p)}</p></div></div>
+          <div class="toc__row"><div class="toc__n">03</div><div class="toc__main"><h3>${esc(t.toc_3h)}</h3><p>${esc(t.toc_3p)}</p></div></div>
+          <div class="toc__row"><div class="toc__n">04</div><div class="toc__main"><h3>${esc(t.toc_4h)}</h3><p>${esc(t.toc_4p)}</p></div></div>
+          <div class="toc__row"><div class="toc__n">05</div><div class="toc__main"><h3>${esc(t.toc_5h)}</h3><p>${esc(t.toc_5p)}</p></div></div>
+        </div>
+        <div class="proof reveal">
+          <div class="proof__stat"><s>${esc(t.proof_a)}</s> → <b>${esc(t.proof_b)}</b></div>
+          <p class="proof__label">${esc(t.proof_label)}</p>
+        </div>
+        <div class="reveal" style="margin-top:4.5rem" id="professions">
+          <span class="eyebrow">${esc(t.prof_eyebrow)}</span>
+          <h2 class="display">${esc(t.prof_head)}</h2>
+          <p class="lede" id="catBackWrap" style="display:none;margin-top:.6rem">
+            <button class="btn btn--ghost" id="catBackBtn" type="button">${esc(t.prof_back)}</button>
+          </p>
+        </div>
+        <div class="metiers reveal" id="categoryGrid"></div>
+        <div class="metiers metiers--jobs reveal" id="jobGrid" style="display:none"></div>
+      </div>
+    </section>
+
+    <section class="section divider wrap section--tight">
+      <div class="reveal" style="margin-bottom:2.8rem">
+        <span class="eyebrow">${esc(t.doc_eyebrow)}</span>
+        <h2 class="display">${esc(t.doc_head)}</h2>
+      </div>
+      <div class="doctrine reveal">
+        <div class="dcard"><div class="dcard__n">01</div><h3>${esc(t.doc_1h)}</h3><p>${esc(t.doc_1p)}</p></div>
+        <div class="dcard"><div class="dcard__n">02</div><h3>${esc(t.doc_2h)}</h3><p>${esc(t.doc_2p)}</p></div>
+        <div class="dcard"><div class="dcard__n">03</div><h3>${esc(t.doc_3h)}</h3><p>${esc(t.doc_3p)}</p></div>
+      </div>
+    </section>
+
+    <section class="section divider wrap closing">
+      <h2 class="display reveal">${esc(t.close_l1)}<br>${esc(t.close_l2)}</h2>
+      <div class="closing__cta reveal">
+        <a class="btn btn--primary" href="#collection">${esc(t.hero_cta_find)}</a>
+        <a class="btn btn--ghost" href="${p}/guides">${esc(t.hero_cta_browse)}</a>
+      </div>
+    </section>
+
+    <section class="section divider wrap" id="faq">
+      <div class="faq__head reveal">
+        <span class="eyebrow">${esc(t.faq_eyebrow)}</span>
+        <h2 class="display">${esc(t.faq_head)}</h2>
+      </div>
+      <div class="faq__list faq reveal">
+${faqItems}
+      </div>
+    </section>
   </main>
 
-${footer(relRoot)}
-  <script src="${relRoot}script.js"></script>
+${footer(loc)}
+
+  <script>
+    const CATEGORIES = ${JSON.stringify(cats)};
+    const L = { one: ${JSON.stringify(t.guide_one)}, many: ${JSON.stringify(t.guide_many)}, most: ${JSON.stringify(t.most_read)} };
+    const categoryGrid = document.getElementById("categoryGrid");
+    const jobGrid = document.getElementById("jobGrid");
+    const catBackWrap = document.getElementById("catBackWrap");
+    const catBackBtn = document.getElementById("catBackBtn");
+    function renderCategories(){
+      categoryGrid.innerHTML = CATEGORIES.map(cat => \`
+        <div class="metier" data-cat="\${cat.id}" role="button" tabindex="0" aria-label="\${cat.name}">
+          <div class="metier__count">\${cat.jobs.length} \${cat.jobs.length>1?L.many:L.one}</div>
+          <h3>\${cat.name}</h3>
+        </div>\`).join("");
+    }
+    function renderJobs(catId){
+      const cat = CATEGORIES.find(c=>c.id===catId); if(!cat) return;
+      jobGrid.innerHTML = cat.jobs.map(job => \`
+        <a class="metier \${job.popular?"metier--pop":""}" href="\${job.href}" aria-label="\${job.title}">
+          \${job.popular?'<span class="metier__pop">'+L.most+'</span>':""}
+          <h3>\${job.title}</h3>
+          <p class="metier__focus">\${job.focus}</p>
+        </a>\`).join("");
+      categoryGrid.style.display="none"; jobGrid.style.display="grid"; catBackWrap.style.display="block";
+      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+    function showCategories(){
+      jobGrid.style.display="none"; categoryGrid.style.display="grid"; catBackWrap.style.display="none";
+      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+    renderCategories();
+    categoryGrid.addEventListener("click",e=>{const c=e.target.closest(".metier"); if(c) renderJobs(c.dataset.cat);});
+    categoryGrid.addEventListener("keydown",e=>{ if(e.key!=="Enter"&&e.key!==" ")return; const c=e.target.closest(".metier"); if(!c)return; e.preventDefault(); renderJobs(c.dataset.cat);});
+    catBackBtn.addEventListener("click", showCategories);
+  </script>
+  <script src="/script.js"></script>
 </body>
 </html>
 `;
 }
 
-/* ---------- Hub page ---------- */
-function hubPage() {
-  const relRoot = "../";
-  const canonical = `${BASE}/guides/`;
-  const title = "Adaptive Survival Guides — One Outlook Per Profession · Lemon Prod";
-  const description =
-    "Browse strategic AI-survival outlooks by profession: what's being commoditized in your exact role, what stays irreplaceable, and a 90-day plan to reposition.";
+/* ----------------------------- GUIDE PAGE ----------------------------- */
+function guidePage(slug, loc) {
+  const t = T(loc), p = prefix(loc);
+  const j = content(slug, loc);
+  const title = jobTitle(slug, loc);
+  const catId = j.categoryId;
+  const cat = data.categories.find((c) => c.id === catId);
+  const siblings = cat.jobs.filter((s) => s.slug !== slug);
+  const mail = `mailto:${CONTACT}?subject=${encodeURIComponent(fmt(t.mail_subject, { t: title }))}&body=${encodeURIComponent(fmt(t.mail_body, { t: title }))}`;
 
+  const jsonld = { "@context":"https://schema.org","@graph":[
+    { "@type":"BreadcrumbList", itemListElement:[
+      { "@type":"ListItem", position:1, name:t.crumb_home, item:url(loc,"home") },
+      { "@type":"ListItem", position:2, name:t.crumb_guides, item:url(loc,"hub") },
+      { "@type":"ListItem", position:3, name:title, item:url(loc,"guide",slug) } ]},
+    { "@type":"Article", headline:j.metaTitle, description:j.metaDescription, inLanguage:i18n.htmlLang[loc],
+      datePublished:BUILD_DATE, dateModified:BUILD_DATE,
+      author:{ "@type":"Organization", name:"Lemon Prod" }, publisher:{ "@type":"Organization", name:"Lemon Prod" },
+      mainEntityOfPage:url(loc,"guide",slug) } ]};
+
+  const splitItem = (it) => `        <div class="split__item"><h3>${esc(it.h)}</h3><p>${esc(it.p)}</p></div>`;
+  const hcard = (it,i) => `        <div class="hcard"><div class="hcard__n">${String(i+1).padStart(2,"0")}</div><h3>${esc(it.h)}</h3><p>${esc(it.p)}</p></div>`;
+  const planItem = (s,i) => `          <li><span class="plan__n">${String(i+1).padStart(2,"0")}</span><span>${esc(s)}</span></li>`;
+  const sib = (s) => `        <a class="rel__card" href="${p}/guides/${s.slug}">
+          <span class="rel__focus">${esc(jobFocus(s.slug, loc))}</span>
+          <h3>${esc(jobTitle(s.slug, loc))}</h3>
+          <span class="rel__go">${esc(t.g_read)}</span>
+        </a>`;
+
+  return `<!DOCTYPE html>
+<html lang="${i18n.htmlLang[loc]}">
+<head>
+${head({ loc, kind:"guide", slug, title:j.metaTitle, description:j.metaDescription, ogType:"article" })}
+  <script type="application/ld+json">
+${JSON.stringify(jsonld, null, 2)}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">${esc(t.skip)}</a>
+${nav(loc, "guide", slug)}
+
+  <main id="main">
+    <article class="section wrap guide">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="${p || "/"}">${esc(t.crumb_home)}</a><span aria-hidden="true">/</span>
+        <a href="${p}/guides">${esc(t.crumb_guides)}</a><span aria-hidden="true">/</span>
+        <span aria-current="page">${esc(title)}</span>
+      </nav>
+      <header class="guide__head">
+        <span class="eyebrow">${cat.icon} ${esc(catName(catId, loc))} · ${esc(t.g_outlook_suffix)}</span>
+        <h1 class="display">${esc(fmt(t.g_ai_the, { t: title }))}</h1>
+        <p class="lede guide__intro">${esc(j.intro)}</p>
+      </header>
+
+      <section class="split" aria-label="${esc(t.g_keep)} / ${esc(t.g_lose)}">
+        <div class="split__col split__col--keep">
+          <span class="split__label">${esc(t.g_keep)}</span>
+${j.irreplaceable.map(splitItem).join("\n")}
+        </div>
+        <div class="split__col split__col--lose">
+          <span class="split__label">${esc(t.g_lose)}</span>
+${j.commoditized.map(splitItem).join("\n")}
+        </div>
+      </section>
+
+      <section class="guide__block">
+        <span class="eyebrow">${esc(t.g_hybrid_eyebrow)}</span>
+        <h2 class="display">${esc(t.g_hybrid_head)}</h2>
+        <div class="hybrid">
+${j.hybrid.map(hcard).join("\n")}
+        </div>
+      </section>
+
+      <section class="guide__block">
+        <span class="eyebrow">${esc(t.g_plan_eyebrow)}</span>
+        <h2 class="display">${esc(t.g_plan_head)}</h2>
+        <ol class="plan">
+${j.plan.map(planItem).join("\n")}
+        </ol>
+        <p class="guide__close">${esc(j.close)}</p>
+      </section>
+
+      <section class="waitlist">
+        <div>
+          <span class="eyebrow">${esc(t.g_full_eyebrow)}</span>
+          <h2>${esc(fmt(t.g_full_head, { t: title }))}</h2>
+          <p>${esc(t.g_full_body)}</p>
+        </div>
+        <div class="waitlist__cta">
+          <a class="btn btn--primary" href="${mail}">${esc(t.g_notify)}</a>
+          <span class="waitlist__fine">${esc(t.g_fine)}</span>
+        </div>
+      </section>
+
+      <section class="rel">
+        <span class="eyebrow">${esc(fmt(t.g_more, { c: catName(catId, loc) }))}</span>
+        <div class="rel__grid">
+${siblings.map(sib).join("\n")}
+        </div>
+        <p class="rel__all"><a href="${p}/guides">${esc(fmt(t.g_browse_all, { n: jobs.length }))}</a></p>
+      </section>
+    </article>
+  </main>
+
+${footer(loc)}
+  <script src="/script.js"></script>
+</body>
+</html>
+`;
+}
+
+/* ----------------------------- HUB ----------------------------- */
+function hubPage(loc) {
+  const t = T(loc), p = prefix(loc);
   const catBlock = (cat) => {
-    const cards = cat.jobs
-      .map(
-        (j) => `          <a class="hub__card${j.popular ? " hub__card--pop" : ""}" href="${j.slug}/index.html">
-            ${j.popular ? '<span class="hub__pop">Most read</span>' : ""}
-            <h3>${esc(j.title)}</h3>
-            <p>${esc(j.focus)}</p>
-            <span class="hub__go">Read the outlook →</span>
-          </a>`
-      )
-      .join("\n");
+    const cards = cat.jobs.map((j) => `          <a class="hub__card${j.popular ? " hub__card--pop" : ""}" href="${p}/guides/${j.slug}">
+            ${j.popular ? `<span class="hub__pop">${esc(t.most_read)}</span>` : ""}
+            <h3>${esc(jobTitle(j.slug, loc))}</h3>
+            <p>${esc(jobFocus(j.slug, loc))}</p>
+            <span class="hub__go">${esc(t.g_read)}</span>
+          </a>`).join("\n");
     return `      <section class="hub__cat">
-        <h2 class="hub__catname">${cat.icon} ${esc(cat.name)}</h2>
+        <h2 class="hub__catname">${cat.icon} ${esc(catName(cat.id, loc))}</h2>
         <div class="hub__grid">
 ${cards}
         </div>
       </section>`;
   };
-
-  const jsonld = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Adaptive Survival Guides",
-    description,
-    url: canonical,
-    inLanguage: "en",
-    hasPart: jobs.map((j) => ({
-      "@type": "Article",
-      headline: j.metaTitle,
-      url: `${BASE}/guides/${j.slug}/`,
-    })),
-  };
+  const jsonld = { "@context":"https://schema.org","@type":"CollectionPage", name:"Adaptive Survival Guides",
+    description:t.hub_desc, url:url(loc,"hub"), inLanguage:i18n.htmlLang[loc],
+    hasPart: jobs.map((j) => ({ "@type":"Article", headline: content(j.slug, loc).metaTitle, url: url(loc,"guide",j.slug) })) };
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${i18n.htmlLang[loc]}">
 <head>
-${head({ title, description, canonical, ogType: "website", relRoot })}
+${head({ loc, kind:"hub", title:t.hub_title, description:t.hub_desc, ogType:"website" })}
   <script type="application/ld+json">
 ${JSON.stringify(jsonld, null, 2)}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-${nav(relRoot)}
+  <a class="skip" href="#main">${esc(t.skip)}</a>
+${nav(loc, "hub", null)}
 
   <main id="main">
     <section class="section wrap">
       <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="${relRoot}index.html">Home</a>
-        <span aria-hidden="true">/</span>
-        <span aria-current="page">Guides</span>
+        <a href="${p || "/"}">${esc(t.crumb_home)}</a><span aria-hidden="true">/</span>
+        <span aria-current="page">${esc(t.crumb_guides)}</span>
       </nav>
       <header class="hub__head">
-        <span class="eyebrow">${jobs.length} professions</span>
-        <h1 class="display">One outlook. Your exact profession.</h1>
-        <p class="lede">Pick your role. Each outlook maps what AI already does better, what stays scarce in your judgment, and the first moves to reposition — a free read ahead of the full guide.</p>
+        <span class="eyebrow">${esc(t.prof_eyebrow)}</span>
+        <h1 class="display">${esc(t.hub_head)}</h1>
+        <p class="lede">${esc(t.hub_lede)}</p>
       </header>
 ${data.categories.map(catBlock).join("\n")}
     </section>
   </main>
 
-${footer(relRoot)}
-  <script src="${relRoot}script.js"></script>
+${footer(loc)}
+  <script src="/script.js"></script>
 </body>
 </html>
 `;
 }
 
-/* ---------- Sitemap ---------- */
+/* ----------------------------- SITEMAP ----------------------------- */
 function sitemap() {
-  const urls = [
-    { loc: `${BASE}/`, pri: "1.0" },
-    { loc: `${BASE}/guides/`, pri: "0.9" },
-    ...jobs.map((j) => ({ loc: `${BASE}/guides/${j.slug}/`, pri: "0.8" })),
-  ];
-  const body = urls
-    .map(
-      (u) =>
-        `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${BUILD_DATE}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${u.pri}</priority>\n  </url>`
-    )
-    .join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+  const entries = [];
+  for (const loc of LOCALES) {
+    entries.push({ loc, kind: "home" });
+    entries.push({ loc, kind: "hub" });
+    for (const j of jobs) entries.push({ loc, kind: "guide", slug: j.slug });
+  }
+  const body = entries.map((e) => {
+    const alts = LOCALES.map((l) => `      <xhtml:link rel="alternate" hreflang="${i18n.htmlLang[l]}" href="${url(l, e.kind, e.slug)}"/>`).join("\n");
+    return `  <url>\n    <loc>${url(e.loc, e.kind, e.slug)}</loc>\n${alts}\n    <lastmod>${BUILD_DATE}</lastmod>\n    <changefreq>monthly</changefreq>\n  </url>`;
+  }).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
 }
 
-/* ---------- Write everything ---------- */
-function write(path, content) {
-  const full = join(ROOT, path);
+/* ----------------------------- WRITE ----------------------------- */
+function write(rel, content) {
+  const full = join(ROOT, rel);
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, content);
-  console.log("  ✓", path);
 }
 
-console.log("Generating guide pages…");
-for (const job of jobs) write(`guides/${job.slug}/index.html`, guidePage(job));
-write("guides/index.html", hubPage());
+let count = 0;
+for (const loc of LOCALES) {
+  const pdir = loc === "en" ? "" : `${loc}/`;
+  write(`${pdir}index.html`, homePage(loc));
+  write(`${pdir}guides/index.html`, hubPage(loc));
+  for (const j of jobs) { write(`${pdir}guides/${j.slug}/index.html`, guidePage(j.slug, loc)); count++; }
+}
 write("sitemap.xml", sitemap());
-console.log(`\nDone — ${jobs.length} profession pages + hub + sitemap.`);
-console.log(`Base URL: ${BASE}  (edit BASE in build-guides.mjs to change)`);
+write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
+
+console.log(`Done. ${LOCALES.length} locales × (home + hub + ${jobs.length} guides) = ${LOCALES.length * (2 + jobs.length)} pages.`);
+console.log(`Base URL: ${BASE}`);

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La IA y el desarrollador: la arquitectura sobre el código — Adaptive Survival Outlook</title>
+  <meta name="description" content="Un análisis estratégico para desarrolladores: escribir código se vuelve commodity rápido. Lo que sigue siendo irremplazable en la arquitectura y el criterio — y cómo reposicionarte antes de que el trabajo junior se evapore." />
+  <meta name="author" content="Lemon Prod" />
+  <link rel="canonical" href="https://lemon-prod.vercel.app/es/guides/developer" />
+  <link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/developer" />
+  <link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/developer" />
+  <link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/developer" />
+  <link rel="alternate" hreflang="x-default" href="https://lemon-prod.vercel.app/guides/developer" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="La IA y el desarrollador: la arquitectura sobre el código — Adaptive Survival Outlook" />
+  <meta property="og:description" content="Un análisis estratégico para desarrolladores: escribir código se vuelve commodity rápido. Lo que sigue siendo irremplazable en la arquitectura y el criterio — y cómo reposicionarte antes de que el trabajo junior se evapore." />
+  <meta property="og:url" content="https://lemon-prod.vercel.app/es/guides/developer" />
+  <meta property="og:image" content="https://lemon-prod.vercel.app/og-image.png" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="La IA y el desarrollador: la arquitectura sobre el código — Adaptive Survival Outlook" />
+  <meta name="twitter:description" content="Un análisis estratégico para desarrolladores: escribir código se vuelve commodity rápido. Lo que sigue siendo irremplazable en la arquitectura y el criterio — y cómo reposicionarte antes de que el trabajo junior se evapore." />
+  <meta name="twitter:image" content="https://lemon-prod.vercel.app/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://lemon-prod.vercel.app/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guías",
+          "item": "https://lemon-prod.vercel.app/es/guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Desarrollador",
+          "item": "https://lemon-prod.vercel.app/es/guides/developer"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "La IA y el desarrollador: la arquitectura sobre el código — Adaptive Survival Outlook",
+      "description": "Un análisis estratégico para desarrolladores: escribir código se vuelve commodity rápido. Lo que sigue siendo irremplazable en la arquitectura y el criterio — y cómo reposicionarte antes de que el trabajo junior se evapore.",
+      "inLanguage": "es",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "author": {
+        "@type": "Organization",
+        "name": "Lemon Prod"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Lemon Prod"
+      },
+      "mainEntityOfPage": "https://lemon-prod.vercel.app/es/guides/developer"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="/es" aria-label="Lemon Prod — home"><svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
+          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
+          <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
+        </svg>
+        LEMON&nbsp;PROD.
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+        <a href="/es/guides">Todas las profesiones</a>
+        <a href="/es#faq">FAQ</a>
+        <div class="lang" role="group" aria-label="Language"><a class="lang__opt" href="/guides/developer" hreflang="en">EN</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt" href="/fr/guides/developer" hreflang="fr">FR</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt is-active" href="/es/guides/developer" hreflang="es" aria-current="true">ES</a></div>
+        <a class="btn btn--primary nav__cta" href="/es/guides">Encuentra tu guía</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="section wrap guide">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/es">Inicio</a><span aria-hidden="true">/</span>
+        <a href="/es/guides">Guías</a><span aria-hidden="true">/</span>
+        <span aria-current="page">Desarrollador</span>
+      </nav>
+      <header class="guide__head">
+        <span class="eyebrow">💻 Tecnología y Educación · Adaptive Survival Outlook</span>
+        <h1 class="display">La IA y Desarrollador.</h1>
+        <p class="lede guide__intro">Escribir código se vuelve rápido y barato. El valor pasa de teclear la implementación a decidir qué construir, cómo estructurarlo y por qué.</p>
+      </header>
+
+      <section class="split" aria-label="Lo que sigue siendo irremplazable / Lo que la IA ya absorbe">
+        <div class="split__col split__col--keep">
+          <span class="split__label">Lo que sigue siendo irremplazable</span>
+        <div class="split__item"><h3>La arquitectura</h3><p>Diseñar sistemas que sobreviven al cambio — un criterio que el modelo asiste pero no posee.</p></div>
+        <div class="split__item"><h3>El encuadre del problema</h3><p>Saber qué merece de verdad construirse, y qué no.</p></div>
+        <div class="split__item"><h3>La responsabilidad</h3><p>Garantizar que el sistema funciona en producción, bajo carga, en el tiempo.</p></div>
+        </div>
+        <div class="split__col split__col--lose">
+          <span class="split__label">Lo que la IA ya absorbe</span>
+        <div class="split__item"><h3>El código boilerplate</h3><p>La implementación de rutina se genera en segundos.</p></div>
+        <div class="split__item"><h3>Las funciones simples</h3><p>Las unidades bien especificadas son cosa de un modelo.</p></div>
+        <div class="split__item"><h3>Traducción y pegamento</h3><p>Convertir entre lenguajes y formatos está automatizado.</p></div>
+        </div>
+      </section>
+
+      <section class="guide__block">
+        <span class="eyebrow">El movimiento híbrido</span>
+        <h2 class="display">Dónde situarte, en cambio.</h2>
+        <div class="hybrid">
+        <div class="hcard"><div class="hcard__n">01</div><h3>Sube en el stack</h3><p>Reposiciónate de escritor de código a arquitecto y revisor.</p></div>
+        <div class="hcard"><div class="hcard__n">02</div><h3>Posee el porqué</h3><p>Tu valor es el criterio sobre qué construir, no las líneas tecleadas.</p></div>
+        <div class="hcard"><div class="hcard__n">03</div><h3>Usa la IA como un junior</h3><p>Dirige y revisa el código generado; no compitas con él en volumen.</p></div>
+        </div>
+      </section>
+
+      <section class="guide__block">
+        <span class="eyebrow">El plan de 90 días</span>
+        <h2 class="display">Empieza este trimestre.</h2>
+        <ol class="plan">
+          <li><span class="plan__n">01</span><span>Haz de la arquitectura y el diseño de sistemas tu especialidad visible.</span></li>
+          <li><span class="plan__n">02</span><span>Construye un flujo dirigir-y-revisar donde la IA hace la implementación.</span></li>
+          <li><span class="plan__n">03</span><span>Profundiza el criterio sobre qué construir, no solo cómo.</span></li>
+          <li><span class="plan__n">04</span><span>Deja de medir tu valor en volumen de código; mídelo en sistemas que aguantan.</span></li>
+        </ol>
+        <p class="guide__close">Escribir código se vuelve commodity. Saber qué construir y cómo estructurarlo, no.</p>
+      </section>
+
+      <section class="waitlist">
+        <div>
+          <span class="eyebrow">La guía completa</span>
+          <h2>La guía completa de Desarrollador está en producción.</h2>
+          <p>Esto es el análisis. La guía completa va más a fondo: el reparto tarea por tarea, el modelo de re-tarificación y los movimientos que hacen los profesionales ahora mismo. Te avisamos el día que salga.</p>
+        </div>
+        <div class="waitlist__cta">
+          <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Lista%20de%20espera%20%E2%80%94%20gu%C3%ADa%20Desarrollador&body=Quiero%20recibir%20aviso%20cuando%20la%20Adaptive%20Survival%20Guide%20de%20Desarrollador%20est%C3%A9%20lista.">Avísame →</a>
+          <span class="waitlist__fine">Un email cuando salga. Nada más.</span>
+        </div>
+      </section>
+
+      <section class="rel">
+        <span class="eyebrow">Más en Tecnología y Educación</span>
+        <div class="rel__grid">
+        <a class="rel__card" href="/es/guides/product-manager">
+          <span class="rel__focus">Escribir specs, tickets y actualizaciones de estado se automatiza.</span>
+          <h3>Product Manager</h3>
+          <span class="rel__go">Leer el análisis →</span>
+        </a>
+        <a class="rel__card" href="/es/guides/teacher">
+          <span class="rel__focus">Materiales de clase, ejercicios e incluso corrección se vuelven gratis y automáticos.</span>
+          <h3>Profesor</h3>
+          <span class="rel__go">Leer el análisis →</span>
+        </a>
+        </div>
+        <p class="rel__all"><a href="/es/guides">← Ver las 24 profesiones</a></p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <a class="brand" href="/es" aria-label="Lemon Prod"><svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
+          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
+          <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
+        </svg>
+            LEMON&nbsp;PROD.
+          </a>
+          <p>Adaptive Survival Guides — guías de carrera estratégicas para profesionales que prefieren reposicionarse antes que reaccionar a la automatización.</p>
+        </div>
+        <div class="foot__col">
+          <h4>Explorar</h4>
+          <a href="/es/guides">Todas las profesiones</a>
+          <a href="/es#collection">Cómo funciona</a>
+          <a href="/es#faq">FAQ</a>
+        </div>
+        <div class="foot__col">
+          <h4>Análisis</h4>
+          <a href="/es/guides/lawyer">Abogado</a>
+          <a href="/es/guides/real-estate-agent">Agente inmobiliario</a>
+          <a href="/es/guides/copywriter">Copywriter</a>
+        </div>
+        <div class="foot__col">
+          <h4>Contacto</h4>
+          <a href="mailto:contact@lemonprod.co">Email</a>
+        </div>
+      </div>
+      <div class="foot__bottom">
+        <small>© 2026 Lemon Prod. Todos los derechos reservados.</small>
+        <div class="foot__legal">
+          <a href="#">Aviso legal</a>
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>

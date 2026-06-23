@@ -1,0 +1,674 @@
+{
+  "lawyer": {
+    "title": "Avocat",
+    "metaTitle": "L'IA et l'avocat : ce qui reste irremplaçable — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les avocats face à l'IA : ce qui se banalise dans le métier, ce qui reste rare, et comment re-tarifer ta valeur avant qu'un confrère plus rapide ne le fasse.",
+    "intro": "L'IA rédige, recherche et cartographie la jurisprudence à une vitesse qu'aucun collaborateur n'égale. Le risque pour ta carrière, ce n'est pas le modèle — c'est le confrère d'à côté qui a re-tarifé son travail autour de l'IA en premier.",
+    "irreplaceable": [
+      { "h": "Le jugement dans l'incertitude", "p": "Décider quel conseil donner quand le droit est ambigu et les enjeux réels — et l'assumer." },
+      { "h": "Lire l'intention réelle", "p": "Entendre ce que le client veut vraiment derrière ce qu'il dit, et ce qu'il ne dit pas." },
+      { "h": "Porter le risque", "p": "Mettre ton nom, ton barreau et ta responsabilité sur une recommandation. Un modèle ne peut pas en répondre." }
+    ],
+    "commoditized": [
+      { "h": "La recherche jurisprudentielle", "p": "Sortir la jurisprudence pertinente à grande échelle est désormais quasi instantané et quasi gratuit." },
+      { "h": "La synthèse de premier jet", "p": "Notes, résumés et premiers contrats se produisent en secondes, plus en heures facturables." },
+      { "h": "La revue documentaire", "p": "Le tri de gros volumes de documents devient une tâche automatisée et supervisée." }
+    ],
+    "hybrid": [
+      { "h": "Arrête de facturer la synthèse", "p": "Laisse l'IA produire la matière brute que tu facturais à l'heure, et facture le jugement par-dessus." },
+      { "h": "Vends la décision, pas le document", "p": "Ton client ne veut pas une note de 12 pages — il veut savoir quoi faire. Emballe la réponse." },
+      { "h": "Spécialise-toi plus vite", "p": "Utilise le temps libéré par l'IA pour creuser une niche où responsabilité et relation s'accumulent." }
+    ],
+    "plan": [
+      "Audite tes 20 dernières factures : repère chaque ligne que l'IA produit désormais en minutes.",
+      "Re-tarife un service de l'horaire vers un forfait ancré sur le résultat, pas sur l'effort.",
+      "Bâtis un workflow de premier jet assisté par IA que tu supervises, pour que la vitesse cesse d'être ton goulot.",
+      "Choisis le domaine où ton jugement et ta réputation sont les plus durs à copier, et concentre-toi dessus."
+    ],
+    "close": "Les avocats qui s'en sortiront dans cinq ans savent déjà quelle part du métier cesser de défendre — et laquelle renforcer."
+  },
+  "accountant": {
+    "title": "Expert-comptable",
+    "metaTitle": "L'IA et l'expert-comptable : du reporting au conseil — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les experts-comptables : rapprochement et reporting s'automatisent vite. Ce qui reste facturable et comment te repositionner vers le conseil porté par le jugement.",
+    "intro": "Saisie, rapprochement et reporting standard s'effondrent vers un coût marginal nul. Les comptables qui prospèrent sont ceux qui ont déjà fait monter leur valeur d'un cran.",
+    "irreplaceable": [
+      { "h": "Le jugement de conseil", "p": "Dire à un dirigeant ce que les chiffres signifient pour la décision qu'il a devant lui." },
+      { "h": "Confiance et discrétion", "p": "Être la personne qu'un dirigeant appelle avant d'agir, pas après." },
+      { "h": "La responsabilité réglementaire", "p": "Valider ce qui est défendable — et en porter la responsabilité." }
+    ],
+    "commoditized": [
+      { "h": "Le rapprochement", "p": "Faire correspondre les écritures est désormais une tâche automatisée, sur exception seulement." },
+      { "h": "Le reporting standard", "p": "États mensuels et déclarations de routine sont de plus en plus générés, plus assemblés à la main." },
+      { "h": "La saisie", "p": "Capture et catégorisation passent entièrement au logiciel." }
+    ],
+    "hybrid": [
+      { "h": "Vends l'avenir, pas le passé", "p": "Arrête de vendre le compte rendu de ce qui s'est passé ; vends la lecture de ce qu'il faut faire ensuite." },
+      { "h": "Productise le conseil", "p": "Transforme le jugement ponctuel en un abonnement nommé et tarifé que le client comprend." },
+      { "h": "Laisse le logiciel tenir le grand livre", "p": "Positionne l'automatisation comme ton outillage, et ton interprétation comme le produit." }
+    ],
+    "plan": [
+      "Identifie les 30 % de ta facturation purement réglementaire et automatise-les ou systématise-les.",
+      "Lance un abonnement de conseil avec un livrable mensuel clair et un vrai prix.",
+      "Re-présente-toi à trois clients comme conseiller, pas comme producteur de comptes.",
+      "Bâtis un tableau de bord pour que « les chiffres » soient un point de départ de conversation, pas ton livrable."
+    ],
+    "close": "Le grand livre devient gratuit. Ta lecture, elle, reste rare."
+  },
+  "wealth-manager": {
+    "title": "Conseiller en gestion de patrimoine",
+    "metaTitle": "L'IA et le conseiller en patrimoine : la confiance comme rempart — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les conseillers en gestion de patrimoine : la modélisation se banalise. Ce que l'IA ne peut pas remplacer et comment te repositionner autour de la confiance et du comportement.",
+    "intro": "Allocations, projections et analyses de scénarios deviennent gratuites et instantanées. Ce que les clients paient encore, c'est quelqu'un qui les empêche d'agir contre leur propre intérêt.",
+    "irreplaceable": [
+      { "h": "Le coaching comportemental", "p": "Empêcher un client de tout vendre au plus bas vaut plus que n'importe quel modèle." },
+      { "h": "Le jugement d'étape de vie", "p": "Traduire un portefeuille en décisions sur un divorce, une cession, une succession, un décès." },
+      { "h": "La confiance gagnée", "p": "Être celui à qui on confie l'épargne d'une vie — une relation, pas un livrable." }
+    ],
+    "commoditized": [
+      { "h": "La modélisation de portefeuille", "p": "Optimisation et rééquilibrage sont désormais des fonctions logicielles de base." },
+      { "h": "La simulation de scénarios", "p": "Les projections Monte-Carlo sont un bouton, pas un service." },
+      { "h": "La planification générique", "p": "Les calculs retraite standard passent en libre-service." }
+    ],
+    "hybrid": [
+      { "h": "Vends la relation", "p": "Mets en avant le jugement et l'accès ; laisse la modélisation être le commodity derrière." },
+      { "h": "Facture le comportement, pas l'allocation", "p": "Ta valeur, ce sont les décisions que tes clients ne prennent pas sous le coup de la peur." },
+      { "h": "Utilise l'IA pour démultiplier l'attention", "p": "Laisse l'outillage faire remonter quoi discuter pour que chaque client se sente connu." }
+    ],
+    "plan": [
+      "Recadre ton pitch autour du comportement et des décisions de vie, pas des rendements.",
+      "Automatise le reporting pour passer le temps client en conversation, pas en tableurs.",
+      "Définis les moments — cession, héritage, retraite — où ton jugement est décisif, et mets-les en avant.",
+      "Audite quels clients valorisent la relation vs. le modèle ; protège le premier groupe."
+    ],
+    "close": "Les modèles deviennent gratuits. La discipline de tenir le cap dans une baisse, non."
+  },
+  "real-estate-agent": {
+    "title": "Agent immobilier",
+    "metaTitle": "L'IA et l'agent immobilier : ce qui reste irremplaçable — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les agents immobiliers : annonces, estimations et mise en relation s'automatisent. Ce qui reste rare et comment te repositionner autour de la négociation et de la confiance.",
+    "intro": "Texte d'annonce, estimations de prix et mise en relation acheteur-bien deviennent automatisés et gratuits. Les agents qui survivent vendent ce qu'un modèle ne peut pas toucher.",
+    "irreplaceable": [
+      { "h": "La négociation sous pression", "p": "Lire la situation et conclure quand émotion et argent se télescopent." },
+      { "h": "Le savoir local et vécu", "p": "Ce qu'est vraiment une rue à 20 h — pas ce que disent les données." },
+      { "h": "La confiance dans un moment à fort enjeu", "p": "Être celui à qui on confie la plus grosse transaction d'une vie." }
+    ],
+    "commoditized": [
+      { "h": "Le texte d'annonce", "p": "Descriptions et retouche photo sont désormais en un clic." },
+      { "h": "Les estimations de prix", "p": "Les modèles d'estimation automatiques sont une base que l'acheteur consulte déjà." },
+      { "h": "La mise en relation", "p": "Recherche et filtrage sont en libre-service total pour les clients." }
+    ],
+    "hybrid": [
+      { "h": "Arrête de te battre sur l'accès", "p": "Les annonces sont publiques. Bats-toi sur la négociation et la lecture de l'affaire." },
+      { "h": "Sois l'autorité locale", "p": "Publie le savoir vécu et précis qu'aucun modèle n'a — et possède un quartier." },
+      { "h": "Automatise les corvées", "p": "Laisse l'IA gérer textes et admin pour passer ton temps en face-à-face, là où tu gagnes." }
+    ],
+    "plan": [
+      "Réduis à presque zéro le temps de rédaction d'annonces et réinvestis-le en rendez-vous client.",
+      "Bâtis une présence de contenu autour d'un quartier que tu connais mieux qu'un algorithme.",
+      "Affûte ta négociation comme compétence phare — et tarife ta valeur dessus.",
+      "Retire de ton pitch tout service qu'un portail rend déjà gratuitement."
+    ],
+    "close": "Tout le monde voit les annonces maintenant. Conclure la vente reste un métier humain."
+  },
+  "architect": {
+    "title": "Architecte",
+    "metaTitle": "L'IA et l'architecte : la vision plutôt que le dessin — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les architectes : dessin et génération d'options accélèrent vite. Ce qui reste irremplaçable et comment te repositionner autour de la vision et du jugement.",
+    "intro": "Les outils génératifs produisent plans, variantes et rendus en minutes. La valeur de l'architecte passe résolument du dessin à la vision, au jugement et à la responsabilité.",
+    "irreplaceable": [
+      { "h": "La vision de conception", "p": "Savoir laquelle de mille options générées est réellement bonne, et pourquoi." },
+      { "h": "Le jugement code et contexte", "p": "Naviguer entre réglementation, site et réalité du client vers quelque chose de constructible." },
+      { "h": "La conduite du projet", "p": "Porter le résultat de l'esquisse à la livraison — une chaîne qu'un modèle ne tient pas." }
+    ],
+    "commoditized": [
+      { "h": "Dessin et documentation", "p": "Les plans d'exécution se génèrent de plus en plus à partir de l'intention." },
+      { "h": "La génération d'options", "p": "Variantes et études de volumétrie sont désormais quasi instantanées." },
+      { "h": "Le rendu", "p": "La visualisation photoréaliste est un commodity rapide et bon marché." }
+    ],
+    "hybrid": [
+      { "h": "Cure, ne dessine pas", "p": "Utilise la génération pour explorer large, puis vends le goût qui sélectionne." },
+      { "h": "Mène le projet, pas le fichier", "p": "Positionne-toi comme le jugement sur tout le chantier, pas comme le dessinateur." },
+      { "h": "Facture la vision", "p": "Découple tes honoraires des heures de dessin et lie-les aux résultats de conception." }
+    ],
+    "plan": [
+      "Intègre les outils génératifs en phase amont pour élargir ton champ d'options.",
+      "Recadre les échanges client autour de la vision et du résultat, pas du nombre de livrables.",
+      "Bâtis un portfolio qui montre jugement et goût, pas le volume de production.",
+      "Identifie les phases où ta responsabilité est irremplaçable et tarife-les."
+    ],
+    "close": "Générer des options est gratuit. Savoir laquelle est la bonne, c'est tout le métier."
+  },
+  "construction-project-manager": {
+    "title": "Conducteur de travaux",
+    "metaTitle": "L'IA et le conducteur de travaux — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les conducteurs de travaux : planification et estimation deviennent intelligentes. Ce qui reste irremplaçable sur le terrain et comment te repositionner.",
+    "intro": "Planning, estimation et suivi d'avancement deviennent plus intelligents et automatisés. Ce qu'aucun modèle ne fait, c'est tenir un chantier quand le plan rencontre la réalité.",
+    "irreplaceable": [
+      { "h": "Le jugement de terrain", "p": "Lire un problème sur site et décider en temps réel, avec l'argent et la sécurité en jeu." },
+      { "h": "La coordination humaine", "p": "Tenir ensemble corps de métier, fournisseurs et clients quand le planning glisse." },
+      { "h": "La responsabilité de livraison", "p": "Garantir que le bâtiment se construit, en sécurité et dans les termes." }
+    ],
+    "commoditized": [
+      { "h": "La planification", "p": "Génération et optimisation de planning s'automatisent." },
+      { "h": "L'estimation des coûts", "p": "Métrés et chiffrage passent au logiciel." },
+      { "h": "Le reporting d'avancement", "p": "Capture de chantier et reporting deviennent automatiques." }
+    ],
+    "hybrid": [
+      { "h": "Laisse les outils planifier, décide toi", "p": "Utilise le planning intelligent comme entrée ; vends le jugement qui l'adapte au terrain." },
+      { "h": "Possède la chaîne humaine", "p": "La coordination des hommes sous pression est ton rempart — rends-la visible." },
+      { "h": "Libère du temps pour le terrain", "p": "Automatise le reporting pour être sur site, là où est la valeur." }
+    ],
+    "plan": [
+      "Adopte le reporting automatisé pour récupérer des heures de présence sur site.",
+      "Positionne ta coordination et ton jugement de crise comme valeur phare, pas l'admin.",
+      "Utilise les outils d'estimation comme base à challenger, pas comme tâche manuelle.",
+      "Documente les décisions de terrain qui ont sauvé un chantier — c'est ta preuve de valeur."
+    ],
+    "close": "Les plannings deviennent intelligents. Tenir le chantier quand le plan casse reste humain."
+  },
+  "hr-director": {
+    "title": "DRH",
+    "metaTitle": "L'IA et le DRH : la culture plutôt que l'admin — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les DRH : administration et process s'automatisent. Ce qui reste irremplaçable dans la culture, le conflit et le jugement — et comment te repositionner.",
+    "intro": "Paie, politique, onboarding et reporting s'automatisent partout en RH. Reste la part la plus dure et la plus humaine : les gens en conflit, et la culture sous tension.",
+    "irreplaceable": [
+      { "h": "Le jugement dans le conflit", "p": "Gérer un litige sensible où confiance, droit et émotion se croisent." },
+      { "h": "La garde de la culture", "p": "Façonner comment l'entreprise se comporte vraiment — pas ce que dit le règlement." },
+      { "h": "La discrétion à fort enjeu", "p": "Qu'on te confie ce qui ne peut pas entrer dans un système." }
+    ],
+    "commoditized": [
+      { "h": "L'administration", "p": "Onboarding, congés et dossiers passent en libre-service logiciel." },
+      { "h": "La rédaction de politiques", "p": "Politiques et communications standard sont générées, puis relues." },
+      { "h": "Le reporting", "p": "Tableaux d'effectifs et d'engagement sont automatiques." }
+    ],
+    "hybrid": [
+      { "h": "Monte vers le jugement", "p": "Confie l'admin au logiciel et repositionne-toi comme la fonction de jugement humain." },
+      { "h": "Fais de la culture une stratégie", "p": "Transforme la culture en résultat mesurable et piloté — pas en effet de bord." },
+      { "h": "Sois l'humain dans la boucle", "p": "Là où les décisions touchent des vies, ta discrétion est le produit." }
+    ],
+    "plan": [
+      "Automatise le cœur administratif et recadre publiquement ton rôle autour du jugement.",
+      "Prends la responsabilité d'un indicateur de culture qui compte vraiment pour la direction.",
+      "Bâtis un chemin d'escalade où le jugement humain est la valeur, pas le goulot.",
+      "Repositionne les RH de centre de coût vers fonction humaine stratégique dans ton reporting."
+    ],
+    "close": "L'admin disparaît. Les décisions humaines difficiles deviennent tout le rôle."
+  },
+  "recruiter": {
+    "title": "Recruteur",
+    "metaTitle": "L'IA et le recruteur : lire les gens quand le sourcing s'automatise — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les recruteurs et chasseurs de têtes : sourcing et tri s'automatisent vite. Ce qui reste irremplaçable et comment te repositionner autour du jugement humain.",
+    "intro": "Sourcing, tri et approche deviennent entièrement automatisés. Les recruteurs qui gagnent sont ceux qui savent lire une personne et conclure un recrutement qu'aucun algorithme ne peut.",
+    "irreplaceable": [
+      { "h": "Lire un candidat", "p": "Sentir l'adéquation, la motivation et le risque dans une conversation, pas un score de CV." },
+      { "h": "Conclure le recrutement", "p": "Gérer l'émotion humaine d'un changement de carrière des deux côtés." },
+      { "h": "L'accès de confiance", "p": "Des relations avec ceux qui ne cherchent pas — et ne répondent pas aux bots." }
+    ],
+    "commoditized": [
+      { "h": "Le sourcing", "p": "Trouver et classer des candidats à grande échelle est automatisé." },
+      { "h": "Le tri", "p": "Le premier filtrage devient de plus en plus l'affaire d'un modèle." },
+      { "h": "L'approche", "p": "Les premiers messages sont générés et envoyés automatiquement." }
+    ],
+    "hybrid": [
+      { "h": "Arrête de te battre sur le volume", "p": "Les bots te dépassent en sourcing. Bats-toi sur le jugement et la conclusion." },
+      { "h": "Possède des relations, pas des listes", "p": "Ton accès à des talents passifs et de confiance est le rempart." },
+      { "h": "Automatise le haut de funnel", "p": "Laisse l'IA remplir le pipeline ; passe tes heures là où les recrutements se gagnent." }
+    ],
+    "plan": [
+      "Automatise sourcing et tri et réinvestis le temps dans les conversations candidats.",
+      "Bâtis un réseau de relations sur une niche que les bots n'atteignent pas.",
+      "Recadre ta valeur client autour du jugement et de la conclusion, pas du débit de CV.",
+      "Suis les placements nés de la confiance, pas de la recherche — c'est ton vrai produit."
+    ],
+    "close": "Trouver des gens est automatisé. Les lire et les conclure ne l'est pas."
+  },
+  "team-manager": {
+    "title": "Manager d'équipe",
+    "metaTitle": "L'IA et le manager d'équipe : coacher plutôt que reporter — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les managers d'équipe : statut, reporting et coordination s'automatisent. Ce qui reste irremplaçable dans le coaching et la confiance — et comment te repositionner.",
+    "intro": "Points d'avancement, reporting et coordination de tâches deviennent instantanés et automatiques. Reste ce qui a toujours le plus compté : développer des gens et leur faire confiance.",
+    "irreplaceable": [
+      { "h": "Le coaching", "p": "Aider une personne à grandir dans un moment difficile — un jugement, pas un process." },
+      { "h": "Construire la confiance", "p": "Créer la sécurité qui pousse une équipe à prendre des risques et à s'approprier les résultats." },
+      { "h": "Décider dans l'ambiguïté", "p": "Choisir une direction quand les données ne décident pas pour toi." }
+    ],
+    "commoditized": [
+      { "h": "Le reporting de statut", "p": "Les résumés d'avancement sont générés automatiquement." },
+      { "h": "La coordination", "p": "Affectation et relances de tâches s'automatisent." },
+      { "h": "La prise de notes", "p": "Capture de réunion et actions à mener sont désormais l'affaire d'un modèle." }
+    ],
+    "hybrid": [
+      { "h": "Manage des gens, pas des tâches", "p": "Confie la coordination aux outils et passe ton temps à développer des humains." },
+      { "h": "Mène par la confiance", "p": "Fais de la sécurité psychologique et de la croissance ton résultat mesurable." },
+      { "h": "Utilise l'IA pour libérer l'attention", "p": "Laisse l'outillage faire remonter ce qui mérite une conversation pour n'en rater aucune." }
+    ],
+    "plan": [
+      "Automatise statut et reporting ; ne passe jamais un 1:1 sur ce qu'un outil pourrait envoyer.",
+      "Fais du coaching le cœur explicite de ton rôle et de tes évaluations.",
+      "Bâtis délibérément les signaux de confiance auxquels ton équipe répond.",
+      "Recadre ta valeur auprès de la direction en résultats et développement, pas en débit."
+    ],
+    "close": "La coordination devient gratuite. Faire grandir des gens en qui tu as confiance est le métier qui reste."
+  },
+  "copywriter": {
+    "title": "Copywriter",
+    "metaTitle": "L'IA et le copywriter : goût et stratégie quand le brouillon devient gratuit — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les copywriters : la rédaction est désormais gratuite et instantanée. Ce qui reste irremplaçable dans le goût et la stratégie — et comment te repositionner avant l'effondrement des tarifs.",
+    "intro": "Rédiger des mots est désormais gratuit, instantané et infini. Les vendre à l'heure ou à la page est une course vers le zéro. Les copywriters qui survivent vendent ce que le modèle n'a pas : goût et stratégie.",
+    "irreplaceable": [
+      { "h": "Le goût", "p": "Savoir lequel de cinquante brouillons fonctionne — et tuer les quarante-neuf autres." },
+      { "h": "La stratégie", "p": "Décider quoi dire et à qui, avant le premier mot." },
+      { "h": "Le jugement de marque", "p": "Protéger une voix dans le temps, partout, avec un point de vue." }
+    ],
+    "commoditized": [
+      { "h": "Les premiers jets", "p": "Le copy en volume se génère en secondes à coût quasi nul." },
+      { "h": "Les variantes", "p": "Variations A/B et réécritures sont devenues quasi gratuites." },
+      { "h": "Le formatage et la longueur", "p": "Remodeler un texte pour chaque canal est automatisé." }
+    ],
+    "hybrid": [
+      { "h": "Arrête de vendre des mots", "p": "Vends la stratégie et le jugement éditorial ; laisse le modèle produire le volume." },
+      { "h": "Deviens l'éditeur", "p": "Ta valeur, c'est la coupe et le choix, pas la frappe." },
+      { "h": "Possède une voix", "p": "Sois celui qui tient une voix de marque distinctive qu'aucun défaut n'imite." }
+    ],
+    "plan": [
+      "Re-tarife une offre autour de la stratégie et du goût, pas du nombre de mots.",
+      "Bâtis un workflow où l'IA rédige et où tu édites, pour que le volume cesse d'être ta limite.",
+      "Développe un point de vue signature pour lequel les clients t'engagent, toi précisément.",
+      "Abandonne tout service qui ne se bat que sur la vitesse de production."
+    ],
+    "close": "Rédiger est gratuit. Savoir quoi dire — et quoi couper — est tout le métier."
+  },
+  "social-media-manager": {
+    "title": "Social Media Manager",
+    "metaTitle": "L'IA et le social media manager — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les social media managers : la production de contenu est désormais infinie et gratuite. Ce qui reste irremplaçable dans le jugement de marque et comment te repositionner.",
+    "intro": "Produire posts, légendes et créa est désormais infini et gratuit. Le métier n'est plus le volume mais le jugement : ce qui est dans la voix, ce qui mérite d'être publié, ce qui est risqué.",
+    "irreplaceable": [
+      { "h": "Le jugement de marque", "p": "Savoir ce qui colle à une voix et ce qui l'embarrasserait — en temps réel." },
+      { "h": "La lecture culturelle", "p": "Sentir le moment où une tendance est juste pour une marque, ou un piège." },
+      { "h": "L'instinct de crise", "p": "Gérer une situation en direct où un post de travers fait de vrais dégâts." }
+    ],
+    "commoditized": [
+      { "h": "La production de contenu", "p": "Posts et créa se génèrent à l'échelle infinie." },
+      { "h": "La programmation", "p": "Planification et publication sont entièrement automatisées." },
+      { "h": "L'analytique de base", "p": "Le reporting de performance est automatique." }
+    ],
+    "hybrid": [
+      { "h": "Cure, ne produis pas en masse", "p": "La production est gratuite ; la valeur est le filtre éditorial par-dessus." },
+      { "h": "Possède le risque de la marque", "p": "Sois le jugement qui garde une voix cohérente et sûre." },
+      { "h": "Lis la culture, puis déploie", "p": "Utilise l'IA pour produire, ton instinct pour décider ce qui sort." }
+    ],
+    "plan": [
+      "Déplace ton pitch du volume vers le jugement et la cohérence de marque.",
+      "Bâtis un workflow produire-puis-filtrer où l'IA fait la production.",
+      "Fais du timing culturel et de la gestion de crise ta spécialité visible.",
+      "Arrête de tarifer au nombre de posts ; tarife aux résultats de la marque."
+    ],
+    "close": "Tout le monde produit du contenu maintenant. Savoir ce qui mérite d'être publié est la part rare."
+  },
+  "sales-rep": {
+    "title": "Commercial (SDR/BDR)",
+    "metaTitle": "L'IA et le commercial : conclure quand l'approche s'automatise — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les SDR et BDR : prospection et approche s'automatisent entièrement. Ce qui reste irremplaçable dans la conclusion et la confiance — et comment te repositionner.",
+    "intro": "Prospection, constitution de listes et premier contact sont désormais entièrement automatisés. Les commerciaux qui survivent savent bâtir la confiance et conclure — ce qu'une séquence ne fait pas.",
+    "irreplaceable": [
+      { "h": "Conclure", "p": "Lire un acheteur et le faire avancer vers le oui quand ça compte vraiment." },
+      { "h": "La confiance", "p": "Être celui qu'un prospect croit — une relation, pas un point de contact." },
+      { "h": "Le jugement de découverte", "p": "Entendre la vraie objection derrière celle qui est énoncée." }
+    ],
+    "commoditized": [
+      { "h": "La prospection", "p": "Constitution et enrichissement de listes sont automatisés." },
+      { "h": "L'approche", "p": "Les séquences personnalisées à l'échelle sont l'affaire d'un modèle." },
+      { "h": "Les relances", "p": "Cadence et rappels sont automatiques." }
+    ],
+    "hybrid": [
+      { "h": "Arrête de te battre sur l'activité", "p": "L'approche en volume est automatisée. Bats-toi sur la conversation qui conclut." },
+      { "h": "Possède les moments humains", "p": "Découverte et conclusion sont là où tu gagnes — fais-en ton art." },
+      { "h": "Laisse l'IA remplir le haut", "p": "Confie la prospection aux outils ; passe tes heures dans les affaires en cours." }
+    ],
+    "plan": [
+      "Automatise prospection et approche pour concentrer ton temps sur les conversations vivantes.",
+      "Affûte découverte et conclusion comme tes deux compétences phares.",
+      "Recadre ta valeur autour du pipeline converti, pas de l'activité enregistrée.",
+      "Bâtis des signaux de confiance — références, expertise — qu'une séquence ne peut pas feindre."
+    ],
+    "close": "L'approche est automatisée. La conversation qui conclut reste humaine."
+  },
+  "private-practice-doctor": {
+    "title": "Médecin libéral",
+    "metaTitle": "L'IA et le médecin : jugement et confiance quand la doc s'automatise — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les médecins libéraux : documentation et triage s'automatisent. Ce qui reste irremplaçable dans le jugement clinique et la confiance — et comment te repositionner.",
+    "intro": "Prise de notes, codage, triage et premier diagnostic s'automatisent vite. Ce qui reste humain, c'est ce pour quoi le patient est venu : jugement, présence et confiance.",
+    "irreplaceable": [
+      { "h": "Le jugement clinique", "p": "Décider dans un corps réel avec une information incomplète — et assumer la décision." },
+      { "h": "La confiance au chevet", "p": "La présence qui fait croire et adhérer un patient effrayé." },
+      { "h": "La responsabilité éthique", "p": "Porter la responsabilité d'une vie. Un modèle ne peut pas la tenir." }
+    ],
+    "commoditized": [
+      { "h": "La documentation", "p": "Notes et codage se génèrent de plus en plus à partir de la consultation." },
+      { "h": "Le triage", "p": "L'évaluation symptomatique de premier niveau passe au logiciel." },
+      { "h": "Le diagnostic de routine", "p": "Les lectures standard sont assistées par IA et plus rapides." }
+    ],
+    "hybrid": [
+      { "h": "Laisse l'IA documenter", "p": "Récupère la consultation pour le patient, pas pour le clavier." },
+      { "h": "Possède le jugement", "p": "Positionne l'IA comme ton instrument ; ta décision et ton soin comme le produit." },
+      { "h": "Approfondis la présence", "p": "Utilise le temps libéré pour être plus humain, pas moins — c'est le différenciateur." }
+    ],
+    "plan": [
+      "Adopte la documentation automatisée pour rendre du temps à la consultation.",
+      "Fais de la relation patient et de la continuité ta valeur visible.",
+      "Utilise le diagnostic IA comme support que tu supervises, jamais comme décideur.",
+      "Bâtis une pratique reconnue pour la confiance et la présence, pas le débit."
+    ],
+    "close": "La documentation s'automatise. Le jugement et la confiance sont la raison de la venue du patient."
+  },
+  "therapist": {
+    "title": "Psychologue / Thérapeute",
+    "metaTitle": "L'IA et le thérapeute : la présence humaine comme rempart — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les psychologues et thérapeutes : notes et admin s'automatisent, les chatbots montent. Ce qui reste irremplaçable dans la présence humaine et comment te repositionner.",
+    "intro": "Notes, agenda et chatbots de premier niveau se répandent. Mais le cœur de la thérapie — un humain qui contient la détresse d'un autre — est la chose la plus dure à automatiser.",
+    "irreplaceable": [
+      { "h": "La présence humaine", "p": "Être vraiment avec quelqu'un dans la douleur — le mécanisme même du travail." },
+      { "h": "L'accordage relationnel", "p": "Lire ce qui est sous les mots, séance après séance." },
+      { "h": "Le contenant éthique", "p": "Porter le risque et la responsabilité du bien-être d'un autre." }
+    ],
+    "commoditized": [
+      { "h": "Notes et admin", "p": "Documentation et agenda s'automatisent." },
+      { "h": "La psychoéducation", "p": "Information générale et contenus de coping sont générés gratuitement." },
+      { "h": "Le soutien de premier niveau", "p": "Les check-ins de faible intensité passent aux applis." }
+    ],
+    "hybrid": [
+      { "h": "Externalise le bureau", "p": "Laisse l'IA gérer l'admin pour être pleinement présent dans la pièce." },
+      { "h": "Mène par la relation", "p": "Fais du lien humain ta valeur explicite et irremplaçable." },
+      { "h": "Utilise les outils entre les séances", "p": "Positionne les applis comme support autour de ton travail, pas un substitut." }
+    ],
+    "plan": [
+      "Automatise notes et agenda pour protéger ta présence en séance.",
+      "Explique clairement pourquoi la relation est le traitement, aux clients et aux prescripteurs.",
+      "Décide où la tech soutient ton travail et où elle ne doit jamais te remplacer.",
+      "Bâtis une pratique reconnue pour la profondeur, pas le volume."
+    ],
+    "close": "Les applis informent. Elles ne peuvent pas s'asseoir avec quelqu'un dans le noir. C'est ton métier."
+  },
+  "physiotherapist": {
+    "title": "Kinésithérapeute",
+    "metaTitle": "L'IA et le kiné : la valeur du contact — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les kinés et ostéos : les conseils d'exercices génériques sont désormais gratuits. Ce qui reste irremplaçable dans l'évaluation manuelle et comment te repositionner.",
+    "intro": "Programmes d'exercices et conseils de rééducation génériques sont désormais gratuits et instantanés. Ce qu'aucun modèle n'offre, c'est l'évaluation manuelle et la confiance d'un soin présentiel et adaptatif.",
+    "irreplaceable": [
+      { "h": "L'évaluation manuelle", "p": "Sentir ce qui ne va pas dans un corps et adapter en temps réel." },
+      { "h": "Le traitement manuel", "p": "Un soin physique qui ne se délivre pas à travers un écran." },
+      { "h": "Adhésion et confiance", "p": "Faire vraiment faire le travail à une personne réelle, semaine après semaine." }
+    ],
+    "commoditized": [
+      { "h": "Les programmes génériques", "p": "Les programmes standard sont générés gratuitement." },
+      { "h": "Le contenu éducatif", "p": "Explications et conseils sont abondants et gratuits." },
+      { "h": "Le suivi de progression", "p": "Les applis enregistrent et rappellent automatiquement." }
+    ],
+    "hybrid": [
+      { "h": "Mène par le manuel", "p": "Fais de l'évaluation et du traitement présentiels ta valeur phare." },
+      { "h": "Utilise les applis pour l'adhésion", "p": "Laisse les outils gérer programmes et rappels ; toi, gère le corps." },
+      { "h": "Arrête de donner le conseil", "p": "Le conseil générique est gratuit — ta différence est le contact et l'adaptation." }
+    ],
+    "plan": [
+      "Recadre ton offre autour de l'évaluation et du traitement manuels, pas du conseil.",
+      "Utilise les applis pour les programmes à domicile et le suivi, libérant les séances pour le manuel.",
+      "Bâtis une réputation d'adaptation du soin au corps individuel.",
+      "Retire le contenu générique de ta proposition de valeur ; c'est un commodity."
+    ],
+    "close": "Le conseil est gratuit. Des mains sur un corps, qui s'adaptent en temps réel, non."
+  },
+  "chef": {
+    "title": "Chef / Restaurateur",
+    "metaTitle": "L'IA et le chef : goût et expérience — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les chefs et restaurateurs : coûts de carte, planning et admin s'automatisent. Ce qui reste irremplaçable dans le goût et l'expérience — et comment te repositionner.",
+    "intro": "Coûts de carte, stocks, planning et admin fournisseurs s'automatisent. Ce qu'aucun modèle ne produit, c'est le goût, l'atmosphère et une soirée dont on se souvient.",
+    "irreplaceable": [
+      { "h": "Le goût", "p": "Savoir ce qui est vraiment délicieux — et éditer une carte autour." },
+      { "h": "L'expérience", "p": "Créer une salle et un repas dont on parle en sortant." },
+      { "h": "Le jugement en direct", "p": "Tenir un service quand la soirée part de travers." }
+    ],
+    "commoditized": [
+      { "h": "Coûts et planification", "p": "Marges de carte et planning de prod s'automatisent." },
+      { "h": "Les stocks", "p": "Inventaire et commandes sont désormais du logiciel." },
+      { "h": "Le planning", "p": "Plannings et shifts sont automatisés." }
+    ],
+    "hybrid": [
+      { "h": "Automatise l'arrière-boutique", "p": "Laisse le logiciel gérer coûts et stocks ; passe tes heures sur le plat et la salle." },
+      { "h": "Vends l'expérience", "p": "Bats-toi sur l'atmosphère et le souvenir, pas l'efficacité." },
+      { "h": "Possède le goût", "p": "Ton palais et ton point de vue sont le produit qu'aucun outil ne réplique." }
+    ],
+    "plan": [
+      "Automatise coûts, stocks et planning pour récupérer du temps créatif.",
+      "Réinvestis les heures gagnées dans le plat, la salle et l'expérience.",
+      "Bâtis un concept avec un point de vue, pas seulement une carte.",
+      "Fais de la soirée dont on se souvient ton rempart concurrentiel."
+    ],
+    "close": "Le tableur tourne tout seul maintenant. Le goût et l'expérience, jamais."
+  },
+  "professional-photographer": {
+    "title": "Photographe professionnel",
+    "metaTitle": "L'IA et le photographe : la vision plutôt que la retouche — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les photographes professionnels : retouche et même génération sont triviales. Ce qui reste irremplaçable dans la vision et la présence — et comment te repositionner.",
+    "intro": "La retouche est en un clic et la génération est gratuite. Les photographes qui survivent vendent la vision, la présence et ce qui n'arrive que dans une vraie pièce, avec une vraie personne.",
+    "irreplaceable": [
+      { "h": "La vision", "p": "Voir l'image — un point de vue qu'aucun prompt ne produit." },
+      { "h": "La présence", "p": "Diriger de vraies personnes dans un vrai moment pour obtenir quelque chose de juste." },
+      { "h": "La confiance du jour J", "p": "Être celui à qui on confie un mariage, une marque, un événement unique." }
+    ],
+    "commoditized": [
+      { "h": "La retouche", "p": "Retouche et étalonnage sont en un clic." },
+      { "h": "L'image type banque d'images", "p": "Les visuels génériques sont générés gratuitement." },
+      { "h": "Le tri", "p": "Sélection et classement sont automatisés." }
+    ],
+    "hybrid": [
+      { "h": "Vends la vision, pas les pixels", "p": "Bats-toi sur le point de vue et la présence, pas l'habileté de retouche." },
+      { "h": "Possède l'événement vivant", "p": "Sois irremplaçable là où ça ne se génère pas — le moment réel." },
+      { "h": "Automatise la post-prod", "p": "Laisse l'IA gérer le volume de retouche ; mets ta valeur sur la prise de vue." }
+    ],
+    "plan": [
+      "Recadre ton offre autour de la vision et de la prise de vue vivante, pas du volume de livrables.",
+      "Automatise tri et retouche pour élargir ta capacité.",
+      "Spécialise-toi sur les moments qui ne se génèrent pas — événements, gens, marque.",
+      "Bâtis un point de vue reconnaissable pour lequel les clients t'engagent, toi précisément."
+    ],
+    "close": "La retouche est triviale maintenant. L'œil et le moment sont tout le métier."
+  },
+  "wedding-planner": {
+    "title": "Wedding planner",
+    "metaTitle": "L'IA et le wedding planner : la confiance sous pression — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les wedding et event planners : les outils logistiques se multiplient. Ce qui reste irremplaçable dans le goût et la confiance sous pression — et comment te repositionner.",
+    "intro": "Checklists, budgets, timelines et listes de prestataires s'automatisent tous. Ce que les clients paient encore, c'est le goût, le calme sous pression et quelqu'un qui rend le jour parfait quand il a failli ne pas l'être.",
+    "irreplaceable": [
+      { "h": "Le goût", "p": "Concevoir un jour qui ressemble au couple — pas un modèle." },
+      { "h": "Le calme sous pression", "p": "Gérer la crise à la onzième heure sans que personne ne le remarque." },
+      { "h": "La confiance", "p": "Qu'on te confie le jour le plus émotionnel d'une vie." }
+    ],
+    "commoditized": [
+      { "h": "La planification logistique", "p": "Timelines et checklists sont générées gratuitement." },
+      { "h": "Le budget", "p": "Le suivi des coûts est automatisé." },
+      { "h": "Les listes de prestataires", "p": "Découverte et présélection sont en libre-service." }
+    ],
+    "hybrid": [
+      { "h": "Automatise le tableur", "p": "Laisse les outils gérer la logistique ; vends le goût et le calme." },
+      { "h": "Possède le jugement du jour J", "p": "Ta valeur, c'est gérer ce qui dérape, en direct." },
+      { "h": "Sois le goût", "p": "Un design qui semble personnel, c'est ce qu'aucune checklist ne livre." }
+    ],
+    "plan": [
+      "Automatise logistique et budget pour te concentrer sur le design et les relations.",
+      "Fais de la gestion de crise du jour J ta valeur explicite et premium.",
+      "Bâtis une sensibilité de design reconnaissable pour laquelle les couples te choisissent.",
+      "Arrête de te battre sur l'organisation ; bats-toi sur le goût et la confiance."
+    ],
+    "close": "Les checklists sont gratuites maintenant. Le goût et le calme le jour J restent rares."
+  },
+  "developer": {
+    "title": "Développeur",
+    "metaTitle": "L'IA et le développeur : l'architecture plutôt que le code — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les développeurs : écrire du code se banalise vite. Ce qui reste irremplaçable dans l'architecture et le jugement — et comment te repositionner avant que le travail junior ne s'évapore.",
+    "intro": "Écrire du code devient rapide et bon marché. La valeur passe de la frappe de l'implémentation à la décision de quoi construire, comment le structurer et pourquoi.",
+    "irreplaceable": [
+      { "h": "L'architecture", "p": "Concevoir des systèmes qui survivent au changement — un jugement que le modèle assiste mais ne possède pas." },
+      { "h": "Le cadrage du problème", "p": "Savoir ce qui vaut vraiment la peine d'être construit, et ce qui ne le vaut pas." },
+      { "h": "La responsabilité", "p": "Garantir que le système marche en production, sous charge, dans la durée." }
+    ],
+    "commoditized": [
+      { "h": "Le code boilerplate", "p": "L'implémentation de routine est générée en secondes." },
+      { "h": "Les fonctions simples", "p": "Les unités bien spécifiées sont l'affaire d'un modèle." },
+      { "h": "Traduction et glue", "p": "Convertir entre langages et formats est automatisé." }
+    ],
+    "hybrid": [
+      { "h": "Monte dans la stack", "p": "Repositionne-toi de codeur vers architecte et relecteur." },
+      { "h": "Possède le pourquoi", "p": "Ta valeur, c'est le jugement sur quoi construire, pas les lignes tapées." },
+      { "h": "Utilise l'IA comme un junior", "p": "Dirige et relis le code généré ; ne te bats pas avec lui sur le volume." }
+    ],
+    "plan": [
+      "Fais de l'architecture et du design système ta spécialité visible.",
+      "Bâtis un workflow diriger-et-relire où l'IA fait l'implémentation.",
+      "Approfondis le jugement sur quoi construire, pas seulement comment.",
+      "Arrête de mesurer ta valeur en volume de code ; mesure-la en systèmes qui tiennent."
+    ],
+    "close": "Écrire du code se banalise. Savoir quoi construire et comment le structurer, non."
+  },
+  "product-manager": {
+    "title": "Product Manager",
+    "metaTitle": "L'IA et le product manager : le jugement quand les specs s'écrivent seules — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les product managers : specs, tickets et reporting s'automatisent. Ce qui reste irremplaçable dans le jugement sur quoi construire — et comment te repositionner.",
+    "intro": "Écrire specs, tickets et points d'avancement s'automatise. Le métier de PM se concentre sur son cœur le plus dur : décider ce qui vaut la peine d'être construit, et ce qu'il faut tuer.",
+    "irreplaceable": [
+      { "h": "Le jugement sur quoi construire", "p": "Choisir parmi une infinité d'options sous contrainte réelle — le vrai métier." },
+      { "h": "L'alignement des parties prenantes", "p": "Amener des humains aux intérêts divergents à s'engager sur une direction." },
+      { "h": "Dire non", "p": "Tuer de bonnes idées pour protéger la grande." }
+    ],
+    "commoditized": [
+      { "h": "L'écriture de specs", "p": "Exigences et tickets se génèrent à partir de l'intention." },
+      { "h": "Le reporting", "p": "Statut et mises à jour de roadmap sont automatiques." },
+      { "h": "La synthèse de recherche", "p": "Résumer les retours à grande échelle est l'affaire d'un modèle." }
+    ],
+    "hybrid": [
+      { "h": "Mène par le jugement", "p": "Automatise la documentation ; vends la décision sur quoi construire." },
+      { "h": "Possède l'alignement", "p": "Sois l'humain qui construit l'engagement, pas celui qui écrit les specs." },
+      { "h": "Utilise l'IA pour les entrées", "p": "Laisse les outils synthétiser ; toi, décide." }
+    ],
+    "plan": [
+      "Automatise specs et reporting pour te concentrer sur la priorisation et l'alignement.",
+      "Fais de ton jugement sur quoi construire ta valeur visible.",
+      "Affûte la discipline de dire non.",
+      "Arrête de te mesurer en artefacts livrés ; mesure les résultats."
+    ],
+    "close": "Les specs s'écrivent seules maintenant. Décider ce qui vaut la peine d'être construit est tout le rôle."
+  },
+  "teacher": {
+    "title": "Enseignant",
+    "metaTitle": "L'IA et l'enseignant : le mentorat quand le contenu devient gratuit — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les enseignants : contenus de cours et correction s'automatisent. Ce qui reste irremplaçable dans le mentorat et le jugement — et comment te repositionner.",
+    "intro": "Supports de cours, exercices et même correction deviennent gratuits et automatisés. Ce qui reste humain, c'est ce qui change vraiment un élève : le mentorat et la présence.",
+    "irreplaceable": [
+      { "h": "Le mentorat", "p": "Croire en un élève d'une façon qui change ce qu'il croit de lui-même." },
+      { "h": "Lire une salle", "p": "Sentir qui décroche et adapter en direct — un jugement, pas du contenu." },
+      { "h": "Montrer comment penser", "p": "Montrer, en présence, comment un vrai esprit résout un problème." }
+    ],
+    "commoditized": [
+      { "h": "La création de contenu", "p": "Cours et supports sont générés gratuitement." },
+      { "h": "Exercices et quiz", "p": "Le contenu d'entraînement est infini et automatique." },
+      { "h": "La correction", "p": "La correction de routine s'automatise de plus en plus." }
+    ],
+    "hybrid": [
+      { "h": "Externalise le contenu", "p": "Laisse l'IA produire les supports ; passe ton temps sur les humains." },
+      { "h": "Mène par le mentorat", "p": "Fais de la relation et de la présence ta valeur irremplaçable." },
+      { "h": "Personnalise à l'échelle", "p": "Utilise les outils pour libérer l'attention pour les élèves qui ont besoin de toi." }
+    ],
+    "plan": [
+      "Automatise supports et correction pour récupérer du temps pour les élèves.",
+      "Fais du mentorat et de la présence le cœur explicite de ton rôle.",
+      "Utilise l'IA pour personnaliser, pas pour remplacer la relation.",
+      "Bâtis une réputation d'enseignant dont les élèves se souviennent, pas de contenu."
+    ],
+    "close": "Le contenu est gratuit maintenant. L'enseignant qui change une vie est irremplaçable."
+  },
+  "journalist": {
+    "title": "Journaliste",
+    "metaTitle": "L'IA et le journaliste : jugement et confiance — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les journalistes : transcription, résumé et agrégation s'automatisent. Ce qui reste irremplaçable dans le jugement, les sources et la confiance — et comment te repositionner.",
+    "intro": "Transcription, résumé et agrégation s'automatisent entièrement. Ce qu'aucun modèle ne fait, c'est gagner la confiance d'une source, vérifier le vrai, et y mettre son nom.",
+    "irreplaceable": [
+      { "h": "Le jugement éditorial", "p": "Savoir ce qui est vraiment un sujet, et ce qui est du bruit." },
+      { "h": "La confiance des sources", "p": "Des relations qui te donnent ce qu'aucun scraper n'atteint." },
+      { "h": "La responsabilité du vrai", "p": "Assumer une affirmation — un modèle ne peut pas en porter le risque." }
+    ],
+    "commoditized": [
+      { "h": "La transcription", "p": "Les interviews sont transcrites automatiquement." },
+      { "h": "Le résumé", "p": "Agrégation et récaps sont générés gratuitement." },
+      { "h": "Les brèves de routine", "p": "Le reportage formaté est automatisé." }
+    ],
+    "hybrid": [
+      { "h": "Possède le reportage original", "p": "Bats-toi sur ce qui ne se scrape pas — sources et vérification." },
+      { "h": "Mène par le jugement", "p": "Ton choix éditorial est la valeur, pas le nombre de signes." },
+      { "h": "Automatise les corvées", "p": "Laisse l'IA transcrire et résumer ; toi, enquête et vérifie." }
+    ],
+    "plan": [
+      "Déplace ta valeur vers le reportage original et la vérification.",
+      "Investis dans des relations de sources qu'aucun modèle n'atteint.",
+      "Automatise transcription et recherche pour libérer du temps pour le sujet.",
+      "Fais de la confiance le rempart concurrentiel de ta signature."
+    ],
+    "close": "Les résumés sont gratuits maintenant. Gagner une source et vérifier le vrai, non."
+  },
+  "writer": {
+    "title": "Écrivain / Auteur",
+    "metaTitle": "L'IA et l'écrivain : la voix quand le brouillon se multiplie — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les écrivains et auteurs : les outils de rédaction sont partout et gratuits. Ce qui reste irremplaçable dans la voix et la perspective — et comment te repositionner.",
+    "intro": "Rédiger est infini et gratuit. La prose générique est un commodity. Ce qui reste rare, c'est une voix distinctive et une perspective qu'une seule personne possède.",
+    "irreplaceable": [
+      { "h": "La voix", "p": "Une façon d'écrire qui est indubitablement la tienne — pas une moyenne de tout." },
+      { "h": "La perspective originale", "p": "Un point de vue tiré d'une vie, pas d'un jeu de données." },
+      { "h": "L'autorité du vécu", "p": "Écrire ce que toi seul pouvais écrire, parce que toi seul l'as vécu." }
+    ],
+    "commoditized": [
+      { "h": "La prose générique", "p": "L'écriture correcte et moyenne est gratuite et infinie." },
+      { "h": "Le contenu formaté", "p": "Les genres à modèle sont automatisés." },
+      { "h": "Le premier jet", "p": "Les brouillons se produisent en secondes." }
+    ],
+    "hybrid": [
+      { "h": "Mène par la voix", "p": "Bats-toi sur l'indubitable, pas sur le correct." },
+      { "h": "Exploite ta vie", "p": "Ta perspective et ta provenance sont le rempart." },
+      { "h": "L'IA comme outil, pas comme nègre", "p": "Laisse-la assister ; garde la voix tienne et dis-le." }
+    ],
+    "plan": [
+      "Affûte et protège une voix distinctive.",
+      "Bâtis un travail autour d'une perspective que toi seul as.",
+      "Documente ta provenance humaine — ça devient un argument de vente.",
+      "Arrête de te battre là où « correct et générique » est désormais gratuit."
+    ],
+    "close": "La prose correcte est gratuite maintenant. Une voix et une perspective, non."
+  },
+  "cybersecurity-specialist": {
+    "title": "Expert en cybersécurité",
+    "metaTitle": "L'IA et l'expert en cybersécurité — Adaptive Survival Outlook",
+    "metaDescription": "Une analyse stratégique pour les experts en cybersécurité : scan et monitoring s'automatisent, et les attaquants aussi. Ce qui reste irremplaçable dans le jugement adverse — et comment te repositionner.",
+    "intro": "Scan, monitoring et triage de routine s'automatisent — et les attaquants aussi. La valeur passe au jugement adverse : penser comme un attaquant humain, et décider ce qui compte vraiment.",
+    "irreplaceable": [
+      { "h": "Le jugement adverse", "p": "Penser comme un attaquant qui improvise — pas comme une checklist." },
+      { "h": "La priorisation sous risque", "p": "Décider laquelle de mille alertes est celle qui compte." },
+      { "h": "La responsabilité", "p": "Assumer la décision quand un choix de réponse à incident doit se prendre, vite." }
+    ],
+    "commoditized": [
+      { "h": "Le scan", "p": "Le scan de vulnérabilités est automatisé." },
+      { "h": "Le monitoring", "p": "Analyse de logs et alerting deviennent de plus en plus l'affaire d'un modèle." },
+      { "h": "Le triage de routine", "p": "Le traitement de premier niveau des alertes s'automatise." }
+    ],
+    "hybrid": [
+      { "h": "Mène par la pensée adverse", "p": "Automatise la détection ; vends le jugement humain qui anticipe les attaquants." },
+      { "h": "Possède les décisions dures", "p": "Ta valeur, c'est la priorisation et la réponse sous pression." },
+      { "h": "Utilise l'IA des deux côtés", "p": "Les défenseurs qui dirigent l'IA battent ceux qui se battent contre elle." }
+    ],
+    "plan": [
+      "Automatise scan et monitoring pour te concentrer sur le jugement et la réponse.",
+      "Fais de la pensée adverse et de la priorisation ta spécialité visible.",
+      "Bâtis le jugement de réponse à incident comme ta valeur premium.",
+      "Arrête de te battre sur le triage de routine ; il s'automatise."
+    ],
+    "close": "Le scan est automatique maintenant. Penser comme un attaquant humain est la compétence rare."
+  }
+}

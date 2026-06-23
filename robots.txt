@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lemonprod.co/sitemap.xml
+Sitemap: https://lemon-prod.vercel.app/sitemap.xml

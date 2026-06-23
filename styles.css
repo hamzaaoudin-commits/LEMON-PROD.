@@ -118,6 +118,13 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.02;
 .nav__toggle { display: none; background: none; border: 1px solid var(--hair-2); color: var(--bone); width: 44px; height: 40px; cursor: pointer; align-items: center; justify-content: center; }
 .nav__toggle svg { width: 20px; height: 20px; }
 
+/* Language switcher */
+.lang { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; }
+.lang__opt { color: var(--bone-3); transition: color .2s; }
+.lang__opt:hover { color: var(--bone); }
+.lang__opt.is-active { color: var(--zest); }
+.lang__sep { color: var(--hair-3); }
+
 /* ---------- Hero ---------- */
 .hero { padding-top: clamp(3.5rem, 8vw, 6.5rem); padding-bottom: clamp(4rem, 9vw, 7rem); }
 .hero__grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
@@ -360,6 +367,8 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.02;
     background: var(--ink); border-bottom: 1px solid var(--hair-2); padding: .5rem var(--pad) 1.6rem;
   }
   .nav__links.open a { padding: 1rem 0; width: 100%; border-bottom: 1px solid var(--hair); font-size: .9rem; }
+  .nav__links.open .lang { padding: 1rem 0; gap: 1rem; }
+  .nav__links.open .lang a { padding: 0; width: auto; border-bottom: 0; }
   .nav__links.open .btn { margin-top: 1.2rem; width: 100%; justify-content: center; }
   .nav__toggle { display: inline-flex; }
   .prob__cards { grid-template-columns: 1fr; }

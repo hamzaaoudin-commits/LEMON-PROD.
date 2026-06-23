@@ -1,159 +1,627 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lemonprod.co/</loc>
+    <loc>https://lemon-prod.vercel.app/</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/</loc>
+    <loc>https://lemon-prod.vercel.app/guides</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/lawyer/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/lawyer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/lawyer"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/accountant/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/accountant</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/accountant"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/wealth-manager/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/wealth-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wealth-manager"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/real-estate-agent/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/real-estate-agent</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/real-estate-agent"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/architect/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/architect</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/architect"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/construction-project-manager/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/construction-project-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/construction-project-manager"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/hr-director/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/hr-director</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/hr-director"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/recruiter/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/recruiter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/recruiter"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/team-manager/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/team-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/team-manager"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/copywriter/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/copywriter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/copywriter"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/social-media-manager/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/social-media-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/social-media-manager"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/sales-rep/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/sales-rep</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/sales-rep"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/private-practice-doctor/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/private-practice-doctor</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/private-practice-doctor"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/therapist/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/therapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/therapist"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/physiotherapist/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/physiotherapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/physiotherapist"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/chef/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/chef</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/chef"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/professional-photographer/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/professional-photographer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/professional-photographer"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/wedding-planner/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/wedding-planner</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wedding-planner"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/developer/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/developer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/developer"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/product-manager/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/product-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/product-manager"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/teacher/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/teacher</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/teacher"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/journalist/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/journalist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/journalist"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/writer/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/writer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/writer"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lemonprod.co/guides/cybersecurity-specialist/</loc>
+    <loc>https://lemon-prod.vercel.app/guides/cybersecurity-specialist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/cybersecurity-specialist"/>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/lawyer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/lawyer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/accountant</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/accountant"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/wealth-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wealth-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/real-estate-agent</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/real-estate-agent"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/architect</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/architect"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/construction-project-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/construction-project-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/hr-director</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/hr-director"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/recruiter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/recruiter"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/team-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/team-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/copywriter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/copywriter"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/social-media-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/social-media-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/sales-rep</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/sales-rep"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/private-practice-doctor</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/private-practice-doctor"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/therapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/therapist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/physiotherapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/physiotherapist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/chef</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/chef"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/professional-photographer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/professional-photographer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/wedding-planner</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wedding-planner"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/developer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/developer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/product-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/product-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/teacher</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/teacher"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/journalist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/journalist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/writer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/writer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/fr/guides/cybersecurity-specialist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/cybersecurity-specialist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/lawyer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/lawyer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/lawyer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/accountant</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/accountant"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/accountant"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/wealth-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wealth-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wealth-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/real-estate-agent</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/real-estate-agent"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/real-estate-agent"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/architect</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/architect"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/architect"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/construction-project-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/construction-project-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/construction-project-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/hr-director</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/hr-director"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/hr-director"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/recruiter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/recruiter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/recruiter"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/team-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/team-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/team-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/copywriter</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/copywriter"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/copywriter"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/social-media-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/social-media-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/social-media-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/sales-rep</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/sales-rep"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/sales-rep"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/private-practice-doctor</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/private-practice-doctor"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/private-practice-doctor"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/therapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/therapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/therapist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/physiotherapist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/physiotherapist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/physiotherapist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/chef</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/chef"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/chef"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/professional-photographer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/professional-photographer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/professional-photographer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/wedding-planner</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/wedding-planner"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/wedding-planner"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/developer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/developer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/developer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/product-manager</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/product-manager"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/product-manager"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/teacher</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/teacher"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/teacher"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/journalist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/journalist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/journalist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/writer</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/writer"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/writer"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://lemon-prod.vercel.app/es/guides/cybersecurity-specialist</loc>
+      <xhtml:link rel="alternate" hreflang="en" href="https://lemon-prod.vercel.app/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="fr" href="https://lemon-prod.vercel.app/fr/guides/cybersecurity-specialist"/>
+      <xhtml:link rel="alternate" hreflang="es" href="https://lemon-prod.vercel.app/es/guides/cybersecurity-specialist"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
