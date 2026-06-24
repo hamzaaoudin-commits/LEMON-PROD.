@@ -86,7 +86,7 @@ ${alts}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />`;
 }
 
@@ -99,8 +99,9 @@ function langSwitch(loc, kind, slug) {
 }
 
 const brandSvg = `<svg class="brand__lemon" viewBox="0 0 64 64" aria-hidden="true">
-          <ellipse cx="32" cy="33" rx="17" ry="20" fill="#EFC52B"/>
-          <path d="M32 13c1.6 0 3 .2 3 .2l-1.4 4.6a6 6 0 0 0-3.2 0L29 13.2s1.4-.2 3-.2z" fill="#2C7A2C"/>
+          <circle cx="32" cy="32" r="27" fill="none" stroke="#CDA64C" stroke-width="2.4"/>
+          <polygon points="32,16 45.9,24 45.9,40 32,48 18.1,40 18.1,24" fill="none" stroke="#E7C97E" stroke-width="2.2"/>
+          <circle cx="32" cy="32" r="3.4" fill="#E7C97E"/>
         </svg>`;
 
 function nav(loc, kind, slug) {
@@ -163,14 +164,15 @@ function footer(loc) {
   </footer>`;
 }
 
-const lemonSvg = `<svg class="lemon3d" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-            <defs><radialGradient id="lemonShade" cx="38%" cy="32%" r="80%">
-              <stop offset="0%" stop-color="#F7DC6B"/><stop offset="55%" stop-color="#EFC52B"/><stop offset="100%" stop-color="#C79A12"/>
-            </radialGradient></defs>
-            <ellipse cx="60" cy="62" rx="34" ry="40" fill="url(#lemonShade)"/>
-            <path d="M60 18c3 0 5.4.4 5.4.4l-2.5 8.4a11 11 0 0 0-5.8 0L54.6 18.4S57 18 60 18z" fill="#2C7A2C"/>
-            <path d="M44 50c8-9 24-9 32 0M44 74c8 9 24 9 32 0" stroke="#B8980A" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".5"/>
-            <ellipse cx="48" cy="44" rx="9" ry="13" fill="#FBE89A" opacity=".55"/>
+const lemonSvg = `<svg class="lemon3d" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+            <circle cx="120" cy="120" r="110" fill="none" stroke="#9A7A2E" stroke-width="1" opacity=".45"/>
+            <circle cx="120" cy="120" r="94" fill="none" stroke="#E7C97E" stroke-width="1.4" opacity=".9"/>
+            <polygon points="120,70 163.3,95 163.3,145 120,170 76.7,145 76.7,95" fill="rgba(205,166,76,.05)" stroke="#CDA64C" stroke-width="1.1" opacity=".75"/>
+            <g stroke="#CDA64C" stroke-width=".9" opacity=".55" stroke-linecap="round">
+              <path d="M120,70 L120,30 M163.3,95 L197.8,75 M163.3,145 L197.8,165 M120,170 L120,210 M76.7,145 L42.2,165 M76.7,95 L42.2,75"/>
+            </g>
+            <circle cx="120" cy="120" r="42" fill="none" stroke="#9A7A2E" stroke-width=".7" opacity=".4"/>
+            <circle cx="120" cy="120" r="5" fill="#E7C97E"/>
           </svg>`;
 
 /* proto card body built from the localized lawyer content */
@@ -193,7 +195,7 @@ ${esc(law.hybrid[0].p)}`;
 function homePage(loc) {
   const t = T(loc), p = prefix(loc);
   const cats = data.categories.map((cat) => ({
-    id: cat.id, name: `${cat.icon} ${catName(cat.id, loc)}`,
+    id: cat.id, name: catName(cat.id, loc),
     jobs: cat.jobs.map((j) => ({ slug: j.slug, title: jobTitle(j.slug, loc), popular: !!j.popular, focus: jobFocus(j.slug, loc), href: path(loc, "guide", j.slug) })),
   }));
 
@@ -420,7 +422,7 @@ ${nav(loc, "guide", slug)}
         <span aria-current="page">${esc(title)}</span>
       </nav>
       <header class="guide__head">
-        <span class="eyebrow">${cat.icon} ${esc(catName(catId, loc))} · ${esc(t.g_outlook_suffix)}</span>
+        <span class="eyebrow">${esc(catName(catId, loc))} · ${esc(t.g_outlook_suffix)}</span>
         <h1 class="display">${esc(fmt(t.g_ai_the, { t: title }))}</h1>
         <p class="lede guide__intro">${esc(j.intro)}</p>
       </header>
@@ -493,7 +495,7 @@ function hubPage(loc) {
             <span class="hub__go">${esc(t.g_read)}</span>
           </a>`).join("\n");
     return `      <section class="hub__cat">
-        <h2 class="hub__catname">${cat.icon} ${esc(catName(cat.id, loc))}</h2>
+        <h2 class="hub__catname">${esc(catName(cat.id, loc))}</h2>
         <div class="hub__grid">
 ${cards}
         </div>
