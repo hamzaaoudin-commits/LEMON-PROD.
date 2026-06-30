@@ -49,3 +49,26 @@ Google Search Console.
 Design: cinematographic dark monolith (#0a0a0a), lemon zest as a sparing accent. Type: Playfair Display ·
 DM Sans · JetBrains Mono. The hero lemon is a lightweight animated SVG (no three.js). Responsive,
 keyboard-accessible, prefers-reduced-motion respected.
+
+## Update — Case Studies, gated guides, 3D/interactivity
+
+NEW PAGE: /case-studies (+ /fr/case-studies, /es/case-studies). Honest "method applied"
+worked examples (no fabricated client names/figures) + a "Your case, next" slot for real
+testimonials later. Linked in the nav and in sitemap.xml.
+
+GATED GUIDES: profession pages now keep the free diagnosis (the honest split) as the hook,
+but the PRESCRIPTION — the hybrid moves' "how" and the full 90-day plan — is locked. Only the
+move TITLES are teased; the plan is a locked module. IMPORTANT: the gated text is NOT emitted
+to the HTML at all (no blur-only fake-gate), so it can't be scraped from source. The actual
+content still lives in guides*.json for when you build the real paid guide/PDF.
+
+INTERACTIVITY (home only, progressive + graceful fallback):
+- Card tilt toward the cursor + gold light that follows the pointer across the hero.
+- Jeweller's loupe: hovering the strategy card shows a magnifying lens that follows the cursor.
+- 3D faceted gem: a Three.js octahedral "gem" lazy-loaded from the cdnjs CDN, drag to rotate,
+  slow auto-spin. Falls back to the SVG aperture on mobile, no-WebGL, or prefers-reduced-motion.
+  Three.js is loaded ONLY on the home page, lazily, so the other 80 pages stay light.
+All of the above is in script.js and is disabled under prefers-reduced-motion / touch.
+
+NOTE on case studies: each worked example shows ONE sample move as proof of quality (the same
+"free sample" logic as the home hero). If you'd rather tease those too, say so and I'll gate them.

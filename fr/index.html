@@ -53,6 +53,7 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="/fr/guides">Tous les métiers</a>
+        <a href="/fr/case-studies">Études de cas</a>
         <a href="/fr#faq">FAQ</a>
         <div class="lang" role="group" aria-label="Language"><a class="lang__opt" href="/" hreflang="en">EN</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt is-active" href="/fr" hreflang="fr" aria-current="true">FR</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt" href="/es" hreflang="es">ES</a></div>
         <a class="btn btn--primary nav__cta" href="/fr/guides">Trouver mon guide</a>
@@ -65,6 +66,7 @@
 
   <main id="main">
     <section class="hero wrap" id="home">
+      <span class="hero__light" id="heroLight" aria-hidden="true"></span>
       <div class="hero__grid">
         <div>
           <span class="eyebrow enter" style="--d:.05s">Adaptive Survival Guides — par Lemon Prod</span>
@@ -82,8 +84,8 @@
             <span>24 métiers</span><span>Une stratégie, pas une liste d'outils</span><span>Écrit pour ton intitulé exact</span><span>Lecture de 30 min</span>
           </div>
         </div>
-        <div class="enter proto3d" style="--d:.5s" id="protoWrap">
-          <svg class="lemon3d" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+        <div class="enter proto3d" style="--d:.5s" id="protoWrap" data-tilt>
+          <div class="gem3d" id="gem3d" aria-hidden="true"><svg class="lemon3d" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
             <circle cx="120" cy="120" r="110" fill="none" stroke="#9A7A2E" stroke-width="1" opacity=".45"/>
             <circle cx="120" cy="120" r="94" fill="none" stroke="#E7C97E" stroke-width="1.4" opacity=".9"/>
             <polygon points="120,70 163.3,95 163.3,145 120,170 76.7,145 76.7,95" fill="rgba(205,166,76,.05)" stroke="#CDA64C" stroke-width="1.1" opacity=".75"/>
@@ -92,8 +94,8 @@
             </g>
             <circle cx="120" cy="120" r="42" fill="none" stroke="#9A7A2E" stroke-width=".7" opacity=".4"/>
             <circle cx="120" cy="120" r="5" fill="#E7C97E"/>
-          </svg>
-          <figure class="proto" id="protoCard" aria-label="Avocat">
+          </svg></div>
+          <figure class="proto" id="protoCard" data-loupe aria-label="Avocat">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span><span class="proto__dot"></span><span class="proto__dot"></span>
               <span class="proto__tag">Adaptive Survival · Avocat</span>

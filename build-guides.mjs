@@ -55,6 +55,7 @@ const prefix = (loc) => (loc === "en" ? "" : `/${loc}`);
 function path(loc, kind, slug) {
   if (kind === "home") return prefix(loc) || "/";
   if (kind === "hub") return `${prefix(loc)}/guides`;
+  if (kind === "cases") return `${prefix(loc)}/case-studies`;
   return `${prefix(loc)}/guides/${slug}`;
 }
 const url = (loc, kind, slug) => BASE + path(loc, kind, slug);
@@ -114,6 +115,7 @@ function nav(loc, kind, slug) {
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="${p}/guides">${esc(t.nav_all)}</a>
+        <a href="${p}/case-studies">${esc(t.nav_cases)}</a>
         <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
         ${langSwitch(loc, kind, slug)}
         <a class="btn btn--primary nav__cta" href="${p}/guides">${esc(t.nav_find)}</a>
@@ -220,6 +222,7 @@ ${nav(loc, "home", null)}
 
   <main id="main">
     <section class="hero wrap" id="home">
+      <span class="hero__light" id="heroLight" aria-hidden="true"></span>
       <div class="hero__grid">
         <div>
           <span class="eyebrow enter" style="--d:.05s">${esc(t.hero_eyebrow)}</span>
@@ -237,9 +240,9 @@ ${nav(loc, "home", null)}
             <span>${esc(t.trust_1)}</span><span>${esc(t.trust_2)}</span><span>${esc(t.trust_3)}</span><span>${esc(t.trust_4)}</span>
           </div>
         </div>
-        <div class="enter proto3d" style="--d:.5s" id="protoWrap">
-          ${lemonSvg}
-          <figure class="proto" id="protoCard" aria-label="${esc(jobTitle("lawyer", loc))}">
+        <div class="enter proto3d" style="--d:.5s" id="protoWrap" data-tilt>
+          <div class="gem3d" id="gem3d" aria-hidden="true">${lemonSvg}</div>
+          <figure class="proto" id="protoCard" data-loupe aria-label="${esc(jobTitle("lawyer", loc))}">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span><span class="proto__dot"></span><span class="proto__dot"></span>
               <span class="proto__tag">Adaptive Survival · ${esc(jobTitle("lawyer", loc))}</span>
@@ -439,20 +442,28 @@ ${j.commoditized.map(splitItem).join("\n")}
         </div>
       </section>
 
-      <section class="guide__block">
-        <span class="eyebrow">${esc(t.g_hybrid_eyebrow)}</span>
-        <h2 class="display">${esc(t.g_hybrid_head)}</h2>
-        <div class="hybrid">
-${j.hybrid.map(hcard).join("\n")}
+      <section class="vault" aria-label="${esc(t.vault_eyebrow)}">
+        <span class="eyebrow">${esc(t.vault_eyebrow)}</span>
+        <h2 class="display">${esc(fmt(t.vault_head, { t: title }))}</h2>
+        <p class="lede vault__intro">${esc(t.vault_intro)}</p>
+        <div class="vault__grid">
+${j.hybrid.map((h) => `          <div class="vault__item"><span class="vault__d" aria-hidden="true">◆</span><div><h3>${esc(h.h)}</h3><span class="vault__lock">${esc(t.vault_locked)}</span></div></div>`).join("\n")}
+          <div class="vault__item"><span class="vault__d" aria-hidden="true">◆</span><div><h3>${esc(t.vault_plan_title)}</h3><span class="vault__lock">${esc(t.vault_locked)}</span></div></div>
         </div>
-      </section>
-
-      <section class="guide__block">
-        <span class="eyebrow">${esc(t.g_plan_eyebrow)}</span>
-        <h2 class="display">${esc(t.g_plan_head)}</h2>
-        <ol class="plan">
-${j.plan.map(planItem).join("\n")}
-        </ol>
+        <div class="locked">
+          <div class="locked__preview" aria-hidden="true">
+            <span class="locked__pn">01</span><span class="locked__bar" style="width:78%"></span>
+            <span class="locked__pn">02</span><span class="locked__bar" style="width:63%"></span>
+            <span class="locked__pn">03</span><span class="locked__bar" style="width:84%"></span>
+            <span class="locked__pn">04</span><span class="locked__bar" style="width:55%"></span>
+          </div>
+          <div class="locked__veil">
+            <svg class="locked__ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="32,14 47.6,23 47.6,41 32,50 16.4,41 16.4,23" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="32" cy="32" r="3" fill="currentColor"/></svg>
+            <p class="locked__note">${esc(t.vault_unlock_note)}</p>
+            <a class="btn btn--primary" href="${mail}">${esc(t.g_notify)}</a>
+            <span class="waitlist__fine">${esc(t.g_fine)}</span>
+          </div>
+        </div>
         <p class="guide__close">${esc(j.close)}</p>
       </section>
 
@@ -476,6 +487,82 @@ ${siblings.map(sib).join("\n")}
         <p class="rel__all"><a href="${p}/guides">${esc(fmt(t.g_browse_all, { n: jobs.length }))}</a></p>
       </section>
     </article>
+  </main>
+
+${footer(loc)}
+  <script src="/script.js"></script>
+</body>
+</html>
+`;
+}
+
+/* ----------------------------- CASE STUDIES ----------------------------- */
+function caseStudiesPage(loc) {
+  const t = T(loc), p = prefix(loc);
+  const demoSlugs = ["lawyer", "copywriter", "real-estate-agent"];
+  const casesMail = `mailto:${CONTACT}?subject=${encodeURIComponent(loc === "fr" ? "Devenir un cas d'étude — Lemon Prod" : loc === "es" ? "Convertirme en un caso — Lemon Prod" : "Become a case study — Lemon Prod")}`;
+
+  const caseBlock = (slug, i) => {
+    const c = content(slug, loc);
+    const title = jobTitle(slug, loc);
+    const facet = c.irreplaceable[0], move = c.hybrid[0];
+    return `      <article class="case${i % 2 ? " case--alt" : ""}">
+        <div class="case__head">
+          <div class="case__meta"><span class="case__tag">${esc(t.cases_demo_tag)}</span><span class="case__n">N°${String(i + 1).padStart(2, "0")}</span></div>
+          <h2 class="case__title">${esc(title)}</h2>
+          <p class="case__situation"><span class="case__label">${esc(t.cases_situation)}</span>${esc(c.intro)}</p>
+        </div>
+        <div class="case__cols">
+          <div class="case__col case__col--facet">
+            <span class="case__label">${esc(t.cases_facet)}</span>
+            <h3>${esc(facet.h)}</h3><p>${esc(facet.p)}</p>
+          </div>
+          <div class="case__col">
+            <span class="case__label">${esc(t.cases_move)}</span>
+            <h3>${esc(move.h)}</h3><p>${esc(move.p)}</p>
+          </div>
+        </div>
+        <a class="case__link" href="${p}/guides/${slug}">${esc(t.cases_view)} →</a>
+      </article>`;
+  };
+
+  const jsonld = { "@context":"https://schema.org","@type":"WebPage", name:t.cases_head, description:t.cases_desc, url:url(loc,"cases"), inLanguage:i18n.htmlLang[loc] };
+
+  return `<!DOCTYPE html>
+<html lang="${i18n.htmlLang[loc]}">
+<head>
+${head({ loc, kind:"cases", title:t.cases_title, description:t.cases_desc, ogType:"website" })}
+  <script type="application/ld+json">
+${JSON.stringify(jsonld, null, 2)}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">${esc(t.skip)}</a>
+${nav(loc, "cases", null)}
+
+  <main id="main">
+    <section class="section wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="${p || "/"}">${esc(t.crumb_home)}</a><span aria-hidden="true">/</span>
+        <span aria-current="page">${esc(t.cases_eyebrow)}</span>
+      </nav>
+      <header class="cases__head">
+        <span class="eyebrow">${esc(t.cases_eyebrow)}</span>
+        <h1 class="display">${esc(t.cases_head)}</h1>
+        <p class="lede">${esc(t.cases_lede)}</p>
+      </header>
+
+      <div class="cases__list">
+${demoSlugs.map(caseBlock).join("\n")}
+      </div>
+
+      <section class="cases__real">
+        <span class="eyebrow">${esc(t.cases_real_eyebrow)}</span>
+        <h2 class="display">${esc(t.cases_real_head)}</h2>
+        <p class="lede">${esc(t.cases_real_note)}</p>
+        <a class="btn btn--primary" href="${casesMail}">${esc(t.cases_cta)}</a>
+      </section>
+    </section>
   </main>
 
 ${footer(loc)}
@@ -546,6 +633,7 @@ function sitemap() {
   for (const loc of LOCALES) {
     entries.push({ loc, kind: "home" });
     entries.push({ loc, kind: "hub" });
+    entries.push({ loc, kind: "cases" });
     for (const j of jobs) entries.push({ loc, kind: "guide", slug: j.slug });
   }
   const body = entries.map((e) => {
@@ -567,6 +655,7 @@ for (const loc of LOCALES) {
   const pdir = loc === "en" ? "" : `${loc}/`;
   write(`${pdir}index.html`, homePage(loc));
   write(`${pdir}guides/index.html`, hubPage(loc));
+  write(`${pdir}case-studies/index.html`, caseStudiesPage(loc));
   for (const j of jobs) { write(`${pdir}guides/${j.slug}/index.html`, guidePage(j.slug, loc)); count++; }
 }
 write("sitemap.xml", sitemap());
