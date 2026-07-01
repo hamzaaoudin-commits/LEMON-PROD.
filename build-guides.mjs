@@ -87,7 +87,7 @@ ${alts}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />`;
 }
@@ -242,7 +242,7 @@ ${nav(loc, "home", null)}
         </div>
         <div class="enter proto3d" style="--d:.5s" id="protoWrap" data-tilt>
           <div class="gem3d" id="gem3d" aria-hidden="true">${lemonSvg}</div>
-          <figure class="proto" id="protoCard" data-loupe aria-label="${esc(jobTitle("lawyer", loc))}">
+          <figure class="proto" id="protoCard" aria-label="${esc(jobTitle("lawyer", loc))}">
             <div class="proto__bar">
               <span class="proto__dot proto__dot--live"></span><span class="proto__dot"></span><span class="proto__dot"></span>
               <span class="proto__tag">Adaptive Survival · ${esc(jobTitle("lawyer", loc))}</span>
@@ -261,7 +261,7 @@ ${nav(loc, "home", null)}
 
     <section class="section wrap">
       <div class="reveal">
-        <span class="eyebrow">${esc(t.prob_eyebrow)}</span>
+        <span class="eyebrow"><span class="eyebrow__ch">I</span>${esc(t.prob_eyebrow)}</span>
         <h2 class="display prob__head">${esc(t.prob_head_a)}<b>${esc(t.prob_head_b)}</b></h2>
         <p class="lede prob__lede">${esc(t.prob_lede)}</p>
       </div>
@@ -277,7 +277,7 @@ ${nav(loc, "home", null)}
     <section class="section divider" id="collection">
       <div class="wrap">
         <div class="reveal coll__head">
-          <span class="eyebrow">${esc(t.coll_eyebrow)}</span>
+          <span class="eyebrow"><span class="eyebrow__ch">II</span>${esc(t.coll_eyebrow)}</span>
           <h2 class="display">${esc(t.coll_head)}</h2>
           <p class="lede coll__intro">${esc(t.coll_intro)}</p>
         </div>
@@ -306,7 +306,7 @@ ${nav(loc, "home", null)}
 
     <section class="section divider wrap section--tight">
       <div class="reveal" style="margin-bottom:2.8rem">
-        <span class="eyebrow">${esc(t.doc_eyebrow)}</span>
+        <span class="eyebrow"><span class="eyebrow__ch">III</span>${esc(t.doc_eyebrow)}</span>
         <h2 class="display">${esc(t.doc_head)}</h2>
       </div>
       <div class="doctrine reveal">
@@ -326,7 +326,7 @@ ${nav(loc, "home", null)}
 
     <section class="section divider wrap" id="faq">
       <div class="faq__head reveal">
-        <span class="eyebrow">${esc(t.faq_eyebrow)}</span>
+        <span class="eyebrow"><span class="eyebrow__ch">IV</span>${esc(t.faq_eyebrow)}</span>
         <h2 class="display">${esc(t.faq_head)}</h2>
       </div>
       <div class="faq__list faq reveal">

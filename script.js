@@ -1,4 +1,4 @@
-/* Lemon Prod — interactions (LOUPE) */
+/* Lemon Prod — interactions (LOUPE direction) */
 (function () {
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -31,7 +31,20 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  if (reduced) return; /* no pointer-driven motion if reduced */
+  /* ---- Narrative scroll-progress thread ---- */
+  var prog = document.createElement('div');
+  prog.className = 'progress';
+  document.body.appendChild(prog);
+  function updateProgress() {
+    var st = window.scrollY || document.documentElement.scrollTop;
+    var doch = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (doch > 0 ? (st / doch) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  if (reduced) return; /* no pointer-driven motion beyond this point */
 
   /* ---- Hero: gold light follows the cursor ---- */
   var hero = document.querySelector('.hero');
@@ -60,41 +73,6 @@
     wrap.addEventListener('pointerleave', function () { card.style.transform = ''; });
   }
 
-  /* ---- Jeweller's loupe: magnify the strategy under the lens ---- */
-  var loupeTarget = document.querySelector('[data-loupe]');
-  if (loupeTarget && !touch) {
-    var Z = 1.7, R = 100; /* magnification, lens radius */
-    var lens = document.createElement('div');
-    lens.className = 'loupe-lens';
-    var inner = document.createElement('div');
-    inner.className = 'loupe-lens__inner';
-    lens.appendChild(inner);
-    document.body.appendChild(lens);
-    var built = false;
-    function build() {
-      inner.innerHTML = '';
-      var clone = loupeTarget.cloneNode(true);
-      clone.removeAttribute('id'); clone.style.margin = '0'; clone.style.transform = 'none';
-      var rect = loupeTarget.getBoundingClientRect();
-      clone.style.width = rect.width + 'px';
-      inner.style.width = rect.width + 'px';
-      inner.style.transform = 'scale(' + Z + ')';
-      inner.appendChild(clone);
-      built = true;
-    }
-    loupeTarget.addEventListener('pointerenter', function () { build(); lens.classList.add('on'); });
-    loupeTarget.addEventListener('pointerleave', function () { lens.classList.remove('on'); });
-    loupeTarget.addEventListener('pointermove', function (e) {
-      if (!built) build();
-      var rect = loupeTarget.getBoundingClientRect();
-      var x = e.clientX - rect.left, y = e.clientY - rect.top;
-      lens.style.left = (e.clientX - R) + 'px';
-      lens.style.top = (e.clientY - R) + 'px';
-      inner.style.left = (R - x * Z) + 'px';
-      inner.style.top = (R - y * Z) + 'px';
-    });
-  }
-
   /* ---- 3D faceted gem (Three.js, lazy + graceful fallback to SVG) ---- */
   function init3D() {
     var mount = document.getElementById('gem3d');
@@ -120,14 +98,14 @@
       mount.appendChild(renderer.domElement); mount.classList.add('is-3d');
 
       var geo = new THREE.OctahedronGeometry(1.25, 0);
-      var mat = new THREE.MeshPhongMaterial({ color: 0xCDA64C, specular: 0xF4DA88, shininess: 80, emissive: 0x241906, flatShading: true });
+      var mat = new THREE.MeshPhongMaterial({ color: 0xE6A62A, specular: 0xF5CE55, shininess: 90, emissive: 0x2a1d05, flatShading: true });
       var gem = new THREE.Mesh(geo, mat); gem.scale.set(1, 1.4, 1); scene.add(gem);
-      var edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: 0xE7C97E, transparent: true, opacity: 0.55 }));
+      var edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: 0xF5CE55, transparent: true, opacity: 0.6 }));
       edges.scale.copy(gem.scale); scene.add(edges);
 
       scene.add(new THREE.AmbientLight(0x4a3722, 1.1));
-      var key = new THREE.DirectionalLight(0xfff0d2, 1.7); key.position.set(2.5, 3, 4); scene.add(key);
-      var rim = new THREE.DirectionalLight(0xE7C97E, 1.0); rim.position.set(-3, -1.5, 2); scene.add(rim);
+      var key = new THREE.DirectionalLight(0xfff0d2, 1.8); key.position.set(2.5, 3, 4); scene.add(key);
+      var rim = new THREE.DirectionalLight(0xF5CE55, 1.0); rim.position.set(-3, -1.5, 2); scene.add(rim);
 
       var drag = false, lx = 0, ly = 0, rotX = -0.25, rotY = 0, vy = 0.004;
       var cv = renderer.domElement;

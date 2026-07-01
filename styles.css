@@ -9,14 +9,14 @@
   --bg:#110C14; --bg-1:#150E18; --panel:#1A1019; --panel-2:#1E1420;
 
   --hair:rgba(236,229,223,.08); --hair-2:rgba(236,229,223,.15); --hair-3:rgba(236,229,223,.26);
-  --ghair:rgba(205,166,76,.20);
+  --ghair:rgba(230,166,42,.26);
 
   --bone:#ECE5DF; --bone-2:#C2B9C2; --bone-3:#897E8A;
 
-  --gold:#CDA64C; --gold-2:#E7C97E; --gold-deep:#9A7A2E; --gold-dim:rgba(205,166,76,.55);
-  --glow:rgba(205,166,76,.42);
+  --gold:#E6A62A; --gold-2:#F5CE55; --gold-deep:#B0821C; --gold-dim:rgba(230,166,42,.6);
+  --glow:rgba(240,182,52,.5);
 
-  --display:'Playfair Display',Georgia,serif;
+  --display:'Fraunces','Playfair Display',Georgia,serif;
   --body:'DM Sans',system-ui,-apple-system,sans-serif;
   --mono:'Geist Mono','IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
 
@@ -60,7 +60,7 @@ a { color:inherit; text-decoration:none; }
 }
 .eyebrow::before { content:""; width:26px; height:1px; background:var(--gold); box-shadow:0 0 8px var(--glow); }
 
-h1,h2,h3,h4 { font-family:var(--display); font-weight:500; line-height:1.06; letter-spacing:-.008em; }
+h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; letter-spacing:-.012em; }
 .display { font-size:clamp(2.7rem,5.6vw,4.7rem); line-height:1.04; letter-spacing:-.015em; font-weight:600; }
 .display em,.ital { font-style:italic; font-weight:500; }
 .zest { color:var(--gold-2); text-shadow:0 0 30px var(--glow); font-style:italic; }
@@ -435,3 +435,8 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:500; line-height:1.06; let
 @media (prefers-reduced-motion:reduce) {
   .hero__light { display:none; }
 }
+
+/* ---- Narrative: chapter markers + scroll progress thread ---- */
+.eyebrow__ch { font-family:var(--display); font-style:italic; font-weight:600; font-size:1.05rem; line-height:1; color:var(--gold-2); margin-right:.15rem; text-shadow:0 0 16px var(--glow); letter-spacing:0; text-transform:none; }
+.progress { position:fixed; top:0; left:0; height:2px; width:0; z-index:10001; background:linear-gradient(90deg, var(--gold-deep), var(--gold-2)); box-shadow:0 0 12px var(--glow); transition:width .1s linear; pointer-events:none; }
+@media (prefers-reduced-motion:reduce){ .progress { transition:none; } }
