@@ -35,10 +35,15 @@
   var prog = document.createElement('div');
   prog.className = 'progress';
   document.body.appendChild(prog);
+  var apertureSvg = document.querySelector('#gem3d .lemon3d');
   function updateProgress() {
     var st = window.scrollY || document.documentElement.scrollTop;
     var doch = document.documentElement.scrollHeight - window.innerHeight;
     prog.style.width = (doch > 0 ? (st / doch) * 100 : 0) + '%';
+    if (apertureSvg && !reduced) {
+      var o = Math.min(1, st / 620);
+      apertureSvg.style.transform = 'rotate(' + (o * 42) + 'deg) scale(' + (1 + o * 0.08) + ')';
+    }
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);

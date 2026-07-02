@@ -209,7 +209,19 @@
       "cases_real_head": "Your case, next.",
       "cases_real_note": "This is where real outcomes will live. Be one of the first — join the waitlist and we work your repositioning first, then publish it here with your permission.",
       "cases_cta": "Become a case study",
-      "cases_view": "See the guide"
+      "cases_view": "See the guide",
+      "act_word": "Act",
+      "act1_title": "The reckoning",
+      "act1_line": "Your job isn't being deleted. It's being quietly repriced — and most people won't notice until a faster colleague already has.",
+      "act2_title": "The method",
+      "act2_line": "We don't teach you tools. We put a jeweller's loupe to your work, find the one facet AI can't copy, and cut your value around it.",
+      "act3_title": "The proof",
+      "act3_line": "The method, applied — one facet found, before you go find yours.",
+      "act4_title": "The decision",
+      "act4_line": "Reposition on purpose, ahead of the market — not once it has already forced your hand.",
+      "proof_cta": "See the case studies",
+      "close_kicker": "So here's the choice.",
+      "close_res": "You stop being the one who's about to be replaced — and become the one they can't."
     },
     "fr": {
       "skip": "Aller au contenu",
@@ -357,7 +369,19 @@
       "cases_real_head": "Ton cas, ensuite.",
       "cases_real_note": "C'est ici que vivront les vrais résultats. Sois l'un des premiers — rejoins la liste, on travaille ton repositionnement en priorité, puis on le publie ici avec ton accord.",
       "cases_cta": "Devenir un cas d'étude",
-      "cases_view": "Voir le guide"
+      "cases_view": "Voir le guide",
+      "act_word": "Acte",
+      "act1_title": "Le constat",
+      "act1_line": "Ton poste n'est pas supprimé. Il est discrètement repricé — et la plupart ne le verront pas avant qu'un collègue plus rapide l'ait déjà fait.",
+      "act2_title": "La méthode",
+      "act2_line": "On ne t'apprend pas des outils. On pose une loupe de joaillier sur ton métier, on trouve la seule facette que l'IA ne peut pas copier, et on taille ta valeur autour.",
+      "act3_title": "La preuve",
+      "act3_line": "La méthode, appliquée — une facette trouvée, avant que tu ailles trouver la tienne.",
+      "act4_title": "La décision",
+      "act4_line": "Te repositionner volontairement, en avance sur le marché — pas quand il t'a déjà forcé la main.",
+      "proof_cta": "Voir les études de cas",
+      "close_kicker": "Alors voilà le choix.",
+      "close_res": "Tu cesses d'être celui qu'on est sur le point de remplacer — et tu deviens celui qu'on ne peut pas."
     },
     "es": {
       "skip": "Saltar al contenido",
@@ -505,7 +529,19 @@
       "cases_real_head": "Tu caso, después.",
       "cases_real_note": "Aquí vivirán los resultados reales. Sé uno de los primeros — únete a la lista, trabajamos tu reposicionamiento primero y luego lo publicamos aquí con tu permiso.",
       "cases_cta": "Conviértete en un caso",
-      "cases_view": "Ver la guía"
+      "cases_view": "Ver la guía",
+      "act_word": "Acto",
+      "act1_title": "El aviso",
+      "act1_line": "Tu puesto no se elimina. Se está repreciando en silencio — y la mayoría no lo verá hasta que un colega más rápido ya lo haya hecho.",
+      "act2_title": "El método",
+      "act2_line": "No te enseñamos herramientas. Ponemos una lupa de joyero sobre tu trabajo, encontramos la única faceta que la IA no puede copiar, y tallamos tu valor alrededor.",
+      "act3_title": "La prueba",
+      "act3_line": "El método, aplicado — una faceta encontrada, antes de que vayas a encontrar la tuya.",
+      "act4_title": "La decisión",
+      "act4_line": "Reposicionarte a propósito, por delante del mercado — no cuando ya te haya forzado la mano.",
+      "proof_cta": "Ver los casos",
+      "close_kicker": "Así que esta es la elección.",
+      "close_res": "Dejas de ser al que están a punto de reemplazar — y te conviertes en el que no pueden."
     }
   }
 }

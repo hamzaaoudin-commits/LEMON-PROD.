@@ -194,6 +194,20 @@ ${esc(law.commoditized[2].h)}.
 ${esc(law.hybrid[0].p)}`;
 }
 
+/* Narrative helpers: a facet mark + full-width act intertitle */
+const facetMark = `<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><polygon points="20,3 34,12.5 34,27.5 20,37 6,27.5 6,12.5" stroke="currentColor" stroke-width="1.2"/><path d="M6,12.5 H34 M20,3 V37 M6,12.5 L34,27.5 M34,12.5 L6,27.5" stroke="currentColor" stroke-width=".6" opacity=".5"/></svg>`;
+
+function actCard(loc, n) {
+  const t = T(loc);
+  const roman = ["I", "II", "III", "IV"][n - 1];
+  return `    <section class="act wrap reveal">
+      <span class="act__mark" aria-hidden="true">${facetMark}</span>
+      <span class="act__n">${esc(t.act_word)} ${roman}</span>
+      <h2 class="act__title">${esc(t["act" + n + "_title"])}</h2>
+      <p class="act__line">${esc(t["act" + n + "_line"])}</p>
+    </section>`;
+}
+
 /* ----------------------------- HOMEPAGE ----------------------------- */
 function homePage(loc) {
   const t = T(loc), p = prefix(loc);
@@ -242,26 +256,40 @@ ${nav(loc, "home", null)}
         </div>
         <div class="enter proto3d" style="--d:.5s" id="protoWrap" data-tilt>
           <div class="gem3d" id="gem3d" aria-hidden="true">${lemonSvg}</div>
-          <figure class="proto" id="protoCard" aria-label="${esc(jobTitle("lawyer", loc))}">
-            <div class="proto__bar">
-              <span class="proto__dot proto__dot--live"></span><span class="proto__dot"></span><span class="proto__dot"></span>
-              <span class="proto__tag">Adaptive Survival · ${esc(jobTitle("lawyer", loc))}</span>
+          <figure class="plaque" id="protoCard" aria-label="${esc(jobTitle("lawyer", loc))}">
+            <div class="plaque__top">
+              <span class="plaque__mark" aria-hidden="true">${facetMark}</span>
+              <span class="plaque__cartel">Adaptive Survival — ${esc(jobTitle("lawyer", loc))}</span>
             </div>
-            <div class="proto__body">${protoBody(loc)}</div>
-            <div class="proto__foot">
-              <a class="proto__link" href="${p}/guides/lawyer">${esc(t.proto_read)}</a>
-              <span class="proto__compat">${esc(t.proto_sample)}</span>
+            <div class="plaque__body">
+              <div class="plaque__row">
+                <span class="plaque__label">${esc(t.g_keep)}</span>
+                <p>${esc(content("lawyer", loc).irreplaceable.map((x) => x.h).join("  ·  "))}</p>
+              </div>
+              <div class="plaque__row">
+                <span class="plaque__label">${esc(t.g_lose)}</span>
+                <p>${esc(content("lawyer", loc).commoditized.map((x) => x.h).join("  ·  "))}</p>
+              </div>
+              <div class="plaque__row plaque__row--accent">
+                <span class="plaque__label">${esc(t.g_hybrid_eyebrow)}</span>
+                <p class="plaque__accent">${esc(content("lawyer", loc).hybrid[0].h)}.</p>
+              </div>
+            </div>
+            <div class="plaque__foot">
+              <a class="plaque__link" href="${p}/guides/lawyer">${esc(t.proto_read)}</a>
+              <span class="plaque__seal" aria-hidden="true">${facetMark}</span>
             </div>
           </figure>
         </div>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true"><div class="marquee__track">${marq}${marq}</div></div>
 
-    <section class="section wrap">
+${actCard(loc, 1)}
+
+    <section class="section wrap act-section">
       <div class="reveal">
-        <span class="eyebrow"><span class="eyebrow__ch">I</span>${esc(t.prob_eyebrow)}</span>
+        <span class="eyebrow">${esc(t.prob_eyebrow)}</span>
         <h2 class="display prob__head">${esc(t.prob_head_a)}<b>${esc(t.prob_head_b)}</b></h2>
         <p class="lede prob__lede">${esc(t.prob_lede)}</p>
       </div>
@@ -274,10 +302,12 @@ ${nav(loc, "home", null)}
       <p class="prob__authority reveal">${esc(t.prob_authority)}</p>
     </section>
 
-    <section class="section divider" id="collection">
+${actCard(loc, 2)}
+
+    <section class="section" id="collection">
       <div class="wrap">
         <div class="reveal coll__head">
-          <span class="eyebrow"><span class="eyebrow__ch">II</span>${esc(t.coll_eyebrow)}</span>
+          <span class="eyebrow">${esc(t.coll_eyebrow)}</span>
           <h2 class="display">${esc(t.coll_head)}</h2>
           <p class="lede coll__intro">${esc(t.coll_intro)}</p>
         </div>
@@ -304,9 +334,25 @@ ${nav(loc, "home", null)}
       </div>
     </section>
 
-    <section class="section divider wrap section--tight">
+${actCard(loc, 3)}
+
+    <section class="section wrap act-section proofstrip">
+      <div class="reveal">
+        <h2 class="display">${esc(t.cases_head)}</h2>
+        <div class="proofstrip__chips">
+          <span>${esc(jobTitle("lawyer", loc))}</span>
+          <span>${esc(jobTitle("copywriter", loc))}</span>
+          <span>${esc(jobTitle("real-estate-agent", loc))}</span>
+        </div>
+        <a class="btn btn--primary" href="${p}/case-studies">${esc(t.proof_cta)}</a>
+      </div>
+    </section>
+
+${actCard(loc, 4)}
+
+    <section class="section wrap section--tight">
       <div class="reveal" style="margin-bottom:2.8rem">
-        <span class="eyebrow"><span class="eyebrow__ch">III</span>${esc(t.doc_eyebrow)}</span>
+        <span class="eyebrow">${esc(t.doc_eyebrow)}</span>
         <h2 class="display">${esc(t.doc_head)}</h2>
       </div>
       <div class="doctrine reveal">
@@ -316,8 +362,10 @@ ${nav(loc, "home", null)}
       </div>
     </section>
 
-    <section class="section divider wrap closing">
+    <section class="section wrap closing">
+      <p class="closing__kicker reveal">${esc(t.close_kicker)}</p>
       <h2 class="display reveal">${esc(t.close_l1)}<br>${esc(t.close_l2)}</h2>
+      <p class="closing__res reveal">${esc(t.close_res)}</p>
       <div class="closing__cta reveal">
         <a class="btn btn--primary" href="#collection">${esc(t.hero_cta_find)}</a>
         <a class="btn btn--ghost" href="${p}/guides">${esc(t.hero_cta_browse)}</a>
@@ -326,7 +374,7 @@ ${nav(loc, "home", null)}
 
     <section class="section divider wrap" id="faq">
       <div class="faq__head reveal">
-        <span class="eyebrow"><span class="eyebrow__ch">IV</span>${esc(t.faq_eyebrow)}</span>
+        <span class="eyebrow">${esc(t.faq_eyebrow)}</span>
         <h2 class="display">${esc(t.faq_head)}</h2>
       </div>
       <div class="faq__list faq reveal">

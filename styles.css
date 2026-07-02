@@ -440,3 +440,66 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; let
 .eyebrow__ch { font-family:var(--display); font-style:italic; font-weight:600; font-size:1.05rem; line-height:1; color:var(--gold-2); margin-right:.15rem; text-shadow:0 0 16px var(--glow); letter-spacing:0; text-transform:none; }
 .progress { position:fixed; top:0; left:0; height:2px; width:0; z-index:10001; background:linear-gradient(90deg, var(--gold-deep), var(--gold-2)); box-shadow:0 0 12px var(--glow); transition:width .1s linear; pointer-events:none; }
 @media (prefers-reduced-motion:reduce){ .progress { transition:none; } }
+
+/* =========================================================
+   REDESIGN v2 — engraved plaque, act intertitles, gold restraint
+   ========================================================= */
+:root { --brass:#9C844C; }  /* matte antique brass for structure */
+
+/* gold restraint: structural elements go matte brass; vivid gold kept for accents/CTA */
+.eyebrow { color:var(--brass); }
+.eyebrow::before { background:var(--brass); box-shadow:none; }
+.toc__n { color:var(--gold); text-shadow:none; }
+.pcard__n, .dcard__n, .hcard__n { color:var(--brass); }
+.marquee { display:none; }
+
+/* ---- Engraved plaque (replaces the code-terminal card) ---- */
+.plaque { position:relative; z-index:1; background:linear-gradient(158deg,#1c1421,#140d17); border:1px solid var(--ghair);
+  box-shadow:inset 0 1px 0 rgba(236,229,223,.05), 0 40px 90px -44px #000; transition:transform .18s ease-out, box-shadow .4s ease; will-change:transform; }
+.proto3d:hover .plaque { box-shadow:inset 0 1px 0 rgba(236,229,223,.06), 0 50px 110px -44px #000, 0 0 60px -26px var(--glow); }
+.plaque__top { display:flex; align-items:center; gap:.85rem; padding:1.25rem 1.6rem; border-bottom:1px solid var(--hair); }
+.plaque__mark { width:22px; height:22px; color:var(--brass); flex:none; }
+.plaque__cartel { font-family:var(--mono); font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--bone-3); }
+.plaque__body { padding:.6rem 1.6rem 1.1rem; }
+.plaque__row { padding:1.1rem 0; border-top:1px solid var(--hair); }
+.plaque__row:first-child { border-top:0; }
+.plaque__label { display:block; font-family:var(--mono); font-size:.57rem; letter-spacing:.2em; text-transform:uppercase; color:var(--brass); margin-bottom:.55rem; }
+.plaque__row p { font-family:var(--display); font-size:1.3rem; line-height:1.28; color:var(--bone); font-weight:500; letter-spacing:-.005em; }
+.plaque__row--accent p { font-style:italic; color:var(--gold-2); text-shadow:0 0 26px var(--glow); }
+.plaque__foot { display:flex; align-items:center; justify-content:space-between; padding:1.1rem 1.6rem 1.3rem; border-top:1px solid var(--hair); }
+.plaque__link { font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-2); transition:gap .25s; }
+.plaque__seal { width:20px; height:20px; color:var(--brass); opacity:.65; }
+
+/* ---- Act intertitles (the narrative spine) ---- */
+.act { text-align:center; padding-block:clamp(4.5rem,11vw,8.5rem); }
+.act__mark { display:inline-block; width:34px; height:34px; color:var(--brass); margin-bottom:1.5rem; }
+.act__mark svg { width:100%; height:100%; }
+.act__n { display:block; font-family:var(--mono); font-size:.66rem; letter-spacing:.36em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; }
+.act__title { font-family:var(--display); font-weight:560; font-size:clamp(2.5rem,5.2vw,4.2rem); line-height:1.0; letter-spacing:-.018em; margin-bottom:1.3rem; }
+.act__line { font-family:var(--body); color:var(--bone-2); font-size:clamp(1.06rem,1.6vw,1.28rem); line-height:1.55; max-width:48ch; margin:0 auto; }
+.act-section { padding-block:clamp(3.5rem,8vw,6rem); }
+
+/* ---- Proof strip (Act III → case studies) ---- */
+.proofstrip { text-align:center; }
+.proofstrip .display { margin-bottom:1.7rem; }
+.proofstrip__chips { display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.1rem; }
+.proofstrip__chips span { font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--bone-2); border:1px solid var(--ghair); padding:.5rem .95rem; }
+
+/* ---- Closing as resolution ---- */
+.closing__kicker { font-family:var(--mono); font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.7rem; }
+.closing__res { font-family:var(--display); font-style:italic; font-weight:500; font-size:clamp(1.35rem,2.5vw,2rem); color:var(--bone); max-width:32ch; margin:2rem auto 0; line-height:1.3; }
+.closing__res + .closing__cta { margin-top:2.8rem; }
+
+/* ---- Professions as facets ---- */
+.metier { position:relative; overflow:hidden; }
+.metier::after { content:""; position:absolute; top:-16px; right:-16px; width:44px; height:44px; border:1px solid var(--ghair); transform:rotate(45deg); opacity:.35; transition:opacity .35s, box-shadow .35s; pointer-events:none; }
+.metier:hover::after { opacity:.9; box-shadow:0 0 18px -6px var(--glow); }
+
+/* aperture opens as it scrolls into view (facet spine) */
+.gem3d .lemon3d { transition:transform .2s ease-out; }
+
+@media (max-width:1000px){ .plaque { max-width:560px; } }
+@media (max-width:760px){
+  .act { padding-block:clamp(3.5rem,10vw,5rem); }
+  .plaque__row p { font-size:1.18rem; }
+}
