@@ -206,6 +206,7 @@ function actCard(loc, n) {
           <span class="act__mark" aria-hidden="true">${facetMark}</span>
           <span class="act__n">${esc(t.act_word)} ${roman}</span>
           <h2 class="act__title" data-words>${esc(t["act" + n + "_title"])}</h2>
+          <span class="act__rule" aria-hidden="true"></span>
           <p class="act__line">${esc(t["act" + n + "_line"])}</p>
         </div>
       </div>

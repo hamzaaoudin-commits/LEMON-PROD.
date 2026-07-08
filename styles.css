@@ -548,3 +548,50 @@ main > section, main > .scene { position:relative; z-index:1; }
 @media (max-width:760px) {
   .scene { height:150vh; }
 }
+
+/* =========================================================
+   IMMERSIVE v4 — richer scene choreography & scroll reveals
+   ========================================================= */
+/* gold rule draws itself across the act as you scrub */
+.act__rule { display:block; width:min(320px,42vw); height:1px; margin:1.6rem auto 0; background:linear-gradient(90deg,transparent,var(--gold-2),transparent); transform:scaleX(calc(var(--sp,0) * 1.6)); transform-origin:center; opacity:calc(min(1, var(--sp,0) * 3)); box-shadow:0 0 14px var(--glow); }
+
+/* act number tracks in; mark breathes with the scrub */
+.immersive .scene .act__n { letter-spacing:calc(.36em + (1 - min(1, var(--sp,0) * 2.4)) * .5em); }
+.immersive .scene .act__mark { filter:drop-shadow(0 0 calc(var(--sp,0) * 18px) rgba(240,182,52,.55)); }
+
+/* radial vignette opens as each scene plays */
+.scene__pin::before { content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background:radial-gradient(ellipse 62% 52% at 50% 50%, transparent 30%, rgba(17,12,20,.78) 100%);
+  opacity:calc(1 - var(--sp,0) * 1.4); transition:none; }
+.scene__pin > .act { position:relative; z-index:1; }
+
+/* deeper scroll-reveals on home: rise + blur + slight scale, with stagger */
+.immersive .reveal { opacity:0; transform:translateY(34px) scale(.988); filter:blur(9px); transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1.05s cubic-bezier(.2,.7,.2,1), filter .9s ease; }
+.immersive .reveal.in { opacity:1; transform:none; filter:blur(0); }
+.immersive .reveal.in .pcard:nth-child(1),
+.immersive .reveal.in .toc__row:nth-child(1),
+.immersive .reveal.in .dcard:nth-child(1) { transition-delay:.05s; }
+.immersive .reveal .pcard, .immersive .reveal .toc__row, .immersive .reveal .dcard { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.immersive .reveal.in .pcard, .immersive .reveal.in .toc__row, .immersive .reveal.in .dcard { opacity:1; transform:none; }
+.immersive .reveal.in .pcard:nth-child(2), .immersive .reveal.in .toc__row:nth-child(2), .immersive .reveal.in .dcard:nth-child(2) { transition-delay:.14s; }
+.immersive .reveal.in .pcard:nth-child(3), .immersive .reveal.in .toc__row:nth-child(3), .immersive .reveal.in .dcard:nth-child(3) { transition-delay:.23s; }
+.immersive .reveal.in .toc__row:nth-child(4) { transition-delay:.32s; }
+.immersive .reveal.in .toc__row:nth-child(5) { transition-delay:.41s; }
+
+/* proof: the strikethrough draws, the answer ignites */
+.immersive .proof__stat s { text-decoration:none; position:relative; }
+.immersive .proof__stat s::after { content:""; position:absolute; left:-2%; right:auto; top:54%; height:2px; width:0; background:var(--bone-3); transition:width .9s cubic-bezier(.2,.8,.2,1) .3s; }
+.immersive .reveal.in .proof__stat s::after { width:104%; }
+.immersive .proof__stat b { opacity:0; transform:translateY(8px); transition:opacity .7s ease .9s, transform .7s cubic-bezier(.2,.7,.2,1) .9s; display:inline-block; }
+.immersive .reveal.in .proof__stat b { opacity:1; transform:none; }
+
+/* hero line reveal gets blur too */
+.immersive .line > span { filter:blur(10px); animation:lineUpBlur 1.15s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:var(--d,0s); }
+@keyframes lineUpBlur { to { transform:translateY(0); filter:blur(0); } }
+
+@media (prefers-reduced-motion:reduce) {
+  .immersive .reveal, .immersive .reveal .pcard, .immersive .reveal .toc__row, .immersive .reveal .dcard { opacity:1; transform:none; filter:none; transition:none; }
+  .act__rule { transform:none; opacity:1; }
+  .scene__pin::before { display:none; }
+  .immersive .line > span { animation:none; filter:none; transform:none; }
+}
