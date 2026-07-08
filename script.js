@@ -80,6 +80,7 @@
 
   /* ---- 3D faceted gem (Three.js, lazy + graceful fallback to SVG) ---- */
   function init3D() {
+    if (window.__IMMERSIVE) return; /* persistent stage takes over on home */
     var mount = document.getElementById('gem3d');
     if (!mount || touch || window.innerWidth < 900) return;
     try {

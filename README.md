@@ -72,3 +72,23 @@ All of the above is in script.js and is disabled under prefers-reduced-motion / 
 
 NOTE on case studies: each worked example shows ONE sample move as proof of quality (the same
 "free sample" logic as the home hero). If you'd rather tease those too, say so and I'll gate them.
+
+## Update — Immersive scrollytelling (v3)
+
+The HOME page is now a scroll-driven experience ("La Taille" — the cutting):
+- A persistent 3D stone (Three.js, lazy CDN) lives on a fixed full-screen canvas behind the page.
+  Scroll drives it through runtime-computed keyframes anchored to the REAL scene positions
+  (locale-proof): raw at the hero -> approaches (Act I) -> huge under the loupe (Act II)
+  -> facet ignites (Act III) -> radiant behind the decision/closing -> settles at the footer.
+  Drag to rotate at any time.
+- The four act intertitles are pinned scenes (position:sticky, 210vh): the title reveals
+  word-by-word, the facet mark rotates with scroll (--sp custom property scrubbed in JS),
+  and the act dissolves as you scroll past.
+- Hero parallax (headline/plaque drift at different speeds, hero fades as you leave it).
+- Content sections carry a subtle vertical veil so the stone reads as *behind* the page.
+
+Files: immersive.js (home only; guide pages unchanged), scene CSS block in styles.css.
+Fallbacks: touch / <900px / no-WebGL / prefers-reduced-motion => static scenes, no canvas,
+no pinning under reduced-motion. script.js's small hero gem is disabled when the stage runs.
+NOTE: scroll-behavior:smooth is site-wide; anchor jumps animate through the scenes (nice),
+and the 3D keyframes recompute on resize/height changes.

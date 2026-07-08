@@ -200,11 +200,15 @@ const facetMark = `<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><poly
 function actCard(loc, n) {
   const t = T(loc);
   const roman = ["I", "II", "III", "IV"][n - 1];
-  return `    <section class="act wrap reveal">
-      <span class="act__mark" aria-hidden="true">${facetMark}</span>
-      <span class="act__n">${esc(t.act_word)} ${roman}</span>
-      <h2 class="act__title">${esc(t["act" + n + "_title"])}</h2>
-      <p class="act__line">${esc(t["act" + n + "_line"])}</p>
+  return `    <section class="scene" data-scene="${n}">
+      <div class="scene__pin">
+        <div class="act wrap">
+          <span class="act__mark" aria-hidden="true">${facetMark}</span>
+          <span class="act__n">${esc(t.act_word)} ${roman}</span>
+          <h2 class="act__title" data-words>${esc(t["act" + n + "_title"])}</h2>
+          <p class="act__line">${esc(t["act" + n + "_line"])}</p>
+        </div>
+      </div>
     </section>`;
 }
 
@@ -235,6 +239,7 @@ ${JSON.stringify({ "@context":"https://schema.org","@type":"Organization", name:
 ${nav(loc, "home", null)}
 
   <main id="main">
+    <div id="stage3d" aria-hidden="true"></div>
     <section class="hero wrap" id="home">
       <span class="hero__light" id="heroLight" aria-hidden="true"></span>
       <div class="hero__grid">
@@ -420,6 +425,7 @@ ${footer(loc)}
     catBackBtn.addEventListener("click", showCategories);
   </script>
   <script src="/script.js"></script>
+  <script src="/immersive.js" defer></script>
 </body>
 </html>
 `;

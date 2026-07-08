@@ -503,3 +503,48 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; let
   .act { padding-block:clamp(3.5rem,10vw,5rem); }
   .plaque__row p { font-size:1.18rem; }
 }
+
+/* =========================================================
+   IMMERSIVE v3 — scrollytelling scenes + persistent 3D stage
+   ========================================================= */
+#stage3d { position:fixed; inset:0; z-index:0; pointer-events:none; }
+.stage-live #stage3d { pointer-events:auto; }
+.stage-live #stage3d canvas { pointer-events:auto; }
+main { position:relative; z-index:1; }
+main > section, main > .scene { position:relative; z-index:1; }
+.stage-live .gem3d { display:none; }  /* hero SVG replaced by the persistent stone */
+
+/* pinned act scenes */
+.scene { height:210vh; position:relative; }
+.scene__pin { position:sticky; top:0; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.scene .act { padding-block:0; }
+
+/* scrub-driven intertitle choreography (driven by --sp set in JS) */
+.immersive .scene .act__mark { transform:rotate(calc(var(--sp,0) * 120deg)) scale(calc(.8 + var(--sp,0) * .3)); transition:none; }
+.immersive .scene .act__n,
+.immersive .scene .act__line { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.immersive .scene.is-on .act__n,
+.immersive .scene.is-on .act__line { opacity:1; transform:none; }
+.immersive .scene .act__title .w { display:inline-block; opacity:0; transform:translateY(.55em) rotate(1.5deg); transition:opacity .6s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+.immersive .scene.is-on .act__title .w { opacity:1; transform:none; }
+/* the act dissolves as you scroll past (second half of the scene) */
+.immersive .scene .act { opacity:calc(1 - max(0, (var(--sp,0) - .72)) * 3.6); transform:scale(calc(1 + max(0, (var(--sp,0) - .72)) * .05)); }
+
+/* hero becomes a stage layer (parallax handled in JS) */
+.immersive .hero { will-change:opacity; }
+.immersive .hero h1, .immersive .proto3d { will-change:transform; }
+
+/* content sections get a subtle veil so the stone reads *behind* them */
+.act-section, #collection, .closing, #faq { background:linear-gradient(180deg, rgba(17,12,20,0) 0%, rgba(17,12,20,.55) 8%, rgba(17,12,20,.55) 92%, rgba(17,12,20,0) 100%); }
+
+/* no-JS / reduced-motion: scenes read as normal sections */
+@media (prefers-reduced-motion:reduce) {
+  .scene { height:auto; }
+  .scene__pin { position:static; height:auto; padding-block:clamp(3.5rem,10vw,6rem); }
+  .immersive .scene .act__n, .immersive .scene .act__line,
+  .immersive .scene .act__title .w { opacity:1; transform:none; }
+  #stage3d { display:none; }
+}
+@media (max-width:760px) {
+  .scene { height:150vh; }
+}
