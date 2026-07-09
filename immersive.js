@@ -13,6 +13,9 @@
   /* ---------------- scroll model: raw + lerped (inertia) ---------------- */
   var G = { p: 0, pl: 0, sp: [0, 0, 0, 0], mx: 0, my: 0 };
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var sceneParts = scenes.map(function (sc) {
+    return { sc: sc, act: sc.querySelector('.act'), mark: sc.querySelector('.act__mark'), rule: sc.querySelector('.act__rule'), on: false };
+  });
   var heroEl = document.querySelector('.hero');
   var h1 = document.querySelector('.hero h1');
   var plaque = document.getElementById('protoWrap');
@@ -38,19 +41,30 @@
   function measure() {
     var vh = window.innerHeight;
     var st = window.scrollY || document.documentElement.scrollTop;
-    scenes.forEach(function (sc, i) {
-      var r = sc.getBoundingClientRect();
+    var i, sp;
+    // 1) READ all rects first (avoid layout thrash)
+    var tops = [];
+    for (i = 0; i < sceneParts.length; i++) tops[i] = sceneParts[i].sc.getBoundingClientRect();
+    // 2) WRITE
+    for (i = 0; i < sceneParts.length; i++) {
+      sp = sceneParts[i];
+      var r = tops[i];
       var total = r.height - vh;
       var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
       G.sp[i] = p;
-      sc.style.setProperty('--sp', p.toFixed(4));
-      if (p > 0.06 && p < 0.97) sc.classList.add('is-on'); else sc.classList.remove('is-on');
-    });
+      var on = p > 0.05 && p < 0.98;
+      if (on !== sp.on) { sp.on = on; sp.sc.classList.toggle('is-on', on); }
+      if (!reduced) {
+        if (sp.mark) sp.mark.style.transform = 'rotate(' + (p * 110).toFixed(1) + 'deg) scale(' + (0.82 + p * 0.28).toFixed(3) + ')';
+        if (sp.rule) { sp.rule.style.transform = 'scaleX(' + Math.min(1, p * 1.6).toFixed(3) + ')'; sp.rule.style.opacity = Math.min(1, p * 3).toFixed(2); }
+        if (sp.act) { var d = p > 0.72 ? (p - 0.72) : 0; sp.act.style.opacity = (1 - d * 3.4).toFixed(3); sp.act.style.transform = d > 0 ? 'scale(' + (1 + d * 0.05).toFixed(3) + ')' : ''; }
+      }
+    }
     if (!reduced && heroEl) {
       var hp = Math.min(1, st / (vh * 0.9));
-      if (h1) h1.style.transform = 'translateY(' + (hp * 52) + 'px)';
-      if (plaque) plaque.style.transform = 'translateY(' + (hp * -40) + 'px) rotateX(' + (hp * 4) + 'deg)';
-      heroEl.style.opacity = String(1 - hp * 0.6);
+      if (h1) h1.style.transform = 'translate3d(0,' + (hp * 52).toFixed(1) + 'px,0)';
+      if (plaque) plaque.style.transform = 'translate3d(0,' + (hp * -40).toFixed(1) + 'px,0)';
+      heroEl.style.opacity = (1 - hp * 0.6).toFixed(3);
     }
     var doc = document.documentElement.scrollHeight - vh;
     G.p = doc > 0 ? st / doc : 0;
@@ -85,7 +99,7 @@
     var cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
     cam.position.set(0, 0, 6.4);
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(W, H); renderer.setPixelRatio(Math.min(1.75, window.devicePixelRatio || 1));
+    renderer.setSize(W, H); renderer.setPixelRatio(Math.min(1.35, window.devicePixelRatio || 1));
     mount.appendChild(renderer.domElement);
 
     /* ---- procedurally cut stone: table / crown / girdle / pavilion ---- */
@@ -108,9 +122,8 @@
       return g;
     }
     var stoneGeo = cutStone();
-    var stoneMat = new THREE.MeshPhysicalMaterial({
-      color: 0xE6A62A, metalness: 0.35, roughness: 0.16,
-      clearcoat: 1.0, clearcoatRoughness: 0.22,
+    var stoneMat = new THREE.MeshPhongMaterial({
+      color: 0xE6A62A, specular: 0xF5CE55, shininess: 90,
       emissive: 0x1a1204, flatShading: true, transparent: true
     });
     var stone = new THREE.Mesh(stoneGeo, stoneMat); scene.add(stone);
@@ -152,7 +165,7 @@
     scene.add(shards);
 
     /* ---- gold dust in fog ---- */
-    var DUST = 620, dpos = new Float32Array(DUST * 3);
+    var DUST = 320, dpos = new Float32Array(DUST * 3);
     for (var d = 0; d < DUST; d++) {
       dpos[d * 3] = (Math.random() - 0.5) * 16;
       dpos[d * 3 + 1] = (Math.random() - 0.5) * 10;
