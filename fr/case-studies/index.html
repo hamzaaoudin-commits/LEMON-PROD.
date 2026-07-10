@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#110C14" />',"theme")
   <title>Études de cas — la méthode appliquée · Lemon Prod</title>
   <meta name="description" content="Comment la méthode Adaptive Survival repositionne un métier : exemples travaillés pour trouver la facette irremplaçable et tailler un repositionnement autour." />
   <meta name="author" content="Lemon Prod" />
@@ -137,7 +138,12 @@
         <span class="eyebrow">Résultats réels</span>
         <h2 class="display">Ton cas, ensuite.</h2>
         <p class="lede">C'est ici que vivront les vrais résultats. Sois l'un des premiers — rejoins la liste, on travaille ton repositionnement en priorité, puis on le publie ici avec ton accord.</p>
-        <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Devenir%20un%20cas%20d'%C3%A9tude%20%E2%80%94%20Lemon%20Prod">Devenir un cas d'étude</a>
+        <form class="wl" data-wl method="POST" action="" data-ok="C'est noté. Un e-mail à la sortie, rien d'autre." data-err="Ça n'est pas passé — réessaie ou écris-nous." data-mailto="mailto:contact@lemonprod.co?subject=Devenir%20un%20cas%20d'%C3%A9tude%20%E2%80%94%20Lemon%20Prod">
+              <input class="wl__in" type="email" name="email" required placeholder="vous@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="case-study (fr)" />
+              <button class="btn btn--primary" type="submit">Devenir un cas d'étude</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
       </section>
     </section>
   </main>
@@ -175,9 +181,8 @@
       <div class="foot__bottom">
         <small>© 2026 Lemon Prod. Tous droits réservés.</small>
         <div class="foot__legal">
-          <a href="#">Mentions légales</a>
-          <a href="#">CGV</a>
-          <a href="#">Confidentialité</a>
+          <a href="/fr/legal">Mentions légales</a>
+          <a href="/fr/legal#privacy">Confidentialité</a>
         </div>
       </div>
     </div>

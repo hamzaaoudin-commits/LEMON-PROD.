@@ -221,7 +221,11 @@
       "act4_line": "Reposition on purpose, ahead of the market — not once it has already forced your hand.",
       "proof_cta": "See the case studies",
       "close_kicker": "So here's the choice.",
-      "close_res": "You stop being the one who's about to be replaced — and become the one they can't."
+      "close_res": "You stop being the one who's about to be replaced — and become the one they can't.",
+      "wl_ph": "you@email.com",
+      "wl_ok": "You're on the list. One email when it ships.",
+      "wl_err": "That didn't go through — try again or email us.",
+      "gbar_t": "Get the full {t} guide"
     },
     "fr": {
       "skip": "Aller au contenu",
@@ -381,7 +385,11 @@
       "act4_line": "Te repositionner volontairement, en avance sur le marché — pas quand il t'a déjà forcé la main.",
       "proof_cta": "Voir les études de cas",
       "close_kicker": "Alors voilà le choix.",
-      "close_res": "Tu cesses d'être celui qu'on est sur le point de remplacer — et tu deviens celui qu'on ne peut pas."
+      "close_res": "Tu cesses d'être celui qu'on est sur le point de remplacer — et tu deviens celui qu'on ne peut pas.",
+      "wl_ph": "vous@email.com",
+      "wl_ok": "C'est noté. Un e-mail à la sortie, rien d'autre.",
+      "wl_err": "Ça n'est pas passé — réessaie ou écris-nous.",
+      "gbar_t": "Recevoir le guide {t} complet"
     },
     "es": {
       "skip": "Saltar al contenido",
@@ -541,7 +549,11 @@
       "act4_line": "Reposicionarte a propósito, por delante del mercado — no cuando ya te haya forzado la mano.",
       "proof_cta": "Ver los casos",
       "close_kicker": "Así que esta es la elección.",
-      "close_res": "Dejas de ser al que están a punto de reemplazar — y te conviertes en el que no pueden."
+      "close_res": "Dejas de ser al que están a punto de reemplazar — y te conviertes en el que no pueden.",
+      "wl_ph": "tu@email.com",
+      "wl_ok": "Apuntado. Un correo cuando salga, nada más.",
+      "wl_err": "No se envió — inténtalo de nuevo o escríbenos.",
+      "gbar_t": "Recibir la guía completa de {t}"
     }
   }
 }

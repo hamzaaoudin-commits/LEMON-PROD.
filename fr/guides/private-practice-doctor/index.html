@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#110C14" />',"theme")
   <title>L'IA et le médecin : jugement et confiance quand la doc s'automatise — Adaptive Survival Outlook</title>
   <meta name="description" content="Une analyse stratégique pour les médecins libéraux : documentation et triage s'automatisent. Ce qui reste irremplaçable dans le jugement clinique et la confiance — et comment te repositionner." />
   <meta name="author" content="Lemon Prod" />
@@ -149,21 +150,31 @@
           <div class="locked__veil">
             <svg class="locked__ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="32,14 47.6,23 47.6,41 32,50 16.4,41 16.4,23" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="32" cy="32" r="3" fill="currentColor"/></svg>
             <p class="locked__note">Débloque le playbook complet : les mouvements hybrides exacts et le plan 90 jours, écrits pour ton intitulé.</p>
-            <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Liste%20d'attente%20%E2%80%94%20guide%20M%C3%A9decin%20lib%C3%A9ral&body=Je%20souhaite%20%C3%AAtre%20pr%C3%A9venu%20quand%20l'Adaptive%20Survival%20Guide%20pour%20M%C3%A9decin%20lib%C3%A9ral%20sera%20pr%C3%AAt.">Préviens-moi →</a>
+            <form class="wl" data-wl method="POST" action="" data-ok="C'est noté. Un e-mail à la sortie, rien d'autre." data-err="Ça n'est pas passé — réessaie ou écris-nous." data-mailto="mailto:contact@lemonprod.co?subject=Liste%20d'attente%20%E2%80%94%20guide%20M%C3%A9decin%20lib%C3%A9ral&amp;body=Je%20souhaite%20%C3%AAtre%20pr%C3%A9venu%20quand%20l'Adaptive%20Survival%20Guide%20pour%20M%C3%A9decin%20lib%C3%A9ral%20sera%20pr%C3%AAt.">
+              <input class="wl__in" type="email" name="email" required placeholder="vous@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="Médecin libéral (fr)" />
+              <button class="btn btn--primary" type="submit">Préviens-moi →</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
             <span class="waitlist__fine">Un email à la sortie. Rien d'autre.</span>
           </div>
         </div>
         <p class="guide__close">La documentation s'automatise. Le jugement et la confiance sont la raison de la venue du patient.</p>
       </section>
 
-      <section class="waitlist">
+      <section class="waitlist" id="waitlist">
         <div>
           <span class="eyebrow">Le guide complet</span>
           <h2>Le guide Médecin libéral complet est en production.</h2>
           <p>Ceci est l'analyse. Le guide complet va plus loin : le partage tâche par tâche, le modèle de re-tarification, et les mouvements que font les professionnels en ce moment. Sois prévenu le jour de la sortie.</p>
         </div>
         <div class="waitlist__cta">
-          <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Liste%20d'attente%20%E2%80%94%20guide%20M%C3%A9decin%20lib%C3%A9ral&body=Je%20souhaite%20%C3%AAtre%20pr%C3%A9venu%20quand%20l'Adaptive%20Survival%20Guide%20pour%20M%C3%A9decin%20lib%C3%A9ral%20sera%20pr%C3%AAt.">Préviens-moi →</a>
+          <form class="wl" data-wl method="POST" action="" data-ok="C'est noté. Un e-mail à la sortie, rien d'autre." data-err="Ça n'est pas passé — réessaie ou écris-nous." data-mailto="mailto:contact@lemonprod.co?subject=Liste%20d'attente%20%E2%80%94%20guide%20M%C3%A9decin%20lib%C3%A9ral&amp;body=Je%20souhaite%20%C3%AAtre%20pr%C3%A9venu%20quand%20l'Adaptive%20Survival%20Guide%20pour%20M%C3%A9decin%20lib%C3%A9ral%20sera%20pr%C3%AAt.">
+              <input class="wl__in" type="email" name="email" required placeholder="vous@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="Médecin libéral (fr)" />
+              <button class="btn btn--primary" type="submit">Préviens-moi →</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
           <span class="waitlist__fine">Un email à la sortie. Rien d'autre.</span>
         </div>
       </section>
@@ -186,6 +197,11 @@
       </section>
     </article>
   </main>
+
+  <div class="gbar" id="gbar">
+    <span class="gbar__t">Recevoir le guide Médecin libéral complet</span>
+    <a class="btn btn--primary" href="#waitlist">Préviens-moi →</a>
+  </div>
 
   <footer class="foot">
     <div class="wrap">
@@ -220,9 +236,8 @@
       <div class="foot__bottom">
         <small>© 2026 Lemon Prod. Tous droits réservés.</small>
         <div class="foot__legal">
-          <a href="#">Mentions légales</a>
-          <a href="#">CGV</a>
-          <a href="#">Confidentialité</a>
+          <a href="/fr/legal">Mentions légales</a>
+          <a href="/fr/legal#privacy">Confidentialité</a>
         </div>
       </div>
     </div>

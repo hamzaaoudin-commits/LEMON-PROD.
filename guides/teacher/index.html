@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#110C14" />',"theme")
   <title>AI &amp; the Teacher: Mentorship as Content Goes Free — Adaptive Survival Outlook</title>
   <meta name="description" content="A strategic outlook for teachers and educators: lesson content and grading are automating. Here's what stays irreplaceable in mentorship and judgment — and how to reposition." />
   <meta name="author" content="Lemon Prod" />
@@ -149,21 +150,31 @@
           <div class="locked__veil">
             <svg class="locked__ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="32,14 47.6,23 47.6,41 32,50 16.4,41 16.4,23" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="32" cy="32" r="3" fill="currentColor"/></svg>
             <p class="locked__note">Unlock the complete playbook: the exact hybrid moves and the full 90-day plan, written for your title.</p>
-            <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Waitlist%20%E2%80%94%20Teacher%20guide&body=I'd%20like%20to%20be%20notified%20when%20the%20Adaptive%20Survival%20Guide%20for%20Teacher%20is%20ready.">Notify me →</a>
+            <form class="wl" data-wl method="POST" action="" data-ok="You're on the list. One email when it ships." data-err="That didn't go through — try again or email us." data-mailto="mailto:contact@lemonprod.co?subject=Waitlist%20%E2%80%94%20Teacher%20guide&amp;body=I'd%20like%20to%20be%20notified%20when%20the%20Adaptive%20Survival%20Guide%20for%20Teacher%20is%20ready.">
+              <input class="wl__in" type="email" name="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="Teacher (en)" />
+              <button class="btn btn--primary" type="submit">Notify me →</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
             <span class="waitlist__fine">One email when it ships. Nothing else.</span>
           </div>
         </div>
         <p class="guide__close">Content is free now. The teacher who changes a life is irreplaceable.</p>
       </section>
 
-      <section class="waitlist">
+      <section class="waitlist" id="waitlist">
         <div>
           <span class="eyebrow">The full guide</span>
           <h2>The complete Teacher guide is in production.</h2>
           <p>This is the outlook. The full guide goes deeper: the task-by-task split, the repricing model, and the moves professionals are making right now. Get notified the day it's ready.</p>
         </div>
         <div class="waitlist__cta">
-          <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Waitlist%20%E2%80%94%20Teacher%20guide&body=I'd%20like%20to%20be%20notified%20when%20the%20Adaptive%20Survival%20Guide%20for%20Teacher%20is%20ready.">Notify me →</a>
+          <form class="wl" data-wl method="POST" action="" data-ok="You're on the list. One email when it ships." data-err="That didn't go through — try again or email us." data-mailto="mailto:contact@lemonprod.co?subject=Waitlist%20%E2%80%94%20Teacher%20guide&amp;body=I'd%20like%20to%20be%20notified%20when%20the%20Adaptive%20Survival%20Guide%20for%20Teacher%20is%20ready.">
+              <input class="wl__in" type="email" name="email" required placeholder="you@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="Teacher (en)" />
+              <button class="btn btn--primary" type="submit">Notify me →</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
           <span class="waitlist__fine">One email when it ships. Nothing else.</span>
         </div>
       </section>
@@ -186,6 +197,11 @@
       </section>
     </article>
   </main>
+
+  <div class="gbar" id="gbar">
+    <span class="gbar__t">Get the full Teacher guide</span>
+    <a class="btn btn--primary" href="#waitlist">Notify me →</a>
+  </div>
 
   <footer class="foot">
     <div class="wrap">
@@ -220,9 +236,8 @@
       <div class="foot__bottom">
         <small>© 2026 Lemon Prod. All rights reserved.</small>
         <div class="foot__legal">
-          <a href="#">Legal</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
+          <a href="/legal">Legal</a>
+          <a href="/legal#privacy">Privacy</a>
         </div>
       </div>
     </div>

@@ -56,6 +56,7 @@ function path(loc, kind, slug) {
   if (kind === "home") return prefix(loc) || "/";
   if (kind === "hub") return `${prefix(loc)}/guides`;
   if (kind === "cases") return `${prefix(loc)}/case-studies`;
+  if (kind === "legal") return `${prefix(loc)}/legal`;
   return `${prefix(loc)}/guides/${slug}`;
 }
 const url = (loc, kind, slug) => BASE + path(loc, kind, slug);
@@ -66,6 +67,7 @@ function head({ loc, kind, slug, title, description, ogType }) {
   const alts = LOCALES.map((l) => `  <link rel="alternate" hreflang="${i18n.htmlLang[l]}" href="${url(l, kind, slug)}" />`).join("\n");
   return `  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#110C14" />',"theme")
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}" />
   <meta name="author" content="Lemon Prod" />
@@ -158,9 +160,8 @@ function footer(loc) {
       <div class="foot__bottom">
         <small>© ${new Date().getFullYear()} Lemon Prod. ${esc(t.foot_rights)}</small>
         <div class="foot__legal">
-          <a href="#">${esc(t.foot_legal)}</a>
-          <a href="#">${esc(t.foot_terms)}</a>
-          <a href="#">${esc(t.foot_privacy)}</a>
+          <a href="${p}/legal">${esc(t.foot_legal)}</a>
+          <a href="${p}/legal#privacy">${esc(t.foot_privacy)}</a>
         </div>
       </div>
     </div>
@@ -213,6 +214,17 @@ function actCard(loc, n) {
     </section>`;
 }
 
+/* Real email-capture form (Formspree-ready; falls back to mailto until wired) */
+function wlForm(loc, label, context, mailHref) {
+  const t = T(loc);
+  return `<form class="wl" data-wl method="POST" action="" data-ok="${esc(t.wl_ok)}" data-err="${esc(t.wl_err)}" data-mailto="${esc(mailHref)}">
+              <input class="wl__in" type="email" name="email" required placeholder="${esc(t.wl_ph)}" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="${esc(context)}" />
+              <button class="btn btn--primary" type="submit">${esc(label)}</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>`;
+}
+
 /* ----------------------------- HOMEPAGE ----------------------------- */
 function homePage(loc) {
   const t = T(loc), p = prefix(loc);
@@ -233,6 +245,9 @@ function homePage(loc) {
 ${head({ loc, kind: "home", title: t.home_title, description: t.home_desc, ogType: "website" })}
   <script type="application/ld+json">
 ${JSON.stringify({ "@context":"https://schema.org","@type":"Organization", name:"Lemon Prod", url: BASE + "/", email: CONTACT, description: t.foot_desc }, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify({ "@context":"https://schema.org","@type":"FAQPage", mainEntity:[1,2,3,4,5,6,7].map((n)=>({ "@type":"Question", name:t["faq_q"+n], acceptedAnswer:{ "@type":"Answer", text:t["faq_a"+n] } })) }, null, 2)}
   </script>
 </head>
 <body>
@@ -515,21 +530,21 @@ ${j.hybrid.map((h) => `          <div class="vault__item"><span class="vault__d"
           <div class="locked__veil">
             <svg class="locked__ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="32,14 47.6,23 47.6,41 32,50 16.4,41 16.4,23" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="32" cy="32" r="3" fill="currentColor"/></svg>
             <p class="locked__note">${esc(t.vault_unlock_note)}</p>
-            <a class="btn btn--primary" href="${mail}">${esc(t.g_notify)}</a>
+            ${wlForm(loc, t.g_notify, `${title} (${loc})`, mail)}
             <span class="waitlist__fine">${esc(t.g_fine)}</span>
           </div>
         </div>
         <p class="guide__close">${esc(j.close)}</p>
       </section>
 
-      <section class="waitlist">
+      <section class="waitlist" id="waitlist">
         <div>
           <span class="eyebrow">${esc(t.g_full_eyebrow)}</span>
           <h2>${esc(fmt(t.g_full_head, { t: title }))}</h2>
           <p>${esc(t.g_full_body)}</p>
         </div>
         <div class="waitlist__cta">
-          <a class="btn btn--primary" href="${mail}">${esc(t.g_notify)}</a>
+          ${wlForm(loc, t.g_notify, `${title} (${loc})`, mail)}
           <span class="waitlist__fine">${esc(t.g_fine)}</span>
         </div>
       </section>
@@ -543,6 +558,11 @@ ${siblings.map(sib).join("\n")}
       </section>
     </article>
   </main>
+
+  <div class="gbar" id="gbar">
+    <span class="gbar__t">${esc(fmt(t.gbar_t, { t: title }))}</span>
+    <a class="btn btn--primary" href="#waitlist">${esc(t.g_notify)}</a>
+  </div>
 
 ${footer(loc)}
   <script src="/script.js"></script>
@@ -615,7 +635,7 @@ ${demoSlugs.map(caseBlock).join("\n")}
         <span class="eyebrow">${esc(t.cases_real_eyebrow)}</span>
         <h2 class="display">${esc(t.cases_real_head)}</h2>
         <p class="lede">${esc(t.cases_real_note)}</p>
-        <a class="btn btn--primary" href="${casesMail}">${esc(t.cases_cta)}</a>
+        ${wlForm(loc, t.cases_cta, `case-study (${loc})`, casesMail)}
       </section>
     </section>
   </main>
@@ -682,6 +702,49 @@ ${footer(loc)}
 `;
 }
 
+/* ----------------------------- LEGAL ----------------------------- */
+const LEGAL = {
+  en: { title:"Legal & Privacy", h1:"Legal notice & privacy",
+    mentions:"Legal notice", editor:"Publisher", editorBody:"Lemon Prod — [Full name / legal status to complete]. Contact: ",
+    host:"Hosting", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
+    privacy:"Privacy", privacyBody:"The only personal data we collect is the email address you submit through the waitlist form, used solely to notify you when a guide ships. No tracking, no ads, no resale. To have your address deleted, write to " },
+  fr: { title:"Mentions légales & Confidentialité", h1:"Mentions légales & confidentialité",
+    mentions:"Mentions légales", editor:"Éditeur", editorBody:"Lemon Prod — [Nom complet / statut juridique à compléter]. Contact : ",
+    host:"Hébergement", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
+    privacy:"Confidentialité", privacyBody:"La seule donnée personnelle collectée est l'adresse e-mail transmise via le formulaire de liste d'attente, utilisée uniquement pour vous prévenir de la sortie d'un guide. Pas de tracking, pas de publicité, pas de revente. Pour supprimer votre adresse, écrivez à " },
+  es: { title:"Aviso legal & Privacidad", h1:"Aviso legal y privacidad",
+    mentions:"Aviso legal", editor:"Editor", editorBody:"Lemon Prod — [Nombre completo / forma jurídica a completar]. Contacto: ",
+    host:"Alojamiento", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
+    privacy:"Privacidad", privacyBody:"El único dato personal que recogemos es el correo enviado por el formulario de lista de espera, usado solo para avisarte cuando salga una guía. Sin rastreo, sin publicidad, sin reventa. Para borrar tu dirección, escribe a " }
+};
+function legalPage(loc) {
+  const t = T(loc), p = prefix(loc), L = LEGAL[loc];
+  return `<!DOCTYPE html>
+<html lang="${i18n.htmlLang[loc]}">
+<head>
+${head({ loc, kind:"legal", title:`${L.title} · Lemon Prod`, description:L.privacyBody.slice(0,150), ogType:"website" })}
+  <meta name="robots" content="noindex,follow" />
+</head>
+<body>
+  <a class="skip" href="#main">${esc(t.skip)}</a>
+${nav(loc, "legal", null)}
+  <main id="main">
+    <section class="section wrap legal">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="${p || "/"}">${esc(t.crumb_home)}</a><span aria-hidden="true">/</span><span aria-current="page">${esc(L.title)}</span></nav>
+      <h1 class="display">${esc(L.h1)}</h1>
+      <h2 id="mentions">${esc(L.mentions)}</h2>
+      <h3>${esc(L.editor)}</h3><p>${esc(L.editorBody)}<a href="mailto:${CONTACT}">${CONTACT}</a></p>
+      <h3>${esc(L.host)}</h3><p>${esc(L.hostBody)}</p>
+      <h2 id="privacy">${esc(L.privacy)}</h2><p>${esc(L.privacyBody)}<a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
+    </section>
+  </main>
+${footer(loc)}
+  <script src="/script.js"></script>
+</body>
+</html>
+`;
+}
+
 /* ----------------------------- SITEMAP ----------------------------- */
 function sitemap() {
   const entries = [];
@@ -711,6 +774,7 @@ for (const loc of LOCALES) {
   write(`${pdir}index.html`, homePage(loc));
   write(`${pdir}guides/index.html`, hubPage(loc));
   write(`${pdir}case-studies/index.html`, caseStudiesPage(loc));
+  write(`${pdir}legal/index.html`, legalPage(loc));
   for (const j of jobs) { write(`${pdir}guides/${j.slug}/index.html`, guidePage(j.slug, loc)); count++; }
 }
 write("sitemap.xml", sitemap());

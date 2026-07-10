@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#110C14" />',"theme")
   <title>Casos — el método aplicado · Lemon Prod</title>
   <meta name="description" content="Cómo el método Adaptive Survival reposiciona una profesión: ejemplos trabajados para encontrar la faceta irremplazable y tallar un reposicionamiento alrededor." />
   <meta name="author" content="Lemon Prod" />
@@ -137,7 +138,12 @@
         <span class="eyebrow">Resultados reales</span>
         <h2 class="display">Tu caso, después.</h2>
         <p class="lede">Aquí vivirán los resultados reales. Sé uno de los primeros — únete a la lista, trabajamos tu reposicionamiento primero y luego lo publicamos aquí con tu permiso.</p>
-        <a class="btn btn--primary" href="mailto:contact@lemonprod.co?subject=Convertirme%20en%20un%20caso%20%E2%80%94%20Lemon%20Prod">Conviértete en un caso</a>
+        <form class="wl" data-wl method="POST" action="" data-ok="Apuntado. Un correo cuando salga, nada más." data-err="No se envió — inténtalo de nuevo o escríbenos." data-mailto="mailto:contact@lemonprod.co?subject=Convertirme%20en%20un%20caso%20%E2%80%94%20Lemon%20Prod">
+              <input class="wl__in" type="email" name="email" required placeholder="tu@email.com" aria-label="Email" autocomplete="email" />
+              <input type="hidden" name="context" value="case-study (es)" />
+              <button class="btn btn--primary" type="submit">Conviértete en un caso</button>
+              <span class="wl__msg" role="status" aria-live="polite"></span>
+            </form>
       </section>
     </section>
   </main>
@@ -175,9 +181,8 @@
       <div class="foot__bottom">
         <small>© 2026 Lemon Prod. Todos los derechos reservados.</small>
         <div class="foot__legal">
-          <a href="#">Aviso legal</a>
-          <a href="#">Términos</a>
-          <a href="#">Privacidad</a>
+          <a href="/es/legal">Aviso legal</a>
+          <a href="/es/legal#privacy">Privacidad</a>
         </div>
       </div>
     </div>

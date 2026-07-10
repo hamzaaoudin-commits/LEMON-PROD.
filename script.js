@@ -135,3 +135,40 @@
   if ('requestIdleCallback' in window) { requestIdleCallback(init3D, { timeout: 2500 }); }
   else { window.addEventListener('load', function () { setTimeout(init3D, 800); }); }
 })();
+
+/* ---- Waitlist forms: Formspree-ready, mailto fallback until wired ---- */
+(function () {
+  var WL_ENDPOINT = ''; /* <- collez votre endpoint Formspree ici, ex: https://formspree.io/f/abcd1234 */
+  document.querySelectorAll('form[data-wl]').forEach(function (f) {
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (f.querySelector('input[type=email]') || {}).value || '';
+      var ctx = (f.querySelector('input[name=context]') || {}).value || '';
+      var msg = f.querySelector('.wl__msg');
+      if (!WL_ENDPOINT) {
+        var m = f.getAttribute('data-mailto') || '';
+        location.href = m + (m.indexOf('body=') > -1 ? encodeURIComponent('\n\nEmail: ' + email) : '');
+        if (msg) msg.textContent = f.getAttribute('data-ok');
+        return;
+      }
+      var btn = f.querySelector('button'); if (btn) btn.disabled = true;
+      fetch(WL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, context: ctx }) })
+        .then(function (r) { if (msg) msg.textContent = f.getAttribute(r.ok ? 'data-ok' : 'data-err'); if (r.ok) f.reset(); })
+        .catch(function () { if (msg) msg.textContent = f.getAttribute('data-err'); })
+        .then(function () { if (btn) btn.disabled = false; });
+    });
+  });
+
+  /* sticky conversion bar on guide pages */
+  var bar = document.getElementById('gbar');
+  var wl = document.getElementById('waitlist');
+  if (bar) {
+    var onS = function () {
+      var st = window.scrollY || document.documentElement.scrollTop;
+      var hideNear = wl ? (wl.getBoundingClientRect().top < window.innerHeight * 0.9) : false;
+      bar.classList.toggle('on', st > 560 && !hideNear);
+    };
+    window.addEventListener('scroll', onS, { passive: true }); onS();
+  }
+})();
