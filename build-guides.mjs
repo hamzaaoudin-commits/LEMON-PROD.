@@ -117,7 +117,6 @@ function nav(loc, kind, slug) {
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="${p}/guides">${esc(t.nav_all)}</a>
-        <a href="${p}/case-studies">${esc(t.nav_cases)}</a>
         <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
         ${langSwitch(loc, kind, slug)}
         <a class="btn btn--primary nav__cta" href="${p}/guides">${esc(t.nav_find)}</a>
@@ -159,10 +158,7 @@ function footer(loc) {
       </div>
       <div class="foot__bottom">
         <small>© ${new Date().getFullYear()} Lemon Prod. ${esc(t.foot_rights)}</small>
-        <div class="foot__legal">
-          <a href="${p}/legal">${esc(t.foot_legal)}</a>
-          <a href="${p}/legal#privacy">${esc(t.foot_privacy)}</a>
-        </div>
+
       </div>
     </div>
   </footer>`;
@@ -198,9 +194,9 @@ ${esc(law.hybrid[0].p)}`;
 /* Narrative helpers: a facet mark + full-width act intertitle */
 const facetMark = `<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><polygon points="20,3 34,12.5 34,27.5 20,37 6,27.5 6,12.5" stroke="currentColor" stroke-width="1.2"/><path d="M6,12.5 H34 M20,3 V37 M6,12.5 L34,27.5 M34,12.5 L6,27.5" stroke="currentColor" stroke-width=".6" opacity=".5"/></svg>`;
 
-function actCard(loc, n) {
+function actCard(loc, n, romanOverride) {
   const t = T(loc);
-  const roman = ["I", "II", "III", "IV"][n - 1];
+  const roman = romanOverride || ["I", "II", "III", "IV"][n - 1];
   return `    <section class="scene" data-scene="${n}">
       <div class="scene__pin">
         <div class="act wrap">
@@ -223,6 +219,38 @@ function wlForm(loc, label, context, mailHref) {
               <button class="btn btn--primary" type="submit">${esc(label)}</button>
               <span class="wl__msg" role="status" aria-live="polite"></span>
             </form>`;
+}
+
+/* The gallery walk: each profession category is a full-screen "room" that
+   slides over the previous one as you scroll (sticky stacking). */
+const ROOM_TINTS = [
+  ["#151019","#0f0b12"], ["#171015","#100b10"], ["#131118","#0d0c12"], ["#181016","#110b10"],
+  ["#121219","#0c0d13"], ["#171112","#100c0d"], ["#141019","#0e0b13"], ["#161013","#0f0b0e"]
+];
+function roomsWalk(loc) {
+  const t = T(loc);
+  const rooms = data.categories.map((cat, i) => {
+    const doors = cat.jobs.map((j) => `          <a class="door" href="${path(loc, "guide", j.slug)}">
+            <span class="door__t">${esc(jobTitle(j.slug, loc))}</span>
+            <span class="door__go">${esc(t.walk_enter)} →</span>
+          </a>`).join("\n");
+    return `      <section class="room" data-room="${i + 1}" style="--rt1:${ROOM_TINTS[i][0]};--rt2:${ROOM_TINTS[i][1]}">
+        <div class="room__inner wrap">
+          <span class="room__n">${esc(t.rooms_word)} ${String(i + 1).padStart(2, "0")} — ${String(data.categories.length).padStart(2, "0")}</span>
+          <h3 class="room__title" data-words>${esc(catName(cat.id, loc))}</h3>
+          <p class="room__desc">${esc(i18n.catDesc[cat.id][loc])}</p>
+          <div class="room__doors">
+${doors}
+          </div>
+        </div>
+      </section>`;
+  }).join("\n");
+  return `    <div class="rooms" aria-label="${esc(t.prof_head)}">
+${rooms}
+      <div class="rooms__end wrap">
+        <a class="btn btn--ghost" href="${prefix(loc)}/guides">${esc(fmt(t.g_browse_all, { n: jobs.length }))}</a>
+      </div>
+    </div>`;
 }
 
 /* ----------------------------- HOMEPAGE ----------------------------- */
@@ -255,7 +283,6 @@ ${JSON.stringify({ "@context":"https://schema.org","@type":"FAQPage", mainEntity
 ${nav(loc, "home", null)}
 
   <main id="main">
-    <div id="stage3d" aria-hidden="true"></div>
     <section class="hero wrap" id="home">
       <span class="hero__light" id="heroLight" aria-hidden="true"></span>
       <div class="hero__grid">
@@ -343,33 +370,13 @@ ${actCard(loc, 2)}
           <div class="proof__stat"><s>${esc(t.proof_a)}</s> → <b>${esc(t.proof_b)}</b></div>
           <p class="proof__label">${esc(t.proof_label)}</p>
         </div>
-        <div class="reveal" style="margin-top:4.5rem" id="professions">
-          <span class="eyebrow">${esc(t.prof_eyebrow)}</span>
-          <h2 class="display">${esc(t.prof_head)}</h2>
-          <p class="lede" id="catBackWrap" style="display:none;margin-top:.6rem">
-            <button class="btn btn--ghost" id="catBackBtn" type="button">${esc(t.prof_back)}</button>
-          </p>
-        </div>
-        <div class="metiers reveal" id="categoryGrid"></div>
-        <div class="metiers metiers--jobs reveal" id="jobGrid" style="display:none"></div>
+
       </div>
     </section>
 
-${actCard(loc, 3)}
+${roomsWalk(loc)}
 
-    <section class="section wrap act-section proofstrip">
-      <div class="reveal">
-        <h2 class="display">${esc(t.cases_head)}</h2>
-        <div class="proofstrip__chips">
-          <span>${esc(jobTitle("lawyer", loc))}</span>
-          <span>${esc(jobTitle("copywriter", loc))}</span>
-          <span>${esc(jobTitle("real-estate-agent", loc))}</span>
-        </div>
-        <a class="btn btn--primary" href="${p}/case-studies">${esc(t.proof_cta)}</a>
-      </div>
-    </section>
-
-${actCard(loc, 4)}
+${actCard(loc, 4, "III")}
 
     <section class="section wrap section--tight">
       <div class="reveal" style="margin-bottom:2.8rem">
@@ -406,40 +413,6 @@ ${faqItems}
 
 ${footer(loc)}
 
-  <script>
-    const CATEGORIES = ${JSON.stringify(cats)};
-    const L = { one: ${JSON.stringify(t.guide_one)}, many: ${JSON.stringify(t.guide_many)}, most: ${JSON.stringify(t.most_read)} };
-    const categoryGrid = document.getElementById("categoryGrid");
-    const jobGrid = document.getElementById("jobGrid");
-    const catBackWrap = document.getElementById("catBackWrap");
-    const catBackBtn = document.getElementById("catBackBtn");
-    function renderCategories(){
-      categoryGrid.innerHTML = CATEGORIES.map(cat => \`
-        <div class="metier" data-cat="\${cat.id}" role="button" tabindex="0" aria-label="\${cat.name}">
-          <div class="metier__count">\${cat.jobs.length} \${cat.jobs.length>1?L.many:L.one}</div>
-          <h3>\${cat.name}</h3>
-        </div>\`).join("");
-    }
-    function renderJobs(catId){
-      const cat = CATEGORIES.find(c=>c.id===catId); if(!cat) return;
-      jobGrid.innerHTML = cat.jobs.map(job => \`
-        <a class="metier \${job.popular?"metier--pop":""}" href="\${job.href}" aria-label="\${job.title}">
-          \${job.popular?'<span class="metier__pop">'+L.most+'</span>':""}
-          <h3>\${job.title}</h3>
-          <p class="metier__focus">\${job.focus}</p>
-        </a>\`).join("");
-      categoryGrid.style.display="none"; jobGrid.style.display="grid"; catBackWrap.style.display="block";
-      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
-    }
-    function showCategories(){
-      jobGrid.style.display="none"; categoryGrid.style.display="grid"; catBackWrap.style.display="none";
-      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
-    }
-    renderCategories();
-    categoryGrid.addEventListener("click",e=>{const c=e.target.closest(".metier"); if(c) renderJobs(c.dataset.cat);});
-    categoryGrid.addEventListener("keydown",e=>{ if(e.key!=="Enter"&&e.key!==" ")return; const c=e.target.closest(".metier"); if(!c)return; e.preventDefault(); renderJobs(c.dataset.cat);});
-    catBackBtn.addEventListener("click", showCategories);
-  </script>
   <script src="/script.js"></script>
   <script src="/immersive.js" defer></script>
 </body>
@@ -657,8 +630,13 @@ function hubPage(loc) {
             <p>${esc(jobFocus(j.slug, loc))}</p>
             <span class="hub__go">${esc(t.g_read)}</span>
           </a>`).join("\n");
+    const idx = data.categories.indexOf(cat);
     return `      <section class="hub__cat">
-        <h2 class="hub__catname">${esc(catName(cat.id, loc))}</h2>
+        <div class="hub__cathead">
+          <span class="hub__catn">${esc(T(loc).rooms_word)} ${String(idx + 1).padStart(2, "0")} — ${String(data.categories.length).padStart(2, "0")}</span>
+          <h2 class="hub__catname">${esc(catName(cat.id, loc))}</h2>
+          <p class="hub__catdesc">${esc(i18n.catDesc[cat.id][loc])}</p>
+        </div>
         <div class="hub__grid">
 ${cards}
         </div>
@@ -751,7 +729,6 @@ function sitemap() {
   for (const loc of LOCALES) {
     entries.push({ loc, kind: "home" });
     entries.push({ loc, kind: "hub" });
-    entries.push({ loc, kind: "cases" });
     for (const j of jobs) entries.push({ loc, kind: "guide", slug: j.slug });
   }
   const body = entries.map((e) => {
@@ -773,8 +750,6 @@ for (const loc of LOCALES) {
   const pdir = loc === "en" ? "" : `${loc}/`;
   write(`${pdir}index.html`, homePage(loc));
   write(`${pdir}guides/index.html`, hubPage(loc));
-  write(`${pdir}case-studies/index.html`, caseStudiesPage(loc));
-  write(`${pdir}legal/index.html`, legalPage(loc));
   for (const j of jobs) { write(`${pdir}guides/${j.slug}/index.html`, guidePage(j.slug, loc)); count++; }
 }
 write("sitemap.xml", sitemap());

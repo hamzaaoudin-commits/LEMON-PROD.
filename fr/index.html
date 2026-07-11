@@ -118,7 +118,6 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="/fr/guides">Tous les métiers</a>
-        <a href="/fr/case-studies">Études de cas</a>
         <a href="/fr#faq">FAQ</a>
         <div class="lang" role="group" aria-label="Language"><a class="lang__opt" href="/" hreflang="en">EN</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt is-active" href="/fr" hreflang="fr" aria-current="true">FR</a><span class="lang__sep" aria-hidden="true">·</span><a class="lang__opt" href="/es" hreflang="es">ES</a></div>
         <a class="btn btn--primary nav__cta" href="/fr/guides">Trouver mon guide</a>
@@ -130,7 +129,6 @@
   </header>
 
   <main id="main">
-    <div id="stage3d" aria-hidden="true"></div>
     <section class="hero wrap" id="home">
       <span class="hero__light" id="heroLight" aria-hidden="true"></span>
       <div class="hero__grid">
@@ -247,47 +245,189 @@
           <div class="proof__stat"><s>Anxieux</s> → <b>En avance</b></div>
           <p class="proof__label">Le basculement que chaque lecteur décrit : passer de la peur d'être remplacé à savoir exactement ce qui te rend plus dur à remplacer.</p>
         </div>
-        <div class="reveal" style="margin-top:4.5rem" id="professions">
-          <span class="eyebrow">24 métiers</span>
-          <h2 class="display">Trouve le tien.</h2>
-          <p class="lede" id="catBackWrap" style="display:none;margin-top:.6rem">
-            <button class="btn btn--ghost" id="catBackBtn" type="button">← Toutes les catégories</button>
-          </p>
-        </div>
-        <div class="metiers reveal" id="categoryGrid"></div>
-        <div class="metiers metiers--jobs reveal" id="jobGrid" style="display:none"></div>
+
       </div>
     </section>
 
-    <section class="scene" data-scene="3">
-      <div class="scene__pin">
-        <div class="act wrap">
-          <span class="act__mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><polygon points="20,3 34,12.5 34,27.5 20,37 6,27.5 6,12.5" stroke="currentColor" stroke-width="1.2"/><path d="M6,12.5 H34 M20,3 V37 M6,12.5 L34,27.5 M34,12.5 L6,27.5" stroke="currentColor" stroke-width=".6" opacity=".5"/></svg></span>
-          <span class="act__n">Acte III</span>
-          <h2 class="act__title" data-words>La preuve</h2>
-          <span class="act__rule" aria-hidden="true"></span>
-          <p class="act__line">La méthode, appliquée — une facette trouvée, avant que tu ailles trouver la tienne.</p>
+    <div class="rooms" aria-label="Trouve le tien.">
+      <section class="room" data-room="1" style="--rt1:#151019;--rt2:#0f0b12">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 01 — 08</span>
+          <h3 class="room__title" data-words>Droit &amp; Finance</h3>
+          <p class="room__desc">Là où le jugement se facturait à l'heure — et l'heure vient de s'effondrer.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/lawyer">
+            <span class="door__t">Avocat</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/accountant">
+            <span class="door__t">Expert-comptable</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/wealth-manager">
+            <span class="door__t">Conseiller en gestion de patrimoine</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section wrap act-section proofstrip">
-      <div class="reveal">
-        <h2 class="display">La méthode, appliquée.</h2>
-        <div class="proofstrip__chips">
-          <span>Avocat</span>
-          <span>Copywriter</span>
-          <span>Agent immobilier</span>
+      </section>
+      <section class="room" data-room="2" style="--rt1:#171015;--rt2:#100b10">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 02 — 08</span>
+          <h3 class="room__title" data-words>Immobilier &amp; Construction</h3>
+          <p class="room__desc">Les annonces sont devenues publiques. La négociation est la dernière pièce où l'argent n'entre pas seul.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/real-estate-agent">
+            <span class="door__t">Agent immobilier</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/architect">
+            <span class="door__t">Architecte</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/construction-project-manager">
+            <span class="door__t">Conducteur de travaux</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
         </div>
-        <a class="btn btn--primary" href="/fr/case-studies">Voir les études de cas</a>
+      </section>
+      <section class="room" data-room="3" style="--rt1:#131118;--rt2:#0d0c12">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 03 — 08</span>
+          <h3 class="room__title" data-words>RH &amp; Management</h3>
+          <p class="room__desc">L'administratif s'automatise tout seul. Il reste les gens — au plus humain.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/hr-director">
+            <span class="door__t">DRH</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/recruiter">
+            <span class="door__t">Recruteur</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/team-manager">
+            <span class="door__t">Manager d'équipe</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section class="room" data-room="4" style="--rt1:#181016;--rt2:#110b10">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 04 — 08</span>
+          <h3 class="room__title" data-words>Marketing, Vente &amp; Communication</h3>
+          <p class="room__desc">Les mots sont gratuits désormais. Le goût et le closing, non.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/copywriter">
+            <span class="door__t">Copywriter</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/social-media-manager">
+            <span class="door__t">Social Media Manager</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/sales-rep">
+            <span class="door__t">Commercial (SDR/BDR)</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section class="room" data-room="5" style="--rt1:#121219;--rt2:#0c0d13">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 05 — 08</span>
+          <h3 class="room__title" data-words>Santé &amp; Bien-être</h3>
+          <p class="room__desc">Les machines lisent les examens. Il faut encore quelqu'un pour tenir la pièce.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/private-practice-doctor">
+            <span class="door__t">Médecin libéral</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/therapist">
+            <span class="door__t">Psychologue / Thérapeute</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/physiotherapist">
+            <span class="door__t">Kinésithérapeute</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section class="room" data-room="6" style="--rt1:#171112;--rt2:#100c0d">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 06 — 08</span>
+          <h3 class="room__title" data-words>Services &amp; Artisanat</h3>
+          <p class="room__desc">Le tableur tourne tout seul. La soirée dont on se souvient, non.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/chef">
+            <span class="door__t">Chef / Restaurateur</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/professional-photographer">
+            <span class="door__t">Photographe professionnel</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/wedding-planner">
+            <span class="door__t">Wedding planner</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section class="room" data-room="7" style="--rt1:#141019;--rt2:#0e0b13">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 07 — 08</span>
+          <h3 class="room__title" data-words>Tech &amp; Éducation</h3>
+          <p class="room__desc">Le code et le contenu sont devenus bon marché. Savoir quoi construire — et qui l'on forme — non.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/developer">
+            <span class="door__t">Développeur</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/product-manager">
+            <span class="door__t">Product Manager</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/teacher">
+            <span class="door__t">Enseignant</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <section class="room" data-room="8" style="--rt1:#161013;--rt2:#0f0b0e">
+        <div class="room__inner wrap">
+          <span class="room__n">Salle 08 — 08</span>
+          <h3 class="room__title" data-words>Autres niches</h3>
+          <p class="room__desc">Les résumés s'écrivent tout seuls. La voix, la source, le risque — toujours à toi.</p>
+          <div class="room__doors">
+          <a class="door" href="/fr/guides/journalist">
+            <span class="door__t">Journaliste</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/writer">
+            <span class="door__t">Écrivain / Auteur</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          <a class="door" href="/fr/guides/cybersecurity-specialist">
+            <span class="door__t">Expert en cybersécurité</span>
+            <span class="door__go">Entrer →</span>
+          </a>
+          </div>
+        </div>
+      </section>
+      <div class="rooms__end wrap">
+        <a class="btn btn--ghost" href="/fr/guides">← Voir les 24 métiers</a>
       </div>
-    </section>
+    </div>
 
     <section class="scene" data-scene="4">
       <div class="scene__pin">
         <div class="act wrap">
           <span class="act__mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><polygon points="20,3 34,12.5 34,27.5 20,37 6,27.5 6,12.5" stroke="currentColor" stroke-width="1.2"/><path d="M6,12.5 H34 M20,3 V37 M6,12.5 L34,27.5 M34,12.5 L6,27.5" stroke="currentColor" stroke-width=".6" opacity=".5"/></svg></span>
-          <span class="act__n">Acte IV</span>
+          <span class="act__n">Acte III</span>
           <h2 class="act__title" data-words>La décision</h2>
           <span class="act__rule" aria-hidden="true"></span>
           <p class="act__line">Te repositionner volontairement, en avance sur le marché — pas quand il t'a déjà forcé la main.</p>
@@ -387,48 +527,11 @@
       </div>
       <div class="foot__bottom">
         <small>© 2026 Lemon Prod. Tous droits réservés.</small>
-        <div class="foot__legal">
-          <a href="/fr/legal">Mentions légales</a>
-          <a href="/fr/legal#privacy">Confidentialité</a>
-        </div>
+
       </div>
     </div>
   </footer>
 
-  <script>
-    const CATEGORIES = [{"id":"law-finance","name":"Droit & Finance","jobs":[{"slug":"lawyer","title":"Avocat","popular":true,"focus":"L'IA rédige, recherche et cartographie la jurisprudence à une vitesse qu'aucun collaborateur n'égale.","href":"/fr/guides/lawyer"},{"slug":"accountant","title":"Expert-comptable","popular":false,"focus":"Saisie, rapprochement et reporting standard s'effondrent vers un coût marginal nul.","href":"/fr/guides/accountant"},{"slug":"wealth-manager","title":"Conseiller en gestion de patrimoine","popular":false,"focus":"Allocations, projections et analyses de scénarios deviennent gratuites et instantanées.","href":"/fr/guides/wealth-manager"}]},{"id":"real-estate","name":"Immobilier & Construction","jobs":[{"slug":"real-estate-agent","title":"Agent immobilier","popular":true,"focus":"Texte d'annonce, estimations de prix et mise en relation acheteur-bien deviennent automatisés et gratuits.","href":"/fr/guides/real-estate-agent"},{"slug":"architect","title":"Architecte","popular":false,"focus":"Les outils génératifs produisent plans, variantes et rendus en minutes.","href":"/fr/guides/architect"},{"slug":"construction-project-manager","title":"Conducteur de travaux","popular":false,"focus":"Planning, estimation et suivi d'avancement deviennent plus intelligents et automatisés.","href":"/fr/guides/construction-project-manager"}]},{"id":"hr-management","name":"RH & Management","jobs":[{"slug":"hr-director","title":"DRH","popular":false,"focus":"Paie, politique, onboarding et reporting s'automatisent partout en RH.","href":"/fr/guides/hr-director"},{"slug":"recruiter","title":"Recruteur","popular":false,"focus":"Sourcing, tri et approche deviennent entièrement automatisés.","href":"/fr/guides/recruiter"},{"slug":"team-manager","title":"Manager d'équipe","popular":false,"focus":"Points d'avancement, reporting et coordination de tâches deviennent instantanés et automatiques.","href":"/fr/guides/team-manager"}]},{"id":"marketing-sales","name":"Marketing, Vente & Communication","jobs":[{"slug":"copywriter","title":"Copywriter","popular":true,"focus":"Rédiger des mots est désormais gratuit, instantané et infini.","href":"/fr/guides/copywriter"},{"slug":"social-media-manager","title":"Social Media Manager","popular":false,"focus":"Produire posts, légendes et créa est désormais infini et gratuit.","href":"/fr/guides/social-media-manager"},{"slug":"sales-rep","title":"Commercial (SDR/BDR)","popular":false,"focus":"Prospection, constitution de listes et premier contact sont désormais entièrement automatisés.","href":"/fr/guides/sales-rep"}]},{"id":"health-wellness","name":"Santé & Bien-être","jobs":[{"slug":"private-practice-doctor","title":"Médecin libéral","popular":false,"focus":"Prise de notes, codage, triage et premier diagnostic s'automatisent vite.","href":"/fr/guides/private-practice-doctor"},{"slug":"therapist","title":"Psychologue / Thérapeute","popular":false,"focus":"Notes, agenda et chatbots de premier niveau se répandent.","href":"/fr/guides/therapist"},{"slug":"physiotherapist","title":"Kinésithérapeute","popular":false,"focus":"Programmes d'exercices et conseils de rééducation génériques sont désormais gratuits et instantanés.","href":"/fr/guides/physiotherapist"}]},{"id":"services-trades","name":"Services & Artisanat","jobs":[{"slug":"chef","title":"Chef / Restaurateur","popular":false,"focus":"Coûts de carte, stocks, planning et admin fournisseurs s'automatisent.","href":"/fr/guides/chef"},{"slug":"professional-photographer","title":"Photographe professionnel","popular":false,"focus":"La retouche est en un clic et la génération est gratuite.","href":"/fr/guides/professional-photographer"},{"slug":"wedding-planner","title":"Wedding planner","popular":false,"focus":"Checklists, budgets, timelines et listes de prestataires s'automatisent tous.","href":"/fr/guides/wedding-planner"}]},{"id":"tech-education","name":"Tech & Éducation","jobs":[{"slug":"developer","title":"Développeur","popular":false,"focus":"Écrire du code devient rapide et bon marché.","href":"/fr/guides/developer"},{"slug":"product-manager","title":"Product Manager","popular":false,"focus":"Écrire specs, tickets et points d'avancement s'automatise.","href":"/fr/guides/product-manager"},{"slug":"teacher","title":"Enseignant","popular":false,"focus":"Supports de cours, exercices et même correction deviennent gratuits et automatisés.","href":"/fr/guides/teacher"}]},{"id":"other-niches","name":"Autres niches","jobs":[{"slug":"journalist","title":"Journaliste","popular":false,"focus":"Transcription, résumé et agrégation s'automatisent entièrement.","href":"/fr/guides/journalist"},{"slug":"writer","title":"Écrivain / Auteur","popular":false,"focus":"Rédiger est infini et gratuit.","href":"/fr/guides/writer"},{"slug":"cybersecurity-specialist","title":"Expert en cybersécurité","popular":false,"focus":"Scan, monitoring et triage de routine s'automatisent — et les attaquants aussi.","href":"/fr/guides/cybersecurity-specialist"}]}];
-    const L = { one: "guide", many: "guides", most: "Le plus lu" };
-    const categoryGrid = document.getElementById("categoryGrid");
-    const jobGrid = document.getElementById("jobGrid");
-    const catBackWrap = document.getElementById("catBackWrap");
-    const catBackBtn = document.getElementById("catBackBtn");
-    function renderCategories(){
-      categoryGrid.innerHTML = CATEGORIES.map(cat => `
-        <div class="metier" data-cat="${cat.id}" role="button" tabindex="0" aria-label="${cat.name}">
-          <div class="metier__count">${cat.jobs.length} ${cat.jobs.length>1?L.many:L.one}</div>
-          <h3>${cat.name}</h3>
-        </div>`).join("");
-    }
-    function renderJobs(catId){
-      const cat = CATEGORIES.find(c=>c.id===catId); if(!cat) return;
-      jobGrid.innerHTML = cat.jobs.map(job => `
-        <a class="metier ${job.popular?"metier--pop":""}" href="${job.href}" aria-label="${job.title}">
-          ${job.popular?'<span class="metier__pop">'+L.most+'</span>':""}
-          <h3>${job.title}</h3>
-          <p class="metier__focus">${job.focus}</p>
-        </a>`).join("");
-      categoryGrid.style.display="none"; jobGrid.style.display="grid"; catBackWrap.style.display="block";
-      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
-    }
-    function showCategories(){
-      jobGrid.style.display="none"; categoryGrid.style.display="grid"; catBackWrap.style.display="none";
-      document.getElementById("professions").scrollIntoView({behavior:"smooth",block:"start"});
-    }
-    renderCategories();
-    categoryGrid.addEventListener("click",e=>{const c=e.target.closest(".metier"); if(c) renderJobs(c.dataset.cat);});
-    categoryGrid.addEventListener("keydown",e=>{ if(e.key!=="Enter"&&e.key!==" ")return; const c=e.target.closest(".metier"); if(!c)return; e.preventDefault(); renderJobs(c.dataset.cat);});
-    catBackBtn.addEventListener("click", showCategories);
-  </script>
   <script src="/script.js"></script>
   <script src="/immersive.js" defer></script>
 </body>

@@ -225,7 +225,9 @@
       "wl_ph": "you@email.com",
       "wl_ok": "You're on the list. One email when it ships.",
       "wl_err": "That didn't go through — try again or email us.",
-      "gbar_t": "Get the full {t} guide"
+      "gbar_t": "Get the full {t} guide",
+      "rooms_word": "Room",
+      "walk_enter": "Enter"
     },
     "fr": {
       "skip": "Aller au contenu",
@@ -389,7 +391,9 @@
       "wl_ph": "vous@email.com",
       "wl_ok": "C'est noté. Un e-mail à la sortie, rien d'autre.",
       "wl_err": "Ça n'est pas passé — réessaie ou écris-nous.",
-      "gbar_t": "Recevoir le guide {t} complet"
+      "gbar_t": "Recevoir le guide {t} complet",
+      "rooms_word": "Salle",
+      "walk_enter": "Entrer"
     },
     "es": {
       "skip": "Saltar al contenido",
@@ -553,7 +557,51 @@
       "wl_ph": "tu@email.com",
       "wl_ok": "Apuntado. Un correo cuando salga, nada más.",
       "wl_err": "No se envió — inténtalo de nuevo o escríbenos.",
-      "gbar_t": "Recibir la guía completa de {t}"
+      "gbar_t": "Recibir la guía completa de {t}",
+      "rooms_word": "Sala",
+      "walk_enter": "Entrar"
+    }
+  },
+  "catDesc": {
+    "law-finance": {
+      "en": "Where judgment used to be billed by the hour — and the hour just collapsed.",
+      "fr": "Là où le jugement se facturait à l'heure — et l'heure vient de s'effondrer.",
+      "es": "Donde el juicio se facturaba por horas — y la hora acaba de desplomarse."
+    },
+    "real-estate": {
+      "en": "The listings went public. The deal is the last room money can't enter alone.",
+      "fr": "Les annonces sont devenues publiques. La négociation est la dernière pièce où l'argent n'entre pas seul.",
+      "es": "Los anuncios se hicieron públicos. La negociación es la última sala donde el dinero no entra solo."
+    },
+    "hr-management": {
+      "en": "The paperwork automates itself. What's left is people — at their most human.",
+      "fr": "L'administratif s'automatise tout seul. Il reste les gens — au plus humain.",
+      "es": "El papeleo se automatiza solo. Queda la gente — en su punto más humano."
+    },
+    "marketing-sales": {
+      "en": "Words are free now. Taste and the close are not.",
+      "fr": "Les mots sont gratuits désormais. Le goût et le closing, non.",
+      "es": "Las palabras ahora son gratis. El gusto y el cierre, no."
+    },
+    "health-wellness": {
+      "en": "Machines read the scans. Someone still has to hold the room.",
+      "fr": "Les machines lisent les examens. Il faut encore quelqu'un pour tenir la pièce.",
+      "es": "Las máquinas leen las pruebas. Alguien tiene que sostener la sala."
+    },
+    "services-trades": {
+      "en": "The spreadsheet runs itself. The night people remember doesn't.",
+      "fr": "Le tableur tourne tout seul. La soirée dont on se souvient, non.",
+      "es": "La hoja de cálculo se lleva sola. La noche que se recuerda, no."
+    },
+    "tech-education": {
+      "en": "Code and content became cheap. Knowing what to build — and who you're building — didn't.",
+      "fr": "Le code et le contenu sont devenus bon marché. Savoir quoi construire — et qui l'on forme — non.",
+      "es": "El código y el contenido se abarataron. Saber qué construir — y a quién formas — no."
+    },
+    "other-niches": {
+      "en": "The summaries write themselves. The voice, the source, the risk — still yours.",
+      "fr": "Les résumés s'écrivent tout seuls. La voix, la source, le risque — toujours à toi.",
+      "es": "Los resúmenes se escriben solos. La voz, la fuente, el riesgo — siguen siendo tuyos."
     }
   }
 }
