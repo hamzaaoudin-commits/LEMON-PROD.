@@ -67,7 +67,7 @@ function head({ loc, kind, slug, title, description, ogType }) {
   const alts = LOCALES.map((l) => `  <link rel="alternate" hreflang="${i18n.htmlLang[l]}" href="${url(l, kind, slug)}" />`).join("\n");
   return `  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#110C14" />',"theme")
+  <meta name="theme-color" content="#110C14" />
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}" />
   <meta name="author" content="Lemon Prod" />
@@ -89,7 +89,7 @@ ${alts}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />`;
 }
@@ -118,7 +118,6 @@ function nav(loc, kind, slug) {
       <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
         <a href="${p}/guides">${esc(t.nav_all)}</a>
         <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
-        ${langSwitch(loc, kind, slug)}
         <a class="btn btn--primary nav__cta" href="${p}/guides">${esc(t.nav_find)}</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="${esc(t.open_menu)}" aria-expanded="false" aria-controls="navLinks">
@@ -128,7 +127,7 @@ function nav(loc, kind, slug) {
   </header>`;
 }
 
-function footer(loc) {
+function footer(loc, kind = "home", slug) {
   const t = T(loc), p = prefix(loc);
   return `  <footer class="foot">
     <div class="wrap">
@@ -146,19 +145,16 @@ function footer(loc) {
           <a href="${p || "/"}#faq">${esc(t.nav_faq)}</a>
         </div>
         <div class="foot__col">
-          <h4>${esc(t.foot_outlook)}</h4>
-          <a href="${p}/guides/lawyer">${esc(jobTitle("lawyer", loc))}</a>
-          <a href="${p}/guides/real-estate-agent">${esc(jobTitle("real-estate-agent", loc))}</a>
-          <a href="${p}/guides/copywriter">${esc(jobTitle("copywriter", loc))}</a>
-        </div>
-        <div class="foot__col">
           <h4>${esc(t.foot_contact)}</h4>
           <a href="mailto:${CONTACT}">${esc(t.foot_email)}</a>
         </div>
       </div>
       <div class="foot__bottom">
         <small>© ${new Date().getFullYear()} Lemon Prod. ${esc(t.foot_rights)}</small>
-
+        <div class="foot__legal">
+          <a href="${p}/legal">${esc(t.foot_legal || "Privacy & legal")}</a>
+          ${langSwitch(loc, kind, slug)}
+        </div>
       </div>
     </div>
   </footer>`;
@@ -229,28 +225,14 @@ const ROOM_TINTS = [
 ];
 function roomsWalk(loc) {
   const t = T(loc);
-  const rooms = data.categories.map((cat, i) => {
-    const doors = cat.jobs.map((j) => `          <a class="door" href="${path(loc, "guide", j.slug)}">
-            <span class="door__t">${esc(jobTitle(j.slug, loc))}</span>
-            <span class="door__go">${esc(t.walk_enter)} →</span>
-          </a>`).join("\n");
-    return `      <section class="room" data-room="${i + 1}" style="--rt1:${ROOM_TINTS[i][0]};--rt2:${ROOM_TINTS[i][1]}">
-        <div class="room__inner wrap">
-          <span class="room__n">${esc(t.rooms_word)} ${String(i + 1).padStart(2, "0")} — ${String(data.categories.length).padStart(2, "0")}</span>
-          <h3 class="room__title" data-words>${esc(catName(cat.id, loc))}</h3>
-          <p class="room__desc">${esc(i18n.catDesc[cat.id][loc])}</p>
-          <div class="room__doors">
-${doors}
-          </div>
-        </div>
-      </section>`;
-  }).join("\n");
-  return `    <div class="rooms" aria-label="${esc(t.prof_head)}">
-${rooms}
-      <div class="rooms__end wrap">
-        <a class="btn btn--ghost" href="${prefix(loc)}/guides">${esc(fmt(t.g_browse_all, { n: jobs.length }))}</a>
+  const label = fmt(t.g_browse_all, { n: jobs.length }).replace(/^[←\s]+/, "");
+  return `    <section class="section wrap section--tight rooms-cta">
+      <div class="reveal">
+        <span class="eyebrow">${esc(t.coll_eyebrow)}</span>
+        <h2 class="display">${esc(t.nav_all)}</h2>
+        <a class="btn btn--primary" href="${prefix(loc)}/guides">${esc(label)} →</a>
       </div>
-    </div>`;
+    </section>`;
 }
 
 /* ----------------------------- HOMEPAGE ----------------------------- */
@@ -411,7 +393,7 @@ ${faqItems}
     </section>
   </main>
 
-${footer(loc)}
+${footer(loc, "home")}
 
   <script src="/script.js"></script>
   <script src="/immersive.js" defer></script>
@@ -537,7 +519,7 @@ ${siblings.map(sib).join("\n")}
     <a class="btn btn--primary" href="#waitlist">${esc(t.g_notify)}</a>
   </div>
 
-${footer(loc)}
+${footer(loc, "guide", slug)}
   <script src="/script.js"></script>
 </body>
 </html>
@@ -613,7 +595,7 @@ ${demoSlugs.map(caseBlock).join("\n")}
     </section>
   </main>
 
-${footer(loc)}
+${footer(loc, "cases")}
   <script src="/script.js"></script>
 </body>
 </html>
@@ -673,7 +655,7 @@ ${data.categories.map(catBlock).join("\n")}
     </section>
   </main>
 
-${footer(loc)}
+${footer(loc, "hub")}
   <script src="/script.js"></script>
 </body>
 </html>
@@ -716,7 +698,7 @@ ${nav(loc, "legal", null)}
       <h2 id="privacy">${esc(L.privacy)}</h2><p>${esc(L.privacyBody)}<a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
     </section>
   </main>
-${footer(loc)}
+${footer(loc, "legal")}
   <script src="/script.js"></script>
 </body>
 </html>

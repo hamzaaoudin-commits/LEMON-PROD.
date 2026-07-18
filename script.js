@@ -31,110 +31,71 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- Narrative scroll-progress thread ---- */
+  /* ---- Narrative scroll-progress thread (rAF, sans reflow forcé) ---- */
   var prog = document.createElement('div');
   prog.className = 'progress';
   document.body.appendChild(prog);
   var apertureSvg = document.querySelector('#gem3d .lemon3d');
-  function updateProgress() {
+  var docH = 0, pending = false, lastW = -1, lastO = -1;
+  function measureDoc() { docH = document.documentElement.scrollHeight - window.innerHeight; }
+  function paint() {
+    pending = false;
     var st = window.scrollY || document.documentElement.scrollTop;
-    var doch = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (doch > 0 ? (st / doch) * 100 : 0) + '%';
+    var w = docH > 0 ? Math.min(1, st / docH) : 0;
+    if (Math.abs(w - lastW) > 0.001) { lastW = w; prog.style.transform = 'scaleX(' + w.toFixed(4) + ')'; }
     if (apertureSvg && !reduced) {
       var o = Math.min(1, st / 620);
-      apertureSvg.style.transform = 'rotate(' + (o * 42) + 'deg) scale(' + (1 + o * 0.08) + ')';
+      if (Math.abs(o - lastO) > 0.004) {
+        lastO = o;
+        apertureSvg.style.transform = 'rotate(' + (o * 42).toFixed(2) + 'deg) scale(' + (1 + o * 0.08).toFixed(3) + ')';
+      }
     }
   }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  window.addEventListener('resize', updateProgress);
-  updateProgress();
+  function onScrollProg() { if (!pending) { pending = true; requestAnimationFrame(paint); } }
+  measureDoc();
+  window.addEventListener('scroll', onScrollProg, { passive: true });
+  window.addEventListener('resize', function () { measureDoc(); onScrollProg(); }, { passive: true });
+  if ('ResizeObserver' in window) { new ResizeObserver(measureDoc).observe(document.documentElement); }
+  paint();
 
   if (reduced) return; /* no pointer-driven motion beyond this point */
 
-  /* ---- Hero: gold light follows the cursor ---- */
+  /* ---- Hero: gold light follows the cursor (rAF) ---- */
   var hero = document.querySelector('.hero');
   var light = document.getElementById('heroLight');
   if (hero && light && !touch) {
+    var lx = 0, ly = 0, lq = false;
     hero.addEventListener('pointermove', function (e) {
       var r = hero.getBoundingClientRect();
-      light.style.left = (e.clientX - r.left) + 'px';
-      light.style.top = (e.clientY - r.top) + 'px';
-      light.style.opacity = '0.7';
-    });
-    hero.addEventListener('pointerleave', function () { light.style.opacity = '0'; });
+      lx = e.clientX - r.left; ly = e.clientY - r.top;
+      if (!lq) { lq = true; requestAnimationFrame(function () {
+        lq = false; light.style.transform = 'translate3d(' + lx + 'px,' + ly + 'px,0)'; light.style.opacity = '0.55';
+      }); }
+    }, { passive: true });
+    hero.addEventListener('pointerleave', function () { light.style.opacity = '0'; }, { passive: true });
   }
 
-  /* ---- Strategy card: tilt toward the cursor (a stone turned to the light) ---- */
+  /* ---- Strategy card: tilt toward the cursor (rAF) ---- */
   var wrap = document.getElementById('protoWrap');
   var card = document.getElementById('protoCard');
-  if (wrap && card && !touch) {
+  if (wrap && card && !touch && window.innerWidth >= 900) {
     wrap.classList.add('tilt-ready');
+    var tx = 0, ty = 0, tq = false;
     wrap.addEventListener('pointermove', function (e) {
       var r = wrap.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = 'perspective(1200px) rotateY(' + (px * 6.5) + 'deg) rotateX(' + (-py * 6.5) + 'deg)';
-    });
-    wrap.addEventListener('pointerleave', function () { card.style.transform = ''; });
+      tx = (e.clientX - r.left) / r.width - 0.5;
+      ty = (e.clientY - r.top) / r.height - 0.5;
+      if (!tq) { tq = true; requestAnimationFrame(function () {
+        tq = false;
+        card.style.transform = 'perspective(1200px) rotateY(' + (tx * 5).toFixed(2) + 'deg) rotateX(' + (-ty * 5).toFixed(2) + 'deg)';
+      }); }
+    }, { passive: true });
+    wrap.addEventListener('pointerleave', function () { card.style.transform = ''; }, { passive: true });
   }
-
-  /* ---- 3D faceted gem (Three.js, lazy + graceful fallback to SVG) ---- */
-  function init3D() {
-    if (window.__IMMERSIVE) return; /* persistent stage takes over on home */
-    var mount = document.getElementById('gem3d');
-    if (!mount || touch || window.innerWidth < 900) return;
-    try {
-      var test = document.createElement('canvas');
-      if (!(test.getContext('webgl') || test.getContext('experimental-webgl'))) return;
-    } catch (e) { return; }
-    var s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    s.async = true;
-    s.onload = build3D;
-    s.onerror = function () {}; /* keep SVG fallback */
-    document.head.appendChild(s);
-
-    function build3D() {
-      var THREE = window.THREE; if (!THREE) return;
-      var w = mount.clientWidth, h = mount.clientHeight;
-      var scene = new THREE.Scene();
-      var cam = new THREE.PerspectiveCamera(42, w / h, 0.1, 100); cam.position.set(0, 0, 5);
-      var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setSize(w, h); renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-      mount.appendChild(renderer.domElement); mount.classList.add('is-3d');
-
-      var geo = new THREE.OctahedronGeometry(1.25, 0);
-      var mat = new THREE.MeshPhongMaterial({ color: 0xE6A62A, specular: 0xF5CE55, shininess: 90, emissive: 0x2a1d05, flatShading: true });
-      var gem = new THREE.Mesh(geo, mat); gem.scale.set(1, 1.4, 1); scene.add(gem);
-      var edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({ color: 0xF5CE55, transparent: true, opacity: 0.6 }));
-      edges.scale.copy(gem.scale); scene.add(edges);
-
-      scene.add(new THREE.AmbientLight(0x4a3722, 1.1));
-      var key = new THREE.DirectionalLight(0xfff0d2, 1.8); key.position.set(2.5, 3, 4); scene.add(key);
-      var rim = new THREE.DirectionalLight(0xF5CE55, 1.0); rim.position.set(-3, -1.5, 2); scene.add(rim);
-
-      var drag = false, lx = 0, ly = 0, rotX = -0.25, rotY = 0, vy = 0.004;
-      var cv = renderer.domElement;
-      cv.addEventListener('pointerdown', function (e) { drag = true; lx = e.clientX; ly = e.clientY; });
-      window.addEventListener('pointerup', function () { drag = false; });
-      window.addEventListener('pointermove', function (e) {
-        if (!drag) return;
-        rotY += (e.clientX - lx) * 0.01; rotX += (e.clientY - ly) * 0.01;
-        lx = e.clientX; ly = e.clientY;
-      });
-      function loop() {
-        requestAnimationFrame(loop);
-        if (!drag) rotY += vy;
-        gem.rotation.y = rotY; gem.rotation.x = rotX;
-        edges.rotation.set(rotX, rotY, 0);
-        renderer.render(scene, cam);
-      }
-      loop();
-    }
-  }
-  if ('requestIdleCallback' in window) { requestIdleCallback(init3D, { timeout: 2500 }); }
-  else { window.addEventListener('load', function () { setTimeout(init3D, 800); }); }
 })();
+
+/* Le joyau Three.js (≈600 Ko + boucle de rendu permanente) est retiré :
+   il n'était jamais utilisé sur l'accueil, et le SVG le remplace partout. */
 
 /* ---- Waitlist forms: Formspree-ready, mailto fallback until wired ---- */
 (function () {

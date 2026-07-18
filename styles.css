@@ -9,15 +9,15 @@
   --bg:#110C14; --bg-1:#150E18; --panel:#1A1019; --panel-2:#1E1420;
 
   --hair:rgba(236,229,223,.08); --hair-2:rgba(236,229,223,.15); --hair-3:rgba(236,229,223,.26);
-  --ghair:rgba(230,166,42,.26);
+  --ghair:rgba(201,162,75,.15);
 
   --bone:#ECE5DF; --bone-2:#C2B9C2; --bone-3:#897E8A;
 
-  --gold:#E6A62A; --gold-2:#F5CE55; --gold-deep:#B0821C; --gold-dim:rgba(230,166,42,.6);
-  --glow:rgba(240,182,52,.5);
+  --gold:#C9A24B; --gold-2:#E0C58C; --gold-deep:#8F6E2A; --gold-dim:rgba(201,162,75,.55);
+  --glow:rgba(201,162,75,.16);
 
-  --display:'Fraunces','Playfair Display',Georgia,serif;
-  --body:'DM Sans',system-ui,-apple-system,sans-serif;
+  --display:'Newsreader','Iowan Old Style',Georgia,serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'Geist Mono','IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
 
   --maxw:1240px; --pad:clamp(1.25rem,5vw,3.25rem); --frame:16px;
@@ -30,7 +30,7 @@ body {
   background:var(--bg);
   color:var(--bone);
   font-family:var(--body);
-  font-size:17px; line-height:1.6; font-weight:400; letter-spacing:.004em;
+  font-size:17.5px; line-height:1.72; font-weight:400; letter-spacing:0;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
 }
 
@@ -55,32 +55,32 @@ a { color:inherit; text-decoration:none; }
 .divider .wrap { border-top:1px solid var(--hair); }
 
 .eyebrow {
-  font-family:var(--mono); font-size:.68rem; letter-spacing:.4em; text-transform:uppercase;
+  font-family:var(--mono); font-size:.73rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--gold); display:inline-flex; align-items:center; gap:1rem; margin-bottom:2.4rem;
 }
-.eyebrow::before { content:""; width:26px; height:1px; background:var(--gold); box-shadow:0 0 8px var(--glow); }
+.eyebrow::before { content:""; width:26px; height:1px; background:var(--gold); }
 
-h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; letter-spacing:-.012em; }
-.display { font-size:clamp(2.7rem,5.6vw,4.7rem); line-height:1.04; letter-spacing:-.015em; font-weight:600; }
+h1,h2,h3,h4 { font-family:var(--display); font-weight:500; line-height:1.14; letter-spacing:-.005em; }
+.display { font-size:clamp(2.1rem,4.2vw,3.5rem); line-height:1.16; letter-spacing:-.008em; font-weight:500; }
 .display em,.ital { font-style:italic; font-weight:500; }
-.zest { color:var(--gold-2); text-shadow:0 0 30px var(--glow); font-style:italic; }
+.zest { color:var(--gold-2); font-style:italic; }
 
-.lede { font-family:var(--body); font-size:clamp(1.04rem,1.5vw,1.18rem); line-height:1.62; color:var(--bone-2); font-weight:400; max-width:52ch; }
+.lede { font-family:var(--body); font-size:clamp(1.05rem,1.4vw,1.16rem); line-height:1.75; color:var(--bone-2); font-weight:400; max-width:52ch; }
 
 /* ---------- Buttons ---------- */
-.btn { display:inline-flex; align-items:center; gap:.6rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500; padding:1rem 1.6rem; cursor:pointer; border:1px solid transparent; transition:transform .35s cubic-bezier(.2,.7,.2,1), background .3s, color .3s, border-color .3s, box-shadow .4s; white-space:nowrap; }
+.btn { display:inline-flex; align-items:center; gap:.6rem; font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; font-weight:500; padding:1rem 1.7rem; cursor:pointer; border:1px solid transparent; transition:transform .35s cubic-bezier(.2,.7,.2,1), background .3s, color .3s, border-color .3s, box-shadow .4s; white-space:nowrap; }
 .btn--primary { background:var(--gold); color:var(--bg); font-weight:600; }
 .btn--primary:hover { background:var(--gold-2); transform:translateY(-2px); box-shadow:0 14px 40px -10px var(--glow); }
 .btn--ghost { border-color:var(--hair-2); color:var(--bone); }
 .btn--ghost:hover { border-color:var(--gold); color:var(--gold-2); box-shadow:0 0 30px -8px var(--glow); }
 
 /* ---------- Nav ---------- */
-.nav { position:sticky; top:0; z-index:100; background:linear-gradient(to bottom, rgba(17,12,20,.9), rgba(17,12,20,.62)); backdrop-filter:blur(18px) saturate(130%); -webkit-backdrop-filter:blur(18px) saturate(130%); border-bottom:1px solid var(--hair); }
+.nav { position:sticky; top:0; z-index:100; background:rgba(17,12,20,.96);  border-bottom:1px solid var(--hair); }
 .nav__inner { display:flex; align-items:center; justify-content:space-between; height:76px; }
 .brand { display:flex; align-items:center; gap:.7rem; font-family:var(--mono); font-weight:600; letter-spacing:.18em; font-size:.82rem; color:var(--bone); }
 .brand__lemon { width:22px; height:22px; filter:drop-shadow(0 0 6px var(--glow)); }
 .nav__links { display:flex; align-items:center; gap:2.2rem; }
-.nav__links a { font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--bone-3); transition:color .25s; }
+.nav__links a { font-family:var(--mono); font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:var(--bone-3); transition:color .25s; }
 .nav__links a:hover { color:var(--bone); }
 .nav__cta { color:var(--bg) !important; }
 .nav__toggle { display:none; background:none; border:1px solid var(--hair-2); color:var(--bone); width:46px; height:42px; cursor:pointer; align-items:center; justify-content:center; }
@@ -403,7 +403,7 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; let
 /* =========================================================
    3D + INTERACTIVITY
    ========================================================= */
-.hero__light { position:absolute; width:540px; height:540px; border-radius:50%; pointer-events:none; z-index:0; left:50%; top:30%; transform:translate(-50%,-50%); opacity:0; transition:opacity .5s ease; background:radial-gradient(circle, var(--glow) 0%, rgba(205,166,76,.07) 36%, transparent 64%); mix-blend-mode:screen; }
+.hero__light { position:absolute; width:540px; height:540px; margin:-270px 0 0 -270px; border-radius:50%; pointer-events:none; z-index:0; left:0; top:0; transform:translate3d(50vw,30vh,0); opacity:0; transition:opacity .5s ease; background:radial-gradient(circle, var(--glow) 0%, rgba(205,166,76,.05) 36%, transparent 64%); will-change:transform; }
 
 /* 3D gem container (Three.js mounts here; SVG aperture is the fallback) */
 .gem3d { position:absolute; top:-104px; right:-70px; width:280px; height:280px; z-index:0; pointer-events:none; }
@@ -438,8 +438,8 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:560; line-height:1.05; let
 
 /* ---- Narrative: chapter markers + scroll progress thread ---- */
 .eyebrow__ch { font-family:var(--display); font-style:italic; font-weight:600; font-size:1.05rem; line-height:1; color:var(--gold-2); margin-right:.15rem; text-shadow:0 0 16px var(--glow); letter-spacing:0; text-transform:none; }
-.progress { position:fixed; top:0; left:0; height:2px; width:0; z-index:10001; background:linear-gradient(90deg, var(--gold-deep), var(--gold-2)); box-shadow:0 0 12px var(--glow); transition:width .1s linear; pointer-events:none; }
-@media (prefers-reduced-motion:reduce){ .progress { transition:none; } }
+.progress { position:fixed; top:0; left:0; height:2px; width:100%; transform:scaleX(0); transform-origin:0 50%; z-index:10001; background:linear-gradient(90deg, var(--gold-deep), var(--gold-2)); pointer-events:none; will-change:transform; }
+
 
 /* =========================================================
    REDESIGN v2 — engraved plaque, act intertitles, gold restraint
@@ -515,7 +515,7 @@ main > section, main > .scene { position:relative; z-index:1; }
 .stage-live .gem3d { display:none; }  /* hero SVG replaced by the persistent stone */
 
 /* pinned act scenes */
-.scene { height:170vh; position:relative; }
+.scene { height:130vh; position:relative; }
 .scene__pin { position:sticky; top:0; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .scene .act { padding-block:0; }
 
@@ -546,7 +546,7 @@ main > section, main > .scene { position:relative; z-index:1; }
   #stage3d { display:none; }
 }
 @media (max-width:760px) {
-  .scene { height:150vh; }
+  .scene { height:120vh; }
 }
 
 /* =========================================================
@@ -653,4 +653,49 @@ main > section, main > .scene { position:relative; z-index:1; }
 @media (prefers-reduced-motion:reduce) {
   .room { position:relative; min-height:auto; padding-block:3rem; }
   .immersive .room .room__title .w, .immersive .room .room__n, .immersive .room .room__desc, .immersive .room .door { opacity:1; transform:none; transition:none; }
+}
+
+
+/* =========================================================================
+   v2 — lumière calmée, lecture confortable, scroll allégé
+   ========================================================================= */
+
+/* plus aucun halo néon sur le texte */
+.zest, .toc__n, .prob__authority, .proof__stat, .act__title,
+.hero h1, .display, .proto__link, h1, h2, h3, h4 { text-shadow:none; }
+.act__rule, .eyebrow::before, .progress { box-shadow:none; }
+.btn--primary:hover { box-shadow:0 10px 26px -16px rgba(0,0,0,.9); }
+.btn--ghost:hover { box-shadow:none; border-color:var(--gold-dim); }
+.proto__link:hover, .door:hover { text-shadow:none; }
+
+/* l'or ne sert plus qu'aux accents, pas aux blocs de texte */
+.lede, .faq__a, .toc__row p, .dcard p { color:var(--bone-2); }
+
+/* corps de texte : mesure et interlignage tenus */
+p { max-width:68ch; }
+.faq__a, .dcard p, .toc__row p { line-height:1.68; }
+
+/* rendu des polices sur fond sombre */
+body { -moz-osx-font-smoothing:grayscale; text-rendering:optimizeSpeed; }
+
+/* bas de page : mentions légales + langues */
+.foot__bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 1.6rem; }
+.foot__legal { display:inline-flex; align-items:center; gap:1.4rem; flex-wrap:wrap; }
+.foot__legal > a { font-family:var(--mono); font-size:.72rem; letter-spacing:.05em; color:var(--bone-3); transition:color .25s; }
+.foot__legal > a:hover { color:var(--gold-2); }
+.foot__legal .lang { font-size:.72rem; }
+
+/* renvoi vers l'index des métiers */
+.rooms-cta { text-align:left; }
+.rooms-cta .lede { margin-bottom:2.2rem; }
+
+/* scroll : on ne peint que ce qui est à l'écran */
+.section, .scene { content-visibility:auto; contain-intrinsic-size:auto 800px; }
+.hero, .nav, .foot { content-visibility:visible; }
+
+/* moins de couches composées en permanence */
+.immersive .hero { will-change:auto; }
+
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
