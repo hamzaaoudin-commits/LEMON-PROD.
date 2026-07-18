@@ -18,6 +18,7 @@ import { fileURLToPath } from "node:url";
 
 /* >>> CHANGE THIS to your final domain before publishing <<< */
 const BASE = "https://lemon-prod.vercel.app";
+const PUBLISHER = "À COMPLÉTER — nom complet ou raison sociale, forme juridique, SIREN";
 const CONTACT = "contact@lemonprod.co";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -64,6 +65,8 @@ const url = (loc, kind, slug) => BASE + path(loc, kind, slug);
 /* ---- <head> with canonical + hreflang ---- */
 function head({ loc, kind, slug, title, description, ogType }) {
   const canonical = url(loc, kind, slug);
+  /* une image de partage par métier et par langue, sinon l'image générique */
+  const ogImg = slug && kind !== "hub" && kind !== "home" ? `${BASE}/og/${loc}-${slug}.png` : `${BASE}/og-image.png`;
   const alts = LOCALES.map((l) => `  <link rel="alternate" hreflang="${i18n.htmlLang[l]}" href="${url(l, kind, slug)}" />`).join("\n");
   return `  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -79,18 +82,19 @@ ${alts}
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
   <meta property="og:url" content="${canonical}" />
-  <meta property="og:image" content="${BASE}/og-image.png" />
+  <meta property="og:image" content="${ogImg}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Lemon Prod" />
   <meta property="og:locale" content="${i18n.ogLocale[loc]}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${esc(title)}" />
   <meta name="twitter:description" content="${esc(description)}" />
-  <meta name="twitter:image" content="${BASE}/og-image.png" />
+  <meta name="twitter:image" content="${ogImg}" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />`;
 }
 
@@ -209,7 +213,7 @@ function actCard(loc, n, romanOverride) {
 /* Real email-capture form (Formspree-ready; falls back to mailto until wired) */
 function wlForm(loc, label, context, mailHref) {
   const t = T(loc);
-  return `<form class="wl" data-wl method="POST" action="" data-ok="${esc(t.wl_ok)}" data-err="${esc(t.wl_err)}" data-mailto="${esc(mailHref)}">
+  return `<form class="wl" data-wl method="POST" action="" data-ok="${esc(t.wl_ok)}" data-err="${esc(t.wl_err)}" data-invalid="${esc(t.wl_invalid)}" data-sending="${esc(t.wl_sending)}">
               <input class="wl__in" type="email" name="email" required placeholder="${esc(t.wl_ph)}" aria-label="Email" autocomplete="email" />
               <input type="hidden" name="context" value="${esc(context)}" />
               <button class="btn btn--primary" type="submit">${esc(label)}</button>
@@ -315,11 +319,10 @@ ${nav(loc, "home", null)}
     </section>
 
 
-${actCard(loc, 1)}
-
     <section class="section wrap act-section">
       <div class="reveal">
         <span class="eyebrow">${esc(t.prob_eyebrow)}</span>
+        <p class="prob__kicker">${esc(t.act1_line)}</p>
         <h2 class="display prob__head">${esc(t.prob_head_a)}<b>${esc(t.prob_head_b)}</b></h2>
         <p class="lede prob__lede">${esc(t.prob_lede)}</p>
       </div>
@@ -328,6 +331,15 @@ ${actCard(loc, 1)}
         <div class="pcard"><div class="pcard__n">01</div><p>${esc(t.prob_c1)}</p></div>
         <div class="pcard"><div class="pcard__n">02</div><p>${esc(t.prob_c2)}</p></div>
         <div class="pcard"><div class="pcard__n">03</div><p>${esc(t.prob_c3)}</p></div>
+      </div>
+      <div class="reveal" style="margin-top:clamp(3.5rem,7vw,5.5rem);margin-bottom:2.4rem">
+        <span class="eyebrow">${esc(t.doc_eyebrow)}</span>
+        <h2 class="display">${esc(t.doc_head)}</h2>
+      </div>
+      <div class="doctrine reveal">
+        <div class="dcard"><div class="dcard__n">01</div><h3>${esc(t.doc_1h)}</h3><p>${esc(t.doc_1p)}</p></div>
+        <div class="dcard"><div class="dcard__n">02</div><h3>${esc(t.doc_2h)}</h3><p>${esc(t.doc_2p)}</p></div>
+        <div class="dcard"><div class="dcard__n">03</div><h3>${esc(t.doc_3h)}</h3><p>${esc(t.doc_3p)}</p></div>
       </div>
       <p class="prob__authority reveal">${esc(t.prob_authority)}</p>
     </section>
@@ -357,20 +369,6 @@ ${actCard(loc, 2)}
     </section>
 
 ${roomsWalk(loc)}
-
-${actCard(loc, 4, "III")}
-
-    <section class="section wrap section--tight">
-      <div class="reveal" style="margin-bottom:2.8rem">
-        <span class="eyebrow">${esc(t.doc_eyebrow)}</span>
-        <h2 class="display">${esc(t.doc_head)}</h2>
-      </div>
-      <div class="doctrine reveal">
-        <div class="dcard"><div class="dcard__n">01</div><h3>${esc(t.doc_1h)}</h3><p>${esc(t.doc_1p)}</p></div>
-        <div class="dcard"><div class="dcard__n">02</div><h3>${esc(t.doc_2h)}</h3><p>${esc(t.doc_2p)}</p></div>
-        <div class="dcard"><div class="dcard__n">03</div><h3>${esc(t.doc_3h)}</h3><p>${esc(t.doc_3p)}</p></div>
-      </div>
-    </section>
 
     <section class="section wrap closing">
       <p class="closing__kicker reveal">${esc(t.close_kicker)}</p>
@@ -665,15 +663,15 @@ ${footer(loc, "hub")}
 /* ----------------------------- LEGAL ----------------------------- */
 const LEGAL = {
   en: { title:"Legal & Privacy", h1:"Legal notice & privacy",
-    mentions:"Legal notice", editor:"Publisher", editorBody:"Lemon Prod — [Full name / legal status to complete]. Contact: ",
+    mentions:"Legal notice", editor:"Publisher", editorBody:`Lemon Prod — ${PUBLISHER}. Contact: `,
     host:"Hosting", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
     privacy:"Privacy", privacyBody:"The only personal data we collect is the email address you submit through the waitlist form, used solely to notify you when a guide ships. No tracking, no ads, no resale. To have your address deleted, write to " },
   fr: { title:"Mentions légales & Confidentialité", h1:"Mentions légales & confidentialité",
-    mentions:"Mentions légales", editor:"Éditeur", editorBody:"Lemon Prod — [Nom complet / statut juridique à compléter]. Contact : ",
+    mentions:"Mentions légales", editor:"Éditeur", editorBody:`Lemon Prod — ${PUBLISHER}. Contact : `,
     host:"Hébergement", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
     privacy:"Confidentialité", privacyBody:"La seule donnée personnelle collectée est l'adresse e-mail transmise via le formulaire de liste d'attente, utilisée uniquement pour vous prévenir de la sortie d'un guide. Pas de tracking, pas de publicité, pas de revente. Pour supprimer votre adresse, écrivez à " },
   es: { title:"Aviso legal & Privacidad", h1:"Aviso legal y privacidad",
-    mentions:"Aviso legal", editor:"Editor", editorBody:"Lemon Prod — [Nombre completo / forma jurídica a completar]. Contacto: ",
+    mentions:"Aviso legal", editor:"Editor", editorBody:`Lemon Prod — ${PUBLISHER}. Contacto: `,
     host:"Alojamiento", hostBody:"Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA — vercel.com",
     privacy:"Privacidad", privacyBody:"El único dato personal que recogemos es el correo enviado por el formulario de lista de espera, usado solo para avisarte cuando salga una guía. Sin rastreo, sin publicidad, sin reventa. Para borrar tu dirección, escribe a " }
 };
@@ -711,6 +709,8 @@ function sitemap() {
   for (const loc of LOCALES) {
     entries.push({ loc, kind: "home" });
     entries.push({ loc, kind: "hub" });
+    entries.push({ loc, kind: "cases" });
+    entries.push({ loc, kind: "legal" });
     for (const j of jobs) entries.push({ loc, kind: "guide", slug: j.slug });
   }
   const body = entries.map((e) => {
@@ -733,9 +733,12 @@ for (const loc of LOCALES) {
   write(`${pdir}index.html`, homePage(loc));
   write(`${pdir}guides/index.html`, hubPage(loc));
   for (const j of jobs) { write(`${pdir}guides/${j.slug}/index.html`, guidePage(j.slug, loc)); count++; }
+  /* ces deux pages existaient mais n'étaient jamais régénérées */
+  write(`${pdir}case-studies/index.html`, caseStudiesPage(loc));
+  write(`${pdir}legal/index.html`, legalPage(loc));
 }
 write("sitemap.xml", sitemap());
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 
-console.log(`Done. ${LOCALES.length} locales × (home + hub + ${jobs.length} guides) = ${LOCALES.length * (2 + jobs.length)} pages.`);
+console.log(`Done. ${LOCALES.length} locales × (home + hub + legal + cas + ${jobs.length} guides) = ${LOCALES.length * (4 + jobs.length)} pages.`);
 console.log(`Base URL: ${BASE}`);

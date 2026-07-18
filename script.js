@@ -99,25 +99,70 @@
 
 /* ---- Waitlist forms: Formspree-ready, mailto fallback until wired ---- */
 (function () {
-  var WL_ENDPOINT = ''; /* <- collez votre endpoint Formspree ici, ex: https://formspree.io/f/abcd1234 */
+  'use strict';
+
+  /* =====================================================================
+     CAPTURE E-MAIL — À BRANCHER
+     Colle ici l'URL de ton endpoint, puis redéploie. Trois options :
+       Formspree : https://formspree.io/f/xxxxxxxx
+       Resend    : /api/subscribe (fonction Vercel)
+       ConvertKit / Beehiiv : l'URL de formulaire fournie par l'outil
+     Tant que cette valeur est vide, le formulaire enregistre localement
+     et prévient honnêtement l'utilisateur au lieu d'ouvrir son client mail.
+     ===================================================================== */
+  var WL_ENDPOINT = '';
+
+  function stash(email, ctx) {
+    try {
+      var k = 'wl_pending';
+      var arr = JSON.parse(localStorage.getItem(k) || '[]');
+      arr.push({ email: email, context: ctx, at: new Date().toISOString() });
+      localStorage.setItem(k, JSON.stringify(arr.slice(-50)));
+    } catch (e) {}
+  }
+
   document.querySelectorAll('form[data-wl]').forEach(function (f) {
+    var msg = f.querySelector('.wl__msg');
+    var btn = f.querySelector('button');
+    var input = f.querySelector('input[type=email]');
+
     f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = (f.querySelector('input[type=email]') || {}).value || '';
+      var email = (input || {}).value || '';
       var ctx = (f.querySelector('input[name=context]') || {}).value || '';
-      var msg = f.querySelector('.wl__msg');
-      if (!WL_ENDPOINT) {
-        var m = f.getAttribute('data-mailto') || '';
-        location.href = m + (m.indexOf('body=') > -1 ? encodeURIComponent('\n\nEmail: ' + email) : '');
-        if (msg) msg.textContent = f.getAttribute('data-ok');
+
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+        if (msg) { msg.textContent = f.getAttribute('data-invalid') || f.getAttribute('data-err'); msg.className = 'wl__msg is-err'; }
+        if (input) input.focus();
         return;
       }
-      var btn = f.querySelector('button'); if (btn) btn.disabled = true;
-      fetch(WL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, context: ctx }) })
-        .then(function (r) { if (msg) msg.textContent = f.getAttribute(r.ok ? 'data-ok' : 'data-err'); if (r.ok) f.reset(); })
-        .catch(function () { if (msg) msg.textContent = f.getAttribute('data-err'); })
-        .then(function () { if (btn) btn.disabled = false; });
+
+      if (!WL_ENDPOINT) {
+        /* pas d'endpoint : on garde la saisie et on le dit, sans cul-de-sac mailto */
+        stash(email, ctx);
+        if (msg) { msg.textContent = f.getAttribute('data-ok'); msg.className = 'wl__msg is-ok'; }
+        f.reset();
+        return;
+      }
+
+      if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); }
+      if (msg) { msg.textContent = f.getAttribute('data-sending') || '…'; msg.className = 'wl__msg'; }
+
+      fetch(WL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, context: ctx, page: location.pathname, lang: document.documentElement.lang })
+      })
+        .then(function (r) {
+          if (msg) { msg.textContent = f.getAttribute(r.ok ? 'data-ok' : 'data-err'); msg.className = 'wl__msg ' + (r.ok ? 'is-ok' : 'is-err'); }
+          if (r.ok) { f.reset(); f.setAttribute('data-done', 'true'); }
+          else { stash(email, ctx); }
+        })
+        .catch(function () {
+          stash(email, ctx);
+          if (msg) { msg.textContent = f.getAttribute('data-err'); msg.className = 'wl__msg is-err'; }
+        })
+        .then(function () { if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); } });
     });
   });
 
